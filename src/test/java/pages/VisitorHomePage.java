@@ -5,4 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class VisitorHomePage extends Base{
 
+
+    @FindBy(linkText = "Login")
+    public WebElement linkLogin;
 }
