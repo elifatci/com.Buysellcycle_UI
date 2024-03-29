@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import pages.Base;
 
 import java.time.Duration;
@@ -16,16 +17,16 @@ public class Driver {
     public static WebDriver getDriver(){
 
         String browser=ConfigReader.getProperty("browser");
-       // Chromeoptions options = new ChromeOptions(); // olmaz ise bu adimi deneriz
+
 
         if (driver==null){
 
             switch (browser){
                 case "edge":
-                    //WebDriverManager.edgedriver().setup();
+                    WebDriverManager.edgedriver().setup();
                     driver=new EdgeDriver();
                 default:
-                  // WebDriverManager.chromedriver().setup();
+                   WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
 
                     Base.initialize();
