@@ -6,7 +6,6 @@ import pages.Base;
 import pages.VisitorHomePage;
 import utils.Driver;
 import utils.ReusableMethods;
-
 import static org.junit.Assert.assertTrue;
 
 public class VisitorHomePageStepDef extends Base {
@@ -27,12 +26,6 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_you_are_directed_to_the_page_where_current_product_offers_are_listed() {
          assertTrue(visitorHomePage.labelBestDeals.isDisplayed());
     }
-    @Given("Closes page")
-    public void closes_page() {
-        ReusableMethods.wait(3);
-        Driver.quitDriver();
-    }
-
 
     @Given("Verifies that each filter option is visible on the Best Deals page that opens.")
     public void verifies_that_each_filter_option_is_visible_on_the_best_deals_page_that_opens() {
@@ -118,5 +111,11 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 //======================================================================================================
+
+    @Then("Verify that the title is {string}")
+    public void verify_that_the_title_is(String title) {
+        String actualResult = Driver.getDriver().getTitle();
+        Assert.assertEquals(title, actualResult);
+    }
 
 }
