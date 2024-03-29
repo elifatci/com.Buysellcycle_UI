@@ -8,13 +8,13 @@ Feature: US09 As a user, I would like the site to have a blog page where I can g
 
    * Verify that the "Blog" menu title is visible in the home page navBar
    * Verify that the Blog link is active on the home page
-   * Click on the "blog menu"
+   * Click on the blog menu
    * Verify that it redirects to the blog page
    * Closes page
 
 
    Scenario: TC_02 Testing whether the functions on the blog page are visible and active
-   * Click on the blog menu
+   * Click on the contact menu
    * Verify that the read more link in blog posts is visible
    * Click on the Read more link
    * Verify that you are redirected to the relevant page

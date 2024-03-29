@@ -17,7 +17,7 @@ public class Driver {
     public static WebDriver getDriver(){
 
         String browser=ConfigReader.getProperty("browser");
-       // Chromeoptions options = new ChromeOptions(); // olmaz ise bu adimi deneriz
+
 
         if (driver==null){
 
