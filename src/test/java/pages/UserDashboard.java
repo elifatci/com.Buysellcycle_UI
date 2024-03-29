@@ -35,6 +35,11 @@ public class UserDashboard extends Base{
     @FindBy(xpath = "(//*[@class='amazy_status_btn'])[1]")
     public WebElement iconDownload;
 
+    //------SideBar------------------
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/my-wishlist'])[2]")
+    public WebElement linkWishList_sidebar;
+
+
 
     public void loginUser(String email, String password){
 
