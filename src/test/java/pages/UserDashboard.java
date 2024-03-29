@@ -306,8 +306,6 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td[6]")
     public WebElement linkView;// view linkinin ilki
 
-    @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[1]")
-    public WebElement labelStatus;//view e girince status texti
 
     @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[3]")
     public WebElement labelPriority;//view e girince Priority texti
