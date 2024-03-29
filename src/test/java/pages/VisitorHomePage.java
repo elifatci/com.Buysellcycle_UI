@@ -68,4 +68,38 @@ public class VisitorHomePage extends Base {
     @FindBy(id = "sign_in_btn")
     public WebElement buttonSignIn;
 
+    @FindBy (xpath = "(//*[text()='About Us'])[1]")
+    public WebElement linkHeaderAboutUs;
+
+    @FindBy (xpath = "(//*[text()='About Us'])[3]")
+    public WebElement labelAboutUs;
+
+    @FindBy (xpath = "//*[text()='Client Worldwide']")
+    public WebElement labelClientWorlwide;
+
+    @FindBy (xpath = "//*[text()='Successful Project']")
+    public WebElement labelSuccessfulProject;
+
+    @FindBy (xpath = "//*[text()='Work Employed']")
+    public WebElement labelWorkEmployed;
+
+    @FindBy (xpath = "//*[text()='Planning Services']")
+    public WebElement labelPlanningServices;
+
+    @FindBy (xpath = "(//span[@class='d-block font_14 f_w_500 text-uppercase secondary_text lh-1 mb_23'])[3]")
+    public WebElement labelTeamMember;
+
+    @FindBy (xpath = "//*[text()='Avery Collins']")
+    public WebElement imageProfileAveryCollins;
+
+    @FindBy (xpath = "//*[text()='Emily Pattinson']")
+    public WebElement imageProfileEmilyPattinson;
+
+    @FindBy (xpath = "//*[text()='Jason Statham']")
+    public WebElement imageProfileJasonStatham;
+
+    @FindBy (xpath = "//*[text()='Jaxon Westwood']")
+    public WebElement imageProfileJaxonWestwood;
+
+
 }
