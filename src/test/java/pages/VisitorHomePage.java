@@ -262,6 +262,58 @@ public class VisitorHomePage extends Base{
     @FindBy(id = "sign_in_btn")
     public WebElement buttonSignIn;
 
+    //HomePage>>AllCategories
+    @FindBy(xpath = "//div[@class='dropdown show category_menu']")
+    public WebElement DropDownAllCateg;
+
+    //HomePage>>AllCategoriesButton
+    @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
+    public WebElement buttonAllCateg;
+
+    //HomePage>>AllCategories>>subDropdown
+    @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
+    public WebElement subDropdownAllCateg;
+
+    //HomePage>>AllCategories>>electronics
+    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[1]")
+    public WebElement buttonElectClickView;
+
+    //HomePage>>AllCategories>>electronics>>subcategories
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/mobile-phone-?item=category']")
+    public WebElement linkmobilePhone;
+
+    //HomePage>>AllCategories>>Fashion>>subcategories
+    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[2]")
+    public WebElement buttonFashionClickView;
+
+    //HomePage>>AllCategories>>Fashion>>subcategories
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/w-dress?item=category']")
+    public WebElement linkWomanDress;
+
+    //HomePage>>AllCategories>>Baby>>subcategories
+    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[3]")
+    public WebElement babyClickView;
+
+    //HomePage>>AllCategories>>Baby>>subcategories
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/baby-credle?item=category']")
+    public WebElement linkbabyCredle;
+
+    //HomePage>>Body>>Elektronics
+    @FindBy(xpath = "(//h4[@id='filter_category_title'])[1]")
+    public WebElement BodyElectronics;
+
+    //HomePage>>Body>>Elektronics>>subCategories
+    @FindBy(xpath = "(//ul[@role='tablist'])[1]")
+    public WebElement bodyElecSubCat;
+
+    //HomePage>>Body>>Elektronics>>subCategories
+    @FindBy(xpath = "(//img[@title='APPLE iPhone 15 Pro 128 GB'])[1]")
+    public WebElement imageProductTelephone;
+
+    //HomePage>>Body>>Elektronics>>subCategories
+    @FindBy(xpath = "(//img[@title='LG 55QNED816RE 55-inch 139 Screen'])[1]")
+    public WebElement imageProductTvPicSound;
+  
     @FindBy (xpath = "(//*[text()='About Us'])[1]")
     public WebElement linkHeaderAboutUs;
 
@@ -294,6 +346,5 @@ public class VisitorHomePage extends Base{
 
     @FindBy (xpath = "//*[text()='Jaxon Westwood']")
     public WebElement imageProfileJaxonWestwood;
-
 
 }
