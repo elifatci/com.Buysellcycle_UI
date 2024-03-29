@@ -4,11 +4,19 @@
 ***
 
 
-1. Features altinda olusturulacak class isimlendirmesi==>US01 seklinde olmali
+1. Features altinda olusturulacak class isimlendirmesi==> US01 seklinde olmali
 
 2. Locate alinan element nerenin elementi oldugu aciklama satiri ile aciklanmali
 * Aciklama Satiri Find By notasyonunun ustune yazilmali.
   || orn:  Homepage>> LoginLink>> Email Text Box ||
+
+3. **Ortak kullanılacak ifadeler:** 
+* Go to "url" ==>Url'e gitme adımı
+* Login by entering valid "mail" and "password" on the SignIn page.==>Gecerli mail ve password ile giris yapma adımı
+* Close the page ==>Sayfayı kapatma adımı
+
+4. Stepdefiniton classında kodlamaya baslamadan once hangi US hangi TC ait bir çalışma oldugunu belirtmek için;
+* //US01 TC01 gibi bir yorum satırı eklenmeli
 
 <br/>
 
@@ -44,13 +52,14 @@
 ***
 | Element Türü      | Variable name |
 |-------------------|---------------|
-| Button            | signInButton  |    
+| Button            | buttonX       |    
 | Logo              | logoX         |
 | icon              | iconX         |
 | Sadece text-title | labelX        |
 | Drop down         | dropDownX     |
 | Radio Button      | radioButtonX  |
 | Check box         | checkBoxX     |
+| Tablo             | tableX        |
 | Tablo Sütünu      | columnX       |
 | Tablo Satiri      | rowX          |
 | Kisi Resimleri    | imageProfileX |

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class VisitorHomePage extends Base {
 
 
-    @FindBy(linkText = "Login")
+    @FindBy(xpath = "(//*[text()='Login'])[1]")
     public WebElement linkLogin;
 
     //------------ Main Menu- Right---------------------
@@ -64,4 +64,8 @@ public class VisitorHomePage extends Base {
     public WebElement iconWishList_Coupon;
     @FindBy(xpath = "(//a[@data-product_id='341'])[4]")
     public WebElement iconQuickView_Coupon;
+
+    @FindBy(id = "sign_in_btn")
+    public WebElement buttonSignIn;
+
 }
