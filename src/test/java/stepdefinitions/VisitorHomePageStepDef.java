@@ -1,12 +1,17 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.Base;
 import pages.VisitorHomePage;
 import utils.ConfigReader;
 import utils.Driver;
+import utils.ReusableMethods;
+
 import java.util.Properties;
+
+import static org.junit.Assert.assertTrue;
 
 
 public class VisitorHomePageStepDef extends Base {
@@ -36,27 +41,27 @@ public class VisitorHomePageStepDef extends Base {
     // US05 ---- TC02
     @Given("It is checked if there is a picture displayed on the right side of the page")
     public void it_is_checked_if_there_is_a_picture_displayed_on_the_right_side_of_the_page() {
-    Assert.assertTrue(visitorHomePage.iconLoginPage.isDisplayed());
+    assertTrue(visitorHomePage.iconLoginPage.isDisplayed());
     }
     @Given("It is checked if there is a TURN YOUR IDEAS INTO REALITY quote on the right side of the page")
     public void it_is_checked_if_there_is_a_turn_your_ideas_into_reality_quote_on_the_right_side_of_the_page() {
-    Assert.assertTrue(visitorHomePage.labelLoginText.isDisplayed());
+    assertTrue(visitorHomePage.labelLoginText.isDisplayed());
     }
     @Given("It is checked if there is a sign-in form on the left side of the page")
     public void it_is_checked_if_there_is_a_sign_in_form_on_the_left_side_of_the_page() {
-        Assert.assertTrue(visitorHomePage.formSignIn.isDisplayed());
+        assertTrue(visitorHomePage.formSignIn.isDisplayed());
     }
     @Given("It is checked if there is a SIGN IN button below the sign-in form")
     public void it_is_checked_if_there_is_a_sign_in_button_below_the_sign_in_form() {
-        Assert.assertTrue(visitorHomePage.buttonSignIn.isDisplayed());
+        assertTrue(visitorHomePage.buttonSignIn.isDisplayed());
     }
     @Given("It is checked if there is a link below the sign-in form for those who forget their password")
     public void it_is_checked_if_there_is_a_link_below_the_sign_in_form_for_those_who_forget_their_password() {
-        Assert.assertTrue(visitorHomePage.linkForgotPassword.isDisplayed());
+        assertTrue(visitorHomePage.linkForgotPassword.isDisplayed());
     }
     @Given("It is checked if there is a link below the sign-in form for those who want to sign up")
     public void it_is_checked_if_there_is_a_link_below_the_sign_in_form_for_those_who_want_to_sign_up() {
-        Assert.assertTrue(visitorHomePage.linkDontHaveAnAccount.isDisplayed());
+        assertTrue(visitorHomePage.linkDontHaveAnAccount.isDisplayed());
     }
 
     // US05 ---- TC03
@@ -97,7 +102,7 @@ public class VisitorHomePageStepDef extends Base {
     }
     @Given("It is checked if the error message is displayed")
     public void it_is_checked_if_the_error_message_is_displayed() {
-        Assert.assertTrue(visitorHomePage.textErrorLogin.isDisplayed());
+        assertTrue(visitorHomePage.textErrorLogin.isDisplayed());
     }
 
 //===================US_07==========================

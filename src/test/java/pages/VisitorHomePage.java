@@ -162,9 +162,6 @@ public class VisitorHomePage extends Base{
     @FindBy(id = "referral_code")
     public WebElement textBoxReferralCode;
 
-    @FindBy(id = "password")
-    public WebElement textBoxPassword;
-
     @FindBy(id = "password-confirm")
     public WebElement textBoxPasswordConfirm;
 
@@ -224,10 +221,7 @@ public class VisitorHomePage extends Base{
 
     @FindBy(id = "contactBtn")
     public WebElement sendMessageButton;
-    //----------------------------------
 
-    @FindBy(xpath = "(//*[text()='Login'])[1]")
-    public WebElement linkLogin;
 
     //------------ Main Menu- Right---------------------
     @FindBy(linkText = "New User Zone")
@@ -284,8 +278,6 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//a[@data-product_id='341'])[4]")
     public WebElement iconQuickView_Coupon;
 
-    @FindBy(id = "sign_in_btn")
-    public WebElement buttonSignIn;
 
     //HomePage>>AllCategories
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
