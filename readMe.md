@@ -14,6 +14,7 @@
 * Go to "url" ==>Url'e gitme adımı
 * Login by entering valid "mail" and "password" on the SignIn page.==>Gecerli mail ve password ile giris yapma adımı
 * Close the page ==>Sayfayı kapatma adımı
+* User waits for 1 seconds ==> Bekletme adımı
 
 4. Stepdefiniton classında kodlamaya baslamadan once hangi US hangi TC ait bir çalışma oldugunu belirtmek için;
 * //US01 TC01 gibi bir yorum satırı eklenmeli
