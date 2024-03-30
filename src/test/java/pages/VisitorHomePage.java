@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ReusableMethods;
 import static org.junit.Assert.assertTrue;
-import java.util.List;
 
 
 public class VisitorHomePage extends Base{
@@ -147,82 +146,66 @@ public class VisitorHomePage extends Base{
 
     @FindBy(xpath = "//*[text()='/ Register']")
     public WebElement linkRegister;
-
-    @FindBy(xpath = "(//*[text() = 'Sign Up'])[1]")
-    public WebElement labelSignUp;
-
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/frontend/amazy/img/banner/login_img.png']")
+    public WebElement logoBuySell;
+    @FindBy(xpath = "//*[text() = 'Turn your ideas into reality.']")
+    public WebElement labelPictureText;
+    @FindBy(xpath = "//*[@class='amazy_login_form']")
+    public WebElement tableRegisterForm;
     @FindBy(id = "first_name")
     public WebElement textBoxFirstName;
-
     @FindBy(id = "last_name")
     public WebElement textBoxLastName;
-
     @FindBy(id = "email")
     public WebElement textBoxEmail;
-
-    @FindBy(id = "referral_code")
-    public WebElement textBoxReferralCode;
-
     @FindBy(id = "password-confirm")
     public WebElement textBoxPasswordConfirm;
-
-    @FindBy(xpath = "(//div/label/span)[5]")
-    public WebElement checkBoxTermsOfService;
-
     @FindBy(id = "sign_in_btn")
     public WebElement signUpButton;
-
+    @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/login']")
+    public WebElement linkSignIn;
+    @FindBy(xpath = "//*[text()='Registration successfull, Please wait for active your account']")
+    public WebElement labelRegistrationAlert;
+    @FindBy(xpath = "(//*[@class='text-danger'])[1]")
+    public WebElement labelNameError;
+    @FindBy(xpath = "(//*[@class='text-danger'])[3]")
+    public WebElement labelEmailError;
+    @FindBy(xpath = "(//*[@class='text-danger'])[5]")
+    public WebElement labelPasswordError;
     @FindBy(xpath = "(//*[text()='Contact'])[1]")
     public WebElement linkHeaderContact;
-
     @FindBy(xpath = "//*[text()='Call or WhatsApp:']")
-    public WebElement labelCallOrWhatsapp;
-
+    public WebElement labelContactCallOrWhatsapp;
     @FindBy(xpath = "//*[text()='Get in touch:']")
-    public WebElement labelGetInTouch;
-
+    public WebElement labelContactGetInTouch;
     @FindBy(xpath = "//*[text()='Social Media:']")
-    public WebElement labelSocialMedia;
-
+    public WebElement labelContactSocialMedia;
     @FindBy(xpath = "//*[text()='Head office:']")
-    public WebElement labelHeadOffice;
-
+    public WebElement labelContactHeadOffice;
     @FindBy(xpath = "(//*[@class='contact_box_desc mb-0'])[1]")
-    public WebElement labelWhatsappNumber;
-
+    public WebElement labelContactWhatsappNumber;
     @FindBy(xpath = "(//*[@class='contact_box_desc mb-0'])[2]")
-    public WebElement labelEmail;
-
+    public WebElement labelContactEmail;
     @FindBy(xpath = "(//*[@class='contact_box_desc mb-0'])[3]")
-    public WebElement labelAddress;
-
+    public WebElement labelContactAddress;
     @FindBy(xpath = "//a[@href='http://facebook.com']")
-    public WebElement iconFacebook;
-
+    public WebElement iconContactFacebook;
     @FindBy(xpath = "//a[@href='http://x.com']")
-    public WebElement iconTwitter;
-
+    public WebElement iconContactTwitter;
     @FindBy(xpath = "//a[@href='http://linkedin.com']")
-    public WebElement iconLinkedin;
-
+    public WebElement iconContactLinkedin;
     @FindBy(xpath = "//a[@href='http://instagram.com']'")
-    public WebElement iconInstagram;
-
-    @FindBy(xpath = "//*[text()='Get in touch']'")
+    public WebElement iconContactInstagram;
+    @FindBy(xpath = "//*[text()='Get in touch']")
     public WebElement labelFormGetInTouch;
-
     @FindBy(id = "name")
     public WebElement textBoxName;
-
     @FindBy(id = "message")
     public WebElement textBoxMessage;
-
     @FindBy(xpath = "//select[@name='query_type']")
     public WebElement dropDownOrder;
-
     @FindBy(id = "contactBtn")
     public WebElement sendMessageButton;
-
 
     //------------ Main Menu- Right---------------------
     @FindBy(linkText = "New User Zone")
