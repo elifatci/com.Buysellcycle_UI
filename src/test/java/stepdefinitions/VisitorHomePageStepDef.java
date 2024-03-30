@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.Base;
 import pages.VisitorHomePage;
 import utils.ConfigReader;
@@ -209,5 +210,62 @@ public class VisitorHomePageStepDef extends Base {
         String actualResult = Driver.getDriver().getTitle();
         Assert.assertEquals(title, actualResult);
     }
+    //------------------------ Nazime-------------------------------
+    //US02 TC01
+    @Given("Displays und click the headings \\(Track Your Order) on the top right side")
+    public void displays_und_click_the_headings_track_your_order_on_the_top_right_side() {
+        ReusableMethods.wait(5);
+        assertTrue(visitorHomePage.linkTrackOrder.isDisplayed());
+        assertTrue(visitorHomePage.linkTrackOrder.isEnabled());
+    }
 
-}
+    @Given("Displays und click the headings \\( Compare) on the top right side")
+    public void displays_und_click_the_headings_compare_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkHeaderCompare.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderCompare.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\( Wishlist) on the top right side. Click the BuyCell logo")
+    public void displays_und_click_the_headings_wishlist_on_the_top_right_side_click_the_buy_cell_logo() {
+        assertTrue(visitorHomePage.linkHeaderWishList.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderWishList.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\(Cart) on the top right side")
+    public void displays_und_click_the_headings_cart_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkHeaderCart.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderCart.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\(New User Zone ) on the top right side")
+    public void displays_und_click_the_headings_new_user_zone_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkNewUserZone.isDisplayed());
+        assertTrue(visitorHomePage.linkNewUserZone.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\( Daily Deals) on the top right side")
+    public void displays_und_click_the_headings_daily_deals_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkDailyDeals.isDisplayed());
+        assertTrue(visitorHomePage.linkDailyDeals.isEnabled());
+
+    }
+
+    @Given("The site logo is displayed on the top left of the page")
+    public void the_site_logo_is_displayed_on_the_top_left_of_the_page() {
+        assertTrue(visitorHomePage.logoBuysell.isDisplayed());
+
+    }
+    @Given("Click on the site logo and refresh the page")
+    public void click_on_the_site_logo_and_refresh_the_page() {
+        visitorHomePage.logoBuysell.click();
+        assertTrue(visitorHomePage.logoBuysell.isDisplayed());
+        }
+
+    @Given("The search box  is displayed")
+    public void the_search_box_is_displayed() {
+        assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
+
+    }
+
+    }
+

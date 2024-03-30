@@ -54,5 +54,94 @@ public class AdminDashboard extends Base{
 
     @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/products/438/edit ']")
     public WebElement linkEditProduct;
-    //----------------------------------
+    //------------Nazime----------------------
+
+    //US_38 dashboardside bar Add New Product link
+    @FindBy(xpath = "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[5]/a")
+    public WebElement linkAddNewProduct;
+
+
+    //US_38 dashboardside bar Add New Product link-General Information
+    @FindBy(xpath = "(//*[@class='nav-item'])[1]")
+    public WebElement linkGeneralInformation;
+
+    //US_38 dashboardside bar Add New Product link-RelatedProduct;
+    @FindBy(xpath = "(//*[@class='nav-item'])[2]")
+    public WebElement linkRelatedProduct;
+
+    //US_38 dashboardside bar Add New Product link-UpSaLE
+    @FindBy(xpath = "(//*[@class='nav-item'])[3]")
+    public WebElement linkUpSale;
+
+    //US_38 dashboardside bar Add New Product link-CrossSale
+    @FindBy(xpath = "(//*[@class='nav-item'])[4]")
+    public WebElement linkCrossSale;
+
+    //US_38 dashboardside bar Single radio button
+    @FindBy(xpath = "//*[@id='single_prod']")
+    public WebElement radioButtonSingle;
+
+    //US_38 Add new Product variant radio button
+    @FindBy(xpath = "//*[@id=\"variant_prod\"]")
+    public WebElement radioButtonVariant;
+
+    //US_38 Add new Product Name Box
+    @FindBy(xpath = "(//*[@class='primary_input_field'])[1]")
+    public WebElement searchBoxName;
+
+
+    //US_38 Add new SubTitle  Box
+    @FindBy(xpath = "//*[@id='subtitle_1']")
+    public WebElement searchBoxSubTitle1;
+
+    //US_38 Add new SubTitle2  Box
+    @FindBy(xpath = "//*[@id='subtitle_2']")
+    public WebElement searchBoxSubTitle2;
+
+    //US_38 Add new Variant SKU  Box
+    @FindBy(xpath = "//*[@id='variant_sku_prefix']")
+    public WebElement searchBoxVariantSKU;
+
+    //US_38 Add new Model Nummer Box
+    @FindBy(xpath = "//*[@id='model_number']")
+    public WebElement searchBoxModelNummer;
+
+    //US_38 Add new Category Box
+    @FindBy(className= "/select2-selection select2-selection--multiple")
+    public WebElement searchBoxCategory;
+
+    //US_38 Add new Brand Box
+    @FindBy(xpath= "//*[@id='select2-brand_id-container']")
+    public WebElement searchBoxBrand;
+
+    //US_38 Add new Unit Box
+    @FindBy(className= "nice-select primary_select mb-15 unit")
+    public WebElement searchBoxUnit;
+
+    //US_38 Add new MINIMUM ORDER QTY  Box
+    @FindBy(xpath= "//*[@id='minimum_order_qty']")
+    public WebElement searchBoxMinimumOrderQty;
+
+    //US_38 Add new Maximum ORDER QTY  Box
+    @FindBy(xpath= "//*[@id='max_order_qty']")
+    public WebElement searchBoxMaximumOrderQty;
+
+    //US_38 Add new tags Box
+    @FindBy(className= "bootstrap-tagsinput")
+    public WebElement searchBoxTags;
+
+    //US_38 Products dropdown Category link
+    @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[1]/a")
+    public WebElement linkCategory;
+
+    //US_38 Products dropdown Brand link
+    @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[2]/a/text()")
+    public WebElement linkBrand;
+
+    //US_38 Products dropdown Units link
+    @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[4]/a/text()")
+    public WebElement linkUnits;
+    //-----------------------------------------
+
+
 }
