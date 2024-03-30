@@ -130,13 +130,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//p[@id='total_balance']")
     public WebElement columnTotalBalance;
 
+    @FindBy (xpath = "//*[text()='Last transaction']")
+    public WebElement labelLastTransaction;
+
     @FindBy(xpath = "//div[3]/div//div[2]/div/div[1]/div/div")
     public List<WebElement> labelListSummaryInformationBoard;
 
     @FindBy(xpath = "(//*[text()='My Wishlist'])[2]")
     public WebElement labelMyWishList;
 
-    @FindBy(xpath = "(//*[text()='Recent Order']")
+    @FindBy(xpath = "//*[text()='Recent Order']")
     public WebElement labelRecentOrder;
 
     @FindBy(xpath = "//*[text()='Product in Cart']")
