@@ -209,5 +209,35 @@ public class VisitorHomePageStepDef extends Base {
         String actualResult = Driver.getDriver().getTitle();
         Assert.assertEquals(title, actualResult);
     }
+//======================================================================================================
+// ===================US08 > TC01==================================
 
+    @Given("User clicks on the About Us link and displays About Us page")
+    public void user_clicks_on_the_about_us_link_and_displays_about_us_page() {
+        visitorHomePage.linkHeaderAboutUs.click();
+        assertTrue(visitorHomePage.labelAboutUs.isDisplayed());
+    }
+    @Given("User confirms that the displayed  Client Worldwide, Successful Project, Work Employed,Planning Services boards matches the expected details on about page.")
+    public void user_confirms_that_the_displayed_client_worldwide_successful_project_work_employed_planning_services_boards_matches_the_expected_details_on_about_page() {assertTrue(visitorHomePage.labelClientWorlwide.isDisplayed());
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelClientWorlwide);
+    assertTrue(visitorHomePage.labelSuccessfulProject.isDisplayed());
+    assertTrue(visitorHomePage.labelWorkEmployed.isDisplayed());
+    assertTrue(visitorHomePage.labelPlanningServices.isDisplayed());
+
+    }
+    @Given("User confirms the Team Members section")
+    public void user_confirms_the_team_members_section() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelTeamMember);
+        assertTrue(visitorHomePage.labelTeamMember.isDisplayed());
+
+    }
+    @Given("User confirms that On the About Us page, the characters, statuses and pictures of Avery Collins, Emily Pattinson, Jason Statham, Jaxon Westwood should be visible on the page")
+    public void user_confirms_that_on_the_about_us_page_the_characters_statuses_and_pictures_of_avery_collins_emily_pattinson_jason_statham_jaxon_westwood_should_be_visible_on_the_page() {
+    ReusableMethods.scrollIntoViewJS(visitorHomePage.imageProfileAveryCollins);
+        assertTrue(visitorHomePage.imageProfileAveryCollins.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileEmilyPattinson.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileJasonStatham.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
+
+    }
 }
