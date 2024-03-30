@@ -130,13 +130,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//p[@id='total_balance']")
     public WebElement columnTotalBalance;
 
+    @FindBy (xpath = "//*[text()='Last transaction']")
+    public WebElement labelLastTransaction;
+
     @FindBy(xpath = "//div[3]/div//div[2]/div/div[1]/div/div")
     public List<WebElement> labelListSummaryInformationBoard;
 
     @FindBy(xpath = "(//*[text()='My Wishlist'])[2]")
     public WebElement labelMyWishList;
 
-    @FindBy(xpath = "(//*[text()='Recent Order']")
+    @FindBy(xpath = "//*[text()='Recent Order']")
     public WebElement labelRecentOrder;
 
     @FindBy(xpath = "//*[text()='Product in Cart']")
@@ -363,6 +366,33 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//button[@id='update_info']")
     public WebElement buttonUpdateNow;
 
+    // US_22 My Coupons link
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]")
+    public WebElement linkMyCoupons;
+
+    // US_22 Search Box add Coupons
+    @FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
+    public WebElement searchBoxAddCoupon;
+
+    // US_22 table Collected Coupons
+    @FindBy(className= "table_border_whiteBox mb_30")
+    public WebElement tableCollectedCoupons;
+
+    // US_22 icon Copy
+    @FindBy(xpath= "(//*[@id='Layer_1'])[2]")
+    public WebElement iconCopy;
+
+    // US_22 icon delete
+    @FindBy(xpath= "(//*[@id='Layer_1'])[1]")
+    public WebElement iconCouponDelete;
+
+    // US_29 Logout Buton
+    @FindBy(xpath= "//*[@class='log_out']")
+    public WebElement buttonLogout;
+
+    // US_29 DashBOard side bar Log OUt
+    @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
+    public WebElement buttonLogOutSideBar;
 
 
 }

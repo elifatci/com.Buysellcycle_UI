@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.Base;
 import pages.VisitorHomePage;
 import utils.ConfigReader;
@@ -319,5 +320,92 @@ public class VisitorHomePageStepDef extends Base {
     public void profile_by_entering_new_information_in_text_boxes_update_and_save_their_information() {
 
     }
+    //------------------------ Nazime-------------------------------
+    //US02 TC01
+    @Given("Displays und click the headings \\(Track Your Order) on the top right side")
+    public void displays_und_click_the_headings_track_your_order_on_the_top_right_side() {
+        ReusableMethods.wait(5);
+        assertTrue(visitorHomePage.linkTrackOrder.isDisplayed());
+        assertTrue(visitorHomePage.linkTrackOrder.isEnabled());
+    }
 
+    @Given("Displays und click the headings \\( Compare) on the top right side")
+    public void displays_und_click_the_headings_compare_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkHeaderCompare.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderCompare.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\( Wishlist) on the top right side. Click the BuyCell logo")
+    public void displays_und_click_the_headings_wishlist_on_the_top_right_side_click_the_buy_cell_logo() {
+        assertTrue(visitorHomePage.linkHeaderWishList.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderWishList.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\(Cart) on the top right side")
+    public void displays_und_click_the_headings_cart_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkHeaderCart.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderCart.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\(New User Zone ) on the top right side")
+    public void displays_und_click_the_headings_new_user_zone_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkNewUserZone.isDisplayed());
+        assertTrue(visitorHomePage.linkNewUserZone.isEnabled());
+    }
+
+    @Given("Displays und click the headings \\( Daily Deals) on the top right side")
+    public void displays_und_click_the_headings_daily_deals_on_the_top_right_side() {
+        assertTrue(visitorHomePage.linkDailyDeals.isDisplayed());
+        assertTrue(visitorHomePage.linkDailyDeals.isEnabled());
+
+    }
+
+    @Given("The site logo is displayed on the top left of the page")
+    public void the_site_logo_is_displayed_on_the_top_left_of_the_page() {
+        assertTrue(visitorHomePage.logoBuysell.isDisplayed());
+
+    }
+    @Given("Click on the site logo and refresh the page")
+    public void click_on_the_site_logo_and_refresh_the_page() {
+        visitorHomePage.logoBuysell.click();
+        assertTrue(visitorHomePage.logoBuysell.isDisplayed());
+        }
+
+    @Given("The search box  is displayed")
+    public void the_search_box_is_displayed() {
+        assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
+
+    }
+
+// ===================US08 > TC01==================================
+
+    @Given("User clicks on the About Us link and displays About Us page")
+    public void user_clicks_on_the_about_us_link_and_displays_about_us_page() {
+        visitorHomePage.linkHeaderAboutUs.click();
+        assertTrue(visitorHomePage.labelAboutUs.isDisplayed());
+    }
+    @Given("User confirms that the displayed  Client Worldwide, Successful Project, Work Employed,Planning Services boards matches the expected details on about page.")
+    public void user_confirms_that_the_displayed_client_worldwide_successful_project_work_employed_planning_services_boards_matches_the_expected_details_on_about_page() {assertTrue(visitorHomePage.labelClientWorlwide.isDisplayed());
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelClientWorlwide);
+    assertTrue(visitorHomePage.labelSuccessfulProject.isDisplayed());
+    assertTrue(visitorHomePage.labelWorkEmployed.isDisplayed());
+    assertTrue(visitorHomePage.labelPlanningServices.isDisplayed());
+
+    }
+    @Given("User confirms the Team Members section")
+    public void user_confirms_the_team_members_section() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelTeamMember);
+        assertTrue(visitorHomePage.labelTeamMember.isDisplayed());
+
+    }
+    @Given("User confirms that On the About Us page, the characters, statuses and pictures of Avery Collins, Emily Pattinson, Jason Statham, Jaxon Westwood should be visible on the page")
+    public void user_confirms_that_on_the_about_us_page_the_characters_statuses_and_pictures_of_avery_collins_emily_pattinson_jason_statham_jaxon_westwood_should_be_visible_on_the_page() {
+    ReusableMethods.scrollIntoViewJS(visitorHomePage.imageProfileAveryCollins);
+        assertTrue(visitorHomePage.imageProfileAveryCollins.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileEmilyPattinson.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileJasonStatham.isDisplayed());
+    assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
+
+    }
 }
+
