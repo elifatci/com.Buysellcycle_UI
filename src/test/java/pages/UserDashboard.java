@@ -130,13 +130,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//p[@id='total_balance']")
     public WebElement columnTotalBalance;
 
+    @FindBy (xpath = "//*[text()='Last transaction']")
+    public WebElement labelLastTransaction;
+
     @FindBy(xpath = "//div[3]/div//div[2]/div/div[1]/div/div")
     public List<WebElement> labelListSummaryInformationBoard;
 
     @FindBy(xpath = "(//*[text()='My Wishlist'])[2]")
     public WebElement labelMyWishList;
 
-    @FindBy(xpath = "(//*[text()='Recent Order']")
+    @FindBy(xpath = "//*[text()='Recent Order']")
     public WebElement labelRecentOrder;
 
     @FindBy(xpath = "//*[text()='Product in Cart']")
@@ -325,5 +328,74 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
     public WebElement divAllTicketPendingGoing;
 
+    //Purchase History page>>All History filter
+    @FindBy(css = ".nice-select.amaz_select3")
+    public WebElement dropdownAllHistory;
    
+    //********************US_24/TC_01,TC_02********************************************
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/profile'])[2]")
+    public WebElement linkHeaderMyAccount;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
+    public WebElement imageProfileBrowse;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
+    public WebElement buttonBrowse;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//button[@id='Info-tab']")
+    public WebElement buttonBasicInfo;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//form[@id='basic_info']")
+    public WebElement textboxBasicInfo;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//input[@id='first_name']")
+    public  WebElement textBoxFistName;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//input[@id='last_name']")
+    public WebElement textBoxLastName;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement textBoxEmailBasicInfo;
+
+    //UserDasboard/Side Bar /My Account
+    @FindBy(xpath = "//button[@id='update_info']")
+    public WebElement buttonUpdateNow;
+
+    // US_22 My Coupons link
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]")
+    public WebElement linkMyCoupons;
+
+    // US_22 Search Box add Coupons
+    @FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
+    public WebElement searchBoxAddCoupon;
+
+    // US_22 table Collected Coupons
+    @FindBy(className= "table_border_whiteBox mb_30")
+    public WebElement tableCollectedCoupons;
+
+    // US_22 icon Copy
+    @FindBy(xpath= "(//*[@id='Layer_1'])[2]")
+    public WebElement iconCopy;
+
+    // US_22 icon delete
+    @FindBy(xpath= "(//*[@id='Layer_1'])[1]")
+    public WebElement iconCouponDelete;
+
+    // US_29 Logout Buton
+    @FindBy(xpath= "//*[@class='log_out']")
+    public WebElement buttonLogout;
+
+    // US_29 DashBOard side bar Log OUt
+    @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
+    public WebElement buttonLogOutSideBar;
+
 }

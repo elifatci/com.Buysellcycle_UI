@@ -1,5 +1,7 @@
 package pages;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ReusableMethods;
@@ -9,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 public class VisitorHomePage extends Base{
 
    
-    @FindBy(linkText = "Login")
+    @FindBy(xpath = "//*[text()='Login']")
     public WebElement linkLogin;
 
     @FindBy(xpath = "(//i[@class='ti-close'])[2]")
@@ -260,7 +262,7 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//a[@data-product_id='341'])[4]")
     public WebElement iconQuickView_Coupon;
 
-
+//**********************US_06/TC_01*****US_15/TC_01********************************
     //HomePage>>AllCategories
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
     public WebElement DropDownAllCateg;
@@ -312,7 +314,7 @@ public class VisitorHomePage extends Base{
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='LG 55QNED816RE 55-inch 139 Screen'])[1]")
     public WebElement imageProductTvPicSound;
-  
+  //***************************************************************************************************
     @FindBy (xpath = "(//*[text()='About Us'])[1]")
     public WebElement linkHeaderAboutUs;
 
@@ -345,5 +347,94 @@ public class VisitorHomePage extends Base{
 
     @FindBy (xpath = "//*[text()='Jaxon Westwood']")
     public WebElement imageProfileJaxonWestwood;
+
+    //Homepage>>Header>> Blog menu link
+    @FindBy(xpath = "(//*[text()='Blog'])[1]")
+    public WebElement linkHeaderBlog;
+
+
+    public void verifyVisible(WebElement element){
+        Assert.assertTrue(element.isDisplayed());
+    }
+
+    public void verifyActive(WebElement element){
+        Assert.assertTrue(element.isEnabled());
+    }
+
+    //Blog page>>Read More link
+    @FindBy(className = "amazy_readMore_link")
+    public List<WebElement> linkReadMore;
+
+    //Blog page>> Read More link 4.
+    @FindBy(xpath = "(//*[@class='amazy_readMore_link'])[4]")
+    public WebElement linkReadMoreFour;
+
+    //Blog page>>Keywords text
+    @FindBy(xpath = "(//*[@class='font_18 f_w_700 mb_10'])[3]")
+    public WebElement labelKeywords;
+
+    //Blog page>> Read more>> blog content
+    @FindBy(xpath = "//*[text()='E-commerce']")
+    public WebElement labelCommerceContent;
+
+    //Blog page>> search box
+    @FindBy(xpath = "//*[@placeholder='Search Post']")
+    public WebElement searchBoxPost;
+
+    //US_02 HomePage TRACK YOUR ORDER link
+    @FindBy(xpath = "//*[text()='Track Your Order']")
+    public WebElement 	linkHeaderTrackYourOrder;
+    //US_02 HomePage COMPARE link
+    @FindBy(xpath = "//*[text()='Compare(']")
+    public WebElement 	linkHeaderCompare;
+    //US_02 HomePage WISHLIST link
+    @FindBy(xpath = "//*[text()='Wishlist (']")
+    public WebElement 	linkHeaderWishList;
+
+    //US_02 HomePage CART link
+    @FindBy(xpath = "//*[text()='Cart (']")
+    public WebElement 	linkHeaderCart;
+
+    //US_02 HomePage Daily deals link
+    @FindBy(xpath = "//*[@id=\"sticky-header\"]/div[3]/div/div/div/div/div[4]/a[2]/span")
+    public WebElement 	linkDailyDeals;
+
+    //US_02 HomePage Buysell Logo
+    @FindBy(xpath = "//*[text()='BuySellCycle']")
+    public WebElement 	logoBuysell;
+
+    //US_02 HomePage Search Box Kutusu
+    @FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
+    public WebElement searchBoxHomePage;
+
+    //US_13 HomePage Slider image
+    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    public WebElement imageProductSliderimage1;
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-nav disabled'])[1]")
+    public WebElement icon1;
+
+    //US_13 HomePage image1
+    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    public WebElement imageProduct1;
+
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-dot'])[1]")
+    public WebElement icon2;
+
+    //US_13 HomePage image2
+    @FindBy(xpath = "(//*[@class='img-fluid'])[2]")
+    public WebElement imageProduct2;
+
+    //US_13 HomePage image3
+    @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
+    public WebElement imageProduct3;
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
+    public WebElement icon3;
+
 
 }
