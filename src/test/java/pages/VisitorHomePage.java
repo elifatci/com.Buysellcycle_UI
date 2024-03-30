@@ -11,7 +11,7 @@ import java.util.List;
 public class VisitorHomePage extends Base{
 
    
-    @FindBy(linkText = "Login")
+    @FindBy (xpath = "//*[text()='Login']")
     public WebElement linkLogin;
 
     @FindBy(xpath = "(//i[@class='ti-close'])[2]")
