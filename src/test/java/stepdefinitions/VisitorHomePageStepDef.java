@@ -209,5 +209,115 @@ public class VisitorHomePageStepDef extends Base {
         String actualResult = Driver.getDriver().getTitle();
         Assert.assertEquals(title, actualResult);
     }
+//**************************************US_06/TC_01*********************************************************
+
+    @Given("{string} in the nav bar on the home page that the drop-down menu is visible verify.")
+    public void in_the_nav_bar_on_the_home_page_that_the_drop_down_menu_is_visible_verify(String string) {
+
+    }
+    @Given("Go to the {string} dropdown menu click.")
+    public void go_to_the_dropdown_menu_click(String string) {
+
+    }
+    @Given("All items in the drop-down menu category titles of verify that it is visible.")
+    public void all_items_in_the_drop_down_menu_category_titles_of_verify_that_it_is_visible() {
+
+    }
+    @Given("Click on the Electronics main category and select the subcategories it's confirmed to appear.")
+    public void click_on_the_electronics_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
+
+    }
+    @Given("Subcategories within the Electronics category randomly click on {int} headings and move to the right place that it is directed.")
+    public void subcategories_within_the_electronics_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
+
+    }
+    @Given("Click on the Fashion main category and select the subcategories it's confirmed to appear.")
+    public void click_on_the_fashion_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
+
+    }
+    @Given("Subcategories within the Fashion category randomly click on {int} headings and move to the right place that it is directed.")
+    public void subcategories_within_the_fashion_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
+
+    }
+    @Given("Click on the Baby main category and select the subcategories it's confirmed to appear.")
+    public void click_on_the_baby_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
+
+    }
+    @Given("Subcategories within the Baby category randomly click on {int} headings and move to the right place that it is directed.")
+    public void subcategories_within_the_baby_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
+
+    }
+
+
+    //**************************************US_15/TC_01*********************************************************
+    @Given("Home page body section {string} category window is visible.")
+    public void home_page_body_section_category_window_is_visible(String string) {
+
+    }
+    @Given("Click on the {string} window and verify that subcategories appear.")
+    public void click_on_the_window_and_verify_that_subcategories_appear(String string) {
+
+    }
+    @Given("Click on the {string} heading in the subcategory and verify that the relevant products appear.")
+    public void click_on_the_heading_in_the_subcategory_and_verify_that_the_relevant_products_appear(String string) {
+
+    }
+    @Given("Click on the subcategory {string} and verify that the relevant products appear.")
+    public void click_on_the_subcategory_and_verify_that_the_relevant_products_appear(String string) {
+
+    }
+    @Given("Adding to the basket can be done on the products on the relevant category page Verify.")
+    public void adding_to_the_basket_can_be_done_on_the_products_on_the_relevant_category_page_verify() {
+
+    }
+    @Given("Selecting products for comparison on the products in the relevant category page verify that it can be done.")
+    public void selecting_products_for_comparison_on_the_products_in_the_relevant_category_page_verify_that_it_can_be_done() {
+
+    }
+    @Given("Verify that {string} appears because you cannot add to the likes list on the products on the relevant category page.")
+    public void verify_that_appears_because_you_cannot_add_to_the_likes_list_on_the_products_on_the_relevant_category_page(String string) {
+
+    }
+    @Given("In the {string} window, click on {string} to verify that additional products appear.")
+    public void in_the_window_click_on_to_verify_that_additional_products_appear(String string, String string2) {
+
+    }
+
+    //**************************************US_24/TC_01*********************************************************
+
+    @Given("In SideBar, the menu item {string} appears.")
+    public void in_side_bar_the_menu_item_appears(String string) {
+
+    }
+    @Given("Go to the {string} page.")
+    public void go_to_the_page(String string) {
+
+    }
+    @Given("Upload a new profile picture by clicking on the {string} button and verify that it has been uploaded.")
+    public void upload_a_new_profile_picture_by_clicking_on_the_button_and_verify_that_it_has_been_uploaded(String string) {
+
+    }
+    //**************************************US_24/TC_02*********************************************************
+
+    @Given("Go to the {string} tab.")
+    public void go_to_the_tab(String string) {
+
+    }
+    @Given("Verify that the TextBoxes on the {string} tab are visible.")
+    public void verify_that_the_text_boxes_on_the_tab_are_visible(String string) {
+
+    }
+    @Given("Verify that {string},{string} are displayed correctly.")
+    public void verify_that_are_displayed_correctly(String string, String string2) {
+
+    }
+    @Given("Verify that the {string} textbox is empty")
+    public void verify_that_the_textbox_is_empty(String string) {
+
+    }
+    @Given("Profile by entering new information in TextBoxes update and save their information.")
+    public void profile_by_entering_new_information_in_text_boxes_update_and_save_their_information() {
+
+    }
 
 }

@@ -1,3 +1,4 @@
+
 Feature: US006 As a user, I would like to see the Categories heading on the Home page all categories under
 
   Background:
