@@ -3,14 +3,13 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 import pages.Base;
-import pages.VisitorHomePage;
 import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
 
-import java.util.Properties;
-
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -207,7 +206,163 @@ public class VisitorHomePageStepDef extends Base {
     @Then("Verify that the title is {string}")
     public void verify_that_the_title_is(String title) {
         String actualResult = Driver.getDriver().getTitle();
-        Assert.assertEquals(title, actualResult);
+        assertEquals(title, actualResult);
     }
+//=======================================================================================================
 
+    //US04 ---> TC01 + TC02 + TC03 + TC04 + TC05 + TC06
+    @Given("User clicks on -Register button- and displays the Sign Up page.")
+    public void user_clicks_on_register_button_and_displays_the_sign_up_page() {
+        assertTrue(visitorHomePage.linkRegister.isDisplayed());
+        assertTrue(visitorHomePage.linkRegister.isEnabled());
+        visitorHomePage.linkRegister.click();
+        assertTrue(visitorHomePage.logoBuySell.isDisplayed());
+        assertTrue(visitorHomePage.labelPictureText.isDisplayed());
+        assertEquals(ConfigReader.getProperty("registerUrl") , Driver.getDriver().getCurrentUrl());
+        assertTrue(visitorHomePage.tableRegisterForm.isDisplayed());
+    }
+    @Given("User enters a valid {string} on -First Name box-.")
+    public void user_enters_a_valid_on_first_name_box(String name) {
+        assertTrue(visitorHomePage.textBoxFirstName.isEnabled());
+        visitorHomePage.textBoxFirstName.sendKeys(ConfigReader.getProperty(name));
+    }
+    @Given("User enters a valid {string} on -Last Name box-.")
+    public void user_enters_a_valid_on_last_name_box(String lastName) {
+        assertTrue(visitorHomePage.textBoxLastName.isEnabled());
+        visitorHomePage.textBoxLastName.sendKeys(ConfigReader.getProperty(lastName));
+    }
+    @Given("User enters a valid {string} clicks on -Email or Phone box-.")
+    public void user_enters_a_valid_clicks_on_email_or_phone_box(String email) {
+        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
+        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(email));
+    }
+    @Given("User enters a valid {string} on -Password box-.")
+    public void user_enters_a_valid_on_password_box(String password) {
+        assertTrue(visitorHomePage.textBoxPassword.isEnabled());
+        visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty(password));
+    }
+    @Given("User enters a valid {string} on -Confirm Password- box.")
+    public void user_enters_a_valid_on_confirm_password_box(String password) {
+        assertTrue(visitorHomePage.textBoxPasswordConfirm.isEnabled());
+        visitorHomePage.textBoxPasswordConfirm.sendKeys(ConfigReader.getProperty(password));
+    }
+    @Given("User clicks on Sign Up button.")
+    public void user_clicks_on_sign_up_button() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.linkSignIn);
+        ReusableMethods.wait(1);
+        assertTrue(visitorHomePage.signUpButton.isDisplayed());
+        assertTrue(visitorHomePage.signUpButton.isEnabled());
+        visitorHomePage.signUpButton.click();
+    }
+    @Given("User verifies that he-she registered.")
+    public void user_verifies_that_he_she_registered() {
+        assertTrue(visitorHomePage.labelRegistrationAlert.isDisplayed());
+    }
+    @Given("User verifies that he-she could not register without name.")
+    public void user_verifies_that_he_she_could_not_register_without_name() {
+        assertTrue(visitorHomePage.labelNameError.isDisplayed());
+    }
+    @Given("User verifies that he-she could not register without mobile.")
+    public void user_verifies_that_he_she_could_not_register_without_mobile() {
+        assertTrue(visitorHomePage.labelEmailError.isDisplayed());
+    }
+    @Given("User verifies that he-she could not register without email.")
+    public void user_verifies_that_he_she_could_not_register_without_email() {
+        assertTrue(visitorHomePage.labelEmailError.isDisplayed());
+    }
+    @Given("User verifies that he-she could not register without valid password.")
+    public void user_verifies_that_he_she_could_not_register_without_valid_password() {
+        assertTrue(visitorHomePage.labelPasswordError.isDisplayed());
+    }
+    @Given("User verifies that he-she could not register without entering the same password.")
+    public void user_verifies_that_he_she_could_not_register_without_entering_the_same_password() {
+        assertTrue(visitorHomePage.labelPasswordError.isDisplayed());
+    }
+    //US10 ---> TC01
+    @Given("User clicks on -Contact button- and displays the Contact page.")
+    public void user_clicks_on_contact_button_and_displays_the_contact_page() {
+        assertTrue(visitorHomePage.linkHeaderContact.isDisplayed());
+        assertTrue(visitorHomePage.linkHeaderContact.isEnabled());
+        visitorHomePage.linkHeaderContact.click();
+        assertEquals(ConfigReader.getProperty("contactUrl") , Driver.getDriver().getCurrentUrl());
+    }
+    @Given("User verifies that -Call or WhatsApp title- and the information about it is visible.")
+    public void user_verifies_that_call_or_whats_app_title_and_the_information_about_it_is_visible() {
+        assertTrue(visitorHomePage.labelContactCallOrWhatsapp.isDisplayed());
+        assertTrue(visitorHomePage.labelContactWhatsappNumber.isDisplayed());
+    }
+    @Given("User verifies that -Get in touch title- and the information about it is visible.")
+    public void user_verifies_that_get_in_touch_title_and_the_information_about_it_is_visible() {
+        assertTrue(visitorHomePage.labelContactGetInTouch.isDisplayed());
+        assertTrue(visitorHomePage.labelContactEmail.isDisplayed());
+    }
+    @Given("User verifies that -Social Media title- is visible.")
+    public void user_verifies_that_social_media_title_is_visible() {
+        assertTrue(visitorHomePage.labelContactSocialMedia.isDisplayed());
+    }
+    @Given("User verifies that -Head office title- and the information about it is visible.")
+    public void user_verifies_that_head_office_title_and_the_information_about_it_is_visible() {
+        assertTrue(visitorHomePage.labelContactHeadOffice.isDisplayed());
+        assertTrue(visitorHomePage.labelContactAddress.isDisplayed());
+    }
+    //US10 ---> TC02-03-04-05
+    @Given("User clicks on -Facebook icon-.")
+    public void user_clicks_on_facebook_icon() {
+        assertTrue(visitorHomePage.iconContactFacebook.isDisplayed());
+        assertTrue(visitorHomePage.iconContactFacebook.isEnabled());
+        visitorHomePage.iconContactFacebook.click();
+    }
+    @Given("User verifies that he-she accesses the {string}.")
+    public void user_verifies_that_he_she_accesses_the(String string) {
+        assertEquals(ConfigReader.getProperty(string) , Driver.getDriver().getCurrentUrl());
+    }
+    @Given("User clicks on -Twitter icon-.")
+    public void user_clicks_on_twitter_icon() {
+        assertTrue(visitorHomePage.iconContactTwitter.isDisplayed());
+        assertTrue(visitorHomePage.iconContactTwitter.isEnabled());
+        visitorHomePage.iconContactTwitter.click();
+    }
+    @Given("User clicks on -LinkedIn icon-.")
+    public void user_clicks_on_linked_in_icon() {
+        assertTrue(visitorHomePage.iconContactLinkedin.isDisplayed());
+        assertTrue(visitorHomePage.iconContactLinkedin.isEnabled());
+        visitorHomePage.iconContactLinkedin.click();
+    }
+    @Given("User clicks on -Instagram icon-.")
+    public void user_clicks_on_instagram_icon() {
+        assertTrue(visitorHomePage.iconContactInstagram.isDisplayed());
+        assertTrue(visitorHomePage.iconContactInstagram.isEnabled());
+        visitorHomePage.iconContactInstagram.click();
+    }
+    //US10 ---> TC06
+    @Given("User confirms that Get in touch form is visible.")
+    public void user_confirms_that_get_in_touch_form_is_visible() {
+        assertTrue(visitorHomePage.labelFormGetInTouch.isDisplayed());
+    }
+    @Given("User fills out the name section {string}.")
+    public void user_fills_out_the_name_section(String string) {
+        assertTrue(visitorHomePage.textBoxName.isEnabled());
+        visitorHomePage.textBoxName.sendKeys(ConfigReader.getProperty(string));
+    }
+    @Given("User fills out the email section {string}.")
+    public void user_fills_out_the_email_section(String string) {
+        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
+        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(string));
+    }
+    @Given("User chooses an option {int}.")
+    public void user_chooses_an_option(int index) {
+        Select selectOption = new Select(visitorHomePage.dropDownOrder);
+        selectOption.selectByIndex(index);
+    }
+    @Given("User fills out the message section {string}.")
+    public void user_fills_out_the_message_section(String string) {
+        assertTrue(visitorHomePage.textBoxMessage.isEnabled());
+        visitorHomePage.textBoxMessage.sendKeys(ConfigReader.getProperty(string));
+    }
+    @Given("User clicks on -Send Message button-")
+    public void user_clicks_on_send_message_button() {
+        assertTrue(visitorHomePage.sendMessageButton.isEnabled());
+        visitorHomePage.sendMessageButton.click();
+    }
+//=======================================================================================================
 }
