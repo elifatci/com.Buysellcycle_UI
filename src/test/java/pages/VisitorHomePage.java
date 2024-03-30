@@ -364,4 +364,63 @@ public class VisitorHomePage extends Base{
     @FindBy (xpath = "//*[text()='Jaxon Westwood']")
     public WebElement imageProfileJaxonWestwood;
 
+    //US_02 HomePage TRACK YOUR ORDER link
+    @FindBy(xpath = "//*[text()='Track Your Order']")
+    public WebElement 	linkHeaderTrackYourOrder;
+    //US_02 HomePage COMPARE link
+    @FindBy(xpath = "//*[text()='Compare(']")
+    public WebElement 	linkHeaderCompare;
+    //US_02 HomePage WISHLIST link
+    @FindBy(xpath = "//*[text()='Wishlist (']")
+    public WebElement 	linkHeaderWishList;
+
+    //US_02 HomePage CART link
+    @FindBy(xpath = "//*[text()='Cart (']")
+    public WebElement 	linkHeaderCart;
+
+    //US_02 HomePage Daily deals link
+    @FindBy(xpath = "//*[@id=\"sticky-header\"]/div[3]/div/div/div/div/div[4]/a[2]/span")
+    public WebElement 	linkDailyDeals;
+
+
+    //US_02 HomePage Buysell Logo
+    @FindBy(xpath = "//*[text()='BuySellCycle']")
+    public WebElement 	logoBuysell;
+
+    //US_02 HomePage Search Box Kutusu
+    @FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
+    public WebElement searchBoxHomePage;
+
+    //US_13 HomePage Slider image
+    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    public WebElement imageProductSliderimage1;
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-nav disabled'])[1]")
+    public WebElement icon1;
+
+    //US_13 HomePage image1
+    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    public WebElement imageProduct1;
+
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-dot'])[1]")
+    public WebElement icon2;
+
+    //US_13 HomePage image2
+    @FindBy(xpath = "(//*[@class='img-fluid'])[2]")
+    public WebElement imageProduct2;
+
+    //US_13 HomePage image3
+    @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
+    public WebElement imageProduct3;
+
+
+    //US_13 HomePage Icon1
+    @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
+    public WebElement icon3;
+
+
+
 }
