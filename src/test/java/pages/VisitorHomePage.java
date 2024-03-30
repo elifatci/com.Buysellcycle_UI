@@ -278,7 +278,7 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//a[@data-product_id='341'])[4]")
     public WebElement iconQuickView_Coupon;
 
-
+//**********************US_06/TC_01*****US_15/TC_01********************************
     //HomePage>>AllCategories
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
     public WebElement DropDownAllCateg;
@@ -330,7 +330,7 @@ public class VisitorHomePage extends Base{
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='LG 55QNED816RE 55-inch 139 Screen'])[1]")
     public WebElement imageProductTvPicSound;
-  
+  //***************************************************************************************************
     @FindBy (xpath = "(//*[text()='About Us'])[1]")
     public WebElement linkHeaderAboutUs;
 
