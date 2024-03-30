@@ -17,6 +17,7 @@ Feature: US_18 Shopping history should be displayed in the User Dashboard panel
 
     * Click the Purchase History link in the Dashboard sideBar
     * Verify that the Details, Amount, Delivery Status, Payment Status, Action headers are visible
+    * Verify filtering by payment status
     * Verify that the hamburger icon and download icon next to purchases are visible and functional
     * Click on the Dowload icon to verify that the invoice has been downloaded.
     * Verify that Order code, Package code, Delivery Process, Order Details, Order Summary, Payment Type information is visible in the invoice information.

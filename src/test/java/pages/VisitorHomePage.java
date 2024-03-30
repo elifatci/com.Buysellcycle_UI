@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import java.util.List;
 public class VisitorHomePage extends Base{
 
    
-    @FindBy(linkText = "Login")
+    @FindBy(xpath = "//*[text()='Login']")
     public WebElement linkLogin;
 
     @FindBy(xpath = "(//i[@class='ti-close'])[2]")
@@ -363,5 +364,41 @@ public class VisitorHomePage extends Base{
 
     @FindBy (xpath = "//*[text()='Jaxon Westwood']")
     public WebElement imageProfileJaxonWestwood;
+
+
+    //Homepage>>Header>> Blog menu link
+    @FindBy(xpath = "(//*[text()='Blog'])[1]")
+    public WebElement linkHeaderBlog;
+
+
+    public void verifyVisible(WebElement element){
+        Assert.assertTrue(element.isDisplayed());
+    }
+
+    public void verifyActive(WebElement element){
+        Assert.assertTrue(element.isEnabled());
+    }
+
+    //Blog page>>Read More link
+    @FindBy(className = "amazy_readMore_link")
+    public List<WebElement> linkReadMore;
+
+    //Blog page>> Read More link 4.
+    @FindBy(xpath = "(//*[@class='amazy_readMore_link'])[4]")
+    public WebElement linkReadMoreFour;
+
+    //Blog page>>Keywords text
+    @FindBy(xpath = "(//*[@class='font_18 f_w_700 mb_10'])[3]")
+    public WebElement labelKeywords;
+
+    //Blog page>> Read more>> blog content
+    @FindBy(xpath = "//*[text()='E-commerce']")
+    public WebElement labelCommerceContent;
+
+    //Blog page>> search box
+    @FindBy(xpath = "//*[@placeholder='Search Post']")
+    public WebElement searchBoxPost;
+
+
 
 }

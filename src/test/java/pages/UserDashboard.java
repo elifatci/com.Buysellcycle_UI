@@ -325,5 +325,8 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
     public WebElement divAllTicketPendingGoing;
 
+    //Purchase History page>>All History filter
+    @FindBy(css = ".nice-select.amaz_select3")
+    public WebElement dropdownAllHistory;
    
 }

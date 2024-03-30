@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 import pages.Base;
 import pages.UserDashboard;
 import pages.VisitorHomePage;
@@ -11,6 +12,10 @@ import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
 import javax.swing.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static org.junit.Assert.assertTrue;
 
 public class UserDashboardStepDef extends Base {
@@ -23,7 +28,7 @@ public class UserDashboardStepDef extends Base {
   
     @Given("Clicks the Login buttonLink on the home page")
     public void clicks_the_login_button_link_on_the_home_page() {
-        ReusableMethods.wait(2);
+       visitorHomePage.buttonPopUpClose.click();
         visitorHomePage.linkLogin.click();
         ReusableMethods.wait(2);
     }
@@ -54,6 +59,12 @@ public class UserDashboardStepDef extends Base {
     public void verify_that_the_details_amount_delivery_status_payment_status_action_headers_are_visible() {
         userDashboard.tableCellDisplayed(7);
     }
+    @Given("Verify filtering by payment status")
+    public void verify_filtering_by_payment_status() {
+        userDashboard.dropdownAllHistory.click();
+        //Assert.assertTrue();
+
+    }
     @Given("Verify that the hamburger icon and download icon next to purchases are visible and functional")
     public void verify_that_the_hamburger_icon_and_download_icon_next_to_purchases_are_visible_and_functional() {
             userDashboard.verifyIcon();
@@ -61,11 +72,20 @@ public class UserDashboardStepDef extends Base {
     @Given("Click on the Dowload icon to verify that the invoice has been downloaded.")
     public void click_on_the_dowload_icon_to_verify_that_the_invoice_has_been_downloaded() {
             userDashboard.iconDownload.click();
+            ReusableMethods.wait(2);
+            String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf\"";
+            Assert.assertTrue(Files.exists(Paths.get(filePath)));
     }
     @Given("Verify that Order code, Package code, Delivery Process, Order Details, Order Summary, Payment Type information is visible in the invoice information.")
-    public void verify_that_order_code_package_code_delivery_process_order_details_order_summary_payment_type_information_is_visible_in_the_invoice_information() {
-
-        userDashboard.iconBurgerPurchase.click();
+    public void verify_that_order_code_package_code_delivery_process_order_details_order_summary_payment_type_information_is_visible_in_the_invoice_information() throws IOException {
+        String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000046.pdf\"";
+        String fileContent=new String(Files.readAllBytes(Paths.get(filePath)));
+        Assert.assertTrue(fileContent.contains("Invoice"));
+        Assert.assertTrue(fileContent.contains("Cash On Delivery"));
+        Assert.assertTrue(fileContent.contains("Details"));
+        Assert.assertTrue(fileContent.contains("Name"));
+        Assert.assertTrue(fileContent.contains("Package"));
+        Assert.assertTrue(fileContent.contains("Delivery Process"));
     }
 
     // ---> US20-kevser
