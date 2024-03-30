@@ -204,12 +204,86 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 //======================================================================================================
-
     @Then("Verify that the title is {string}")
     public void verify_that_the_title_is(String title) {
         String actualResult = Driver.getDriver().getTitle();
         Assert.assertEquals(title, actualResult);
     }
+  
+    //US09 TC01
+    @Given("Verify that the Blog menu title is visible in the home page navBar")
+    public void verify_that_the_blog_menu_title_is_visible_in_the_home_page_nav_bar() {
+        visitorHomePage.verifyVisible(visitorHomePage.linkHeaderBlog);
+    }
+    @Given("Verify that the Blog link is active on the home page")
+    public void verify_that_the_blog_link_is_active_on_the_home_page() {
+            visitorHomePage.verifyActive(visitorHomePage.linkHeaderBlog);
+    }
+    @Given("Click on the blog menu")
+    public void click_on_the_blog_menu() {
+            visitorHomePage.buttonPopUpClose.click();
+            visitorHomePage.linkHeaderBlog.click();
+    }
+    @Given("Verify that it redirects to the blog page")
+    public void verify_that_it_redirects_to_the_blog_page() {
+        String actualResult = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualResult.contains("blog"));
+    }
+    @Given("Close the page")
+    public void close_the_page() {
+        Driver.quitDriver();
+    }
+
+    //US09 TC02
+    @Given("Verify that the read more link in blog posts is visible")
+    public void verify_that_the_read_more_link_in_blog_posts_is_visible() {
+        visitorHomePage.verifyVisible(visitorHomePage.linkReadMore.get(1));
+    }
+    @Given("Click on the Read more link")
+    public void click_on_the_read_more_link() {
+        //ReusableMethods.scrollIntoViewJS(visitorHomePage.labelKeywords);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        visitorHomePage.linkReadMoreFour.click();
+    }
+    @Given("Verify that you are redirected to the relevant page")
+    public void verify_that_you_are_redirected_to_the_relevant_page() {
+            Assert.assertTrue(visitorHomePage.labelCommerceContent.isDisplayed());
+    }
+    @Given("Search for a keyword in the {string} box")
+    public void search_for_a_keyword_in_the_box(String string) {
+
+    }
+    @Given("Verify that the search results match the relevant keyword")
+    public void verify_that_the_search_results_match_the_relevant_keyword() {
+
+    }
+    @Given("Verify that titles are visible in the Category section")
+    public void verify_that_titles_are_visible_in_the_category_section() {
+
+    }
+    @Given("Select a category from the {string} section")
+    public void select_a_category_from_the_section(String string) {
+
+    }
+    @Given("Verify that relevant blogs are listed")
+    public void verify_that_relevant_blogs_are_listed() {
+
+    }
+    @Given("Verify that the popular post section is visible and blogs are displayed")
+    public void verify_that_the_popular_post_section_is_visible_and_blogs_are_displayed() {
+
+    }
+    @Given("Verify that the Keyword section is visible")
+    public void verify_that_the_keyword_section_is_visible() {
+
+    }
+    @Given("Select a keyword from the {string} section and verify that relevant blogs are listed")
+    public void select_a_keyword_from_the_section_and_verify_that_relevant_blogs_are_listed(String string) {
+
+    }
+
 //**************************************US_06/TC_01*********************************************************
 
     @Given("{string} in the nav bar on the home page that the drop-down menu is visible verify.")

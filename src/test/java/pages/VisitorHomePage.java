@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +12,7 @@ import java.util.List;
 public class VisitorHomePage extends Base{
 
    
-    @FindBy (xpath = "//*[text()='Login']")
+    @FindBy(xpath = "//*[text()='Login']")
     public WebElement linkLogin;
 
     @FindBy(xpath = "(//i[@class='ti-close'])[2]")
@@ -364,6 +365,39 @@ public class VisitorHomePage extends Base{
     @FindBy (xpath = "//*[text()='Jaxon Westwood']")
     public WebElement imageProfileJaxonWestwood;
 
+    //Homepage>>Header>> Blog menu link
+    @FindBy(xpath = "(//*[text()='Blog'])[1]")
+    public WebElement linkHeaderBlog;
+
+
+    public void verifyVisible(WebElement element){
+        Assert.assertTrue(element.isDisplayed());
+    }
+
+    public void verifyActive(WebElement element){
+        Assert.assertTrue(element.isEnabled());
+    }
+
+    //Blog page>>Read More link
+    @FindBy(className = "amazy_readMore_link")
+    public List<WebElement> linkReadMore;
+
+    //Blog page>> Read More link 4.
+    @FindBy(xpath = "(//*[@class='amazy_readMore_link'])[4]")
+    public WebElement linkReadMoreFour;
+
+    //Blog page>>Keywords text
+    @FindBy(xpath = "(//*[@class='font_18 f_w_700 mb_10'])[3]")
+    public WebElement labelKeywords;
+
+    //Blog page>> Read more>> blog content
+    @FindBy(xpath = "//*[text()='E-commerce']")
+    public WebElement labelCommerceContent;
+
+    //Blog page>> search box
+    @FindBy(xpath = "//*[@placeholder='Search Post']")
+    public WebElement searchBoxPost;
+
     //US_02 HomePage TRACK YOUR ORDER link
     @FindBy(xpath = "//*[text()='Track Your Order']")
     public WebElement 	linkHeaderTrackYourOrder;
@@ -381,7 +415,6 @@ public class VisitorHomePage extends Base{
     //US_02 HomePage Daily deals link
     @FindBy(xpath = "//*[@id=\"sticky-header\"]/div[3]/div/div/div/div/div[4]/a[2]/span")
     public WebElement 	linkDailyDeals;
-
 
     //US_02 HomePage Buysell Logo
     @FindBy(xpath = "//*[text()='BuySellCycle']")
@@ -416,11 +449,9 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
     public WebElement imageProduct3;
 
-
     //US_13 HomePage Icon1
     @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
     public WebElement icon3;
-
 
 
 }

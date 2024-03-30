@@ -328,6 +328,10 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
     public WebElement divAllTicketPendingGoing;
 
+    //Purchase History page>>All History filter
+    @FindBy(css = ".nice-select.amaz_select3")
+    public WebElement dropdownAllHistory;
+   
     //********************US_24/TC_01,TC_02********************************************
 
     //UserDasboard/Side Bar /My Account
@@ -393,6 +397,5 @@ public class UserDashboard extends Base {
     // US_29 DashBOard side bar Log OUt
     @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
     public WebElement buttonLogOutSideBar;
-
 
 }
