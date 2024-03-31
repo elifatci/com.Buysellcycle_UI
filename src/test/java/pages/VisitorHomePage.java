@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 public class VisitorHomePage extends Base{
 
-   
+
     @FindBy(xpath = "//*[text()='Login']")
     public WebElement linkLogin;
 
@@ -399,6 +399,7 @@ public class VisitorHomePage extends Base{
     //US_02 HomePage TRACK YOUR ORDER link
     @FindBy(xpath = "//*[text()='Track Your Order']")
     public WebElement 	linkHeaderTrackYourOrder;
+
     //US_02 HomePage COMPARE link
     @FindBy(xpath = "//*[text()='Compare(']")
     public WebElement 	linkHeaderCompare;
@@ -426,6 +427,13 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
     public WebElement imageProductSliderimage1;
 
+    //Subscribe to our Newsletter
+    @FindBy(xpath = "//*[@id=\"promotion_close\"]/i")
+    public WebElement iconClose;
+    @FindBy(xpath = "/html/body/div[15]/div/div/div[1]/i")
+    public WebElement subscribeCloseButton;
+
+
     //US_13 HomePage Icon1
     @FindBy(xpath = "(//*[@class='owl-nav disabled'])[1]")
     public WebElement icon1;
@@ -435,7 +443,7 @@ public class VisitorHomePage extends Base{
     public WebElement imageProduct1;
 
 
-    //US_13 HomePage Icon1
+    //US_13 HomePage Icon2
     @FindBy(xpath = "(//*[@class='owl-dot'])[1]")
     public WebElement icon2;
 
@@ -447,9 +455,13 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
     public WebElement imageProduct3;
 
-    //US_13 HomePage Icon1
+    //US_13 HomePage Icon3
     @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
     public WebElement icon3;
+
+    //US_13 HomePage title fashion
+    @FindBy(className = "branding_text")
+    public WebElement labelFashion;
 
     //Blog page>> Category section
     @FindBy(xpath = "//*[@class='blog_sidebar_box mb_20']")
@@ -466,5 +478,6 @@ public class VisitorHomePage extends Base{
     //Blog page>> Keywords section
     @FindBy(xpath = "//*[text()='shopping']")
     public WebElement buttonBlogShopping;
+
 
 }

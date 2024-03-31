@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.Keys;
 import pages.Base;
@@ -12,6 +13,8 @@ import utils.ReusableMethods;
 import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import static utils.Driver.getDriver;
 
 
 public class VisitorHomePageStepDef extends Base {
@@ -236,9 +239,9 @@ public class VisitorHomePageStepDef extends Base {
         visitorHomePage.control();
 
     }
-
 //======================================================================================================
     //US01
+
     @Then("Verify that the title is {string}")
     public void verify_that_the_title_is(String title) {
         String actualResult = Driver.getDriver().getTitle();
@@ -331,7 +334,6 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.linkHeaderContact.isEnabled());
         visitorHomePage.linkHeaderContact.click();
         assertEquals(ConfigReader.getProperty("contactUrl"), Driver.getDriver().getCurrentUrl());
-
     }
 
     @Given("User verifies that -Call or WhatsApp title- and the information about it is visible.")
@@ -370,7 +372,6 @@ public class VisitorHomePageStepDef extends Base {
 
     public void user_verifies_that_he_she_accesses_the(String string) {
         assertEquals(ConfigReader.getProperty(string), Driver.getDriver().getCurrentUrl());
-
     }
 
     @Given("User clicks on -Twitter icon-.")
@@ -468,6 +469,10 @@ public class VisitorHomePageStepDef extends Base {
         Assert.assertTrue(visitorHomePage.labelCommerceContent.isDisplayed());
     }
 
+    @Given("Search for a keyword in the {string} box")
+    public void search_for_a_keyword_in_the_box(String string) {
+
+   }
     @Given("Search for a keyword in the Search Post box")
     public void search_for_a_keyword_in_the_box() {
         visitorHomePage.searchBoxPost.sendKeys("shopping", Keys.ENTER);
@@ -483,6 +488,10 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.labelBlogCategory.isDisplayed());
     }
 
+    @Given("Select a category from the {string} section")
+    public void select_a_category_from_the_section(String string) {
+
+   }
     @Given("Select a category from the Category section")
     public void select_a_category_from_the_section() {
         visitorHomePage.linkBlogShopping.click();
@@ -501,6 +510,10 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Verify that the Keyword section is visible")
     public void verify_that_the_keyword_section_is_visible() {
         assertTrue(visitorHomePage.labelKeywords.isDisplayed());
+    }
+
+    @Given("Select a keyword from the {string} section and verify that relevant blogs are listed")
+    public void select_a_keyword_from_the_section_and_verify_that_relevant_blogs_are_listed(String string) {
     }
 
     @Given("Select a keyword from the Keyword section and verify that relevant blogs are listed")
@@ -531,7 +544,6 @@ public class VisitorHomePageStepDef extends Base {
     public void click_on_the_electronics_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
 
     }
-
 
     //============================= US_16 =========================================
 
@@ -759,7 +771,6 @@ public class VisitorHomePageStepDef extends Base {
     //US02 TC01
     @Given("Displays und click the headings \\(Track Your Order) on the top right side")
     public void displays_und_click_the_headings_track_your_order_on_the_top_right_side() {
-        ReusableMethods.wait(5);
         assertTrue(visitorHomePage.linkTrackOrder.isDisplayed());
         assertTrue(visitorHomePage.linkTrackOrder.isEnabled());
     }
@@ -794,7 +805,7 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.linkDailyDeals.isEnabled());
 
     }
-
+//US02 TC02
     @Given("The site logo is displayed on the top left of the page")
     public void the_site_logo_is_displayed_on_the_top_left_of_the_page() {
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
@@ -807,12 +818,17 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
     }
 
+//US TC03
     @Given("The search box  is displayed")
     public void the_search_box_is_displayed() {
         assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
-
     }
 
+    @Given("search by typing Baby in the search bar")
+    public void search_by_typing_baby_in_the_search_bar() {
+
+
+    }
 // ===================US08 > TC01==================================
 
     @Given("User clicks on the About Us link and displays About Us page")
@@ -847,6 +863,7 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
 
     }
+    
     //----US-11--All step the test cases----------------------------------------------
     @Given("Verify  for the presence of the {string} menu item")
     public void verify_for_the_presence_of_the_menu_item(String string) {
@@ -924,6 +941,42 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 
+    @Given("images in the slider are visible on the homepage")
+    public void images_in_the_slider_are_visible_on_the_homepage() {
+       assertTrue( visitorHomePage.imageProductSliderimage1.isDisplayed());
 
+    }
+    //US13 TC02
+    @Given("scrolling between slider images")
+    public void scrolling_between_slider_images() {
+     visitorHomePage.icon1.click();
+
+    }
+    @Given("Verifies that the displayed image changes in scrolls")
+    public void verifies_that_the_displayed_image_changes_in_scrolls() {
+        assertTrue(visitorHomePage.imageProduct2.isDisplayed());
+
+    }
+
+   //US13 TC03<<<<<<
+    @Given("Slider images are expected to automatically switch after a certain period of time")
+    public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time() {
+    }
+    @Given("Verifies that images are automatically displayed in a loop")
+    public void verifies_that_images_are_automatically_displayed_in_a_loop() {
+
+    }
+
+    //US13 TC04<<<<<<
+    @Given("Click on a slider image")
+    public void click_on_a_slider_image() {
+        visitorHomePage.imageProduct1.click();
+
+    }
+    @Given("Verifies that the relevant page has been opened")
+    public void verifies_that_the_relevant_page_has_been_opened() {
+
+
+    }
 }
 

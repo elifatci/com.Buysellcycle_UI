@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public class AdminDashboard extends Base{
@@ -124,20 +123,16 @@ public class AdminDashboard extends Base{
     public WebElement searchBoxModelNummer;
 
     //US_38 Add new Category Box
-
-    //@FindBy(className= "/select2-selection select2-selection--multiple")
-    //public WebElement searchBoxCategory;
-
-   //@FindBy(className= "/select2-selection select2-selection--multiple")
-   //public WebElement searchBoxCategory;
+    @FindBy(className= "select2-selection__rendered")
+    public WebElement searchBoxCategory;
 
     //US_38 Add new Brand Box
     @FindBy(xpath= "//*[@id='select2-brand_id-container']")
     public WebElement searchBoxBrand;
 
     //US_38 Add new Unit Box
-    //@FindBy(className= "nice-select primary_select mb-15 unit")
-    //public WebElement searchBoxUnit;
+    @FindBy(xpath= "//*[@id='error_unit_type']")
+    public WebElement searchBoxUnit;
 
     //US_38 Add new MINIMUM ORDER QTY  Box
     @FindBy(xpath= "//*[@id='minimum_order_qty']")
