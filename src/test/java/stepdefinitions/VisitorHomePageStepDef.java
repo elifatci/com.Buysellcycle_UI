@@ -327,7 +327,7 @@ public class VisitorHomePageStepDef extends Base {
     public void user_clicks_on_contact_button_and_displays_the_contact_page(String url) {
         userDashboard.checkClickElement(visitorHomePage.linkHeaderContact);
         userDashboard.checkUrl(url);
-
+    }
     @Given("User clicks on -Contact button- and displays the Contact page.")
     public void user_clicks_on_contact_button_and_displays_the_contact_page() {
         assertTrue(visitorHomePage.linkHeaderContact.isDisplayed());
@@ -366,12 +366,8 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     @Given("User verifies that he-she accesses the {string}.")
-
     public void user_verifies_that_he_she_accesses_the(String url) {
         userDashboard.checkUrl(url);
-
-    public void user_verifies_that_he_she_accesses_the(String string) {
-        assertEquals(ConfigReader.getProperty(string), Driver.getDriver().getCurrentUrl());
     }
 
     @Given("User clicks on -Twitter icon-.")
