@@ -1,4 +1,4 @@
-@US011TC01
+@US011
 Feature:Verify the visibility and functionality of the "New User Zone" menu item on the homepage navigation bar
 
   Background:
