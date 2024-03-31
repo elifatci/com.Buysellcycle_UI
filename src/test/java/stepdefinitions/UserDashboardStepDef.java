@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UserDashboardStepDef extends Base {
@@ -101,31 +102,40 @@ public void user_clicks_to_the_dashboard_page_and_and_displays_dashboard_page() 
     }
     @Given("Verify filtering by payment status")
     public void verify_filtering_by_payment_status() {
-        userDashboard.dropdownAllHistory.click();
-        //Assert.assertTrue();
+       ReusableMethods.clickWithJS(userDashboard.dropdownAllHistory);
+       ReusableMethods.clickWithJS(userDashboard.dropdownAllHistoryCompleted);
+       assertTrue(userDashboard.labelPaidPurchase.isDisplayed());
 
     }
     @Given("Verify that the hamburger icon and download icon next to purchases are visible and functional")
     public void verify_that_the_hamburger_icon_and_download_icon_next_to_purchases_are_visible_and_functional() {
             userDashboard.verifyIcon();
     }
-    @Given("Click on the Dowload icon to verify that the invoice has been downloaded.")
+    @Given("Click on the Download icon to verify that the invoice has been downloaded.")
     public void click_on_the_dowload_icon_to_verify_that_the_invoice_has_been_downloaded() {
-            userDashboard.iconDownload.click();
             ReusableMethods.wait(2);
-            String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf\"";
+            ReusableMethods.clickWithJS(userDashboard.iconDownload);
+            ReusableMethods.wait(2);
+            String filePath="C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf";
             Assert.assertTrue(Files.exists(Paths.get(filePath)));
+    }
+
+    //US18 TC03
+    @Given("Click on the icon to view invoice details")
+    public void click_on_the_icon_to_view_invoice_details() {
+        ReusableMethods.wait(2);
+        userDashboard.iconBurgerPurchase.click();
     }
     @Given("Verify that Order code, Package code, Delivery Process, Order Details, Order Summary, Payment Type information is visible in the invoice information.")
     public void verify_that_order_code_package_code_delivery_process_order_details_order_summary_payment_type_information_is_visible_in_the_invoice_information() throws IOException {
-        String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000046.pdf\"";
-        String fileContent=new String(Files.readAllBytes(Paths.get(filePath)));
-        Assert.assertTrue(fileContent.contains("Invoice"));
-        Assert.assertTrue(fileContent.contains("Cash On Delivery"));
-        Assert.assertTrue(fileContent.contains("Details"));
-        Assert.assertTrue(fileContent.contains("Name"));
-        Assert.assertTrue(fileContent.contains("Package"));
-        Assert.assertTrue(fileContent.contains("Delivery Process"));
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(userDashboard.iconBurgerPurchase);
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order code"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Package code"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order Details"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order Summary"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Delivered"));
+        assertTrue(userDashboard.imageCashOnDelivery.isDisplayed());
     }
 
     // ---> US20-kevser
@@ -179,7 +189,123 @@ public void user_clicks_to_the_dashboard_page_and_and_displays_dashboard_page() 
         userDashboard.dropDownLast5Orders.isEnabled();
     }
 
+
 //********************US_24/TC_03***********************************
+
+//======================================================================================================================
+    //US21 ---> TC01
+    @Given("User clicks on -My Wallet- and displays the My Wallet {string}.")
+    public void user_clicks_on_my_wallet_and_displays_the_my_wallet(String url) {
+        userDashboard.checkClickElement(userDashboard.linkMyWallet);
+        userDashboard.checkUrl(url);
+    }
+    @Given("User verifies the visibility of information boards.")
+    public void user_verifies_the_visibility_of_information_boards() {
+        userDashboard.checkListELements(userDashboard.linkListMyWallet , 2);
+    }
+    //US21 ---> TC02
+    @Given("User clicks on -Recharge Wallet- and enters {string}.")
+    public void user_clicks_on_recharge_wallet_and_enters(String amount) {
+        userDashboard.checkClickElement(userDashboard.linkRechargeWallet);
+        ReusableMethods.wait(1);
+        userDashboard.checkSendKeysBox(userDashboard.textBoxRechargeAmount , amount);
+        userDashboard.checkClickElement(userDashboard.addFundButton);
+    }
+    @Given("User chooses a payment method.")
+    public void user_chooses_a_payment_method() {
+        userDashboard.checkClickElement(userDashboard.linkPaymentType);
+        ReusableMethods.wait(1);
+        Driver.getDriver().switchTo().frame(userDashboard.labelIframe);
+        assertTrue(userDashboard.labelPaymentType.isDisplayed());
+    }
+    @Given("User enters credit card information {string} {string} {string} {string}.")
+    public void user_enters_credit_card_informations(String email, String ccNumber, String expDate, String csc) {
+        userDashboard.checkSendKeysBox(userDashboard.textBoxEmail , email);
+        userDashboard.checkSendKeysBox(userDashboard.textBoxCardNumber , ccNumber);
+        userDashboard.checkSendKeysBox(userDashboard.textBoxExpirationDate , expDate);
+        userDashboard.checkSendKeysBox(userDashboard.textBoxCsc , csc);
+        userDashboard.checkClickElement(userDashboard.payButton);
+    }
+    @Given("User displays the -Wallet Recharge History- table.")
+    public void user_displays_the_wallet_recharge_history_table() {
+        userDashboard.checkListELements(userDashboard.rowListWalletHistory , 6);
+    }
+    @Given("User verifies the {string}.")
+    public void user_verifies_the(String amount) {
+        assertEquals(ConfigReader.getProperty(amount) , userDashboard.labelFirstAmount.getText());
+    }
+    //US30 ---> TC01
+    @Given("User clicks on -My Wishlist- and displays {string} the My Wishlist page.")
+    public void user_clicks_on_my_wishlist_and_displays_the_my_wishlist_page(String url) {
+        userDashboard.checkClickElement(userDashboard.linkMyWishlist);
+        userDashboard.checkUrl(url);
+    }
+    @Given("User verifies the visibility of products.")
+    public void user_verifies_the_visibility_of_products() {
+        assertTrue(userDashboard.labelResults.isDisplayed());
+    }
+    @Given("User clicks on -Add To Cart icon- and adds an item.")
+    public void user_clicks_on_add_to_cart_icon_and_adds_an_item() {
+        userDashboard.checkClickElement(userDashboard.iconAddToCart);
+    }
+    @Given("User verifies the visibility of Success Alert.")
+    public void user_verifies_the_visibility_of_success_alert() {
+        ReusableMethods.wait(1);
+        assertTrue(userDashboard.labelItemAddedConfirmation.isDisplayed());
+    }
+    //US30 ---> TC02
+    @Given("User clicks on -Delete icon- and deletes an item.")
+    public void user_clicks_on_delete_icon_and_deletes_an_item() {
+        ReusableMethods.hover(userDashboard.iconDelete);
+        ReusableMethods.wait(1);
+        userDashboard.checkClickElement(userDashboard.iconDelete);
+        ReusableMethods.wait(1);
+        assertTrue(userDashboard.labelDeleteWishlist.isDisplayed());
+        userDashboard.checkClickElement(userDashboard.deleteButton);
+    }
+    //US30 ---> TC03
+    @Given("User clicks on -Compare icon- for the first and second item.")
+    public void user_clicks_on_compare_icon_for_the_first_and_second_item() {
+        ReusableMethods.hover(userDashboard.iconCompare);
+        ReusableMethods.wait(1);
+        userDashboard.checkClickElement(userDashboard.iconCompare);
+        ReusableMethods.hover(userDashboard.iconCompare2);
+        ReusableMethods.wait(1);
+        userDashboard.checkClickElement(userDashboard.iconCompare2);
+    }
+    @Given("User clicks on -Compare- and displays {string} the Compare page.")
+    public void user_clicks_on_compare_and_displays_the_compare_page(String url) {
+       userDashboard.checkClickElement(userDashboard.linkCompare);
+       userDashboard.checkUrl(url);
+    }
+    @Given("User verifies the comparison of those items.")
+    public void user_verifies_the_comparison_of_those_items() {
+        assertTrue(userDashboard.labelCompareList.isDisplayed());
+    }
+    //US30 ---> TC04
+    @Given("User clicks on -Quick View icon- and displays the details of the product.")
+    public void user_clicks_on_quick_view_icon_and_displays_the_details_of_the_product() {
+        ReusableMethods.hover(userDashboard.iconQuickView);
+        ReusableMethods.wait(1);
+        userDashboard.checkClickElement(userDashboard.iconQuickView);
+    }
+    @Given("User verifies the visibility of details of the product.")
+    public void user_verifies_the_visibility_of_details_of_the_product() {
+        ReusableMethods.wait(1);
+        assertTrue(userDashboard.labelQuickViewPage.isDisplayed());
+    }
+    //US30 ---> TC05
+    @Given("User clicks on -number of products dropdown menu- and chooses an option {string}.")
+    public void user_clicks_on_number_of_products_dropdown_menu_and_chooses_an_option(String string) {
+        Select select = new Select(userDashboard.dropDownShowItems);
+        select.selectByValue(ConfigReader.getProperty(string));
+    }
+    @Given("User confirms that only the amount {string} of the filtered number of products is visible.")
+    public void user_confirms_that_only_the_amount_of_the_filtered_number_of_products_is_visible(String string) {
+        Select select = new Select(userDashboard.dropDownSortBy);
+        select.selectByValue(ConfigReader.getProperty(string));
+    }
+
 
     @Given("Click the {string} tab.")
     public void click_the_tab(String string) {

@@ -197,7 +197,7 @@ public class VisitorHomePage extends Base{
     public WebElement iconContactTwitter;
     @FindBy(xpath = "//a[@href='http://linkedin.com']")
     public WebElement iconContactLinkedin;
-    @FindBy(xpath = "//a[@href='http://instagram.com']'")
+    @FindBy(xpath = "//a[@href='http://instagram.com']")
     public WebElement iconContactInstagram;
     @FindBy(xpath = "//*[text()='Get in touch']")
     public WebElement labelFormGetInTouch;
@@ -439,5 +439,20 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
     public WebElement icon3;
 
+    //Blog page>> Category section
+    @FindBy(xpath = "//*[@class='blog_sidebar_box mb_20']")
+    public WebElement labelBlogCategory;
+
+    //Blog page>> Category>> subCategory
+    @FindBy(xpath = "(//*[@class='label_name f_w_400'])[3]")
+    public WebElement linkBlogShopping;
+
+    //Blog page>> Popular Post section
+    @FindBy(xpath = "//*[@class='blog_sidebar_box mb_15']")
+    public WebElement labelPopularPost;
+
+    //Blog page>> Keywords section
+    @FindBy(xpath = "//*[text()='shopping']")
+    public WebElement buttonBlogShopping;
 
 }
