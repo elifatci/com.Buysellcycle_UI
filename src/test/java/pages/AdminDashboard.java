@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class AdminDashboard extends Base{
-    //----------------------------------
-    @FindBy(xpath = "(//li[@class])[8]")
+    //------------------------------------------------------------------------------------------------------------------
+    @FindBy(xpath = "//*[text()='Products']")
     public WebElement dropDownProducts;
 
-    @FindBy(xpath = "(//li/ul)[6]/li[6]")
+    @FindBy(xpath = "//*[text()='Product List']")
     public WebElement linkProductList;
 
     @FindBy(xpath = "//*[@href='#order_complete_data']")
@@ -34,7 +34,7 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[4]")
     public WebElement labelProductBySKU;
 
-    @FindBy(xpath = " (//thead)[1]/tr[1]/th")
+    @FindBy(xpath = "(//thead)[1]/tr[1]/th")
     public List<WebElement> rowListProductList;
 
     @FindBy(xpath = "(//*[@type='search'])[1]")
@@ -46,14 +46,31 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[@class='slider round'])[1]")
     public WebElement radioButtonStatus;
 
+    @FindBy(xpath = "//*[text()='Updated successfully!']")
+    public WebElement labelStatusConfirm;
+
     @FindBy(xpath = "(//*[@id='dropdownMenu2'])[1]")
     public WebElement dropDownSelect;
 
-    @FindBy(xpath = "(//*[@data-id='438'])[2]")
+    @FindBy(xpath = "(//*[text()='View'])[2]")
     public WebElement linkViewProduct;
 
-    @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/products/438/edit ']")
+    @FindBy(xpath = "(//*[text()='Edit'])[1]")
     public WebElement linkEditProduct;
+
+    @FindBy(xpath = "(//*[text()='Clone'])[1]")
+    public WebElement linkCloneProduct;
+
+    @FindBy(xpath = "(//*[text()='Delete'])[1]")
+    public WebElement linkDeleteProduct;
+
+    @FindBy(xpath = "(//*[@id='dataDeleteBtn'])[2]")
+    public WebElement buttonDeleteProduct;
+
+    @FindBy(xpath = "//*[text()='Deleted successfully!']")
+    public WebElement labelDeleteSuccess;
+
+
     //------------Nazime----------------------
 
     //US_38 dashboardside bar Add New Product link
@@ -107,16 +124,16 @@ public class AdminDashboard extends Base{
     public WebElement searchBoxModelNummer;
 
     //US_38 Add new Category Box
-    @FindBy(className= "/select2-selection select2-selection--multiple")
-    public WebElement searchBoxCategory;
+    //@FindBy(className= "/select2-selection select2-selection--multiple")
+    //public WebElement searchBoxCategory;
 
     //US_38 Add new Brand Box
     @FindBy(xpath= "//*[@id='select2-brand_id-container']")
     public WebElement searchBoxBrand;
 
     //US_38 Add new Unit Box
-    @FindBy(className= "nice-select primary_select mb-15 unit")
-    public WebElement searchBoxUnit;
+    //@FindBy(className= "nice-select primary_select mb-15 unit")
+    //public WebElement searchBoxUnit;
 
     //US_38 Add new MINIMUM ORDER QTY  Box
     @FindBy(xpath= "//*[@id='minimum_order_qty']")

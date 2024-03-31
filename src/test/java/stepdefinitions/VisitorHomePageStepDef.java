@@ -211,48 +211,37 @@ public class VisitorHomePageStepDef extends Base {
 //=======================================================================================================
 
     //US04 ---> TC01 + TC02 + TC03 + TC04 + TC05 + TC06
-    @Given("User clicks on -Register button- and displays the Sign Up page.")
-    public void user_clicks_on_register_button_and_displays_the_sign_up_page() {
-        assertTrue(visitorHomePage.linkRegister.isDisplayed());
-        assertTrue(visitorHomePage.linkRegister.isEnabled());
-        visitorHomePage.linkRegister.click();
+    @Given("User clicks on -Register button- and displays {string} the Sign Up page.")
+    public void user_clicks_on_register_button_and_displays_the_sign_up_page(String url) {
+        userDashboard.checkClickElement(visitorHomePage.linkRegister);
         assertTrue(visitorHomePage.logoBuySell.isDisplayed());
         assertTrue(visitorHomePage.labelPictureText.isDisplayed());
-        assertEquals(ConfigReader.getProperty("registerUrl") , Driver.getDriver().getCurrentUrl());
+        userDashboard.checkUrl(url);
         assertTrue(visitorHomePage.tableRegisterForm.isDisplayed());
     }
     @Given("User enters a valid {string} on -First Name box-.")
     public void user_enters_a_valid_on_first_name_box(String name) {
-        assertTrue(visitorHomePage.textBoxFirstName.isEnabled());
-        visitorHomePage.textBoxFirstName.sendKeys(ConfigReader.getProperty(name));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxFirstName , name);
     }
     @Given("User enters a valid {string} on -Last Name box-.")
     public void user_enters_a_valid_on_last_name_box(String lastName) {
-        assertTrue(visitorHomePage.textBoxLastName.isEnabled());
-        visitorHomePage.textBoxLastName.sendKeys(ConfigReader.getProperty(lastName));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxLastName , lastName);
     }
     @Given("User enters a valid {string} clicks on -Email or Phone box-.")
     public void user_enters_a_valid_clicks_on_email_or_phone_box(String email) {
-        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
-        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(email));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
     }
     @Given("User enters a valid {string} on -Password box-.")
     public void user_enters_a_valid_on_password_box(String password) {
-        assertTrue(visitorHomePage.textBoxPassword.isEnabled());
-        visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty(password));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPassword , password);
     }
     @Given("User enters a valid {string} on -Confirm Password- box.")
     public void user_enters_a_valid_on_confirm_password_box(String password) {
-        assertTrue(visitorHomePage.textBoxPasswordConfirm.isEnabled());
-        visitorHomePage.textBoxPasswordConfirm.sendKeys(ConfigReader.getProperty(password));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPasswordConfirm , password);
     }
     @Given("User clicks on Sign Up button.")
     public void user_clicks_on_sign_up_button() {
-        ReusableMethods.scrollIntoViewJS(visitorHomePage.linkSignIn);
-        ReusableMethods.wait(1);
-        assertTrue(visitorHomePage.signUpButton.isDisplayed());
-        assertTrue(visitorHomePage.signUpButton.isEnabled());
-        visitorHomePage.signUpButton.click();
+        userDashboard.checkClickElement(visitorHomePage.signUpButton);
     }
     @Given("User verifies that he-she registered.")
     public void user_verifies_that_he_she_registered() {
@@ -278,13 +267,12 @@ public class VisitorHomePageStepDef extends Base {
     public void user_verifies_that_he_she_could_not_register_without_entering_the_same_password() {
         assertTrue(visitorHomePage.labelPasswordError.isDisplayed());
     }
+
     //US10 ---> TC01
-    @Given("User clicks on -Contact button- and displays the Contact page.")
-    public void user_clicks_on_contact_button_and_displays_the_contact_page() {
-        assertTrue(visitorHomePage.linkHeaderContact.isDisplayed());
-        assertTrue(visitorHomePage.linkHeaderContact.isEnabled());
-        visitorHomePage.linkHeaderContact.click();
-        assertEquals(ConfigReader.getProperty("contactUrl") , Driver.getDriver().getCurrentUrl());
+    @Given("User clicks on -Contact button- and displays {string} the Contact page.")
+    public void user_clicks_on_contact_button_and_displays_the_contact_page(String url) {
+        userDashboard.checkClickElement(visitorHomePage.linkHeaderContact);
+        userDashboard.checkUrl(url);
     }
     @Given("User verifies that -Call or WhatsApp title- and the information about it is visible.")
     public void user_verifies_that_call_or_whats_app_title_and_the_information_about_it_is_visible() {
@@ -305,49 +293,41 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.labelContactHeadOffice.isDisplayed());
         assertTrue(visitorHomePage.labelContactAddress.isDisplayed());
     }
+
     //US10 ---> TC02-03-04-05
     @Given("User clicks on -Facebook icon-.")
     public void user_clicks_on_facebook_icon() {
-        assertTrue(visitorHomePage.iconContactFacebook.isDisplayed());
-        assertTrue(visitorHomePage.iconContactFacebook.isEnabled());
-        visitorHomePage.iconContactFacebook.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactFacebook);
     }
     @Given("User verifies that he-she accesses the {string}.")
-    public void user_verifies_that_he_she_accesses_the(String string) {
-        assertEquals(ConfigReader.getProperty(string) , Driver.getDriver().getCurrentUrl());
+    public void user_verifies_that_he_she_accesses_the(String url) {
+        userDashboard.checkUrl(url);
     }
     @Given("User clicks on -Twitter icon-.")
     public void user_clicks_on_twitter_icon() {
-        assertTrue(visitorHomePage.iconContactTwitter.isDisplayed());
-        assertTrue(visitorHomePage.iconContactTwitter.isEnabled());
-        visitorHomePage.iconContactTwitter.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactTwitter);
     }
     @Given("User clicks on -LinkedIn icon-.")
     public void user_clicks_on_linked_in_icon() {
-        assertTrue(visitorHomePage.iconContactLinkedin.isDisplayed());
-        assertTrue(visitorHomePage.iconContactLinkedin.isEnabled());
-        visitorHomePage.iconContactLinkedin.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactLinkedin);
     }
     @Given("User clicks on -Instagram icon-.")
     public void user_clicks_on_instagram_icon() {
-        assertTrue(visitorHomePage.iconContactInstagram.isDisplayed());
-        assertTrue(visitorHomePage.iconContactInstagram.isEnabled());
-        visitorHomePage.iconContactInstagram.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactInstagram);
     }
+
     //US10 ---> TC06
     @Given("User confirms that Get in touch form is visible.")
     public void user_confirms_that_get_in_touch_form_is_visible() {
         assertTrue(visitorHomePage.labelFormGetInTouch.isDisplayed());
     }
     @Given("User fills out the name section {string}.")
-    public void user_fills_out_the_name_section(String string) {
-        assertTrue(visitorHomePage.textBoxName.isEnabled());
-        visitorHomePage.textBoxName.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_name_section(String name) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxName , name);
     }
     @Given("User fills out the email section {string}.")
-    public void user_fills_out_the_email_section(String string) {
-        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
-        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_email_section(String email) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
     }
     @Given("User chooses an option {int}.")
     public void user_chooses_an_option(int index) {
@@ -355,14 +335,12 @@ public class VisitorHomePageStepDef extends Base {
         selectOption.selectByIndex(index);
     }
     @Given("User fills out the message section {string}.")
-    public void user_fills_out_the_message_section(String string) {
-        assertTrue(visitorHomePage.textBoxMessage.isEnabled());
-        visitorHomePage.textBoxMessage.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_message_section(String message) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxMessage , message);
     }
     @Given("User clicks on -Send Message button-")
     public void user_clicks_on_send_message_button() {
-        assertTrue(visitorHomePage.sendMessageButton.isEnabled());
-        visitorHomePage.sendMessageButton.click();
+        userDashboard.checkClickElement(visitorHomePage.sendMessageButton);
     }
   
     //US09 TC01

@@ -2,8 +2,14 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.ConfigReader;
+import utils.Driver;
+import utils.ReusableMethods;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UserDashboard extends Base {
 
@@ -205,14 +211,13 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[text()='Thank you for your purchase!']")
     public WebElement labelThankYouForYourPurchase;
   
-   //----------------------------------
-    @FindBy(xpath = "(//*[@href='https://qa.buysellcycle.com/wallet/customer/my-wallet-index'])[2]")
+   //-------------------------------------------------------------------------------------------------------------------
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center '])[1]")
     public WebElement linkMyWallet;
 
     @FindBy(xpath = "//body/div[3]//div[2]/div/div[2]/div")
     public List<WebElement> linkListMyWallet;
 
-    //Homepage>> LoginLink>> Email Text Box ||
     @FindBy(xpath = "(//*[@data-bs-target='#recharge_wallet'])[2]")
     public WebElement linkRechargeWallet;
 
@@ -222,11 +227,14 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[text()='Add Fund']")
     public WebElement addFundButton;
 
-    @FindBy(xpath = "//*[@class='wallet_elemnt active']")
+    @FindBy(xpath = "//*[@class='wallet_elemnt']")
     public WebElement linkPaymentType;
 
     @FindBy(xpath = "(//*[text()='Stripe Payment'])[2]")
     public WebElement labelPaymentType;
+
+    @FindBy(xpath = "//*[@name='stripe_checkout_app']")
+    public WebElement labelIframe;
 
     @FindBy(id = "email")
     public WebElement textBoxEmail;
@@ -246,17 +254,23 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//thead)[1]/tr/th")
     public List<WebElement> rowListWalletHistory;
 
+    @FindBy(xpath = "(//tbody)[1]/tr[1]/td[3]")
+    public WebElement labelFirstAmount;
+
     @FindBy(xpath = "(//*[@href='https://qa.buysellcycle.com/my-wishlist'])[2]")
     public WebElement linkMyWishlist;
 
-    @FindBy(xpath = "//*[@class='font_14 f_w_400 flex-fill mb-0']")
+    @FindBy(id = "productShow")
     public WebElement labelResults;
 
     @FindBy(xpath = "//*[@name='sort_by']")
     public WebElement dropDownSortBy;
 
-    @FindBy(xpath = "//*[@name='paginate_by']")
+    @FindBy(id = "paginate_by")
     public WebElement dropDownShowItems;
+
+    @FindBy(xpath = "//*[@class='nice-select amaz_select4']")
+    public WebElement dropDownShowItems2;
 
     @FindBy(xpath = "(//*[@title='Compare'])[1]")
     public WebElement iconCompare;
@@ -267,11 +281,14 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/compare']")
     public WebElement linkCompare;
 
-    @FindBy(xpath = "//div/div[2]/div/div[1]/div/div[1]/a")
-    public WebElement linkFirstProduct;
+    @FindBy(id = "compare_list_div")
+    public WebElement labelCompareList;
 
-    @FindBy(xpath = "//div/div[2]/div/div[2]/div/div[1]/a")
-    public WebElement linkSecondProduct;
+    @FindBy(xpath = "(//*[@title='Quick View'])[1]")
+    public WebElement iconQuickView;
+
+    @FindBy(xpath = "//*[@class='product_quick_view ']")
+    public WebElement labelQuickViewPage;
 
     @FindBy(xpath = "(//*[@title='Delete'])[1]")
     public WebElement iconDelete;
@@ -287,7 +304,7 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "(//*[text()='Item added to your cart'])[1]")
     public WebElement labelItemAddedConfirmation;
-    //----------------------------------
+    //==================================================================================================================
 
     //===========USER SUPPORT TİCKET >> US26===========
 
@@ -375,12 +392,12 @@ public class UserDashboard extends Base {
     public WebElement linkMyCoupons;
 
     // US_22 Search Box add Coupons
-    @FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
-    public WebElement searchBoxAddCoupon;
+    //@FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
+    //public WebElement searchBoxAddCoupon;
 
     // US_22 table Collected Coupons
-    @FindBy(className= "table_border_whiteBox mb_30")
-    public WebElement tableCollectedCoupons;
+    //@FindBy(className= "table_border_whiteBox mb_30")
+    //public WebElement tableCollectedCoupons;
 
     // US_22 icon Copy
     @FindBy(xpath= "(//*[@id='Layer_1'])[2]")
@@ -398,4 +415,24 @@ public class UserDashboard extends Base {
     @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
     public WebElement buttonLogOutSideBar;
 
+//======================================================================================================================
+    public void checkClickElement(WebElement element){
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+        ReusableMethods.clickWithJS(element);
+    }
+    public void checkSendKeysBox(WebElement element, String propertiesValue){
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+        element.clear();
+        element.sendKeys(ConfigReader.getProperty(propertiesValue));
+    }
+    public void checkUrl(String propertiesUrl){
+        assertEquals(ConfigReader.getProperty(propertiesUrl) , Driver.getDriver().getCurrentUrl());
+    }
+    public void checkListELements(List<WebElement> element , int count){
+        for (int i = 0; i < count; i++) {
+            assertTrue(element.get(i).isDisplayed());
+        }
+    }
 }

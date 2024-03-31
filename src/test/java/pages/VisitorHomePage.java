@@ -197,7 +197,7 @@ public class VisitorHomePage extends Base{
     public WebElement iconContactTwitter;
     @FindBy(xpath = "//a[@href='http://linkedin.com']")
     public WebElement iconContactLinkedin;
-    @FindBy(xpath = "//a[@href='http://instagram.com']'")
+    @FindBy(xpath = "//a[@href='http://instagram.com']")
     public WebElement iconContactInstagram;
     @FindBy(xpath = "//*[text()='Get in touch']")
     public WebElement labelFormGetInTouch;
