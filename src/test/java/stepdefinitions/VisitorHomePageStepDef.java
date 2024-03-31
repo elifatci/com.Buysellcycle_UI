@@ -232,7 +232,8 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 
-    //======================================================================================================
+//======================================================================================================
+    //US01
     @Then("Verify that the title is {string}")
     public void verify_that_the_title_is(String title) {
         String actualResult = Driver.getDriver().getTitle();
@@ -738,6 +739,83 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
 
     }
+    //----US-11--All step the test cases----------------------------------------------
+    @Given("Verify  for the presence of the {string} menu item")
+    public void verify_for_the_presence_of_the_menu_item(String string) {
+
+    }
+    @Given("Click on the {string} menu item")
+    public void click_on_the_menu_item(String string) {
+
+    }
+    @Given("verify that clicking on the {string} menu item should redirect the user to the New-user-zone page")
+    public void verify_that_clicking_on_the_menu_item_should_redirect_the_user_to_the_new_user_zone_page(String string) {
+
+    }
+
+    @Given("Verify that {string} section is active")
+    public void verify_that_section_is_active(String string) {
+
+    }
+    @Given("Click on the {string} section")
+    public void click_on_the_section(String string) {
+
+    }
+    @Given("verify that {string} section is active and products display with special discount")
+    public void verify_that_section_is_active_and_products_display_with_special_discount(String string) {
+
+    }
+    @Given("Click on the {string} section\" and verify that \"Coupon\" section is active")
+    public void click_on_the_section_and_verify_that_coupon_section_is_active(String string) {
+
+    }
+
+    @Given("Click on the chart icon of the first product")
+    public void click_on_the_chart_icon_of_the_first_product() {
+
+    }
+    @Given("verify that the message {string} on the modal")
+    public void verify_that_the_message_on_the_modal(String string) {
+
+    }
+    @Given("Close the modal window that opened")
+    public void close_the_modal_window_that_opened() {
+
+    }
+    @Given("Click on the compare icon of the first product")
+    public void click_on_the_compare_icon_of_the_first_product() {
+
+    }
+    @Given("verify that the message {string} is display")
+    public void verify_that_the_message_is_display(String string) {
+
+    }
+
+    @Given("Click  on the Quick view icon of the first product and verify that the modal window appear")
+    public void click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+
+    }
+
+    @Given("Click on the Wish list icon of the first product and verify that the product is added")
+    public void click_on_the_wish_list_icon_of_the_first_product_and_verify_that_the_product_is_added() {
+
+    }
+
+    @Given("Click on the chart icon of the first product for adding to cart and verify that the message {string} on the modal")
+    public void click_on_the_chart_icon_of_the_first_product_for_adding_to_cart_and_verify_that_the_message_on_the_modal(String string) {
+
+    }
+
+    @Given("Click on the compare icon of the first product  and verify that the message {string} is display")
+    public void click_on_the_compare_icon_of_the_first_product_and_verify_that_the_message_is_display(String string) {
+
+    }
+
+    @Given("Click on the Click on the Quick view icon of the first product and verify that the modal window appear")
+    public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+
+    }
+
 
 }
 
