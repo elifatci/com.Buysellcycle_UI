@@ -122,25 +122,6 @@ public class UserDashboardStepDef extends Base {
         userDashboard.verifyIcon();
     }
 
-    @Given("Click on the Dowload icon to verify that the invoice has been downloaded.")
-    public void click_on_the_dowload_icon_to_verify_that_the_invoice_has_been_downloaded() {
-        userDashboard.iconDownload.click();
-        ReusableMethods.wait(2);
-        String filePath = "\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf\"";
-        Assert.assertTrue(Files.exists(Paths.get(filePath)));
-    }
-
-    @Given("Verify that Order code, Package code, Delivery Process, Order Details, Order Summary, Payment Type information is visible in the invoice information.")
-    public void verify_that_order_code_package_code_delivery_process_order_details_order_summary_payment_type_information_is_visible_in_the_invoice_information() throws IOException {
-        String filePath = "\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000046.pdf\"";
-        String fileContent = new String(Files.readAllBytes(Paths.get(filePath)));
-        Assert.assertTrue(fileContent.contains("Invoice"));
-        Assert.assertTrue(fileContent.contains("Cash On Delivery"));
-        Assert.assertTrue(fileContent.contains("Details"));
-        Assert.assertTrue(fileContent.contains("Name"));
-        Assert.assertTrue(fileContent.contains("Package"));
-        Assert.assertTrue(fileContent.contains("Delivery Process"));
-
     @Given("Click on the Download icon to verify that the invoice has been downloaded.")
     public void click_on_the_dowload_icon_to_verify_that_the_invoice_has_been_downloaded() {
             ReusableMethods.wait(2);
@@ -248,7 +229,7 @@ public class UserDashboardStepDef extends Base {
     @Given("Logout link is displayed in the Dashboard Sidebar")
     public void logout_link_is_displayed_in_the_dashboard_sidebar() {
         assertTrue(userDashboard.buttonLogout.isDisplayed());
-
+    }
 //==============================US_26=============================================
     @Given("I click on the {string} link in the header section.")
     public void i_click_on_the_link_in_the_header_section(String string) {
@@ -387,11 +368,6 @@ public class UserDashboardStepDef extends Base {
     public void verifies_that_the_link_has_been_clicked(String string) {
 
     }
-//======================================================================================================
-
-
-
-
 
 //********************US_24/TC_03***********************************
 
@@ -582,5 +558,7 @@ public class UserDashboardStepDef extends Base {
     public void displays_login_in_the_upper_right_corner_of_the_homepage() {
         assertTrue(userDashboard.buttonLogin.isDisplayed());
     }
+
+
 }
 
