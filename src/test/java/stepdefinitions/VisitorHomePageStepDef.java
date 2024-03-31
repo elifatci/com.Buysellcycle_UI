@@ -10,6 +10,7 @@ import pages.Base;
 import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
+import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -137,6 +138,11 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_you_are_directed_to_the_page_where_current_product_offers_are_listed() {
         assertTrue(visitorHomePage.labelBestDeals.isDisplayed());
     }
+    @Given("Closes page")
+    public void Closes_page() {
+        Driver.quitDriver();
+    }
+
 
     @Given("Verifies that each filter option is visible on the Best Deals page that opens.")
     public void verifies_that_each_filter_option_is_visible_on_the_best_deals_page_that_opens() {
@@ -233,8 +239,9 @@ public class VisitorHomePageStepDef extends Base {
         visitorHomePage.control();
 
     }
+//======================================================================================================
+    //US01
 
-    //======================================================================================================
     @Then("Verify that the title is {string}")
     public void verify_that_the_title_is(String title) {
         String actualResult = Driver.getDriver().getTitle();
@@ -244,54 +251,44 @@ public class VisitorHomePageStepDef extends Base {
 //=======================================================================================================
 
     //US04 ---> TC01 + TC02 + TC03 + TC04 + TC05 + TC06
-    @Given("User clicks on -Register button- and displays the Sign Up page.")
-    public void user_clicks_on_register_button_and_displays_the_sign_up_page() {
-        assertTrue(visitorHomePage.linkRegister.isDisplayed());
-        assertTrue(visitorHomePage.linkRegister.isEnabled());
-        visitorHomePage.linkRegister.click();
+    @Given("User clicks on -Register button- and displays {string} the Sign Up page.")
+    public void user_clicks_on_register_button_and_displays_the_sign_up_page(String url) {
+        userDashboard.checkClickElement(visitorHomePage.linkRegister);
         assertTrue(visitorHomePage.logoBuySell.isDisplayed());
         assertTrue(visitorHomePage.labelPictureText.isDisplayed());
+        userDashboard.checkUrl(url);
         assertEquals(ConfigReader.getProperty("registerUrl"), Driver.getDriver().getCurrentUrl());
         assertTrue(visitorHomePage.tableRegisterForm.isDisplayed());
     }
 
     @Given("User enters a valid {string} on -First Name box-.")
     public void user_enters_a_valid_on_first_name_box(String name) {
-        assertTrue(visitorHomePage.textBoxFirstName.isEnabled());
-        visitorHomePage.textBoxFirstName.sendKeys(ConfigReader.getProperty(name));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxFirstName , name);
     }
 
     @Given("User enters a valid {string} on -Last Name box-.")
     public void user_enters_a_valid_on_last_name_box(String lastName) {
-        assertTrue(visitorHomePage.textBoxLastName.isEnabled());
-        visitorHomePage.textBoxLastName.sendKeys(ConfigReader.getProperty(lastName));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxLastName , lastName);
     }
 
     @Given("User enters a valid {string} clicks on -Email or Phone box-.")
     public void user_enters_a_valid_clicks_on_email_or_phone_box(String email) {
-        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
-        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(email));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
     }
 
     @Given("User enters a valid {string} on -Password box-.")
     public void user_enters_a_valid_on_password_box(String password) {
-        assertTrue(visitorHomePage.textBoxPassword.isEnabled());
-        visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty(password));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPassword , password);
     }
 
     @Given("User enters a valid {string} on -Confirm Password- box.")
     public void user_enters_a_valid_on_confirm_password_box(String password) {
-        assertTrue(visitorHomePage.textBoxPasswordConfirm.isEnabled());
-        visitorHomePage.textBoxPasswordConfirm.sendKeys(ConfigReader.getProperty(password));
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPasswordConfirm , password);
     }
 
     @Given("User clicks on Sign Up button.")
     public void user_clicks_on_sign_up_button() {
-        ReusableMethods.scrollIntoViewJS(visitorHomePage.linkSignIn);
-        ReusableMethods.wait(1);
-        assertTrue(visitorHomePage.signUpButton.isDisplayed());
-        assertTrue(visitorHomePage.signUpButton.isEnabled());
-        visitorHomePage.signUpButton.click();
+        userDashboard.checkClickElement(visitorHomePage.signUpButton);
     }
 
     @Given("User verifies that he-she registered.")
@@ -325,6 +322,12 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     //US10 ---> TC01
+
+    @Given("User clicks on -Contact button- and displays {string} the Contact page.")
+    public void user_clicks_on_contact_button_and_displays_the_contact_page(String url) {
+        userDashboard.checkClickElement(visitorHomePage.linkHeaderContact);
+        userDashboard.checkUrl(url);
+
     @Given("User clicks on -Contact button- and displays the Contact page.")
     public void user_clicks_on_contact_button_and_displays_the_contact_page() {
         assertTrue(visitorHomePage.linkHeaderContact.isDisplayed());
@@ -359,35 +362,31 @@ public class VisitorHomePageStepDef extends Base {
     //US10 ---> TC02-03-04-05
     @Given("User clicks on -Facebook icon-.")
     public void user_clicks_on_facebook_icon() {
-        assertTrue(visitorHomePage.iconContactFacebook.isDisplayed());
-        assertTrue(visitorHomePage.iconContactFacebook.isEnabled());
-        visitorHomePage.iconContactFacebook.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactFacebook);
     }
 
     @Given("User verifies that he-she accesses the {string}.")
+
+    public void user_verifies_that_he_she_accesses_the(String url) {
+        userDashboard.checkUrl(url);
+
     public void user_verifies_that_he_she_accesses_the(String string) {
         assertEquals(ConfigReader.getProperty(string), Driver.getDriver().getCurrentUrl());
     }
 
     @Given("User clicks on -Twitter icon-.")
     public void user_clicks_on_twitter_icon() {
-        assertTrue(visitorHomePage.iconContactTwitter.isDisplayed());
-        assertTrue(visitorHomePage.iconContactTwitter.isEnabled());
-        visitorHomePage.iconContactTwitter.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactTwitter);
     }
 
     @Given("User clicks on -LinkedIn icon-.")
     public void user_clicks_on_linked_in_icon() {
-        assertTrue(visitorHomePage.iconContactLinkedin.isDisplayed());
-        assertTrue(visitorHomePage.iconContactLinkedin.isEnabled());
-        visitorHomePage.iconContactLinkedin.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactLinkedin);
     }
 
     @Given("User clicks on -Instagram icon-.")
     public void user_clicks_on_instagram_icon() {
-        assertTrue(visitorHomePage.iconContactInstagram.isDisplayed());
-        assertTrue(visitorHomePage.iconContactInstagram.isEnabled());
-        visitorHomePage.iconContactInstagram.click();
+        userDashboard.checkClickElement(visitorHomePage.iconContactInstagram);
     }
 
     //US10 ---> TC06
@@ -397,15 +396,13 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     @Given("User fills out the name section {string}.")
-    public void user_fills_out_the_name_section(String string) {
-        assertTrue(visitorHomePage.textBoxName.isEnabled());
-        visitorHomePage.textBoxName.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_name_section(String name) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxName , name);
     }
 
     @Given("User fills out the email section {string}.")
-    public void user_fills_out_the_email_section(String string) {
-        assertTrue(visitorHomePage.textBoxEmail.isEnabled());
-        visitorHomePage.textBoxEmail.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_email_section(String email) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
     }
 
     @Given("User chooses an option {int}.")
@@ -415,15 +412,13 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     @Given("User fills out the message section {string}.")
-    public void user_fills_out_the_message_section(String string) {
-        assertTrue(visitorHomePage.textBoxMessage.isEnabled());
-        visitorHomePage.textBoxMessage.sendKeys(ConfigReader.getProperty(string));
+    public void user_fills_out_the_message_section(String message) {
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxMessage , message);
     }
 
     @Given("User clicks on -Send Message button-")
     public void user_clicks_on_send_message_button() {
-        assertTrue(visitorHomePage.sendMessageButton.isEnabled());
-        visitorHomePage.sendMessageButton.click();
+        userDashboard.checkClickElement(visitorHomePage.sendMessageButton);
     }
 
     //US09 TC01
@@ -466,7 +461,7 @@ public class VisitorHomePageStepDef extends Base {
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         ReusableMethods.wait(2);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        visitorHomePage.linkReadMoreFour.click();
+        ReusableMethods.clickWithJS(visitorHomePage.linkReadMoreFour);
     }
 
     @Given("Verify that you are redirected to the relevant page")
@@ -477,41 +472,55 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Search for a keyword in the {string} box")
     public void search_for_a_keyword_in_the_box(String string) {
 
+   }
+    @Given("Search for a keyword in the Search Post box")
+    public void search_for_a_keyword_in_the_box() {
+        visitorHomePage.searchBoxPost.sendKeys("shopping", Keys.ENTER);
     }
 
     @Given("Verify that the search results match the relevant keyword")
     public void verify_that_the_search_results_match_the_relevant_keyword() {
-
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("shopping"));
     }
 
     @Given("Verify that titles are visible in the Category section")
     public void verify_that_titles_are_visible_in_the_category_section() {
-
+        assertTrue(visitorHomePage.labelBlogCategory.isDisplayed());
     }
 
     @Given("Select a category from the {string} section")
     public void select_a_category_from_the_section(String string) {
 
+   }
+    @Given("Select a category from the Category section")
+    public void select_a_category_from_the_section() {
+        visitorHomePage.linkBlogShopping.click();
     }
 
     @Given("Verify that relevant blogs are listed")
     public void verify_that_relevant_blogs_are_listed() {
-
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("shopping"));
     }
 
     @Given("Verify that the popular post section is visible and blogs are displayed")
     public void verify_that_the_popular_post_section_is_visible_and_blogs_are_displayed() {
-
+        assertTrue(visitorHomePage.labelPopularPost.isDisplayed());
     }
 
     @Given("Verify that the Keyword section is visible")
     public void verify_that_the_keyword_section_is_visible() {
-
+        assertTrue(visitorHomePage.labelKeywords.isDisplayed());
     }
 
     @Given("Select a keyword from the {string} section and verify that relevant blogs are listed")
     public void select_a_keyword_from_the_section_and_verify_that_relevant_blogs_are_listed(String string) {
+    }
 
+    @Given("Select a keyword from the Keyword section and verify that relevant blogs are listed")
+    public void select_a_keyword_from_the_section_and_verify_that_relevant_blogs_are_listed() {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.clickWithJS(visitorHomePage.buttonBlogShopping);
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("shopping"));
     }
 
 //**************************************US_06/TC_01*********************************************************
@@ -535,6 +544,118 @@ public class VisitorHomePageStepDef extends Base {
     public void click_on_the_electronics_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
 
     }
+
+    //============================= US_16 =========================================
+
+    @Given("Verify that the footer section is displayed at the bottom of the site")
+    public void verify_that_the_footer_section_is_displayed_at_the_bottom_of_the_site() {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(visitorHomePage.footer.isDisplayed());
+    }
+    @Given("Goes to Footer section")
+    public void goes_to_footer_section() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+
+    }
+    @Given("{string} text is displayed and it is confirmed that it is active")
+    public void text_is_displayed_and_it_is_confirmed_that_it_is_active(String link) {
+       // ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+
+    }
+
+    @Given("Click on {string} and the {string} page opens")
+    public void click_on_and_the_opens(String link, String string2) {
+        ReusableMethods.wait(1);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        ReusableMethods.clickFooterLinkleri(link);
+
+    }
+    @Given("Verify that the {string} text box is visible and active under the {string} text")
+    public void verify_that_the_text_box_is_visible_and_active_under_the_text(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+    @Given("Verify that the {string} button is visible and active under the {string} text box.")
+    public void verify_that_the_button_is_visible_and_active_under_the_text_box(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+    @Given("When the correct email is entered into the textbox and the SUBSCRIBE button is pressed, {string} It is confirmed that the message appeared.")
+    public void when_the_correct_email_is_entered_into_the_textbox_and_the_subscribe_button_is_pressed_it_is_confirmed_that_the_message_appeared(String message) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        visitorHomePage.textBoxFooterEmail.sendKeys(ConfigReader.getProperty("customerEmailZehra"));
+        visitorHomePage.buttonSubscribe.click();
+       // String expectedMessage = message;
+        String actualMessage = visitorHomePage.labelMessageFooter.getText();
+        assertEquals(message, actualMessage);
+
+    }
+
+    @Given("It is verified that when the wrong email as {string} is entered into the textbox, {string} appears when the SUBSCRIBE button is pressed.")
+    public void it_is_verified_that_when_the_wrong_email_as_is_entered_into_the_textbox_appears_when_the_subscribe_button_is_pressed(String name, String expected) {
+        visitorHomePage.textBoxFooterEmail.click();
+        visitorHomePage.textBoxFooterEmail.clear();
+        visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
+        String actualWarning =visitorHomePage.textWarning.getText();
+        assertEquals(expected,actualWarning);
+
+    }
+    @Given("Leave the textbox blank and press the button to read {string} It must be verified that the message appears.")
+    public void leave_the_textbox_blank_and_press_the_button_to_read_it_must_be_verified_that_the_message_appears(String expected) {
+        visitorHomePage.textBoxFooterEmail.click();
+        visitorHomePage.textBoxFooterEmail.clear();
+        visitorHomePage.textBoxFooterEmail.sendKeys(Keys.ENTER);
+        String actualWarning =visitorHomePage.textWarning.getText();
+        assertEquals(expected,actualWarning);
+    }
+
+    @Given("Verify that the {string} icon is visible and active")
+    public void verify_that_the_icon_is_visible_and_active(String link) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+
+    @Given("Click on the {string} icon and verify that the {string} page is opened.")
+    public void click_on_the_icon_and_verify_that_the_page_is_opened(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        ReusableMethods.clickFooterLinkleri(link);
+    }
+
+    @Given("At the bottom left, {string} The text must be visible.")
+    public void at_the_bottom_left_the_text_must_be_visible(String link) {
+         ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+
+    }
+
+    @Given("The up icon appears at the bottom right and should be active.")
+    public void the_up_icon_appears_at_the_bottom_right_and_should_be_active() {
+         ReusableMethods.wait(3);
+         assertTrue(visitorHomePage.iconGoToTop.isDisplayed());
+         assertTrue(visitorHomePage.iconGoToTop.isEnabled());
+    }
+
+    @Given("It should be verified that when the up icon is clicked, it goes to the top of the site.")
+    public void ıt_should_be_verified_that_when_the_up_icon_is_clicked_it_goes_to_the_top_of_the_site() {
+         visitorHomePage.iconGoToTop.click();
+         ReusableMethods.wait(3);
+         assertTrue(visitorHomePage.imageHeader.isDisplayed());
+    }
+
+//=====================================================================================================
 
     @Given("Subcategories within the Electronics category randomly click on {int} headings and move to the right place that it is directed.")
     public void subcategories_within_the_electronics_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
@@ -696,6 +817,7 @@ public class VisitorHomePageStepDef extends Base {
         visitorHomePage.logoBuysell.click();
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
     }
+
 //US TC03
     @Given("The search box  is displayed")
     public void the_search_box_is_displayed() {
@@ -704,9 +826,6 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("search by typing Baby in the search bar")
     public void search_by_typing_baby_in_the_search_bar() {
-
-
-
 
 
     }
@@ -744,7 +863,83 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
 
     }
-    //US13 TC01<<<<<<<<<<<<<<<<<<<<<<<nazime
+    
+    //----US-11--All step the test cases----------------------------------------------
+    @Given("Verify  for the presence of the {string} menu item")
+    public void verify_for_the_presence_of_the_menu_item(String string) {
+
+    }
+    @Given("Click on the {string} menu item")
+    public void click_on_the_menu_item(String string) {
+
+    }
+    @Given("verify that clicking on the {string} menu item should redirect the user to the New-user-zone page")
+    public void verify_that_clicking_on_the_menu_item_should_redirect_the_user_to_the_new_user_zone_page(String string) {
+
+    }
+
+    @Given("Verify that {string} section is active")
+    public void verify_that_section_is_active(String string) {
+
+    }
+    @Given("Click on the {string} section")
+    public void click_on_the_section(String string) {
+
+    }
+    @Given("verify that {string} section is active and products display with special discount")
+    public void verify_that_section_is_active_and_products_display_with_special_discount(String string) {
+
+    }
+    @Given("Click on the {string} section\" and verify that \"Coupon\" section is active")
+    public void click_on_the_section_and_verify_that_coupon_section_is_active(String string) {
+
+    }
+
+    @Given("Click on the chart icon of the first product")
+    public void click_on_the_chart_icon_of_the_first_product() {
+
+    }
+    @Given("verify that the message {string} on the modal")
+    public void verify_that_the_message_on_the_modal(String string) {
+
+    }
+    @Given("Close the modal window that opened")
+    public void close_the_modal_window_that_opened() {
+
+    }
+    @Given("Click on the compare icon of the first product")
+    public void click_on_the_compare_icon_of_the_first_product() {
+
+    }
+    @Given("verify that the message {string} is display")
+    public void verify_that_the_message_is_display(String string) {
+
+    }
+
+    @Given("Click  on the Quick view icon of the first product and verify that the modal window appear")
+    public void click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+
+    }
+
+    @Given("Click on the Wish list icon of the first product and verify that the product is added")
+    public void click_on_the_wish_list_icon_of_the_first_product_and_verify_that_the_product_is_added() {
+
+    }
+
+    @Given("Click on the chart icon of the first product for adding to cart and verify that the message {string} on the modal")
+    public void click_on_the_chart_icon_of_the_first_product_for_adding_to_cart_and_verify_that_the_message_on_the_modal(String string) {
+
+    }
+
+    @Given("Click on the compare icon of the first product  and verify that the message {string} is display")
+    public void click_on_the_compare_icon_of_the_first_product_and_verify_that_the_message_is_display(String string) {
+
+    }
+
+    @Given("Click on the Click on the Quick view icon of the first product and verify that the modal window appear")
+    public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+
+    }
 
     @Given("images in the slider are visible on the homepage")
     public void images_in_the_slider_are_visible_on_the_homepage() {

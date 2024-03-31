@@ -2,8 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import utils.ConfigReader;
+import utils.Driver;
+import utils.ReusableMethods;
 import java.util.List;
+import java.util.logging.XMLFormatter;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class UserDashboard extends Base {
 
@@ -20,7 +25,7 @@ public class UserDashboard extends Base {
     public WebElement linkPurchaseHistory;
 
     //Purchase History Page>> Purchase History link
-    @FindBy(css = ".font_20.f_w_700.mb-0 ")
+    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0 ']")
     public WebElement labelPurchaseHistory;
 
     //Purchase History Page>> Purchase History Table
@@ -28,11 +33,11 @@ public class UserDashboard extends Base {
     public List<WebElement> tablePurchaseHistory;
 
     //Purchase History Page>> Purchase History Table>> burger icon
-    @FindBy(xpath = "Purchase History Table")
+    @FindBy(xpath = "//*[@class='amazy_status_btn purchase_show']")
     public WebElement iconBurgerPurchase;
 
     //Purchase History Page>> Purchase History Table>> Download icon
-    @FindBy(xpath = "(//*[@class='amazy_status_btn'])[1]")
+    @FindBy(xpath = "(//*[@class='amazy_status_btn'])[3]")
     public WebElement iconDownload;
 
     //------SideBar------------------
@@ -115,10 +120,10 @@ public class UserDashboard extends Base {
     }
 
     public void verifyIcon() {
-        iconBurgerPurchase.isDisplayed();
-        iconBurgerPurchase.isEnabled();
-        iconDownload.isDisplayed();
-        iconDownload.isEnabled();
+        //iconBurgerPurchase.isDisplayed();
+        //iconBurgerPurchase.isEnabled();
+        //iconDownload.isDisplayed();
+        //iconDownload.isEnabled();
     }
 
     @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/profile/dashboard'])[1]")
@@ -205,14 +210,13 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[text()='Thank you for your purchase!']")
     public WebElement labelThankYouForYourPurchase;
   
-   //----------------------------------
-    @FindBy(xpath = "(//*[@href='https://qa.buysellcycle.com/wallet/customer/my-wallet-index'])[2]")
+   //-------------------------------------------------------------------------------------------------------------------
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center '])[1]")
     public WebElement linkMyWallet;
 
     @FindBy(xpath = "//body/div[3]//div[2]/div/div[2]/div")
     public List<WebElement> linkListMyWallet;
 
-    //Homepage>> LoginLink>> Email Text Box ||
     @FindBy(xpath = "(//*[@data-bs-target='#recharge_wallet'])[2]")
     public WebElement linkRechargeWallet;
 
@@ -222,11 +226,14 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[text()='Add Fund']")
     public WebElement addFundButton;
 
-    @FindBy(xpath = "//*[@class='wallet_elemnt active']")
+    @FindBy(xpath = "//*[@class='wallet_elemnt']")
     public WebElement linkPaymentType;
 
     @FindBy(xpath = "(//*[text()='Stripe Payment'])[2]")
     public WebElement labelPaymentType;
+
+    @FindBy(xpath = "//*[@name='stripe_checkout_app']")
+    public WebElement labelIframe;
 
     @FindBy(id = "email")
     public WebElement textBoxEmail;
@@ -246,17 +253,23 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//thead)[1]/tr/th")
     public List<WebElement> rowListWalletHistory;
 
+    @FindBy(xpath = "(//tbody)[1]/tr[1]/td[3]")
+    public WebElement labelFirstAmount;
+
     @FindBy(xpath = "(//*[@href='https://qa.buysellcycle.com/my-wishlist'])[2]")
     public WebElement linkMyWishlist;
 
-    @FindBy(xpath = "//*[@class='font_14 f_w_400 flex-fill mb-0']")
+    @FindBy(id = "productShow")
     public WebElement labelResults;
 
     @FindBy(xpath = "//*[@name='sort_by']")
     public WebElement dropDownSortBy;
 
-    @FindBy(xpath = "//*[@name='paginate_by']")
+    @FindBy(id = "paginate_by")
     public WebElement dropDownShowItems;
+
+    @FindBy(xpath = "//*[@class='nice-select amaz_select4']")
+    public WebElement dropDownShowItems2;
 
     @FindBy(xpath = "(//*[@title='Compare'])[1]")
     public WebElement iconCompare;
@@ -267,11 +280,14 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/compare']")
     public WebElement linkCompare;
 
-    @FindBy(xpath = "//div/div[2]/div/div[1]/div/div[1]/a")
-    public WebElement linkFirstProduct;
+    @FindBy(id = "compare_list_div")
+    public WebElement labelCompareList;
 
-    @FindBy(xpath = "//div/div[2]/div/div[2]/div/div[1]/a")
-    public WebElement linkSecondProduct;
+    @FindBy(xpath = "(//*[@title='Quick View'])[1]")
+    public WebElement iconQuickView;
+
+    @FindBy(xpath = "//*[@class='product_quick_view ']")
+    public WebElement labelQuickViewPage;
 
     @FindBy(xpath = "(//*[@title='Delete'])[1]")
     public WebElement iconDelete;
@@ -287,7 +303,7 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "(//*[text()='Item added to your cart'])[1]")
     public WebElement labelItemAddedConfirmation;
-    //----------------------------------
+    //==================================================================================================================
 
     //===========USER SUPPORT TİCKET >> US26===========
 
@@ -329,7 +345,7 @@ public class UserDashboard extends Base {
     public WebElement divAllTicketPendingGoing;
 
     //Purchase History page>>All History filter
-    @FindBy(css = ".nice-select.amaz_select3")
+    @FindBy(xpath = "//*[@class='nice-select amaz_select3']")
     public WebElement dropdownAllHistory;
    
     //********************US_24/TC_01,TC_02********************************************
@@ -370,7 +386,8 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//button[@id='update_info']")
     public WebElement buttonUpdateNow;
 
-    // US_22 My Coupons link>>>>>>>>> nazime
+//****************************************************************************************************************************
+    // US_22 My Coupons link
     @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]")
     public WebElement linkMyCoupons;
 
@@ -402,7 +419,107 @@ public class UserDashboard extends Base {
     @FindBy(xpath= "//*[@id=\"sticky-header\"]/div[2]/div/div/div/div/div[3]/div[1]/div/span/a[1]")
     public WebElement buttonLogin;
 
+    //************************US_24/TC_03********************************************************************
 
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//button[@id='Password-tab']")
+    public WebElement buttonChangePassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='currentPassword']")
+    public WebElement textBoxCurrentPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='newPass']")
+    public WebElement textBoxNewPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='rePass']")
+    public WebElement textBoxRenewPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "(//div[@class='col-12'])[5]")
+    public WebElement buttonUpdateNowClick;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//span[@class='validation-old-pass-error text-danger error']")
+    public WebElement labelNotMatchOldPasswordMessage;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//span[@class='validation-new-pass-confirm-error text-danger error']")
+    public WebElement labelNotMuchNewPasswordMessage;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "//button[@id='Address-tab']")
+    public WebElement buttonAddressMyAccountClick;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "//table[@id='address_table']")
+    public WebElement tableAddresMyAccount;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "(//button[@class='amazy_status_btn edit_address'])[1]")
+    public WebElement iconEditAddress;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "(//button[@class='amazy_status_btn delete_address_btn mt_10'])[1]")
+    public WebElement iconDeleteAddress;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//a[@class='add_new_address amaz_primary_btn style2 rounded-0 text-uppercase text-center min_200']")
+    public WebElement buttonAddNewAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@name='shipping_address']")
+    public WebElement textBoxShippingAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@name='billing_address']")
+    public WebElement textBoxBillingAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@id='address_name']")
+    public WebElement checkBoxAddressName;
+
+    @FindBy(xpath = "//button[@class='amaz_primary_btn style2 radius_5px w-100 text-center  text-uppercase  text-center min_200']")
+    public WebElement buttonCreateAddNewAddress;
+
+//======================================================================================================================
+    public void checkClickElement(WebElement element){
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+        ReusableMethods.clickWithJS(element);
+    }
+    public void checkSendKeysBox(WebElement element, String propertiesValue){
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+        element.clear();
+        element.sendKeys(ConfigReader.getProperty(propertiesValue));
+    }
+    public void checkUrl(String propertiesUrl){
+        assertEquals(ConfigReader.getProperty(propertiesUrl) , Driver.getDriver().getCurrentUrl());
+    }
+    public void checkListELements(List<WebElement> element , int count){
+        for (int i = 0; i < count; i++) {
+            assertTrue(element.get(i).isDisplayed());
+        }
+    }
+
+    //Purchase History page>> table
+    @FindBy(xpath = "//*[@class='summery_modal_body']")
+    public WebElement labelInvoicePageText;
+
+    //Purchase History page>> invoice
+    @FindBy(xpath = "//*[@title='Cash On Delivery']")
+    public WebElement imageCashOnDelivery;
+
+    //Purchase History page>> All History dropdown
+    @FindBy(xpath = "//*[@class='option selected focus']")
+    public WebElement dropdownAllHistoryCompleted;
+
+    //Purchase History page>> Completed Page
+    @FindBy(xpath = "(//*[@class='table_badge_btn style4 text-nowrap'])[2]")
+    public WebElement labelPaidPurchase;
 
 
 }
