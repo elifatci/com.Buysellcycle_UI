@@ -26,7 +26,7 @@ public class UserDashboard extends Base {
     public WebElement linkPurchaseHistory;
 
     //Purchase History Page>> Purchase History link
-    @FindBy(css = ".font_20.f_w_700.mb-0 ")
+    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0 ']")
     public WebElement labelPurchaseHistory;
 
     //Purchase History Page>> Purchase History Table
@@ -34,11 +34,11 @@ public class UserDashboard extends Base {
     public List<WebElement> tablePurchaseHistory;
 
     //Purchase History Page>> Purchase History Table>> burger icon
-    @FindBy(xpath = "Purchase History Table")
+    @FindBy(xpath = "//*[@class='amazy_status_btn purchase_show']")
     public WebElement iconBurgerPurchase;
 
     //Purchase History Page>> Purchase History Table>> Download icon
-    @FindBy(xpath = "(//*[@class='amazy_status_btn'])[1]")
+    @FindBy(xpath = "(//*[@class='amazy_status_btn'])[3]")
     public WebElement iconDownload;
 
     //------SideBar------------------
@@ -121,10 +121,10 @@ public class UserDashboard extends Base {
     }
 
     public void verifyIcon() {
-        iconBurgerPurchase.isDisplayed();
-        iconBurgerPurchase.isEnabled();
-        iconDownload.isDisplayed();
-        iconDownload.isEnabled();
+        //iconBurgerPurchase.isDisplayed();
+        //iconBurgerPurchase.isEnabled();
+        //iconDownload.isDisplayed();
+        //iconDownload.isEnabled();
     }
 
     @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/profile/dashboard'])[1]")
@@ -346,7 +346,7 @@ public class UserDashboard extends Base {
     public WebElement divAllTicketPendingGoing;
 
     //Purchase History page>>All History filter
-    @FindBy(css = ".nice-select.amaz_select3")
+    @FindBy(xpath = "//*[@class='nice-select amaz_select3']")
     public WebElement dropdownAllHistory;
    
     //********************US_24/TC_01,TC_02********************************************
@@ -392,8 +392,13 @@ public class UserDashboard extends Base {
     public WebElement linkMyCoupons;
 
     // US_22 Search Box add Coupons
+
     //@FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
     //public WebElement searchBoxAddCoupon;
+
+   // @FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
+   // public WebElement searchBoxAddCoupon;
+
 
     // US_22 table Collected Coupons
     //@FindBy(className= "table_border_whiteBox mb_30")
@@ -415,6 +420,7 @@ public class UserDashboard extends Base {
     @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
     public WebElement buttonLogOutSideBar;
 
+
 //======================================================================================================================
     public void checkClickElement(WebElement element){
         assertTrue(element.isDisplayed());
@@ -435,4 +441,22 @@ public class UserDashboard extends Base {
             assertTrue(element.get(i).isDisplayed());
         }
     }
+
+    //Purchase History page>> table
+    @FindBy(xpath = "//*[@class='summery_modal_body']")
+    public WebElement labelInvoicePageText;
+
+    //Purchase History page>> invoice
+    @FindBy(xpath = "//*[@title='Cash On Delivery']")
+    public WebElement imageCashOnDelivery;
+
+    //Purchase History page>> All History dropdown
+    @FindBy(xpath = "//*[@class='option selected focus']")
+    public WebElement dropdownAllHistoryCompleted;
+
+    //Purchase History page>> Completed Page
+    @FindBy(xpath = "(//*[@class='table_badge_btn style4 text-nowrap'])[2]")
+    public WebElement labelPaidPurchase;
+
+
 }

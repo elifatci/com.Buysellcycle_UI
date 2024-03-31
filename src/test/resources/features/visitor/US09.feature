@@ -19,14 +19,14 @@ Feature: US09 As a user, I would like the site to have a blog page where I can g
     * Verify that the read more link in blog posts is visible
     * Click on the Read more link
     * Verify that you are redirected to the relevant page
-    * Search for a keyword in the "Search Post" box
+    * Search for a keyword in the Search Post box
     * Verify that the search results match the relevant keyword
     * Verify that titles are visible in the Category section
-    * Select a category from the "Category" section
+    * Select a category from the Category section
     * Verify that relevant blogs are listed
     * Verify that the popular post section is visible and blogs are displayed
     * Verify that the Keyword section is visible
-    * Select a keyword from the "Keyword" section and verify that relevant blogs are listed
+    * Select a keyword from the Keyword section and verify that relevant blogs are listed
     * Close the page
 
 
