@@ -6,6 +6,7 @@ Feature: As a user, I want easily accessible links on the homepage's top bar to 
   Background:
     * Go to "url"
 
+  @US02TC01
     Scenario: TC01 Display und click  of links
       * Displays und click the headings (Track Your Order) on the top right side
       * Displays und click the headings ( Compare) on the top right side
@@ -14,11 +15,15 @@ Feature: As a user, I want easily accessible links on the homepage's top bar to 
       * Displays und click the headings (New User Zone ) on the top right side
       * Displays und click the headings ( Daily Deals) on the top right side
       * The user closes the page
-
+  @US02TC02
       Scenario: TC02 Display and click on the site logo
         * The site logo is displayed on the top left of the page
         * Click on the site logo and refresh the page
         * The user closes the page
+@US02TC03
+        Scenario: TC03 Displaying the search box and searching
+          * The site logo is displayed on the top left of the page
+          * search by typing Baby in the search bar
 
 
 

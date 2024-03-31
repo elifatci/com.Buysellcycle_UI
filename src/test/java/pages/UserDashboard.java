@@ -370,16 +370,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//button[@id='update_info']")
     public WebElement buttonUpdateNow;
 
-    // US_22 My Coupons link
+    // US_22 My Coupons link>>>>>>>>> nazime
     @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]")
     public WebElement linkMyCoupons;
 
     // US_22 Search Box add Coupons
-    @FindBy(className= "primary_input3 rounded-0 style2  flex-fill")
+    @FindBy(xpath= "//input[@name='code']")
     public WebElement searchBoxAddCoupon;
 
     // US_22 table Collected Coupons
-    @FindBy(className= "table_border_whiteBox mb_30")
+    @FindBy(xpath= "(//div[@class='table-responsive'])[1]")
     public WebElement tableCollectedCoupons;
 
     // US_22 icon Copy
@@ -397,5 +397,12 @@ public class UserDashboard extends Base {
     // US_29 DashBOard side bar Log OUt
     @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
     public WebElement buttonLogOutSideBar;
+
+    // US_29 DashBOard side bar Login
+    @FindBy(xpath= "//*[@id=\"sticky-header\"]/div[2]/div/div/div/div/div[3]/div[1]/div/span/a[1]")
+    public WebElement buttonLogin;
+
+
+
 
 }

@@ -107,7 +107,7 @@ public class AdminDashboard extends Base{
     public WebElement searchBoxModelNummer;
 
     //US_38 Add new Category Box
-    @FindBy(className= "/select2-selection select2-selection--multiple")
+    @FindBy(className= "select2-selection__rendered")
     public WebElement searchBoxCategory;
 
     //US_38 Add new Brand Box
@@ -115,7 +115,7 @@ public class AdminDashboard extends Base{
     public WebElement searchBoxBrand;
 
     //US_38 Add new Unit Box
-    @FindBy(className= "nice-select primary_select mb-15 unit")
+    @FindBy(xpath= "//*[@id='error_unit_type']")
     public WebElement searchBoxUnit;
 
     //US_38 Add new MINIMUM ORDER QTY  Box
