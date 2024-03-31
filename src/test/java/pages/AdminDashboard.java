@@ -107,16 +107,16 @@ public class AdminDashboard extends Base{
     public WebElement searchBoxModelNummer;
 
     //US_38 Add new Category Box
-    @FindBy(className= "/select2-selection select2-selection--multiple")
-    public WebElement searchBoxCategory;
+   //@FindBy(className= "/select2-selection select2-selection--multiple")
+   //public WebElement searchBoxCategory;
 
     //US_38 Add new Brand Box
     @FindBy(xpath= "//*[@id='select2-brand_id-container']")
     public WebElement searchBoxBrand;
 
     //US_38 Add new Unit Box
-    @FindBy(className= "nice-select primary_select mb-15 unit")
-    public WebElement searchBoxUnit;
+    //@FindBy(className= "nice-select primary_select mb-15 unit")
+    //public WebElement searchBoxUnit;
 
     //US_38 Add new MINIMUM ORDER QTY  Box
     @FindBy(xpath= "//*[@id='minimum_order_qty']")
@@ -143,5 +143,59 @@ public class AdminDashboard extends Base{
     public WebElement linkUnits;
     //-----------------------------------------
 
+    //Dashboard>> Profile image
+    @FindBy(className = "user_avatar_div")
+    public WebElement imageProfile;
 
+    //Dashboard>>Profile image>>subTitle
+    @FindBy(className = "profile_info_iner")
+    public WebElement subMenuProfile;
+
+    //Dashboard>>Profile image>>My Profile link
+    @FindBy(xpath = "//*[text()='My Profile']")
+    public WebElement linkMyProfile;
+
+    //Dashboard>> Close successful login message
+    @FindBy(xpath = "//*[@class='toast-close-button']")
+    public WebElement iconCloseSuccessMessage;
+
+    //My profile page>> Basic Info text
+    @FindBy(xpath = "//*[text()='Basic Info']")
+    public WebElement labelBasicInfo;
+
+    //My profile page>> FirstName text
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[1]")
+    public WebElement labelFirstNameText;
+
+    //My profile page>> LastName text
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[2]")
+    public WebElement labelLastNameText;
+
+    //My profile page>> Email text
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[3]")
+    public WebElement labelEmailText;
+
+    //My profile page>> PhoneNumber text
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[4]")
+    public WebElement labelPhoneNumberText;
+
+    //My profile page>> Date Of Birth text
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[5]")
+    public WebElement labelDateOfBirthText;
+
+    //My profile page>> Avatar button
+    @FindBy(xpath = "//*[@class='primary-btn small fix-gr-bg']")
+    public WebElement buttonAvatar;
+
+    //My profile page>> Update button
+    @FindBy(xpath = "//*[@id='update_info']")
+    public WebElement buttonUpdate;
+    public void verifyVisible(WebElement element){
+        element.isDisplayed();
+    }
+
+    public void verifyVisibleActive(WebElement element){
+        element.isDisplayed();
+        element.isEnabled();
+    }
 }

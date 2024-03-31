@@ -101,31 +101,40 @@ public void user_clicks_to_the_dashboard_page_and_and_displays_dashboard_page() 
     }
     @Given("Verify filtering by payment status")
     public void verify_filtering_by_payment_status() {
-        userDashboard.dropdownAllHistory.click();
-        //Assert.assertTrue();
+       ReusableMethods.clickWithJS(userDashboard.dropdownAllHistory);
+       ReusableMethods.clickWithJS(userDashboard.dropdownAllHistoryCompleted);
+       assertTrue(userDashboard.labelPaidPurchase.isDisplayed());
 
     }
     @Given("Verify that the hamburger icon and download icon next to purchases are visible and functional")
     public void verify_that_the_hamburger_icon_and_download_icon_next_to_purchases_are_visible_and_functional() {
             userDashboard.verifyIcon();
     }
-    @Given("Click on the Dowload icon to verify that the invoice has been downloaded.")
+    @Given("Click on the Download icon to verify that the invoice has been downloaded.")
     public void click_on_the_dowload_icon_to_verify_that_the_invoice_has_been_downloaded() {
-            userDashboard.iconDownload.click();
             ReusableMethods.wait(2);
-            String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf\"";
+            ReusableMethods.clickWithJS(userDashboard.iconDownload);
+            ReusableMethods.wait(2);
+            String filePath="C:\\Users\\Elif\\Downloads\\Documents\\20240323000047.pdf";
             Assert.assertTrue(Files.exists(Paths.get(filePath)));
+    }
+
+    //US18 TC03
+    @Given("Click on the icon to view invoice details")
+    public void click_on_the_icon_to_view_invoice_details() {
+        ReusableMethods.wait(2);
+        userDashboard.iconBurgerPurchase.click();
     }
     @Given("Verify that Order code, Package code, Delivery Process, Order Details, Order Summary, Payment Type information is visible in the invoice information.")
     public void verify_that_order_code_package_code_delivery_process_order_details_order_summary_payment_type_information_is_visible_in_the_invoice_information() throws IOException {
-        String filePath="\"C:\\Users\\Elif\\Downloads\\Documents\\20240323000046.pdf\"";
-        String fileContent=new String(Files.readAllBytes(Paths.get(filePath)));
-        Assert.assertTrue(fileContent.contains("Invoice"));
-        Assert.assertTrue(fileContent.contains("Cash On Delivery"));
-        Assert.assertTrue(fileContent.contains("Details"));
-        Assert.assertTrue(fileContent.contains("Name"));
-        Assert.assertTrue(fileContent.contains("Package"));
-        Assert.assertTrue(fileContent.contains("Delivery Process"));
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(userDashboard.iconBurgerPurchase);
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order code"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Package code"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order Details"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Order Summary"));
+        assertTrue(userDashboard.labelInvoicePageText.getText().contains("Delivered"));
+        assertTrue(userDashboard.imageCashOnDelivery.isDisplayed());
     }
 
     // ---> US20-kevser
@@ -178,6 +187,8 @@ public void user_clicks_to_the_dashboard_page_and_and_displays_dashboard_page() 
         ReusableMethods.wait(2);
         userDashboard.dropDownLast5Orders.isEnabled();
     }
+
+
 
 
 
