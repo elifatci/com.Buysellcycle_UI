@@ -179,7 +179,67 @@ public void user_clicks_to_the_dashboard_page_and_and_displays_dashboard_page() 
         userDashboard.dropDownLast5Orders.isEnabled();
     }
 
+//********************US_24/TC_03***********************************
 
+    @Given("Click the {string} tab.")
+    public void click_the_tab(String string) {
+
+    }
+    @Given("{string} TextBox contains the current password, {string} and {string} TextBoxes contain the current password.enter the new password and click the Updatenow button..")
+    public void text_box_contains_the_current_password_and_text_boxes_contain_the_current_password_enter_the_new_password_and_click_the_updatenow_button(String string, String string2, String string3) {
+
+    }
+    @Given("{string} TextBox enter the invalid password.{string} and \"Re-enter New Password\"Enter the new password in the TextBoxes. And Updatenow Click button.")
+    public void text_box_enter_the_invalid_password_and_re_enter_new_password_enter_the_new_password_in_the_text_boxes_and_updatenow_click_button(String string, String string2) {
+
+    }
+    @Given("{string} message appears")
+    public void message_appears(String string) {
+
+    }
+    @Given("Enter the updated password in the {string} TextBox.  {string} and {string} Enter different passwords in the TextBoxes. And Updatenow Click on the button.")
+    public void enter_the_updated_password_in_the_text_box_and_enter_different_passwords_in_the_text_boxes_and_updatenow_click_on_the_button(String string, String string2, String string3) {
+
+    }
+    @Given("{string} message appears Verify")
+    public void message_appears_verify(String string) {
+
+    }
+    @Given("The updated password in the {string} TextBox,{string} and {string} Enter the old password in the TextBoxes and update it.")
+    public void the_updated_password_in_the_text_box_and_enter_the_old_password_in_the_text_boxes_and_update_it(String string, String string2, String string3) {
+
+    }
+
+    //***************************US_24/TC_04************************************
+
+    @Given("Click the Address tab.")
+    public void click_the_address_tab() {
+
+    }
+    @Given("{string}, {string}, {string},{string}, {string} information Verify that it matches the user's information.")
+    public void information_verify_that_it_matches_the_user_s_information(String string, String string2, String string3, String string4, String string5) {
+
+    }
+    @Given("Edit icon and delete icon is displayed and active verify.")
+    public void edit_icon_and_delete_icon_is_displayed_and_active_verify() {
+
+    }
+    @Given("Make sure the new address registration button is visible and active.verify that")
+    public void make_sure_the_new_address_registration_button_is_visible_and_active_verify_that() {
+
+    }
+    @Given("In a new address registration window {string} and {string} Verify type is clickable")
+    public void in_a_new_address_registration_window_and_verify_type_is_clickable(String string, String string2) {
+
+    }
+    @Given("Verify that the \"Name,email Address,Phone Number,fields are visible and information has been entered.")
+    public void verify_that_the_name_email_address_phone_number_fields_are_visible_and_information_has_been_entered() {
+
+    }
+    @Given("Press the {string} button.")
+    public void press_the_button(String string) {
+
+    }
 
 
 }

@@ -142,6 +142,28 @@ public class AdminDashboard extends Base{
     @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[4]/a/text()")
     public WebElement linkUnits;
     //-----------------------------------------
+//***********************US_34/TC_01******************************************
+
+    //Admin/Dashboard/SearchTextBox
+    @FindBy(xpath = "//input[@id='search']")
+    public WebElement searchBoxAdminClick;
+
+    //Admin/Dashboard/SearchTextBox(dashbord yazısı girilecek)
+    @FindBy(xpath = "(//div[@class='nav_title'])[1]")
+    public WebElement textBoxDashboard;
+
+    //Admin/Dashboard/MenüİconSideBar
+    @FindBy(xpath = "//div[@class='collaspe_icon open_miniSide']")
+    public WebElement iconMenuMiniSideBar;
+
+    //Admin/Dashboard/CustomerInterface
+    @FindBy(xpath = "(//div[@class='nav_title'])[4]")
+    public WebElement buttonCustomerInterfaceClick;
+
+    //Admin/Dashboard/AllCustomerInterface
+    @FindBy(xpath = "//*[@class='mm-collapse mm-show']")
+    public WebElement buttonAllCustomerInterfaceClick;
+
 
 
 }
