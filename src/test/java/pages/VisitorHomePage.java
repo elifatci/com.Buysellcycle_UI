@@ -46,18 +46,18 @@ public class VisitorHomePage extends Base{
 
 
     //==============VisitorHomePage >> Footer >>US16 ==============
-    @FindBy(xpath = "//i[@class='fab fa-youtube']")
+    @FindBy(xpath = "//a[@href='https://www.youtube.com']")
     public WebElement iconFooterYoutube;
 
 
-    @FindBy(xpath = "//i[@class='fab fa-linkedin']")
+    @FindBy(xpath = "//a[@href='https://www.linkedin.com/']")
     public WebElement iconFooterLinkedin;
 
 
-    @FindBy(xpath = "//i[@class='fab fa-instagram']")
+    @FindBy(xpath = "//a[@href='https://www.instagram.com']")
     public WebElement iconFooterInstagram;
 
-    @FindBy(xpath = "//i[@class='fab fa-facebook-square']")
+    @FindBy(xpath = "//a[@href='https://www.facebook.com']")
     public WebElement iconFooterFacebook;
 
     @FindBy(xpath = "//div[@class='copyright_area p-0']")
@@ -72,35 +72,47 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//div[@class='main_footer_wrap']")
     public WebElement footer;
 
-    @FindBy(xpath = "(//ul[@class='footer_links']/li)[1]")
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/about-us'])[3]")
     public WebElement linkFooterAboutUs;
 
-    @FindBy(xpath = "(//ul[@class='footer_links']/li)[2]")
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/blog'])[3]")
     public WebElement linkFooterBlog;
 
-    @FindBy(xpath = "(//ul[@class='footer_links']/li)[3]")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/profile/dashboard']")
     public WebElement linkFooterDashboard;
 
-    @FindBy(xpath = "(//ul[@class='footer_links']/li)[4]")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/profile']")
     public WebElement linkFooterMyProfile;
 
-    @FindBy(xpath = "(//ul[@class='footer_links']/li)[5]")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/my-purchase-orders']")
     public WebElement linkFooterMyOrder;
 
-    @FindBy(xpath = "(//div[@class='apps_boxs']/a)[1]")
+    @FindBy(xpath = "(//a[@href='https://play.google.com/'])[2]")
     public WebElement buttonGooglePlayFooter;
 
-    @FindBy(xpath = "(//div[@class='apps_boxs']/a)[2]")
+    @FindBy(xpath = "//a[@href='https://apps.apple.com']")
     public WebElement buttonAppStoreFooter;
 
-    @FindBy(xpath = "(//div[@class='footer_list_links']/a)[1]")
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/contact-us'])[3]")
     public WebElement linkHelpContact;
 
-    @FindBy(xpath = "(//div[@class='footer_list_links']/a)[2]")
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/track-order'])[2]")
     public WebElement linkTrackOrder;
 
-    @FindBy(xpath = "(//div[@class='footer_list_links']/a)[3]")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/return-exchange']")
     public WebElement linkReturnExchange;
+
+    @FindBy(xpath = "//a[@title='Go to Top']")
+    public WebElement iconGoToTop;
+
+    @FindBy(xpath = "(//*[@title='woman fashion'])[2]")
+    public WebElement imageHeader;
+
+    @FindBy(xpath = "//div[@class='message_div error_color']")
+    public WebElement labelMessageFooter;
+
+    @FindBy(className = "toast-message")
+    public WebElement textWarning;
 
 
     //============= New Product Deals >> Best Deals >>US07===========

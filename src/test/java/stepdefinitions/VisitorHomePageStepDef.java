@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.Base;
 import pages.VisitorHomePage;
 import utils.ConfigReader;
@@ -11,6 +12,7 @@ import utils.ReusableMethods;
 
 import java.util.Properties;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -120,6 +122,11 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_you_are_directed_to_the_page_where_current_product_offers_are_listed() {
          assertTrue(visitorHomePage.labelBestDeals.isDisplayed());
     }
+    @Given("Closes page")
+    public void Closes_page() {
+        Driver.quitDriver();
+    }
+
 
     @Given("Verifies that each filter option is visible on the Best Deals page that opens.")
     public void verifies_that_each_filter_option_is_visible_on_the_best_deals_page_that_opens() {
@@ -209,5 +216,120 @@ public class VisitorHomePageStepDef extends Base {
         String actualResult = Driver.getDriver().getTitle();
         Assert.assertEquals(title, actualResult);
     }
+
+
+
+    //============================= US_16 =========================================
+
+    @Given("Verify that the footer section is displayed at the bottom of the site")
+    public void verify_that_the_footer_section_is_displayed_at_the_bottom_of_the_site() {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(visitorHomePage.footer.isDisplayed());
+    }
+    @Given("Goes to Footer section")
+    public void goes_to_footer_section() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+
+    }
+    @Given("{string} text is displayed and it is confirmed that it is active")
+    public void text_is_displayed_and_it_is_confirmed_that_it_is_active(String link) {
+       // ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+
+    }
+
+    @Given("Click on {string} and the {string} page opens")
+    public void click_on_and_the_opens(String link, String string2) {
+        ReusableMethods.wait(1);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        ReusableMethods.clickFooterLinkleri(link);
+
+    }
+    @Given("Verify that the {string} text box is visible and active under the {string} text")
+    public void verify_that_the_text_box_is_visible_and_active_under_the_text(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+    @Given("Verify that the {string} button is visible and active under the {string} text box.")
+    public void verify_that_the_button_is_visible_and_active_under_the_text_box(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+    @Given("When the correct email is entered into the textbox and the SUBSCRIBE button is pressed, {string} It is confirmed that the message appeared.")
+    public void when_the_correct_email_is_entered_into_the_textbox_and_the_subscribe_button_is_pressed_it_is_confirmed_that_the_message_appeared(String message) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        visitorHomePage.textBoxFooterEmail.sendKeys(ConfigReader.getProperty("customerEmailZehra"));
+        visitorHomePage.buttonSubscribe.click();
+       // String expectedMessage = message;
+        String actualMessage = visitorHomePage.labelMessageFooter.getText();
+        assertEquals(message, actualMessage);
+
+    }
+
+    @Given("It is verified that when the wrong email as {string} is entered into the textbox, {string} appears when the SUBSCRIBE button is pressed.")
+    public void it_is_verified_that_when_the_wrong_email_as_is_entered_into_the_textbox_appears_when_the_subscribe_button_is_pressed(String name, String expected) {
+        visitorHomePage.textBoxFooterEmail.click();
+        visitorHomePage.textBoxFooterEmail.clear();
+        visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
+        String actualWarning =visitorHomePage.textWarning.getText();
+        assertEquals(expected,actualWarning);
+
+    }
+    @Given("Leave the textbox blank and press the button to read {string} It must be verified that the message appears.")
+    public void leave_the_textbox_blank_and_press_the_button_to_read_it_must_be_verified_that_the_message_appears(String expected) {
+        visitorHomePage.textBoxFooterEmail.click();
+        visitorHomePage.textBoxFooterEmail.clear();
+        visitorHomePage.textBoxFooterEmail.sendKeys(Keys.ENTER);
+        String actualWarning =visitorHomePage.textWarning.getText();
+        assertEquals(expected,actualWarning);
+    }
+
+    @Given("Verify that the {string} icon is visible and active")
+    public void verify_that_the_icon_is_visible_and_active(String link) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+        assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
+    }
+
+    @Given("Click on the {string} icon and verify that the {string} page is opened.")
+    public void click_on_the_icon_and_verify_that_the_page_is_opened(String link, String string2) {
+        ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        ReusableMethods.clickFooterLinkleri(link);
+    }
+
+    @Given("At the bottom left, {string} The text must be visible.")
+    public void at_the_bottom_left_the_text_must_be_visible(String link) {
+         ReusableMethods.wait(3);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+        assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
+
+    }
+
+    @Given("The up icon appears at the bottom right and should be active.")
+    public void the_up_icon_appears_at_the_bottom_right_and_should_be_active() {
+         ReusableMethods.wait(3);
+         assertTrue(visitorHomePage.iconGoToTop.isDisplayed());
+         assertTrue(visitorHomePage.iconGoToTop.isEnabled());
+    }
+
+    @Given("It should be verified that when the up icon is clicked, it goes to the top of the site.")
+    public void ıt_should_be_verified_that_when_the_up_icon_is_clicked_it_goes_to_the_top_of_the_site() {
+         visitorHomePage.iconGoToTop.click();
+         ReusableMethods.wait(3);
+         assertTrue(visitorHomePage.imageHeader.isDisplayed());
+    }
+
+//=====================================================================================================
+
 
 }

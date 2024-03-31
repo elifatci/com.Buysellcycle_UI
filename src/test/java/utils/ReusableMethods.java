@@ -1,17 +1,17 @@
 package utils;
 
+import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.VisitorHomePage;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.function.Function;
 
 public class ReusableMethods {
@@ -121,6 +121,7 @@ public class ReusableMethods {
 
     /**
      * Performs double click action on an element
+     *
      * @param element
      */
     public static void doubleClick(WebElement element) {
@@ -145,6 +146,7 @@ public class ReusableMethods {
 
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
+     *
      * @param select
      * @return
      */
@@ -356,23 +358,279 @@ public class ReusableMethods {
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
+
     public static void scrollIntoViewJS(WebElement element) {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    public static void uploadFile(String gonderilecekDosyaContentRoot){
+
+    public static void uploadFile(String gonderilecekDosyaContentRoot) {
         String herkesteFarkliOlan = System.getProperty("user.dir");
         String herkesteAyniOlan = gonderilecekDosyaContentRoot;
-        String dosyaYolu= herkesteFarkliOlan+herkesteAyniOlan;
+        String dosyaYolu = herkesteFarkliOlan + herkesteAyniOlan;
     }
 
 
-
-    public static List<String> strListeOlustur(List<WebElement> elementler){
-        List<String> stringlerList=new ArrayList<>();
-        for (WebElement each:elementler) {
+    public static List<String> strListeOlustur(List<WebElement> elementler) {
+        List<String> stringlerList = new ArrayList<>();
+        for (WebElement each : elementler) {
             stringlerList.add(each.getText());
         }
         return stringlerList;
+    }
+
+    static VisitorHomePage visitorHomePage = new VisitorHomePage();
+
+    public static WebElement footerLinkleri(String link) {
+        switch (link) {
+            case "About Us":
+                return visitorHomePage.linkFooterAboutUs;
+            case "The blog":
+                return visitorHomePage.linkFooterBlog;
+            case "Dashboard":
+                return visitorHomePage.linkFooterDashboard;
+            case "My Profile":
+                return visitorHomePage.linkFooterMyProfile;
+            case "My Order":
+                return visitorHomePage.linkFooterMyOrder;
+            case "Help&Contact":
+                return visitorHomePage.linkHelpContact;
+            case "Track Order":
+                return visitorHomePage.linkTrackOrder;
+            case "Google Play":
+                return visitorHomePage.buttonGooglePlayFooter;
+            case "Apple Stor":
+                return visitorHomePage.buttonAppStoreFooter;
+            case "Enter email address":
+                return visitorHomePage.textBoxFooterEmail;
+            case "SUBSCRIBE":
+                return visitorHomePage.buttonSubscribe;
+            case "YouTube":
+                return visitorHomePage.iconFooterYoutube;
+            case "LinkedIn":
+                return visitorHomePage.iconFooterLinkedin;
+            case "Facebook":
+                return visitorHomePage.iconFooterFacebook;
+            case "Instagram":
+                return visitorHomePage.iconFooterInstagram;
+            case "Copyright © 2024. All rights reserved.":
+                return visitorHomePage.labelCopyrightAll;
+
+            default:
+                return visitorHomePage.linkReturnExchange;
+
+        }
+
+    }
+
+    public static WebElement clickFooterLinkleri(String link) {
+        switch (link) {
+            case "About Us":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkFooterAboutUs.click();
+                ReusableMethods.wait(5);
+                String expectedUrl = "https://qa.buysellcycle.com/about-us";
+                String actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkFooterAboutUs;
+            case "The blog":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkFooterBlog.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/blog";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkFooterBlog;
+            case "Dashboard":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkFooterDashboard.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/login";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkFooterDashboard;
+            case "My Profile":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkFooterMyProfile.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/login";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkFooterMyProfile;
+            case "My Order":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkFooterMyOrder.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/login";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkFooterMyOrder;
+            case "Help&Contact":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkHelpContact.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/contact-us";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkHelpContact;
+            case "Track Order":
+                ReusableMethods.wait(2);
+                visitorHomePage.linkTrackOrder.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/track-order";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkTrackOrder;
+            case "Google Play":
+                ReusableMethods.wait(2);
+                visitorHomePage.buttonGooglePlayFooter.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://play.google.com/";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertTrue(actualUrl.contains(expectedUrl));
+                Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.buttonGooglePlayFooter;
+            case "Apple Store":
+                ReusableMethods.wait(2);
+                visitorHomePage.buttonAppStoreFooter.click();
+                ReusableMethods.wait(5);
+                expectedUrl = "https://www.apple.com/app-store/";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.buttonAppStoreFooter;
+            case "YouTube":
+                ReusableMethods.wait(2);
+                visitorHomePage.iconFooterYoutube.click();
+                ReusableMethods.wait(5);
+                Set<String> windowHandles = Driver.getDriver().getWindowHandles();
+
+// Ana pencere tanımlayıcısını kaydedin
+                String mainWindowHandle = Driver.getDriver().getWindowHandle();
+
+// Yeni pencereye veya sekmeye geçiş yapın
+                for (String handle : windowHandles) {
+                    if (!handle.equals(mainWindowHandle)) {
+                        Driver.getDriver().switchTo().window(handle);
+                        break;
+                    }
+                }
+                expectedUrl = "https://www.youtube.com/";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.wait(2);
+              // Driver.closeDriver();
+                Driver.getDriver().switchTo().window(mainWindowHandle);
+               // Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.iconFooterYoutube;
+            case "LinkedIn":
+                ReusableMethods.wait(2);
+                visitorHomePage.iconFooterLinkedin.click();
+                ReusableMethods.wait(5);
+                Set<String> windowHandles2 = Driver.getDriver().getWindowHandles();
+
+// Ana pencere tanımlayıcısını kaydedin
+              mainWindowHandle = Driver.getDriver().getWindowHandle();
+
+// YouTube ve LinkedIn sayfalarının URL'lerini içeren hedef sayfayı bulun
+                String targetPageUrl = null;
+                for (String handle : windowHandles2) {
+                    if (!handle.equals(mainWindowHandle)) {
+                        Driver.getDriver().switchTo().window(handle);
+                        String currentUrl = Driver.getDriver().getCurrentUrl();
+                        if ( currentUrl.contains("linkedin.com")) {
+                          //  targetPageUrl = currentUrl;
+
+                            expectedUrl = "https://www.linkedin.com/";
+                            actualUrl = Driver.getDriver().getCurrentUrl();
+                            Assert.assertEquals(expectedUrl,actualUrl);
+                            break;
+                        }
+                    }
+                }
+
+                Driver.getDriver().switchTo().window(mainWindowHandle);
+               // Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.iconFooterLinkedin;
+            case "Facebook":
+                ReusableMethods.wait(2);
+                visitorHomePage.iconFooterFacebook.click();
+                ReusableMethods.wait(5);
+                Set<String> windowHandles3 = Driver.getDriver().getWindowHandles();
+
+// Ana pencere tanımlayıcısını kaydedin
+                mainWindowHandle = Driver.getDriver().getWindowHandle();
+               // String targetPageUrl = null;
+                for (String handle : windowHandles3) {
+                    if (!handle.equals(mainWindowHandle)) {
+                        Driver.getDriver().switchTo().window(handle);
+                        String currentUrl = Driver.getDriver().getCurrentUrl();
+                        if ( currentUrl.contains("facebook.com")) {
+                            //  targetPageUrl = currentUrl;
+
+                            expectedUrl = "https://www.facebook.com/";
+                            actualUrl = Driver.getDriver().getCurrentUrl();
+                            Assert.assertEquals(expectedUrl,actualUrl);
+                            break;
+                        }
+                    }
+                }
+                Driver.getDriver().switchTo().window(mainWindowHandle);
+               // Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.iconFooterFacebook;
+            case "Instagram":
+                ReusableMethods.wait(2);
+                visitorHomePage.iconFooterInstagram.click();
+                ReusableMethods.wait(5);
+                Set<String> windowHandles4 = Driver.getDriver().getWindowHandles();
+
+// Ana pencere tanımlayıcısını kaydedin
+                mainWindowHandle = Driver.getDriver().getWindowHandle();
+                // String targetPageUrl = null;
+                for (String handle : windowHandles4) {
+                    if (!handle.equals(mainWindowHandle)) {
+                        Driver.getDriver().switchTo().window(handle);
+                        String currentUrl = Driver.getDriver().getCurrentUrl();
+                        if ( currentUrl.contains("facebook.com")) {
+                            //  targetPageUrl = currentUrl;
+
+                            expectedUrl = "https://www.facebook.com/";
+                            actualUrl = Driver.getDriver().getCurrentUrl();
+                            Assert.assertEquals(expectedUrl,actualUrl);
+                            break;
+                        }
+                    }
+                }
+                Driver.getDriver().switchTo().window(mainWindowHandle);
+                // Driver.getDriver().get("https://qa.buysellcycle.com");
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.iconFooterInstagram;
+            default:
+                ReusableMethods.wait(2);
+                ReusableMethods.clickWithJS( visitorHomePage.linkReturnExchange);
+                ReusableMethods.wait(5);
+                expectedUrl = "https://qa.buysellcycle.com/return-exchange";
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl,actualUrl);
+                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                return visitorHomePage.linkReturnExchange;
+
+        }
+
     }
 }
