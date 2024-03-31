@@ -5,9 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
-
 import java.util.List;
-
+import java.util.logging.XMLFormatter;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -386,7 +385,7 @@ public class UserDashboard extends Base {
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//button[@id='update_info']")
     public WebElement buttonUpdateNow;
-
+//****************************************************************************************************************************
     // US_22 My Coupons link
     @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]")
     public WebElement linkMyCoupons;
@@ -420,6 +419,70 @@ public class UserDashboard extends Base {
     @FindBy(xpath= "(/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
     public WebElement buttonLogOutSideBar;
 
+    //************************US_24/TC_03********************************************************************
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//button[@id='Password-tab']")
+    public WebElement buttonChangePassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='currentPassword']")
+    public WebElement textBoxCurrentPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='newPass']")
+    public WebElement textBoxNewPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//input[@id='rePass']")
+    public WebElement textBoxRenewPassword;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "(//div[@class='col-12'])[5]")
+    public WebElement buttonUpdateNowClick;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//span[@class='validation-old-pass-error text-danger error']")
+    public WebElement labelNotMatchOldPasswordMessage;
+
+    //MyDasboard/MyAccount/ChangePassword
+    @FindBy(xpath = "//span[@class='validation-new-pass-confirm-error text-danger error']")
+    public WebElement labelNotMuchNewPasswordMessage;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "//button[@id='Address-tab']")
+    public WebElement buttonAddressMyAccountClick;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "//table[@id='address_table']")
+    public WebElement tableAddresMyAccount;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "(//button[@class='amazy_status_btn edit_address'])[1]")
+    public WebElement iconEditAddress;
+
+    //MyDasboard/MyAccount/Address
+    @FindBy(xpath = "(//button[@class='amazy_status_btn delete_address_btn mt_10'])[1]")
+    public WebElement iconDeleteAddress;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//a[@class='add_new_address amaz_primary_btn style2 rounded-0 text-uppercase text-center min_200']")
+    public WebElement buttonAddNewAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@name='shipping_address']")
+    public WebElement textBoxShippingAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@name='billing_address']")
+    public WebElement textBoxBillingAddressClick;
+
+    //MyDasboard/MyAccount/AddNewAddress
+    @FindBy(xpath = "//input[@id='address_name']")
+    public WebElement checkBoxAddressName;
+
+    @FindBy(xpath = "//button[@class='amaz_primary_btn style2 radius_5px w-100 text-center  text-uppercase  text-center min_200']")
+    public WebElement buttonCreateAddNewAddress;
 
 //======================================================================================================================
     public void checkClickElement(WebElement element){
