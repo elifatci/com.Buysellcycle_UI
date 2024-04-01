@@ -29,3 +29,4 @@ Feature: US_34 As an administrator, I would like to have an admin panel to acces
     * Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.
     * Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.
     * Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.
+

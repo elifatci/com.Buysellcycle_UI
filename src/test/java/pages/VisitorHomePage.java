@@ -473,6 +473,51 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//*[text()='shopping']")
     public WebElement buttonBlogShopping;
 
+    //----->kevser_US03_--> Track Your Order
+    @FindBy(xpath = "(//*[@class='primary_input3 rounded-0 style2'])[1]")
+    public WebElement textBoxOrderTrackingNumber;
+    @FindBy(xpath = "(//*[@class='primary_input3 rounded-0 style2'])[2]")
+    public WebElement textBoxSecretID;
+    @FindBy(xpath = "//*[@class='amaz_primary_btn  rounded-0  w-100 text-uppercase  text-center']")
+    public WebElement buttonTrackNow;
+    @FindBy(xpath = "(//*[@class='d-flex align-items-center flex-wrap gap_5'])[1]")
+    public WebElement labelOrderID;
+    @FindBy(xpath = "//*[text()='The selected order number is invalid.']")
+    public WebElement labelOrderIDError;
+    @FindBy(xpath = "//*[text()='The selected secret id is invalid.']")
+    public WebElement labelSecretIDError;
+    @FindBy(xpath = "//*[text()='The order number field is required.']")
+    public WebElement labelOrderIDRequired;
+    @FindBy(xpath = "/html/body/div[3]/div/div/div/div/form/div/div[2]/label/span")
+    public WebElement labelSecretIDRequired;
+
+    // ----> kevser_US14 => HomePage => Body Part
+    @FindBy(xpath = "//*[@id='best_deals_title']")
+    public WebElement labelBestDeals_US14;
+    @FindBy(xpath = "(//*[@class='title_link d-flex align-items-center lh-1'])[1]")
+    public WebElement viewAllBestDealsButton;
+    @FindBy(xpath = "//*[@class='trending_product_active owl-carousel owl-loaded owl-drag']")
+    public WebElement imageProductBestDeals;
+    @FindBy(xpath = "//*[@id='feature_categories_title']")
+    public WebElement labelFeatureCategories;
+    @FindBy(xpath = "//*[@id='top_rating_title']")
+    public WebElement labelTopRating;
+    @FindBy(xpath = "//*[@id='people_choice_title']")
+    public WebElement labelPeopleChoices;
+    @FindBy(xpath = "//*[@id='top_picks_title']")
+    public WebElement labelTopPicks;
+    @FindBy(xpath = "//*[@class='mb-0']")
+    public WebElement labelMoreProductsThatYouMayLove;
+    @FindBy(xpath = "//*[@id='top_brands_title']")
+    public WebElement labelTopBrands;
+    @FindBy(xpath = "//*[@class='section__title d-flex align-items-center gap-3 mb_20']")
+    public WebElement labelAbout;
+    @FindBy(xpath = "//*[@class='amaz_mazing_text']")
+    public WebElement labelAboutText;
+
+
+
+
 
 
 }

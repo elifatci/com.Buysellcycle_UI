@@ -1,8 +1,10 @@
 package stepdefinitions;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.Keys;
@@ -1096,5 +1098,79 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.waitAndClick(visitorHomePage.imageProduct3);
 
     }
+
+    // ---> kevser_US03_TC01
+    @Given("Click Track Your Order link")
+    public void click_track_your_order_link() {
+        visitorHomePage.linkHeaderTrackYourOrder.click();
+    }
+    @Given("Verify that correct page is opened")
+    public void verify_that_correct_page_is_opened() {
+        String expectedURl = "https://qa.buysellcycle.com/track-order";
+        String actualURL = Driver.getDriver().getCurrentUrl();
+        assertEquals(expectedURl,actualURL);
+    }
+    @Given("Verify that Order Tracking Number textbox is visible")
+    public void verify_that_order_tracking_number_textbox_is_visible() {
+        assertTrue(visitorHomePage.textBoxOrderTrackingNumber.isDisplayed());
+    }
+    @Given("Verify that Secret ID textBox is visible")
+    public void verify_that_secret_id_only_for_guest_user_textBox_is_visible() {
+        assertTrue(visitorHomePage.textBoxSecretID.isDisplayed());
+    }
+    // ---> kevser_US03_TC02
+    @Given("Click Order Tracking Number textbox and Write {string}")
+    public void click_order_tracking_number_textbox_and_write(String orderIDNumber) {
+        visitorHomePage.textBoxOrderTrackingNumber.click();
+        visitorHomePage.textBoxOrderTrackingNumber.sendKeys(ConfigReader.getProperty(orderIDNumber));
+    }
+    @Given("Click Secret ID textbox and Write {string}")
+    public void click_secret_id_only_for_guest_user_textbox_and_write(String secretIDNumber) {
+        visitorHomePage.textBoxSecretID.click();
+        visitorHomePage.textBoxSecretID.sendKeys(ConfigReader.getProperty(secretIDNumber));
+    }
+    @Given("Click Track Now button")
+    public void click_track_now_button() {
+        visitorHomePage.buttonTrackNow.click();
+    }
+    @Given("Verify that Product Detail page is opened")
+    public void verify_that_product_detail_page_is_opened() {
+        visitorHomePage.labelOrderID.isDisplayed();
+    }
+    // ---> kevser_US03_TC03
+    @Given("Click Order Tracking Number textBox and Write {string}")
+    public void click_order_tracking_number_text_box_and_write(String invalidOrderNumber) {
+        visitorHomePage.textBoxOrderTrackingNumber.click();
+        visitorHomePage.textBoxOrderTrackingNumber.sendKeys(ConfigReader.getProperty(invalidOrderNumber));
+    }
+    @Given("Click Secret ID textBox and Write {string}")
+    public void click_secret_id_only_for_guest_user_text_box_and_write(String invalidSecretNumber) {
+        visitorHomePage.textBoxSecretID.click();
+        visitorHomePage.textBoxSecretID.sendKeys(ConfigReader.getProperty(invalidSecretNumber));
+    }
+    @Given("Verify that the error message is visible under Order Tracking Number textbox")
+    public void verify_that_the_is_visible_under_order_tracking_number_textbox() {
+        visitorHomePage.labelOrderIDError.isDisplayed();
+    }
+    @Given("Verify that the error message is visible under Secret ID (Only For Guest User) textbox")
+    public void verify_that_the_is_visible_under_secret_id_only_for_guest_user_textbox() {
+        visitorHomePage.labelSecretIDError.isDisplayed();
+    }
+    // ---> kevser_US03_TC04
+    @Given("Verify that the message is visible")
+    public void verify_that_is_visible() {
+        assertTrue(visitorHomePage.labelOrderIDRequired.isDisplayed());
+    }
+    // ---> kevser_US03_TC05
+    @Given("Verify that the message is not Displayed")
+    public void verify_that_the_message_is_not_displayed() {
+        ReusableMethods.wait(2);
+        String expectedRequiredMessage = "The Secret ID Number field is required.";
+        String actualMessage = visitorHomePage.labelSecretIDRequired.getText();
+        assertNotEquals(expectedRequiredMessage,actualMessage);
+    }
+
+
+
 }
 
