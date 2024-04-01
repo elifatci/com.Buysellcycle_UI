@@ -418,8 +418,8 @@ public class VisitorHomePage extends Base{
     public WebElement 	linkDailyDeals;
 
     //US_02 HomePage Buysell Logo
-    @FindBy(xpath = "//*[text()='BuySellCycle']")
-    public WebElement 	logoBuysell;
+    @FindBy(xpath = "//*[@class='logo_img']")
+    public WebElement logoBuysell;
 
     //US_02 HomePage Search Box Kutusu
     @FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
@@ -430,18 +430,18 @@ public class VisitorHomePage extends Base{
     public WebElement imageProductSliderimage1;
 
     //Subscribe to our Newsletter
-    @FindBy(xpath = "//*[@id=\"promotion_close\"]/i")
+    @FindBy(xpath = "(//*[@class='close_modal'])[1]")
     public WebElement iconClose;
     @FindBy(xpath = "/html/body/div[15]/div/div/div[1]/i")
     public WebElement subscribeCloseButton;
 
 
     //US_13 HomePage Icon1
-    @FindBy(xpath = "(//*[@class='owl-nav disabled'])[1]")
+    @FindBy(xpath = "(//div[@class='owl-dot active']")
     public WebElement icon1;
 
     //US_13 HomePage image1
-    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    @FindBy(xpath = "/html/body/div[3]/div[1]/div/div[3]/a/img")
     public WebElement imageProduct1;
 
 
@@ -450,15 +450,15 @@ public class VisitorHomePage extends Base{
     public WebElement icon2;
 
     //US_13 HomePage image2
-    @FindBy(xpath = "(//*[@class='img-fluid'])[2]")
+    @FindBy(xpath = "(//*[@title='sport'])[2]")
     public WebElement imageProduct2;
 
     //US_13 HomePage image3
-    @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
+    @FindBy(xpath = "(//*[@title='Electronics'])[2]")
     public WebElement imageProduct3;
 
     //US_13 HomePage Icon3
-    @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
+    @FindBy(xpath = "(//*[@class='owl-dot'])[2]")
     public WebElement icon3;
 
     //US_13 HomePage title fashion

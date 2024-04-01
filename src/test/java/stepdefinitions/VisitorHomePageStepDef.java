@@ -10,12 +10,10 @@ import pages.Base;
 import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
-
 import java.util.Properties;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import static utils.Driver.getDriver;
 
 
@@ -39,12 +37,6 @@ public class VisitorHomePageStepDef extends Base {
     public void seconds_pause(Integer seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000);
     }
-
-    @Given("The user closes the page")
-    public void the_user_closes_the_page() {
-        Driver.quitDriver();
-    }
-
 
     // US05 ---- TC02
     @Given("It is checked if there is a picture displayed on the right side of the page")
@@ -183,13 +175,7 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_you_are_directed_to_the_page_where_current_product_offers_are_listed() {
         assertTrue(visitorHomePage.labelBestDeals.isDisplayed());
     }
-
-    @Given("Closes page")
-    public void Closes_page() {
-        Driver.quitDriver();
-    }
-
-
+  
     @Given("Verifies that each filter option is visible on the Best Deals page that opens.")
     public void verifies_that_each_filter_option_is_visible_on_the_best_deals_page_that_opens() {
         assertTrue(visitorHomePage.checkBoxFilterProducts.isDisplayed());
@@ -1005,14 +991,42 @@ public class VisitorHomePageStepDef extends Base {
     public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
 
     }
+//US13<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<nazime
 
+
+    //US13 TC01
     @Given("images in the slider are visible on the homepage")
     public void images_in_the_slider_are_visible_on_the_homepage() {
         assertTrue(visitorHomePage.imageProductSliderimage1.isDisplayed());
-
+       assertTrue( visitorHomePage.imageProduct1.isDisplayed());
+       ReusableMethods.waitAndClick(visitorHomePage.iconClose);
     }
 
     //US13 TC02
+    @Given("scrolling between slider images and Verifies that the displayed image changes in scrolls")
+    public void scrolling_between_slider_images_and_verifies_that_the_displayed_image_changes_in_scrolls() {
+        ReusableMethods.wait(2);
+        visitorHomePage.icon2.click();
+        ReusableMethods.wait(2);
+        assertTrue( visitorHomePage.imageProduct2.isDisplayed());
+        ReusableMethods.wait(2);
+        ReusableMethods.waitAndClick(visitorHomePage.icon3);
+        ReusableMethods.wait(5);
+        assertTrue( visitorHomePage.imageProduct3.isDisplayed());
+
+
+    }
+
+   //US13 TC03<<<<<<
+   @Given("Slider images are expected to automatically switch after a certain period of time Verifies that images are automatically displayed in a loop")
+   public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time_verifies_that_images_are_automatically_displayed_in_a_loop() {
+
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct1,3);
+       assertTrue(visitorHomePage.imageProduct2.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,3);
+       assertTrue(visitorHomePage.imageProduct3.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct3,3);
+   }
     @Given("scrolling between slider images")
     public void scrolling_between_slider_images() {
         visitorHomePage.icon1.click();
@@ -1033,9 +1047,14 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Verifies that images are automatically displayed in a loop")
     public void verifies_that_images_are_automatically_displayed_in_a_loop() {
 
+
     }
 
     //US13 TC04<<<<<<
+    @Given("Click on a slider image and Verifies that the relevant page has been opened")
+    public void click_on_a_slider_image_and_verifies_that_the_relevant_page_has_been_opened() {
+  
+}
     @Given("Click on a slider image")
     public void click_on_a_slider_image() {
         visitorHomePage.imageProduct1.click();
@@ -1044,7 +1063,16 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Verifies that the relevant page has been opened")
     public void verifies_that_the_relevant_page_has_been_opened() {
-
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct1);
+        ReusableMethods.switchToWindow("Fashion");
+        visitorHomePage.logoBuysell.click();
+        visitorHomePage.icon2.click();
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct2);
+        ReusableMethods.wait(2);
+        visitorHomePage.logoBuysell.click();
+        visitorHomePage.icon3.click();
+        ReusableMethods.wait(2);
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct3);
 
     }
 }
