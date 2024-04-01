@@ -12,7 +12,7 @@ Feature: US05 As a user, I would like to be able to log in with the email and pa
     * The user clicks on the LOGIN button at the top right corner of the page
     * It is checked whether the login page is opened
     * 2 seconds pause
-    * The user closes the page
+    * Close the page
   @ahmed5
   Scenario: TC02 The content of the login page should be checked
 
@@ -23,7 +23,7 @@ Feature: US05 As a user, I would like to be able to log in with the email and pa
     * It is checked if there is a SIGN IN button below the sign-in form
     * It is checked if there is a link below the sign-in form for those who forget their password
     * It is checked if there is a link below the sign-in form for those who want to sign up
-    * The user closes the page
+    * Close the page
   @ahmed5
   Scenario: TC03 User should be able to log into the system with valid credentials
 
@@ -32,7 +32,7 @@ Feature: US05 As a user, I would like to be able to log in with the email and pa
     * The user types in the valid password to the password textbox inside the sign-in form
     * The user clicks on the SIGN IN button
     * It is checked if the shown page is User dashboard
-    * The user closes the page
+    * Close the page
 
   @ahmed5
   Scenario: TC04 error message should be displayed when invalid credentials is entered
@@ -42,7 +42,7 @@ Feature: US05 As a user, I would like to be able to log in with the email and pa
     * The user types in the invalid password to the password textbox inside the sign-in form
     * The user clicks on the SIGN IN button
     * It is checked if the error message is displayed
-    * The user closes the page
+    * Close the page
 
 
 

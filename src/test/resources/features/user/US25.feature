@@ -13,7 +13,7 @@ Feature: As a registered user, I would like to have a page where
     * User verifies that the Referral menu title is visible and active in Dashboard sideBar
     * User confirms that the My referral code and User List windows are visible on the Referral page
     * User verifies the duplicability of the user-specific referral code in the My referral code textBox
-    * The user closes the page
+    * Close the page
 
 
 
@@ -21,4 +21,4 @@ Feature: As a registered user, I would like to have a page where
 
     * User lists (SL,User,Date,Status,Discount Amount,Action information) in User List for users coming with referral code on Referral page
     * User displays Empty List text if User List is empty.
-    * The user closes the page
+    * Close the page
