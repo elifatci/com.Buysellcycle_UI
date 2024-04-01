@@ -13,7 +13,7 @@ import utils.ReusableMethods;
 import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import static utils.Driver.getDriver;
 
 
@@ -37,12 +37,6 @@ public class VisitorHomePageStepDef extends Base {
     public void seconds_pause(Integer seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000);
     }
-
-    @Given("The user closes the page")
-    public void the_user_closes_the_page() {
-        Driver.quitDriver();
-    }
-
 
     // US05 ---- TC02
     @Given("It is checked if there is a picture displayed on the right side of the page")
@@ -121,6 +115,49 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.textErrorLogin.isDisplayed());
     }
 
+    // US12 ---- TC03
+    @Given("It is checked if the Daily deals link is displayed and enabled")
+    public void it_is_checked_if_the_daily_deals_link_is_displayed_and_enabled() {
+
+        webElementReturner(userDashboard.linkDailyDeals);
+        // Assert.assertTrue(userDashboard.linkDailyDeals.isDisplayed());
+        // Assert.assertTrue(userDashboard.linkDailyDeals.isEnabled());
+    }
+    @Given("The user clicks on the Daily Deals link")
+    public void the_user_clicks_on_the_daily_deals_link() {
+        userDashboard.linkDailyDeals.click();
+    }
+    @Given("It is checked if there is a countdown on the page")
+    public void it_is_checked_if_there_is_a_countdown_on_the_page() {
+        Assert.assertTrue(userDashboard.CountDownDailyDeals.isDisplayed());
+    }
+    @Given("It is checked if there are products on sale on the page")
+    public void it_is_checked_if_there_are_products_on_sale_on_the_page() {
+        Assert.assertTrue(userDashboard.firstProductDailyDeals.isDisplayed());
+    }
+    @Given("It is checked if there is a button to compare products")
+    public void it_is_checked_if_there_is_a_button_to_compare_products() {
+        actions.moveToElement(userDashboard.buttonCompare).perform();
+        Assert.assertTrue(userDashboard.buttonCompare.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonCompare.isEnabled());
+    }
+    @Given("It is checked if there is a button to review the products")
+    public void it_is_checked_if_there_is_a_button_to_review_the_products() {
+        Assert.assertTrue(userDashboard.buttonReview.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonReview.isEnabled());
+    }
+    @Given("It is checked if there is a button to add the products to the cart")
+    public void it_is_checked_if_there_is_a_button_to_add_the_products_to_the_cart() {
+        Assert.assertTrue(userDashboard.buttonCart.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonCart.isEnabled());
+    }
+    @Given("It is checked if there is a button to add the products to the wishlist")
+    public void it_is_checked_if_there_is_a_button_to_add_the_products_to_the_wishlist() {
+        Assert.assertTrue(userDashboard.buttonWishlist.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonWishlist.isEnabled());
+    }
+
+
     //===================US_07==========================
     @Given("Verifies that the New Product Deals menu title is visible and active")
     public void verifies_that_the_menu_title_is_visible_and_active() {
@@ -138,12 +175,7 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_you_are_directed_to_the_page_where_current_product_offers_are_listed() {
         assertTrue(visitorHomePage.labelBestDeals.isDisplayed());
     }
-    @Given("Closes page")
-    public void Closes_page() {
-        Driver.quitDriver();
-    }
-
-
+  
     @Given("Verifies that each filter option is visible on the Best Deals page that opens.")
     public void verifies_that_each_filter_option_is_visible_on_the_best_deals_page_that_opens() {
         assertTrue(visitorHomePage.checkBoxFilterProducts.isDisplayed());
@@ -263,27 +295,27 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("User enters a valid {string} on -First Name box-.")
     public void user_enters_a_valid_on_first_name_box(String name) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxFirstName , name);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxFirstName, name);
     }
 
     @Given("User enters a valid {string} on -Last Name box-.")
     public void user_enters_a_valid_on_last_name_box(String lastName) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxLastName , lastName);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxLastName, lastName);
     }
 
     @Given("User enters a valid {string} clicks on -Email or Phone box-.")
     public void user_enters_a_valid_clicks_on_email_or_phone_box(String email) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail, email);
     }
 
     @Given("User enters a valid {string} on -Password box-.")
     public void user_enters_a_valid_on_password_box(String password) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPassword , password);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPassword, password);
     }
 
     @Given("User enters a valid {string} on -Confirm Password- box.")
     public void user_enters_a_valid_on_confirm_password_box(String password) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPasswordConfirm , password);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxPasswordConfirm, password);
     }
 
     @Given("User clicks on Sign Up button.")
@@ -328,6 +360,7 @@ public class VisitorHomePageStepDef extends Base {
         userDashboard.checkClickElement(visitorHomePage.linkHeaderContact);
         userDashboard.checkUrl(url);
     }
+
     @Given("User clicks on -Contact button- and displays the Contact page.")
     public void user_clicks_on_contact_button_and_displays_the_contact_page() {
         assertTrue(visitorHomePage.linkHeaderContact.isDisplayed());
@@ -393,12 +426,12 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("User fills out the name section {string}.")
     public void user_fills_out_the_name_section(String name) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxName , name);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxName, name);
     }
 
     @Given("User fills out the email section {string}.")
     public void user_fills_out_the_email_section(String email) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail , email);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxEmail, email);
     }
 
     @Given("User chooses an option {int}.")
@@ -409,7 +442,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("User fills out the message section {string}.")
     public void user_fills_out_the_message_section(String message) {
-        userDashboard.checkSendKeysBox(visitorHomePage.textBoxMessage , message);
+        userDashboard.checkSendKeysBox(visitorHomePage.textBoxMessage, message);
     }
 
     @Given("User clicks on -Send Message button-")
@@ -468,7 +501,8 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Search for a keyword in the {string} box")
     public void search_for_a_keyword_in_the_box(String string) {
 
-   }
+    }
+
     @Given("Search for a keyword in the Search Post box")
     public void search_for_a_keyword_in_the_box() {
         visitorHomePage.searchBoxPost.sendKeys("shopping", Keys.ENTER);
@@ -487,7 +521,8 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Select a category from the {string} section")
     public void select_a_category_from_the_section(String string) {
 
-   }
+    }
+
     @Given("Select a category from the Category section")
     public void select_a_category_from_the_section() {
         visitorHomePage.linkBlogShopping.click();
@@ -549,14 +584,16 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
         assertTrue(visitorHomePage.footer.isDisplayed());
     }
+
     @Given("Goes to Footer section")
     public void goes_to_footer_section() {
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
 
     }
+
     @Given("{string} text is displayed and it is confirmed that it is active")
     public void text_is_displayed_and_it_is_confirmed_that_it_is_active(String link) {
-       // ReusableMethods.wait(3);
+        // ReusableMethods.wait(3);
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
         assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
         assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
@@ -570,6 +607,7 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.clickFooterLinkleri(link);
 
     }
+
     @Given("Verify that the {string} text box is visible and active under the {string} text")
     public void verify_that_the_text_box_is_visible_and_active_under_the_text(String link, String string2) {
         ReusableMethods.wait(3);
@@ -577,6 +615,7 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
         assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
     }
+
     @Given("Verify that the {string} button is visible and active under the {string} text box.")
     public void verify_that_the_button_is_visible_and_active_under_the_text_box(String link, String string2) {
         ReusableMethods.wait(3);
@@ -584,13 +623,14 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
         assertTrue(ReusableMethods.footerLinkleri(link).isEnabled());
     }
+
     @Given("When the correct email is entered into the textbox and the SUBSCRIBE button is pressed, {string} It is confirmed that the message appeared.")
     public void when_the_correct_email_is_entered_into_the_textbox_and_the_subscribe_button_is_pressed_it_is_confirmed_that_the_message_appeared(String message) {
         ReusableMethods.wait(3);
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
         visitorHomePage.textBoxFooterEmail.sendKeys(ConfigReader.getProperty("customerEmailZehra"));
         visitorHomePage.buttonSubscribe.click();
-       // String expectedMessage = message;
+        // String expectedMessage = message;
         String actualMessage = visitorHomePage.labelMessageFooter.getText();
         assertEquals(message, actualMessage);
 
@@ -600,18 +640,19 @@ public class VisitorHomePageStepDef extends Base {
     public void it_is_verified_that_when_the_wrong_email_as_is_entered_into_the_textbox_appears_when_the_subscribe_button_is_pressed(String name, String expected) {
         visitorHomePage.textBoxFooterEmail.click();
         visitorHomePage.textBoxFooterEmail.clear();
-        visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
-        String actualWarning =visitorHomePage.textWarning.getText();
-        assertEquals(expected,actualWarning);
+        visitorHomePage.textBoxFooterEmail.sendKeys(name + Keys.ENTER);
+        String actualWarning = visitorHomePage.textWarning.getText();
+        assertEquals(expected, actualWarning);
 
     }
+
     @Given("Leave the textbox blank and press the button to read {string} It must be verified that the message appears.")
     public void leave_the_textbox_blank_and_press_the_button_to_read_it_must_be_verified_that_the_message_appears(String expected) {
         visitorHomePage.textBoxFooterEmail.click();
         visitorHomePage.textBoxFooterEmail.clear();
         visitorHomePage.textBoxFooterEmail.sendKeys(Keys.ENTER);
-        String actualWarning =visitorHomePage.textWarning.getText();
-        assertEquals(expected,actualWarning);
+        String actualWarning = visitorHomePage.textWarning.getText();
+        assertEquals(expected, actualWarning);
     }
 
     @Given("Verify that the {string} icon is visible and active")
@@ -631,7 +672,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("At the bottom left, {string} The text must be visible.")
     public void at_the_bottom_left_the_text_must_be_visible(String link) {
-         ReusableMethods.wait(3);
+        ReusableMethods.wait(3);
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
         assertTrue(ReusableMethods.footerLinkleri(link).isDisplayed());
 
@@ -639,16 +680,16 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("The up icon appears at the bottom right and should be active.")
     public void the_up_icon_appears_at_the_bottom_right_and_should_be_active() {
-         ReusableMethods.wait(3);
-         assertTrue(visitorHomePage.iconGoToTop.isDisplayed());
-         assertTrue(visitorHomePage.iconGoToTop.isEnabled());
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.iconGoToTop.isDisplayed());
+        assertTrue(visitorHomePage.iconGoToTop.isEnabled());
     }
 
     @Given("It should be verified that when the up icon is clicked, it goes to the top of the site.")
     public void ıt_should_be_verified_that_when_the_up_icon_is_clicked_it_goes_to_the_top_of_the_site() {
-         visitorHomePage.iconGoToTop.click();
-         ReusableMethods.wait(3);
-         assertTrue(visitorHomePage.imageHeader.isDisplayed());
+        visitorHomePage.iconGoToTop.click();
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.imageHeader.isDisplayed());
     }
 
 //=====================================================================================================
@@ -801,7 +842,8 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.linkDailyDeals.isEnabled());
 
     }
-//US02 TC02
+
+    //US02 TC02
     @Given("The site logo is displayed on the top left of the page")
     public void the_site_logo_is_displayed_on_the_top_left_of_the_page() {
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
@@ -814,7 +856,7 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
     }
 
-//US TC03
+    //US TC03
     @Given("The search box  is displayed")
     public void the_search_box_is_displayed() {
         assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
@@ -859,54 +901,67 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.imageProfileJaxonWestwood.isDisplayed());
 
     }
-    
+
     //----US-11--All step the test cases----------------------------------------------
-    @Given("Verify  for the presence of the {string} menu item")
-    public void verify_for_the_presence_of_the_menu_item(String string) {
-
-    }
-    @Given("Click on the {string} menu item")
-    public void click_on_the_menu_item(String string) {
-
-    }
-    @Given("verify that clicking on the {string} menu item should redirect the user to the New-user-zone page")
-    public void verify_that_clicking_on_the_menu_item_should_redirect_the_user_to_the_new_user_zone_page(String string) {
+    @Given("Verify  for the presence of the New User Zone menu item")
+    public void verify_for_the_presence_of_the_menu_item() {
+        visitorHomePage.verifyVisible(visitorHomePage.linkNewUserZone);
 
     }
 
-    @Given("Verify that {string} section is active")
-    public void verify_that_section_is_active(String string) {
-
+    @Given("Click on the New User Zone menu item")
+    public void click_on_the_menu_item() {
+        visitorHomePage.linkNewUserZone.click();
     }
-    @Given("Click on the {string} section")
-    public void click_on_the_section(String string) {
 
+    @Given("verify that New User Zone link should redirect the user to the New-user-zone page")
+    public void verify_that_clicking_on_the_menu_item_should_redirect_the_user_to_the_new_user_zone_page() {
+        String expectedUrl = "https://qa.buysellcycle.com/new-user-zone/welcome-buysellcycle!-u7dzv";
+        assertEquals(expectedUrl,Driver.getDriver().getCurrentUrl());
     }
-    @Given("verify that {string} section is active and products display with special discount")
-    public void verify_that_section_is_active_and_products_display_with_special_discount(String string) {
 
+    @Given("Verify that For You section is active")
+    public void verify_that_section_is_active() {
+        visitorHomePage.verifyActive(visitorHomePage.buttonForYou);
     }
-    @Given("Click on the {string} section\" and verify that \"Coupon\" section is active")
+
+    @Given("Click on the Exclusive Price section")
+    public void click_on_the_section() {
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.buttonForYou);
+        visitorHomePage.buttonForYou.click();
+    }
+
+    @Given("verify that products display with special discount on Exclusive Price")
+    public void verify_that_section_is_active_and_products_display_with_special_discount() {
+        visitorHomePage.verifyVisible(visitorHomePage.labelDiscount_ForYou);
+    }
+
+    @Given("Click on the Coupon section and verify that Coupon is visible")
     public void click_on_the_section_and_verify_that_coupon_section_is_active(String string) {
-
+        visitorHomePage.buttonCoupon.click();
+        visitorHomePage.verifyVisible(visitorHomePage.linkGetCoupon);
     }
 
     @Given("Click on the chart icon of the first product")
     public void click_on_the_chart_icon_of_the_first_product() {
 
     }
+
     @Given("verify that the message {string} on the modal")
     public void verify_that_the_message_on_the_modal(String string) {
 
     }
+
     @Given("Close the modal window that opened")
     public void close_the_modal_window_that_opened() {
 
     }
+
     @Given("Click on the compare icon of the first product")
     public void click_on_the_compare_icon_of_the_first_product() {
 
     }
+
     @Given("verify that the message {string} is display")
     public void verify_that_the_message_is_display(String string) {
 
@@ -936,42 +991,88 @@ public class VisitorHomePageStepDef extends Base {
     public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
 
     }
+//US13<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<nazime
 
+
+    //US13 TC01
     @Given("images in the slider are visible on the homepage")
     public void images_in_the_slider_are_visible_on_the_homepage() {
-       assertTrue( visitorHomePage.imageProductSliderimage1.isDisplayed());
+        assertTrue(visitorHomePage.imageProductSliderimage1.isDisplayed());
+       assertTrue( visitorHomePage.imageProduct1.isDisplayed());
+       ReusableMethods.waitAndClick(visitorHomePage.iconClose);
+    }
+
+    //US13 TC02
+    @Given("scrolling between slider images and Verifies that the displayed image changes in scrolls")
+    public void scrolling_between_slider_images_and_verifies_that_the_displayed_image_changes_in_scrolls() {
+        ReusableMethods.wait(2);
+        visitorHomePage.icon2.click();
+        ReusableMethods.wait(2);
+        assertTrue( visitorHomePage.imageProduct2.isDisplayed());
+        ReusableMethods.wait(2);
+        ReusableMethods.waitAndClick(visitorHomePage.icon3);
+        ReusableMethods.wait(5);
+        assertTrue( visitorHomePage.imageProduct3.isDisplayed());
+
 
     }
-    //US13 TC02
+
+   //US13 TC03<<<<<<
+   @Given("Slider images are expected to automatically switch after a certain period of time Verifies that images are automatically displayed in a loop")
+   public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time_verifies_that_images_are_automatically_displayed_in_a_loop() {
+
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct1,3);
+       assertTrue(visitorHomePage.imageProduct2.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,3);
+       assertTrue(visitorHomePage.imageProduct3.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct3,3);
+   }
     @Given("scrolling between slider images")
     public void scrolling_between_slider_images() {
-     visitorHomePage.icon1.click();
+        visitorHomePage.icon1.click();
 
     }
+
     @Given("Verifies that the displayed image changes in scrolls")
     public void verifies_that_the_displayed_image_changes_in_scrolls() {
         assertTrue(visitorHomePage.imageProduct2.isDisplayed());
 
     }
 
-   //US13 TC03<<<<<<
+    //US13 TC03<<<<<<
     @Given("Slider images are expected to automatically switch after a certain period of time")
     public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time() {
     }
+
     @Given("Verifies that images are automatically displayed in a loop")
     public void verifies_that_images_are_automatically_displayed_in_a_loop() {
+
 
     }
 
     //US13 TC04<<<<<<
+    @Given("Click on a slider image and Verifies that the relevant page has been opened")
+    public void click_on_a_slider_image_and_verifies_that_the_relevant_page_has_been_opened() {
+  
+}
     @Given("Click on a slider image")
     public void click_on_a_slider_image() {
         visitorHomePage.imageProduct1.click();
 
     }
+
     @Given("Verifies that the relevant page has been opened")
     public void verifies_that_the_relevant_page_has_been_opened() {
-
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct1);
+        ReusableMethods.switchToWindow("Fashion");
+        visitorHomePage.logoBuysell.click();
+        visitorHomePage.icon2.click();
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct2);
+        ReusableMethods.wait(2);
+        visitorHomePage.logoBuysell.click();
+        visitorHomePage.icon3.click();
+        ReusableMethods.wait(2);
+        ReusableMethods.waitAndClick(visitorHomePage.imageProduct3);
 
     }
 }
