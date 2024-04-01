@@ -85,8 +85,8 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Displays Purchase History banner in Dashboard sideBar")
     public void displays_purchase_history_banner_in_dashboard_side_bar() {
-        ReusableMethods.wait(5);
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
         userDashboard.linkPurchaseHistory.isDisplayed();
     }
 
@@ -231,53 +231,64 @@ public class UserDashboardStepDef extends Base {
         assertTrue(userDashboard.buttonLogout.isDisplayed());
     }
 //==============================US_26=============================================
-    @Given("I click on the {string} link in the header section.")
-    public void i_click_on_the_link_in_the_header_section(String string) {
 
-}
+    @Given("Login by entering valid {string} and {string} on the SignIn page JS")
+    public void login_by_entering_valid_email_and_password_on_the_sign_in_page_JS(String email, String password) {
+       ReusableMethods.clickWithJS(userDashboard.labelBoxLogin);
+        userDashboard.loginUserWithJS(email,password);
+    }
+
     @Given("Goes to the Support Ticket page")
-    public void goes_to_the_support_ticket_page() {
+    public void goes_to_the_support_ticket_page() throws InterruptedException {
+       Thread.sleep(2000);
+       actions.sendKeys(Keys.PAGE_DOWN).perform();
+       Thread.sleep(2000);
+       userDashboard.linkUserSupportTicket.click();
+       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", userDashboard.linkUserSupportTicket);
+       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", userDashboard.linkUserSupportTicket);
 
+        //actions.click(userDashboard.linkUserSupportTicket).perform();
+      // ReusableMethods.clickWithJS(userDashboard.linkUserSupportTicket);
     }
     @Given("Verify that the {string} menu title is visible in the SideBar.")
-    public void verify_that_the_menu_title_is_visible_in_the_side_bar(String string) {
-
+    public void verify_that_the_menu_title_is_visible_in_the_side_bar(String element) {
+        userDashboard.checkClickElement(userDashboard.linkUserSupportTicket);
     }
     @Given("Verify that the {string} menu title is clickable")
-    public void verify_that_the_menu_title_is_clickable(String string) {
+    public void verify_that_the_menu_title_is_clickable(String link) {
 
     }
     @Given("Verify that when the {string} menu title is clicked, the User is directed to the {string} page.")
-    public void verify_that_when_the_menu_title_is_clicked_the_user_is_directed_to_the_page(String string, String string2) {
-
+    public void verify_that_when_the_menu_title_is_clicked_the_user_is_directed_to_the_page(String link, String link1) {
+        ReusableMethods.clickFooterLinkleri(link);
     }
 
     @Given("Verify that {string} text is visible")
     public void verify_that_text_is_visible(String string) {
-
+        assertTrue(userDashboard.labelAllSubmittedTicket.isDisplayed());
     }
     @Given("Verify that {string} in the list are visible.")
     public void verify_that_in_the_list_are_visible(String string) {
-
+       userDashboard.checkListELements(userDashboard.tableAllSupportList,userDashboard.tableAllSupportList.size());
     }
 
 
-    @Given("Verify that Ticket ID, Subject, Priority, Last Update headers are visible")
-    public void verify_that_ticket_id_subject_priority_last_update_headers_are_visible() {
-
+    @Given("Verify that {string}, {string}, {string}, {string} headers are visible")
+    public void verify_that_ticket_id_subject_priority_last_update_headers_are_visible(String name1,String name2,String name3,String name4) {
+        userDashboard.checkListELements(userDashboard.rowHeaderTicketSubjectPriority,userDashboard.rowHeaderTicketSubjectPriority.size());
     }
     @Given("Verify that the tickets in the list contain Ticket ID, Subject, Priority, Last Update information.")
     public void verify_that_the_tickets_in_the_list_contain_ticket_id_subject_priority_last_update_information() {
-
+        userDashboard.checkListELements(userDashboard.rowBodyTicketSubjectPriority,userDashboard.rowBodyTicketSubjectPriority.size());
     }
 
     @Given("Click on the {string} link under the action heading of the selected ticket to open its detail page.")
     public void click_on_the_link_under_the_action_heading_of_the_selected_ticket_to_open_its_detail_page(String string) {
-
+        userDashboard.linkView.click();
     }
     @Given("Verifies that {string} information is displayed on the ticket's detail page")
-    public void verifies_that_information_is_displayed_on_the_ticket_s_detail_page(String string) {
-
+    public void verifies_that_information_is_displayed_on_the_ticket_s_detail_page(String info) {
+        assertTrue(ReusableMethods.supportTicketLinkleri(info).isDisplayed());
     }
 
     @Given("Verifies that the message information returned by the Admin is displayed.")
@@ -287,10 +298,11 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Verifies that the REPLY button is visible and active under the message boxes")
     public void verifies_that_the_reply_button_is_visible_and_active_under_the_message_boxes() {
-
+          userDashboard.checkElement(userDashboard.buttonReply);
     }
     @Given("When the REPLY button is clicked, it is verified that the {string} text is visible.")
     public void when_the_reply_button_is_clicked_it_is_verified_that_the_text_is_visible(String string) {
+          userDashboard.buttonReply.click();
 
     }
     @Given("Verifies that the required information can be entered in the textbox opened under the Description text.")
