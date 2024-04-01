@@ -1,20 +1,22 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
 import pages.Base;
 import pages.UserDashboard;
 import utils.ConfigReader;
 import utils.ReusableMethods;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.JavascriptExecutor;
 import utils.Driver;
+
 import java.io.File;
+
+import static org.junit.Assert.*;
 
 public class AdminDashboardStepDef extends Base {
 
 
-    //******************US_34/TC_01*************************
+
 
     // US39 ---> TC01
     @Given("User clicks on -Products menu- then clicks on -Product List- and displays {string} the Product List page.")
@@ -25,18 +27,21 @@ public class AdminDashboardStepDef extends Base {
         userDashboard.checkUrl(url);
         ReusableMethods.wait(1);
     }
+
     @Given("User clicks on -Seller Request Product- and displays the page.")
     public void user_clicks_on_seller_request_product_and_displays_the_page() {
         userDashboard.checkClickElement(adminDashboard.linkSellerRequestProduct);
         ReusableMethods.wait(1);
         assertTrue(adminDashboard.labelSellerRequestProduct.isDisplayed());
     }
+
     @Given("User clicks on -Disabled Product List- and displays the page.")
     public void user_clicks_on_disabled_product_list_and_displays_the_page() {
         userDashboard.checkClickElement(adminDashboard.linkDisabledProduct);
         ReusableMethods.wait(1);
         assertTrue(adminDashboard.labelDisabledProduct.isDisplayed());
     }
+
     @Given("User clicks on -Product By SKU- and displays the page.")
     public void user_clicks_on_product_by_sku_and_displays_the_page() {
         userDashboard.checkClickElement(adminDashboard.linkProductBySKU);
@@ -47,18 +52,19 @@ public class AdminDashboardStepDef extends Base {
     //US39 ---> TC02
     @Given("User verifies that Product List headings are visible.")
     public void user_verifies_that_product_list_headings_are_visible() {
-        userDashboard.checkListELements(adminDashboard.rowListProductList , 7);
+        userDashboard.checkListELements(adminDashboard.rowListProductList, 7);
     }
 
     //US39 ---> TC03
     @Given("User clicks on -Quick Search- and enters a product {string}.")
     public void user_clicks_on_quick_search_and_enters_a_product_name(String product) {
-        userDashboard.checkSendKeysBox(adminDashboard.textBoxQuickSearch , product);
+        userDashboard.checkSendKeysBox(adminDashboard.textBoxQuickSearch, product);
     }
+
     @Given("User verifies that he-she displays the result.")
     public void user_verifies_that_he_she_displays_the_result() {
         ReusableMethods.wait(3);
-        assertEquals(ConfigReader.getProperty("productName") , adminDashboard.labelSearchedProduct.getText());
+        assertEquals(ConfigReader.getProperty("productName"), adminDashboard.labelSearchedProduct.getText());
     }
 
     //US39 ---> TC04
@@ -66,6 +72,7 @@ public class AdminDashboardStepDef extends Base {
     public void user_clicks_on_status_toggle() {
         userDashboard.checkClickElement(adminDashboard.radioButtonStatus);
     }
+
     @Given("User verifies that status is changed.")
     public void user_verifies_that_status_is_changed() {
         ReusableMethods.wait(1);
@@ -77,6 +84,7 @@ public class AdminDashboardStepDef extends Base {
     public void user_clicks_on_select() {
         userDashboard.checkClickElement(adminDashboard.dropDownSelect);
     }
+
     @Given("User clicks on -View- and displays the product information's.")
     public void user_clicks_on_view_and_displays_the_product_informations() {
         userDashboard.checkClickElement(adminDashboard.linkViewProduct);
@@ -101,6 +109,7 @@ public class AdminDashboardStepDef extends Base {
         ReusableMethods.wait(1);
         userDashboard.checkClickElement(adminDashboard.buttonDeleteProduct);
     }
+
     @Given("User verifies that the product is deleted.")
     public void user_verifies_that_the_product_is_deleted() {
         ReusableMethods.wait(1);
@@ -128,6 +137,7 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Hover over your profile icon and click on the My profile link.")
     public void hover_over_your_profile_icon_and_click_on_the_my_profile_link() {
+        adminDashboard.iconCloseSuccessMessage.click();
         actions.moveToElement(adminDashboard.imageProfile).perform();
         ReusableMethods.wait(2);
         adminDashboard.linkMyProfile.click();
@@ -146,7 +156,6 @@ public class AdminDashboardStepDef extends Base {
         ReusableMethods.wait(2);
         adminDashboard.linkMyProfile.click();
     }
-
     @Given("Verify that First Name, Last Name, E-mail Address, Phone Number, Date of Bird information is visible in the Basic Info section.")
     public void verify_that_first_name_last_name_e_mail_address_phone_number_date_of_bird_information_is_visible_in_the_basic_info_section() {
         adminDashboard.verifyVisible(adminDashboard.labelFirstNameText);
@@ -162,77 +171,81 @@ public class AdminDashboardStepDef extends Base {
         adminDashboard.verifyVisibleActive(adminDashboard.buttonUpdate);
     }
 
-    @Given("Verify that the profile picture is updated")
-    public void verify_that_the_profile_picture_is_updated() {
-        adminDashboard.buttonAvatar.click();
-        String filePath = "C:\\Users\\Elif\\OneDrive\\Resimler\\pexels-baskin-creative-studios-1766838.jpg";
-        ReusableMethods.wait(3);
-        adminDashboard.buttonAvatar.sendKeys(filePath);
-        ReusableMethods.wait(2);
-
-
-    }
-
     @Given("Verify that the information can be updated")
     public void verify_that_the_information_can_be_updated() {
-
+        adminDashboard.textBoxfirstName.clear();
+        adminDashboard.textBoxfirstName.sendKeys("Elif");
+        adminDashboard.textBoxPhoneNumber.sendKeys("4");
+        adminDashboard.buttonUpdate.click();
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
     //US36 TC03
     @Given("Click on the Change password button and verify that you are directed to the relevant page.")
     public void click_on_the_change_password_button_and_verify_that_you_are_directed_to_the_relevant_page() {
-
+        ReusableMethods.wait(2);
+        adminDashboard.buttonChangePassword.click();
+        //adminDashboard.clickVerification(adminDashboard.buttonChangePassword, adminDashboard.labelChangePassword);
+        ReusableMethods.wait(3);
+        assertTrue(adminDashboard.labelChangePassword.isDisplayed());
     }
 
     @Given("Verify that the CURRENT PASSWORD, NEW PASSWORD, RE ENTER NEW PASSWORD textboxes are visible")
     public void verify_that_the_current_password_new_password_re_enter_new_password_textboxes_are_visible() {
-
+        assertTrue(adminDashboard.textBoxCurrentPassword.isDisplayed());
+        assertTrue(adminDashboard.textBoxNewPassword.isDisplayed());
+        assertTrue(adminDashboard.textBoxRePassword.isDisplayed());
+        ReusableMethods.wait(2);
     }
 
     @Given("Verify that the password can be updated")
     public void verify_that_the_password_can_be_updated() {
-
+        adminDashboard.textBoxCurrentPassword.sendKeys(ConfigReader.getProperty("password"));
+        adminDashboard.textBoxNewPassword.sendKeys("123123124");
+        adminDashboard.textBoxRePassword.sendKeys("123123124");
+        adminDashboard.buttonUpdateChangePassword.click();
     }
 
     //US36 TC04
     @Given("Click on the Address button")
     public void click_on_the_address_button() {
-
+        adminDashboard.buttonAddress.click();
     }
 
     @Given("Verify that the Add new address button is visible and active")
     public void verify_that_the_add_new_address_button_is_visible_and_active() {
-
+        adminDashboard.verifyVisibleActive(adminDashboard.buttonAddNewAddress);
     }
 
     @Given("Verify that the Address page opens")
     public void verify_that_the_address_page_opens() {
-
+        assertTrue(adminDashboard.linkAddNewProduct.isDisplayed());
     }
 
     @Given("Verify that address information is visible")
     public void verify_that_address_information_is_visible() {
-
+        assertTrue(adminDashboard.tableAddressInformation.isDisplayed());
     }
 
     @Given("Click the Add new address button")
     public void click_the_add_new_address_button() {
-
+        adminDashboard.buttonAddNewAddress.click();
     }
 
     @Given("Verify that the save button is visible")
     public void verify_that_the_save_button_is_visible() {
-
+        assertTrue(adminDashboard.buttonSaveAddress.isDisplayed());
     }
 
     @Given("Fill in the starred fields and click the save button.")
     public void fill_in_the_starred_fields_and_click_the_save_button() {
-
+        adminDashboard.addAddress();
     }
 
     @Given("Verify that the address has been added")
     public void verify_that_the_address_has_been_added() {
-
+            assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
     //US36 TC05
@@ -248,6 +261,83 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Click on the save button")
     public void click_on_the_save_button() {
+
+    }
+
+    //***********************US_34/TC_01/TC_02*********************************
+
+
+
+    @Given("At the top of the Admin Dashboard page appears in the Search TextBox section Verify that it is.")
+    public void at_the_top_of_the_admin_dashboard_page_appears_in_the_search_text_box_section_verify_that_it_is() {
+
+    }
+    @Given("Using Search TextBox, type Dashboard in the search box within the site and verify that the results are displayed correctly.")
+    public void using_search_text_box_type_dashboard_in_the_search_box_within_the_site_and_verify_that_the_results_are_displayed_correctly() {
+
+    }
+    @Given("Click the Menu icon on the Admin Dashboard home page and verify that the SideBar collapses and expands.")
+    public void click_the_menu_icon_on_the_admin_dashboard_home_page_and_verify_that_the_side_bar_collapses_and_expands() {
+
+    }
+    @Given("Username of the site from Admin Dashboard redirected to the interface verify.")
+    public void username_of_the_site_from_admin_dashboard_redirected_to_the_interface_verify() {
+
+    }
+    @Given("Click on the Today button and select verify that the data changes to the selected value.")
+    public void click_on_the_today_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Click on the This Week button and select verify that the data changes to the selected value.")
+    public void click_on_the_this_week_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Click on the This Year button and select verify that the data changes to the selected value.")
+    public void click_on_the_this_year_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_product_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("TotalCustomer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Visitor from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void visitor_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Pending Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_pending_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Completed Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_completed_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Sale from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_sale_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Review from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_review_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_revenue_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void active_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_subscriber_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
 

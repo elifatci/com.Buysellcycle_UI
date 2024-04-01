@@ -3,17 +3,15 @@
   Feature: As a user, I would like to have a page where I can open support tickets to resolve the problems I encounter on the site and see the status of the tickets I act
 
     Background:
-      * Go to "url"
-      * Clicks the Login buttonLink on the home page
+      * Go to "loginUrl"
       * Login by entering valid "customerEmailZehra" and "password" on the SignIn page.
-      * I click on the "Dashboard" link in the header section.
       * Goes to the Support Ticket page
 
     Scenario: TC_01 The Support Ticket menu title appears in the Dashboard sideBar and must be active.
 
       * Verify that the "Support Ticket" menu title is visible in the SideBar.
       * Verify that the "Support Ticket" menu title is clickable
-      * Verify that when the "Support Ticket" menu title is clicked, the User is directed to the 'Support Ticket' page.
+      * Verify that when the "Support Ticket" menu title is clicked, the User is directed to the 'supportTicketUrl' page.
 
 
     Scenario: TC_02  All Submitted Ticket List must be visible on the Support Ticket page.
@@ -23,7 +21,7 @@
 
     Scenario: TC_03 Tickets should be listed in the All Submitted Ticket List with Ticket ID, Subject, Priority and Last Update information.
 
-     * Verify that Ticket ID, Subject, Priority, Last Update headers are visible
+     * Verify that "Ticket ID", "Subject", "Priority", "Last Update" headers are visible
      * Verify that the tickets in the list contain Ticket ID, Subject, Priority, Last Update information.
 
     Scenario: TC_04 Access to the detailed information (Status, Priority, Category) of the relevant Ticket in the All Submitted Ticket List must be provided.

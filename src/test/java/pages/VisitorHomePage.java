@@ -232,6 +232,8 @@ public class VisitorHomePage extends Base{
     public WebElement buttonForYou;
     @FindBy(linkText = "Products")
     public WebElement labelProducts;
+    @FindBy(xpath = "(//div[@class='product_badge'])[3]")
+    public WebElement labelDiscount_ForYou;
     @FindBy(xpath = "(//a[@data-product-id='341'])[2]")
     public WebElement iconCart_ForYou;
     @FindBy(xpath = "(//a[@data-product-id='341'])[1]")
@@ -280,47 +282,39 @@ public class VisitorHomePage extends Base{
 //**********************US_06/TC_01*****US_15/TC_01********************************
     //HomePage>>AllCategories
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
-    public WebElement DropDownAllCateg;
-
-    //HomePage>>AllCategoriesButton
-    @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
-    public WebElement buttonAllCateg;
+    public WebElement dropDownAllCategories;
 
     //HomePage>>AllCategories>>subDropdown
     @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
-    public WebElement subDropdownAllCateg;
+    public WebElement subDropdownAllCategories;
 
     //HomePage>>AllCategories>>electronics
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[1]")
-    public WebElement buttonElectClickView;
+    @FindBy(xpath = "//i[@class='fas fa-mobile-alt']")
+    public WebElement buttonElectronicsIcon;
 
     //HomePage>>AllCategories>>electronics>>subcategories
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/mobile-phone-?item=category']")
     public WebElement linkmobilePhone;
 
-    //HomePage>>AllCategories>>Fashion>>subcategories
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[2]")
-    public WebElement buttonFashionClickView;
-
-    //HomePage>>AllCategories>>Fashion>>subcategories
-    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/w-dress?item=category']")
-    public WebElement linkWomanDress;
+    //HomePage>>AllCategories>>Baby>>subcategories
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/park-bed?item=category']")
+    public WebElement linkBabyBad;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[3]")
-    public WebElement babyClickView;
+    @FindBy(xpath = "//i[@class='far fa-grin-squint']")
+    public WebElement buttonbabyClickView;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/baby-credle?item=category']")
-    public WebElement linkbabyCredle;
+    @FindBy(xpath = "///a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
+    public WebElement linkBabyStrollerPushchair;
 
     //HomePage>>Body>>Elektronics
     @FindBy(xpath = "(//h4[@id='filter_category_title'])[1]")
-    public WebElement BodyElectronics;
+    public WebElement bodyElectronics;
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//ul[@role='tablist'])[1]")
-    public WebElement bodyElecSubCat;
+    public WebElement bodyElecSubCategories;
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='APPLE iPhone 15 Pro 128 GB'])[1]")
@@ -416,8 +410,8 @@ public class VisitorHomePage extends Base{
     public WebElement 	linkDailyDeals;
 
     //US_02 HomePage Buysell Logo
-    @FindBy(xpath = "//*[text()='BuySellCycle']")
-    public WebElement 	logoBuysell;
+    @FindBy(xpath = "//*[@class='logo_img']")
+    public WebElement logoBuysell;
 
     //US_02 HomePage Search Box Kutusu
     @FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
@@ -428,18 +422,18 @@ public class VisitorHomePage extends Base{
     public WebElement imageProductSliderimage1;
 
     //Subscribe to our Newsletter
-    @FindBy(xpath = "//*[@id=\"promotion_close\"]/i")
+    @FindBy(xpath = "(//*[@class='close_modal'])[1]")
     public WebElement iconClose;
     @FindBy(xpath = "/html/body/div[15]/div/div/div[1]/i")
     public WebElement subscribeCloseButton;
 
 
     //US_13 HomePage Icon1
-    @FindBy(xpath = "(//*[@class='owl-nav disabled'])[1]")
+    @FindBy(xpath = "(//div[@class='owl-dot active']")
     public WebElement icon1;
 
     //US_13 HomePage image1
-    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
+    @FindBy(xpath = "/html/body/div[3]/div[1]/div/div[3]/a/img")
     public WebElement imageProduct1;
 
 
@@ -448,15 +442,15 @@ public class VisitorHomePage extends Base{
     public WebElement icon2;
 
     //US_13 HomePage image2
-    @FindBy(xpath = "(//*[@class='img-fluid'])[2]")
+    @FindBy(xpath = "(//*[@title='sport'])[2]")
     public WebElement imageProduct2;
 
     //US_13 HomePage image3
-    @FindBy(xpath = "(//*[@class='img-fluid'])[3]")
+    @FindBy(xpath = "(//*[@title='Electronics'])[2]")
     public WebElement imageProduct3;
 
     //US_13 HomePage Icon3
-    @FindBy(xpath = "(//*[@class='owl-dot active'])[1]")
+    @FindBy(xpath = "(//*[@class='owl-dot'])[2]")
     public WebElement icon3;
 
     //US_13 HomePage title fashion
@@ -478,6 +472,7 @@ public class VisitorHomePage extends Base{
     //Blog page>> Keywords section
     @FindBy(xpath = "//*[text()='shopping']")
     public WebElement buttonBlogShopping;
+
 
 
 }
