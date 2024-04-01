@@ -16,6 +16,7 @@ Feature: US_34 As an administrator, I would like to have an admin panel to acces
     * Click on the This Week button and select verify that the data changes to the selected value.
     * Click on the This Year button and select verify that the data changes to the selected value.
 
+
   Scenario:TC_02 Links of Summary section in Admin Panel Access and Dashboard Functionality should be clickable and active
 
     * Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.
@@ -29,3 +30,4 @@ Feature: US_34 As an administrator, I would like to have an admin panel to acces
     * Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.
     * Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.
     * Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.
+

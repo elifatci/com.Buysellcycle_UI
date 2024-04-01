@@ -1,7 +1,10 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.ReusableMethods;
+
 import java.util.List;
 
 public class AdminDashboard extends Base{
@@ -236,4 +239,107 @@ public class AdminDashboard extends Base{
         element.isDisplayed();
         element.isEnabled();
     }
+
+    //Admin-Profile>>firstname textbox
+    @FindBy(xpath = "//*[@class='primary_input_field first_name']")
+    public WebElement textBoxfirstName;
+
+    //Admin-Profile>>Phone Number textbox
+    @FindBy(xpath = "//*[@class='primary_input_field phone']")
+    public WebElement textBoxPhoneNumber;
+
+    //Admin-Profile>>succes Update Message
+    @FindBy(xpath = "//*[@class='toast-message']")
+    public WebElement labelSuccessMessage;
+
+    //Admin-Profile>>Change Password Button
+    @FindBy(xpath = "(//*[@class='nav-link'])[1]")
+    public WebElement buttonChangePassword;
+
+    //Admin-Profile>>Address Button
+    @FindBy(xpath = "(//*[@class='nav-link'])[2]")
+    public WebElement buttonAddress;
+
+    //Admin-Profile>>Change password text
+    @FindBy(xpath = "(//*[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[2]")
+    public WebElement labelChangePassword;
+
+    public void clickVerification(WebElement element1,WebElement element2){
+        element1.click();
+        ReusableMethods.wait(3);
+        Assert.assertTrue(element2.isDisplayed());
+    }
+
+    //Admin-Profile>>Change password page
+    @FindBy(xpath = "//*[@id='currentPassword']")
+    public WebElement textBoxCurrentPassword;
+
+    //Admin-Profile>>Change password page
+    @FindBy(xpath = "//*[@id='newPass']")
+    public WebElement textBoxNewPassword;
+
+    //Admin-Profile>>Change password page
+    @FindBy(xpath = "//*[@id='rePass']")
+    public WebElement textBoxRePassword;
+
+    //Admin-Profile>>Change password page
+    @FindBy(xpath = "//*[@class='primary-btn semi_large2 fix-gr-bg change_password']")
+    public WebElement buttonUpdateChangePassword;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[@class='primary-btn radius_30px mr-10 fix-gr-bg add_new_address']")
+    public WebElement buttonAddNewAddress;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@id='address_table'])[1]")
+    public WebElement tableAddressInformation;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@class='primary-btn semi_large2 fix-gr-bg float-none'])[1]")
+    public WebElement buttonSaveAddress;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[@id='address_name']")
+    public WebElement textBoxNameAddress;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[@id='Email_Address1']")
+    public WebElement textBoxEmailAddress;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath ="//*[@id='customer_phn']")
+    public WebElement textBoxPhoneAddress;
+
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[@id='Address']")
+    public WebElement textBoxAddress;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@class='nice-select form-control primary_select'])[1]")
+    public WebElement dropDownCountry;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@class='nice-select form-control primary_select'])[2]")
+    public WebElement dropDownState;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@class='nice-select form-control primary_select'])[3]")
+    public WebElement dropDownCity;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath ="//*[@id='postal_code']")
+    public WebElement textBoxPostalCode;
+
+    public void addAddress(){
+        textBoxNameAddress.sendKeys("New");
+        textBoxEmailAddress.sendKeys("ee@ee.cm");
+        textBoxPhoneAddress.sendKeys("111111111111");
+        textBoxAddress.sendKeys("Test");
+        dropDownState.sendKeys("Alaska");
+        dropDownCity.sendKeys("Albany");
+        textBoxPostalCode.sendKeys("101000");
+        buttonSaveAddress.click();
+    }
+
 }
