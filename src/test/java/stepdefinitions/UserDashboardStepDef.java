@@ -230,7 +230,39 @@ public class UserDashboardStepDef extends Base {
     public void logout_link_is_displayed_in_the_dashboard_sidebar() {
         assertTrue(userDashboard.buttonLogout.isDisplayed());
     }
-//==============================US_26=============================================
+
+    //==========================US_25=====TC01=======================================
+    @Given("User verifies that the Referral menu title is visible and active in Dashboard sideBar")
+    public void user_verifies_that_the_referral_menu_title_is_visible_and_active_in_dashboard_side_bar() {
+    ReusableMethods.clickWithJS(userDashboard.linkRefferal);
+    assertTrue(userDashboard.linkRefferal.isDisplayed());
+    }
+    @Given("User confirms that the My referral code and User List windows are visible on the Referral page")
+    public void user_confirms_that_the_my_referral_code_and_user_list_windows_are_visible_on_the_referral_page() {
+        assertTrue(userDashboard.labelMyRefferalCode.isDisplayed());
+        assertTrue(userDashboard.labelUserList.isDisplayed());
+
+    }
+    @Given("User verifies the duplicability of the user-specific referral code in the My referral code textBox")
+    public void user_verifies_the_duplicability_of_the_user_specific_referral_code_in_the_my_referral_code_text_box() {
+    userDashboard.copyCodeButton.click();
+    assertTrue(userDashboard.copyCodeButton.isDisplayed());
+    }
+
+    //==========================US_25=====TC02=======================================
+    @Given("User lists \\(SL,User,Date,Status,Discount Amount,Action information) in User List for users coming with referral code on Referral page")
+    public void user_lists_sl_user_date_status_discount_amount_action_information_in_user_list_for_users_coming_with_referral_code_on_referral_page() {
+    ReusableMethods.wait(5);
+        ReusableMethods.clickWithJS(userDashboard.linkRefferal);
+        userDashboard.checkListELements(userDashboard.rowUserList ,6);
+    }
+
+    @Given("User displays Empty List text if User List is empty.")
+    public void user_displays_empty_list_text_if_user_list_is_empty() {
+    assertTrue(userDashboard.labelEmptyList.isDisplayed());
+    }
+
+    //==============================US_26=============================================
     @Given("I click on the {string} link in the header section.")
     public void i_click_on_the_link_in_the_header_section(String string) {
 
