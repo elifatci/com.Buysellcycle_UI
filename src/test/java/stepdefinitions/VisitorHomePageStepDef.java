@@ -123,6 +123,49 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.textErrorLogin.isDisplayed());
     }
 
+    // US12 ---- TC03
+    @Given("It is checked if the Daily deals link is displayed and enabled")
+    public void it_is_checked_if_the_daily_deals_link_is_displayed_and_enabled() {
+
+        webElementReturner(userDashboard.linkDailyDeals);
+        // Assert.assertTrue(userDashboard.linkDailyDeals.isDisplayed());
+        // Assert.assertTrue(userDashboard.linkDailyDeals.isEnabled());
+    }
+    @Given("The user clicks on the Daily Deals link")
+    public void the_user_clicks_on_the_daily_deals_link() {
+        userDashboard.linkDailyDeals.click();
+    }
+    @Given("It is checked if there is a countdown on the page")
+    public void it_is_checked_if_there_is_a_countdown_on_the_page() {
+        Assert.assertTrue(userDashboard.CountDownDailyDeals.isDisplayed());
+    }
+    @Given("It is checked if there are products on sale on the page")
+    public void it_is_checked_if_there_are_products_on_sale_on_the_page() {
+        Assert.assertTrue(userDashboard.firstProductDailyDeals.isDisplayed());
+    }
+    @Given("It is checked if there is a button to compare products")
+    public void it_is_checked_if_there_is_a_button_to_compare_products() {
+        actions.moveToElement(userDashboard.buttonCompare).perform();
+        Assert.assertTrue(userDashboard.buttonCompare.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonCompare.isEnabled());
+    }
+    @Given("It is checked if there is a button to review the products")
+    public void it_is_checked_if_there_is_a_button_to_review_the_products() {
+        Assert.assertTrue(userDashboard.buttonReview.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonReview.isEnabled());
+    }
+    @Given("It is checked if there is a button to add the products to the cart")
+    public void it_is_checked_if_there_is_a_button_to_add_the_products_to_the_cart() {
+        Assert.assertTrue(userDashboard.buttonCart.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonCart.isEnabled());
+    }
+    @Given("It is checked if there is a button to add the products to the wishlist")
+    public void it_is_checked_if_there_is_a_button_to_add_the_products_to_the_wishlist() {
+        Assert.assertTrue(userDashboard.buttonWishlist.isDisplayed());
+        Assert.assertTrue(userDashboard.buttonWishlist.isEnabled());
+    }
+
+
     //===================US_07==========================
     @Given("Verifies that the New Product Deals menu title is visible and active")
     public void verifies_that_the_menu_title_is_visible_and_active() {
