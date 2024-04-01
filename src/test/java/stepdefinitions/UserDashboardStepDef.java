@@ -150,22 +150,22 @@ public class UserDashboardStepDef extends Base {
 
     }
 
-    // ---> US20-kevser
+    // ---> kevser_US20_TC01
     @Given("Clicks My Order link in the User Dashboard panel")
     public void clicks_link_in_the_user_dashboard_panel() {
-        ReusableMethods.wait(2);
-
-        //ReusableMethods.scrollIntoViewJS(userDashboard.linkMyOrder);
+        ReusableMethods.wait(4);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.clickWithJS(userDashboard.linkMyOrder);
     }
-
     @Given("Verify that expected page is opened")
     public void verify_that_expected_page_is_opened() {
         ReusableMethods.wait(2);
         String expectedUrl = "https://qa.buysellcycle.com/my-purchase-orders";
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedUrl, actualUrl);
+        Assert.assertEquals(expectedUrl,actualUrl);
     }
 
+    // ---> kevser_US20_TC02
     @Given("All, To Pay, To Ship, To Receive links should be visible and active")
     public void all_to_pay_to_ship_to_receive_links_should_be_visible_and_active() {
         ReusableMethods.wait(2);
@@ -178,7 +178,6 @@ public class UserDashboardStepDef extends Base {
         userDashboard.linkToRecieve.isDisplayed();
         userDashboard.linkToRecieve.isEnabled();
     }
-
     @Given("Order ID, Order Date, Status, Order amount, Paid Bay links should be visible and active")
     public void order_id_order_date_status_order_amount_paid_bay_links_should_be_visible_and_active() {
         ReusableMethods.wait(2);
@@ -193,17 +192,67 @@ public class UserDashboardStepDef extends Base {
         userDashboard.labelPaidBy.isDisplayed();
         userDashboard.labelPaidBy.isEnabled();
     }
-
     @Given("Order Details button should be visible and active")
     public void order_details_button_should_be_visible_and_active() {
         userDashboard.orderDetailsButton.isEnabled();
         userDashboard.orderDetailsButton.isDisplayed();
     }
-
     @Given("Last 5 orders link should be visible and active")
     public void last_orders_link_should_be_visible_and_active() {
         ReusableMethods.wait(2);
         userDashboard.dropDownLast5Orders.isEnabled();
+    }
+    @Given("click to Subscribe")
+    public void click_to_subscribe() {
+        userDashboard.closeSubscribe.click();
+    }
+
+    // ---> kevser_US20_TC03
+    @Given("Clicks Cancel Order button")
+    public void clicks_cancel_order_button() {
+        userDashboard.cancelOrderButton.click();
+    }
+    @Given("Clicks Personal issue dropdown menu")
+    public void clicks_personal_issue_dropdown_menu() {
+        userDashboard.dropDownReason.click();
+    }
+    @Given("Choose the preference")
+    public void choose_the_preference() {
+        ReusableMethods.wait(2);
+        userDashboard.highPrice.click();
+    }
+    @Given("Clicks Send button")
+    public void clicks_send_button() {
+        ReusableMethods.wait(2);
+        userDashboard.sendCancelOrderButton.click();
+    }
+    @Given("Verify that the Order is Cancelled")
+    public void verify_that_the_order_is_cancelled() {
+        ReusableMethods.wait(2);
+        userDashboard.orderDetailsButton.click();
+        Assert.assertTrue(userDashboard.orderCancelledText.isDisplayed());
+    }
+    // ---> kevser_US20_TC04
+    @Given("Verify that Pending, Processing, Shipped, Received, Delivered status information is visible")
+    public void verify_that_pending_processing_shipped_received_delivered_status_information_is_visible() {
+        assertTrue(userDashboard.labelPending.isDisplayed());
+        assertTrue(userDashboard.labelProcessing.isDisplayed());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        //assertTrue(userDashboard.labelShipped.isDisplayed());
+        assertTrue(userDashboard.labelReceived.isDisplayed());
+        assertTrue(userDashboard.labelDelivered.isDisplayed());
+    }
+    @Given("Verify that Package, Sold By, Price, Shipping Info,Billing Info, Payment Info details are visible")
+    public void verify_that_package_sold_by_price_shipping_info_billing_info_payment_info_details_are_visible() {
+
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.labelPackage.isDisplayed());
+        assertTrue(userDashboard.labelSoldBy.isDisplayed());
+        assertTrue(userDashboard.labelPrice.isDisplayed());
+        assertTrue(userDashboard.labelShippingInfo.isDisplayed());
+        assertTrue(userDashboard.labelBillingPaymentInfo.isDisplayed());
     }
 
     // US29  TC01

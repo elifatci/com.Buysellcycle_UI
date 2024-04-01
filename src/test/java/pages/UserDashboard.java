@@ -44,7 +44,7 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/my-wishlist'])[2]")
     public WebElement linkWishList_sidebar;
 
-    //-----> US20 locates: User Dashboard > My Order Menu
+    //-----> kevser_US20 locates: User Dashboard > My Order Menu
     //-----> TC01:
     @FindBy(xpath = "(//*[@class='close_modal'])[1]")
     public WebElement closeSubscribe;
@@ -73,13 +73,19 @@ public class UserDashboard extends Base {
     public WebElement orderDetailsButton;
     @FindBy(xpath = "//*[@class='nice-select amaz_select5']")
     public WebElement dropDownLast5Orders;
-    //-----> TC03:
+    //-----> TC03: Cancel Order button in My Order menu_User Dashboard
     @FindBy(xpath = "//*[@class='amaz_primary_btn gray_bg_btn min_200 radius_3px ml_10 order_cancel_by_id']")
     public WebElement cancelOrderButton;
     @FindBy(xpath = "//*[@class='nice-select primary_input3 radius_3px style6']")
     public WebElement dropDownReason;
+    @FindBy(xpath = "(//*[@data-value='2'])[2]")
+    public WebElement highPrice;
     @FindBy(xpath = "(//*[@class='home10_primary_btn2 text-center f_w_700'])[1]")
     public WebElement sendCancelOrderButton;
+    @FindBy(xpath = "(//*[@class='amaz_primary_btn gray_bg_btn min_200 radius_3px ml_10'])[1]")
+    public WebElement orderCancelledButton;
+    @FindBy(xpath = "//*[@class='text-danger mt_20 w-100 text-center']")
+    public WebElement orderCancelledText;
     //-----> TC04:
     @FindBy(xpath = "(//*[@class='dashboard_white_box_body'])[1]")
     public WebElement labelPending;
@@ -102,7 +108,7 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//*[@class='summery_lists flex-fill'])[2]")
     public WebElement labelBillingPaymentInfo;
     @FindBy(xpath = "//*[@class='amaz_primary_btn gray_bg_btn radius_3px order_cancel_by_id']")
-    public WebElement cancelOrderButtonUS20;
+    public WebElement cancelOrderButtonTC04;
 
 
 
