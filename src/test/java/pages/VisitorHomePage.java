@@ -232,6 +232,8 @@ public class VisitorHomePage extends Base{
     public WebElement buttonForYou;
     @FindBy(linkText = "Products")
     public WebElement labelProducts;
+    @FindBy(xpath = "(//div[@class='product_badge'])[3]")
+    public WebElement labelDiscount_ForYou;
     @FindBy(xpath = "(//a[@data-product-id='341'])[2]")
     public WebElement iconCart_ForYou;
     @FindBy(xpath = "(//a[@data-product-id='341'])[1]")
@@ -478,6 +480,7 @@ public class VisitorHomePage extends Base{
     //Blog page>> Keywords section
     @FindBy(xpath = "//*[text()='shopping']")
     public WebElement buttonBlogShopping;
+
 
 
 }
