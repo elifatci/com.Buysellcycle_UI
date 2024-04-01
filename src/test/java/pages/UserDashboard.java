@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class UserDashboard extends Base {
 
     //SignUp>> Email Text Box
-    @FindBy(xpath = "(//*[@name='login'])[2]")
+    @FindBy(xpath = "//input[@name='login']")
     public WebElement labelBoxLogin;
 
     //Homepage>> SignUp>> Password Text Box
@@ -25,7 +25,7 @@ public class UserDashboard extends Base {
     public WebElement linkPurchaseHistory;
 
     //Purchase History Page>> Purchase History link
-    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0 ']")
+    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0  flex-fill']")
     public WebElement labelPurchaseHistory;
 
     //Purchase History Page>> Purchase History Table
@@ -161,6 +161,9 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "//*[text()='My referral code']")
     public WebElement labelMyRefferalCode;
+
+    @FindBy(xpath = "//*[text()='User List']")
+    public WebElement labelUserList;
 
     @FindBy(id = "code")
     public WebElement textBoxReferralCode;
@@ -312,8 +315,11 @@ public class UserDashboard extends Base {
     //==================================================================================================================
 
     //===========USER SUPPORT TİCKET >> US26===========
-
-    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center '])[2]")
+    public void checkElement(WebElement element) {
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+    }
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/support-ticket']")
     public WebElement linkUserSupportTicket;
 
     @FindBy(xpath = "//h4[@class='font_24 f_w_700 flex-fill m-0']")
@@ -322,15 +328,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
     public WebElement dropDownAllTicketPlaceholder;
 
-    @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td[1]")
-    public WebElement rowBodyTicketSubjectPriority;//alt bilgilerin ilki
+    @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td")
+    public List<WebElement> rowBodyTicketSubjectPriority;//alt bilgilerin ilki
 
-    @FindBy(xpath = "/html/body/div[3]//thead/tr/th[1]")
-    public WebElement rowHeaderTicketSubjectPriority; //başlık bilgilerinin ilki
+    @FindBy(xpath = "/html/body/div[3]//thead/tr/th")
+    public List<WebElement> rowHeaderTicketSubjectPriority; //başlık bilgilerinin ilki
 
     @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td[6]")
     public WebElement linkView;// view linkinin ilki
-
+    @FindBy(xpath = "//table/tbody[1]/tr")
+    public List<WebElement> tableAllSupportList;
 
     @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[3]")
     public WebElement labelPriority;//view e girince Priority texti
@@ -347,12 +354,32 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//a[@class='amaz_badge_btn7 d-inline-flex align-items-center'])[3]")
     public WebElement linkCategoryInfo;
 
-    @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
-    public WebElement divAllTicketPendingGoing;
+    @FindBy(xpath = "//button[@id='replay_box_toggler']")
+    public WebElement buttonReply;
+
+    @FindBy(xpath = "//div[@class='note-editor note-frame']")
+    public WebElement textboxDescription;
+
+
+
+
+
+
+    public void loginUserWithJS(String email, String password){
+
+
+        labelBoxLogin.clear();
+        labelBoxLogin.sendKeys("customer.zehra@buysellcycle.com");
+        labelBoxPassword.click();
+        labelBoxPassword.clear();
+        labelBoxPassword.sendKeys(ConfigReader.getProperty("password"));
+        ReusableMethods.clickWithJS(visitorHomePage.buttonSignIn);
+    }
 
     //Purchase History page>>All History filter
     @FindBy(xpath = "//*[@class='nice-select amaz_select3']")
     public WebElement dropdownAllHistory;
+
    
     //********************US_24/TC_01,TC_02********************************************
 
@@ -527,5 +554,49 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//*[@class='table_badge_btn style4 text-nowrap'])[2]")
     public WebElement labelPaidPurchase;
 
+    // Daily deals Page
+    @FindBy(xpath = "(//a[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[5]")
+    public WebElement linkDailyDeals;
+
+    @FindBy(xpath = "//div[@id='count_down']")
+    public WebElement CountDownDailyDeals;
+
+    @FindBy(xpath = "(//div[@class='product_widget5 mb_30 style5 w-100'])[1]")
+    public WebElement firstProductDailyDeals;
+
+    @FindBy(xpath = "(//i[@class='ti-control-shuffle'])[1]")
+    public WebElement buttonCompare;
+
+    @FindBy(xpath = "(//i[@class='ti-eye'])[1]")
+    public WebElement buttonReview;
+
+    @FindBy(xpath = "(//i[@class='far fa-heart'])[1]")
+    public WebElement buttonWishlist;
+
+    @FindBy(xpath = "(//a[@class='amaz_primary_btn addToCartFromThumnail'])[1]")
+    public WebElement buttonCart;
+
+    // Refund & Dispute
+
+    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[6]")
+    public WebElement linkRefundDispute;
+
+    @FindBy(xpath = "//div[@class='dashboard_white_box_body']")
+    public WebElement tableRefundList;
+
+    @FindBy(xpath = "//div[@class='d-flex align-items-center flex-wrap gap_5']")
+    public List<WebElement> labelRefundDetails;
+
+    @FindBy(xpath = "//a[@class='amaz_primary_btn style2 text-nowrap ']")
+    public WebElement buttonRefundViewDetails;
+
+    @FindBy(xpath = "(//div[@class='icon position-relative '])[1]")
+    public WebElement LogoRefundstart;
+
+    @FindBy(xpath = "//div[@class='dashboard_white_box style3 rounded-0 bg-white mb_20']")
+    public List<WebElement> textboxesRefund;
+
+    @FindBy(xpath = "//div[@class='summery_lists flex-fill']")
+    public WebElement tableRefundPickUpInfo;
 
 }

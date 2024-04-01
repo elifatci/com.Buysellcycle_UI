@@ -5,8 +5,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.UserDashboard;
 import pages.VisitorHomePage;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -314,7 +314,7 @@ public class ReusableMethods {
      * @param element
      */
     public static void clickWithJS(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
@@ -380,6 +380,7 @@ public class ReusableMethods {
     }
 
     static VisitorHomePage visitorHomePage = new VisitorHomePage();
+    static UserDashboard userDashboard = new UserDashboard();
 
     public static WebElement footerLinkleri(String link) {
         switch (link) {
@@ -422,99 +423,98 @@ public class ReusableMethods {
         }
 
     }
-
     public static WebElement clickFooterLinkleri(String link) {
         switch (link) {
             case "About Us":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkFooterAboutUs.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 String expectedUrl = "https://qa.buysellcycle.com/about-us";
                 String actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                Assert.assertEquals(expectedUrl, actualUrl);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkFooterAboutUs;
             case "The blog":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkFooterBlog.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/blog";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                Assert.assertEquals(expectedUrl, actualUrl);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkFooterBlog;
             case "Dashboard":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkFooterDashboard.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/login";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
+                Assert.assertEquals(expectedUrl, actualUrl);
                 Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkFooterDashboard;
             case "My Profile":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkFooterMyProfile.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/login";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
+                Assert.assertEquals(expectedUrl, actualUrl);
                 Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkFooterMyProfile;
             case "My Order":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkFooterMyOrder.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/login";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
+                Assert.assertEquals(expectedUrl, actualUrl);
                 Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkFooterMyOrder;
             case "Help&Contact":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkHelpContact.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/contact-us";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                Assert.assertEquals(expectedUrl, actualUrl);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkHelpContact;
             case "Track Order":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.linkTrackOrder.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://qa.buysellcycle.com/track-order";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                Assert.assertEquals(expectedUrl, actualUrl);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkTrackOrder;
             case "Google Play":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.buttonGooglePlayFooter.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://play.google.com/";
                 actualUrl = Driver.getDriver().getCurrentUrl();
                 Assert.assertTrue(actualUrl.contains(expectedUrl));
                 Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.buttonGooglePlayFooter;
             case "Apple Store":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.buttonAppStoreFooter.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 expectedUrl = "https://www.apple.com/app-store/";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
+                Assert.assertEquals(expectedUrl, actualUrl);
                 Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.buttonAppStoreFooter;
             case "YouTube":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.iconFooterYoutube.click();
-                ReusableMethods.wait(5);
+                wait(2);
                 Set<String> windowHandles = Driver.getDriver().getWindowHandles();
 
 // Ana pencere tanımlayıcısını kaydedin
@@ -529,21 +529,21 @@ public class ReusableMethods {
                 }
                 expectedUrl = "https://www.youtube.com/";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.wait(2);
-              // Driver.closeDriver();
+                Assert.assertEquals(expectedUrl, actualUrl);
+                wait(2);
+                // Driver.closeDriver();
                 Driver.getDriver().switchTo().window(mainWindowHandle);
-               // Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                // Driver.getDriver().get("https://qa.buysellcycle.com");
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.iconFooterYoutube;
             case "LinkedIn":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.iconFooterLinkedin.click();
-                ReusableMethods.wait(5);
+                wait(5);
                 Set<String> windowHandles2 = Driver.getDriver().getWindowHandles();
 
 // Ana pencere tanımlayıcısını kaydedin
-              mainWindowHandle = Driver.getDriver().getWindowHandle();
+                mainWindowHandle = Driver.getDriver().getWindowHandle();
 
 // YouTube ve LinkedIn sayfalarının URL'lerini içeren hedef sayfayı bulun
                 String targetPageUrl = null;
@@ -551,52 +551,52 @@ public class ReusableMethods {
                     if (!handle.equals(mainWindowHandle)) {
                         Driver.getDriver().switchTo().window(handle);
                         String currentUrl = Driver.getDriver().getCurrentUrl();
-                        if ( currentUrl.contains("linkedin.com")) {
-                          //  targetPageUrl = currentUrl;
+                        if (currentUrl.contains("linkedin.com")) {
+                            //  targetPageUrl = currentUrl;
 
                             expectedUrl = "https://www.linkedin.com/";
                             actualUrl = Driver.getDriver().getCurrentUrl();
-                            Assert.assertEquals(expectedUrl,actualUrl);
+                            Assert.assertEquals(expectedUrl, actualUrl);
                             break;
                         }
                     }
                 }
 
                 Driver.getDriver().switchTo().window(mainWindowHandle);
-               // Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                // Driver.getDriver().get("https://qa.buysellcycle.com");
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.iconFooterLinkedin;
             case "Facebook":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.iconFooterFacebook.click();
-                ReusableMethods.wait(5);
+                wait(5);
                 Set<String> windowHandles3 = Driver.getDriver().getWindowHandles();
 
 // Ana pencere tanımlayıcısını kaydedin
                 mainWindowHandle = Driver.getDriver().getWindowHandle();
-               // String targetPageUrl = null;
+                // String targetPageUrl = null;
                 for (String handle : windowHandles3) {
                     if (!handle.equals(mainWindowHandle)) {
                         Driver.getDriver().switchTo().window(handle);
                         String currentUrl = Driver.getDriver().getCurrentUrl();
-                        if ( currentUrl.contains("facebook.com")) {
+                        if (currentUrl.contains("facebook.com")) {
                             //  targetPageUrl = currentUrl;
 
                             expectedUrl = "https://www.facebook.com/";
                             actualUrl = Driver.getDriver().getCurrentUrl();
-                            Assert.assertEquals(expectedUrl,actualUrl);
+                            Assert.assertEquals(expectedUrl, actualUrl);
                             break;
                         }
                     }
                 }
                 Driver.getDriver().switchTo().window(mainWindowHandle);
-               // Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                // Driver.getDriver().get("https://qa.buysellcycle.com");
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.iconFooterFacebook;
             case "Instagram":
-                ReusableMethods.wait(2);
+                wait(2);
                 visitorHomePage.iconFooterInstagram.click();
-                ReusableMethods.wait(5);
+                wait(5);
                 Set<String> windowHandles4 = Driver.getDriver().getWindowHandles();
 
 // Ana pencere tanımlayıcısını kaydedin
@@ -606,31 +606,85 @@ public class ReusableMethods {
                     if (!handle.equals(mainWindowHandle)) {
                         Driver.getDriver().switchTo().window(handle);
                         String currentUrl = Driver.getDriver().getCurrentUrl();
-                        if ( currentUrl.contains("facebook.com")) {
+                        if (currentUrl.contains("facebook.com")) {
                             //  targetPageUrl = currentUrl;
 
                             expectedUrl = "https://www.facebook.com/";
                             actualUrl = Driver.getDriver().getCurrentUrl();
-                            Assert.assertEquals(expectedUrl,actualUrl);
+                            Assert.assertEquals(expectedUrl, actualUrl);
                             break;
                         }
                     }
                 }
                 Driver.getDriver().switchTo().window(mainWindowHandle);
                 // Driver.getDriver().get("https://qa.buysellcycle.com");
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.iconFooterInstagram;
+            case "Support Ticket":
+                wait(2);
+                scrollIntoViewJS(userDashboard.linkUserSupportTicket);
+                userDashboard.linkUserSupportTicket.click();
+                wait(2);
+                expectedUrl = ConfigReader.getProperty("supportTicketUrl");
+                actualUrl = Driver.getDriver().getCurrentUrl();
+                Assert.assertEquals(expectedUrl, actualUrl);
+
+                return userDashboard.linkUserSupportTicket;
+
             default:
-                ReusableMethods.wait(2);
-                ReusableMethods.clickWithJS( visitorHomePage.linkReturnExchange);
-                ReusableMethods.wait(5);
+                wait(2);
+                clickWithJS(visitorHomePage.linkReturnExchange);
+                wait(5);
                 expectedUrl = "https://qa.buysellcycle.com/return-exchange";
                 actualUrl = Driver.getDriver().getCurrentUrl();
-                Assert.assertEquals(expectedUrl,actualUrl);
-                ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
+                Assert.assertEquals(expectedUrl, actualUrl);
+                scrollIntoViewJS(visitorHomePage.footer);
                 return visitorHomePage.linkReturnExchange;
 
         }
 
+
+
     }
+
+    public static WebElement supportTicketLinkleri(String info) {
+
+        List<WebElement> options;
+        Select select=new Select(userDashboard.dropDownAllTicketPlaceholder);
+
+
+        switch (info) {
+            case "Status":
+                return userDashboard.linkStatusInfo;
+            case "Priority":
+                return userDashboard.linkPriorityInfo;
+            case "Category":
+                return userDashboard.linkCategoryInfo;
+            case "Pending":
+                userDashboard.dropDownAllTicketPlaceholder.click();
+                // İkinci öğeyi seçin ve tıklayın
+                //  select.selectByIndex(1); // İkinci öğe için index 1 kullanılır
+
+                // Dropdown menüsündeki tüm öğeleri alın
+                options = select.getOptions();
+                // İkinci öğenin görünürlüğünü kontrol edin
+                WebElement secondOption = options.get(1);
+                Assert.assertTrue(secondOption.isDisplayed());
+                return options.get(1);
+            case "On Going":
+                options = select.getOptions();
+                userDashboard.dropDownAllTicketPlaceholder.click();
+                // Üçüncü öğeyi seçin ve tıklayın
+                select.selectByIndex(2); // üçüncü öğe için index 2 kullanılır
+                // üçüncü öğenin görünürlüğünü kontrol edin
+                WebElement thirdOption = options.get(2);
+                Assert.assertTrue(thirdOption.isDisplayed());
+                return options.get(2);
+
+            default:
+                return userDashboard.linkAll;
+
+        }
+    }
+
 }

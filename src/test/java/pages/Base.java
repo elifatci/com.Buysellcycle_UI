@@ -1,6 +1,8 @@
 package pages;
 
 import com.github.javafaker.Faker;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
@@ -29,5 +31,10 @@ public abstract class Base {
       faker = new Faker();
       actions = new Actions(Driver.getDriver());
       random = new Random();
+    }
+
+    public void webElementReturner(WebElement webElement){
+        Assert.assertTrue(webElement.isDisplayed());
+        Assert.assertTrue(webElement.isEnabled());
     }
 }

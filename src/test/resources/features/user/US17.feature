@@ -3,8 +3,7 @@ Feature: As a registered user, I would like to have a dedicated dashboard page o
   to check my actions and settings on the site.
 
   Background:
-    * Go to "url"
-    * Clicks the Login buttonLink on the home page
+    * Go to "loginUrl"
     * Login by entering valid "customerEmailSenayda" and "password" on the SignIn page.
 
 
