@@ -480,4 +480,5 @@ public class VisitorHomePage extends Base{
     public WebElement buttonBlogShopping;
 
 
+
 }

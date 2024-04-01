@@ -559,6 +559,68 @@ public class UserDashboardStepDef extends Base {
         assertTrue(userDashboard.buttonLogin.isDisplayed());
     }
 
+    // US23 ---- TC03
+    @Given("The user closes the pop-up window")
+    public void the_user_closes_the_pop_up_window() {
+        visitorHomePage.buttonPopUpClose.click();
+    }
+    @Given("It is checked if the Refund % Dispute link on the sidebar is displayed and enabled")
+    public void it_is_checked_if_the_refund_dispute_link_on_the_sidebar_is_displayed_and_enabled() {
+       ReusableMethods.hover(userDashboard.linkRefundDispute);
 
-}
+        Assert.assertTrue(userDashboard.linkRefundDispute.isDisplayed());
+        Assert.assertTrue(userDashboard.linkRefundDispute.isEnabled());
+
+    }
+    @Given("The user clicks on the Refund & Dispute link on the sidebar")
+    public void the_user_clicks_on_the_refund_dispute_link_on_the_sidebar() {
+        ReusableMethods.wait(10);
+        userDashboard.linkRefundDispute.click();
+    }
+    @Given("It is checked if the shown page is Refund and Dispute page")
+    public void it_is_checked_if_the_shown_page_is_refund_and_dispute_page() {
+        ReusableMethods.wait(3);
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/refund/my-refund-list";
+        assertEquals(expectedUrl,actualUrl);
+    }
+    //a[@class='']
+    // US23 ---- TC04
+    @Given("The user should be able to see the Refund list")
+    public void the_user_should_be_able_to_see_the_refund_list() {
+        Assert.assertTrue(userDashboard.tableRefundList.isDisplayed());
+    }
+    @Given("The user should be able to see the Order ID, Order Date, Status, Request Sent Date and Order Amount details")
+    public void the_user_should_be_able_to_see_the_order_id_order_date_status_request_sent_date_and_order_amount_details() {
+        for (int i = 0; i <5 ; i++) {
+            Assert.assertTrue(userDashboard.labelRefundDetails.get(i).isDisplayed());
+        }
+    }
+    @Given("When clicked on the View Details button, further details about the refund should be displayed")
+    public void when_clicked_on_the_view_details_button_further_details_about_the_refund_should_be_displayed() {
+        userDashboard.buttonRefundViewDetails.click();
+
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String istenenIcerik = "my-refund-details";
+        Assert.assertTrue(actualUrl.contains(istenenIcerik));
+    }
+    @Given("It is checked if at least one status is active on the details page")
+    public void it_is_checked_if_at_least_one_status_is_active_on_the_details_page() {
+        Assert.assertTrue(userDashboard.LogoRefundstart.isDisplayed());
+    }
+    @Given("It is checked if the status text's are shown on the details page")
+    public void it_is_checked_if_the_status_text_s_are_shown_on_the_details_page() {
+        for (int i = 0; i <3 ; i++) {
+            Assert.assertTrue(userDashboard.textboxesRefund.get(i).isDisplayed());
+        }
+    }
+    @Given("It is checked if the pick up info is being displayed on the details page")
+    public void it_is_checked_if_the_pick_up_info_is_being_displayed_on_the_details_page() {
+        Assert.assertTrue(userDashboard.tableRefundPickUpInfo.isDisplayed());
+    }
+
+
+
+
+    }
 

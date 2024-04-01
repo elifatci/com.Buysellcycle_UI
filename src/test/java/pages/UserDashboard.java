@@ -521,5 +521,49 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//*[@class='table_badge_btn style4 text-nowrap'])[2]")
     public WebElement labelPaidPurchase;
 
+    // Daily deals Page
+    @FindBy(xpath = "(//a[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[5]")
+    public WebElement linkDailyDeals;
+
+    @FindBy(xpath = "//div[@id='count_down']")
+    public WebElement CountDownDailyDeals;
+
+    @FindBy(xpath = "(//div[@class='product_widget5 mb_30 style5 w-100'])[1]")
+    public WebElement firstProductDailyDeals;
+
+    @FindBy(xpath = "(//i[@class='ti-control-shuffle'])[1]")
+    public WebElement buttonCompare;
+
+    @FindBy(xpath = "(//i[@class='ti-eye'])[1]")
+    public WebElement buttonReview;
+
+    @FindBy(xpath = "(//i[@class='far fa-heart'])[1]")
+    public WebElement buttonWishlist;
+
+    @FindBy(xpath = "(//a[@class='amaz_primary_btn addToCartFromThumnail'])[1]")
+    public WebElement buttonCart;
+
+    // Refund & Dispute
+
+    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[6]")
+    public WebElement linkRefundDispute;
+
+    @FindBy(xpath = "//div[@class='dashboard_white_box_body']")
+    public WebElement tableRefundList;
+
+    @FindBy(xpath = "//div[@class='d-flex align-items-center flex-wrap gap_5']")
+    public List<WebElement> labelRefundDetails;
+
+    @FindBy(xpath = "//a[@class='amaz_primary_btn style2 text-nowrap ']")
+    public WebElement buttonRefundViewDetails;
+
+    @FindBy(xpath = "(//div[@class='icon position-relative '])[1]")
+    public WebElement LogoRefundstart;
+
+    @FindBy(xpath = "//div[@class='dashboard_white_box style3 rounded-0 bg-white mb_20']")
+    public List<WebElement> textboxesRefund;
+
+    @FindBy(xpath = "//div[@class='summery_lists flex-fill']")
+    public WebElement tableRefundPickUpInfo;
 
 }
