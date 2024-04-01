@@ -25,7 +25,7 @@ public class UserDashboard extends Base {
     public WebElement linkPurchaseHistory;
 
     //Purchase History Page>> Purchase History link
-    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0 ']")
+    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0  flex-fill']")
     public WebElement labelPurchaseHistory;
 
     //Purchase History Page>> Purchase History Table
@@ -155,6 +155,9 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "//*[text()='My referral code']")
     public WebElement labelMyRefferalCode;
+
+    @FindBy(xpath = "//*[text()='User List']")
+    public WebElement labelUserList;
 
     @FindBy(id = "code")
     public WebElement textBoxReferralCode;
