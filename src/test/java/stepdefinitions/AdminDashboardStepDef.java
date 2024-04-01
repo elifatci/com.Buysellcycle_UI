@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class AdminDashboardStepDef extends Base {
 
 
-    //******************US_34/TC_01*************************
+
 
     // US39 ---> TC01
     @Given("User clicks on -Products menu- then clicks on -Product List- and displays {string} the Product List page.")
@@ -261,6 +261,83 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Click on the save button")
     public void click_on_the_save_button() {
+
+    }
+
+    //***********************US_34/TC_01/TC_02*********************************
+
+
+
+    @Given("At the top of the Admin Dashboard page appears in the Search TextBox section Verify that it is.")
+    public void at_the_top_of_the_admin_dashboard_page_appears_in_the_search_text_box_section_verify_that_it_is() {
+
+    }
+    @Given("Using Search TextBox, type Dashboard in the search box within the site and verify that the results are displayed correctly.")
+    public void using_search_text_box_type_dashboard_in_the_search_box_within_the_site_and_verify_that_the_results_are_displayed_correctly() {
+
+    }
+    @Given("Click the Menu icon on the Admin Dashboard home page and verify that the SideBar collapses and expands.")
+    public void click_the_menu_icon_on_the_admin_dashboard_home_page_and_verify_that_the_side_bar_collapses_and_expands() {
+
+    }
+    @Given("Username of the site from Admin Dashboard redirected to the interface verify.")
+    public void username_of_the_site_from_admin_dashboard_redirected_to_the_interface_verify() {
+
+    }
+    @Given("Click on the Today button and select verify that the data changes to the selected value.")
+    public void click_on_the_today_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Click on the This Week button and select verify that the data changes to the selected value.")
+    public void click_on_the_this_week_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Click on the This Year button and select verify that the data changes to the selected value.")
+    public void click_on_the_this_year_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
+
+    }
+    @Given("Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_product_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("TotalCustomer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Visitor from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void visitor_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Pending Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_pending_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Completed Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_completed_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Sale from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_sale_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Review from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_review_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_revenue_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void active_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+    @Given("Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
+    public void total_subscriber_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
 

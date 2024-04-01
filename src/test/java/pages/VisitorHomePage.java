@@ -282,47 +282,39 @@ public class VisitorHomePage extends Base{
 //**********************US_06/TC_01*****US_15/TC_01********************************
     //HomePage>>AllCategories
     @FindBy(xpath = "//div[@class='dropdown show category_menu']")
-    public WebElement DropDownAllCateg;
-
-    //HomePage>>AllCategoriesButton
-    @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
-    public WebElement buttonAllCateg;
+    public WebElement dropDownAllCategories;
 
     //HomePage>>AllCategories>>subDropdown
     @FindBy(xpath = "//*[@class='dropdown_menu catdropdown_menu dropdown_menu_active']")
-    public WebElement subDropdownAllCateg;
+    public WebElement subDropdownAllCategories;
 
     //HomePage>>AllCategories>>electronics
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[1]")
-    public WebElement buttonElectClickView;
+    @FindBy(xpath = "//i[@class='fas fa-mobile-alt']")
+    public WebElement buttonElectronicsIcon;
 
     //HomePage>>AllCategories>>electronics>>subcategories
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/mobile-phone-?item=category']")
     public WebElement linkmobilePhone;
 
-    //HomePage>>AllCategories>>Fashion>>subcategories
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[2]")
-    public WebElement buttonFashionClickView;
-
-    //HomePage>>AllCategories>>Fashion>>subcategories
-    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/w-dress?item=category']")
-    public WebElement linkWomanDress;
+    //HomePage>>AllCategories>>Baby>>subcategories
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/park-bed?item=category']")
+    public WebElement linkBabyBad;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "(//ul[@class='mega_width_menu'])[3]")
-    public WebElement babyClickView;
+    @FindBy(xpath = "//i[@class='far fa-grin-squint']")
+    public WebElement buttonbabyClickView;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/baby-credle?item=category']")
-    public WebElement linkbabyCredle;
+    @FindBy(xpath = "///a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
+    public WebElement linkBabyStrollerPushchair;
 
     //HomePage>>Body>>Elektronics
     @FindBy(xpath = "(//h4[@id='filter_category_title'])[1]")
-    public WebElement BodyElectronics;
+    public WebElement bodyElectronics;
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//ul[@role='tablist'])[1]")
-    public WebElement bodyElecSubCat;
+    public WebElement bodyElecSubCategories;
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='APPLE iPhone 15 Pro 128 GB'])[1]")

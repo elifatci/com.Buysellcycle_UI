@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import pages.UserDashboard;
 import pages.VisitorHomePage;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -315,7 +314,7 @@ public class ReusableMethods {
      * @param element
      */
     public static void clickWithJS(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
@@ -644,6 +643,8 @@ public class ReusableMethods {
 
         }
 
+
+
     }
 
     public static WebElement supportTicketLinkleri(String info) {
@@ -685,4 +686,5 @@ public class ReusableMethods {
 
         }
     }
+
 }

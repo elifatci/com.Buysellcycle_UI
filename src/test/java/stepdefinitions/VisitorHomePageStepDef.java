@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.Base;
 import utils.ConfigReader;
 import utils.Driver;
@@ -556,24 +557,27 @@ public class VisitorHomePageStepDef extends Base {
 
 //**************************************US_06/TC_01*********************************************************
 
-    @Given("{string} in the nav bar on the home page that the drop-down menu is visible verify.")
-    public void in_the_nav_bar_on_the_home_page_that_the_drop_down_menu_is_visible_verify(String string) {
-
+    @Given("All Categories in the nav bar on the home page that the drop-down menu is visible verify.")
+    public void all_categories_in_the_nav_bar_on_the_home_page_that_the_drop_down_menu_is_visible_verify() {
+        assertTrue(visitorHomePage.dropDownAllCategories.isDisplayed());
     }
 
-    @Given("Go to the {string} dropdown menu click.")
-    public void go_to_the_dropdown_menu_click(String string) {
-
+    @Given("Go to the All Categories dropdown menu click.")
+    public void go_to_the_all_categories_dropdown_menu_click() {
+        visitorHomePage.dropDownAllCategories.click();
     }
 
     @Given("All items in the drop-down menu category titles of verify that it is visible.")
     public void all_items_in_the_drop_down_menu_category_titles_of_verify_that_it_is_visible() {
 
+        assertTrue(visitorHomePage.subDropdownAllCategories.isDisplayed());
     }
 
     @Given("Click on the Electronics main category and select the subcategories it's confirmed to appear.")
     public void click_on_the_electronics_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
 
+        ReusableMethods.clickWithJS(visitorHomePage.buttonElectronicsIcon);
+        assertTrue(visitorHomePage.subDropdownAllCategories.isDisplayed());
     }
 
     //============================= US_16 =========================================
@@ -699,28 +703,40 @@ public class VisitorHomePageStepDef extends Base {
 
 //=====================================================================================================
 
-    @Given("Subcategories within the Electronics category randomly click on {int} headings and move to the right place that it is directed.")
-    public void subcategories_within_the_electronics_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
-
+    @Given("Subcategories within the Electronics category one title clicked on the right place  that it is directed.")
+    public void subcategories_within_the_electronics_category_one_title_clicked_on_the_right_place_that_it_is_directed() {
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.linkmobilePhone).click().perform();
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.linkmobilePhone.isEnabled());
     }
 
-    @Given("Click on the Fashion main category and select the subcategories it's confirmed to appear.")
-    public void click_on_the_fashion_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
-
-    }
-
-    @Given("Subcategories within the Fashion category randomly click on {int} headings and move to the right place that it is directed.")
-    public void subcategories_within_the_fashion_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
-
-    }
 
     @Given("Click on the Baby main category and select the subcategories it's confirmed to appear.")
     public void click_on_the_baby_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
-
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.buttonbabyClickView).click().perform();
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.buttonbabyClickView.isDisplayed());
     }
 
-    @Given("Subcategories within the Baby category randomly click on {int} headings and move to the right place that it is directed.")
-    public void subcategories_within_the_baby_category_randomly_click_on_headings_and_move_to_the_right_place_that_it_is_directed(Integer int1) {
+    @Given("Subcategories within the Baby category two title clicked on the right place  that it is directed.")
+    public void subcategories_within_the_baby_category_two_title_clicked_on_the_right_place_that_it_is_directed() {
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.linkBabyStrollerPushchair).click().perform();
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.linkBabyStrollerPushchair.isDisplayed());
+
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
+        ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.linkBabyBad).click().perform();
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.linkBabyBad.isDisplayed());
 
     }
 
