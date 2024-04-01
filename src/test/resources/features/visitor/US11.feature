@@ -10,7 +10,7 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
   Scenario: TC_01 Test of the "New User Zone" link
 
     * verify that New User Zone link should redirect the user to the New-user-zone page
-    * The user closes the page
+    * Close the page
 
   Scenario: TC_02 Functionality of the "For You," "Exclusive Price," and "Coupon" sections
 

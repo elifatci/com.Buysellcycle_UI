@@ -13,7 +13,7 @@ Feature: As a registered user, I would like to have a dedicated dashboard page o
     * User displays user profile information on the Dashboard page
     * User displays user balance information on the Dashboard page
     * User displays the user's last transaction information on the Dashboard page
-    * The user closes the page
+    * Close the page
 
   Scenario: TC02 Registered user tests the visibility of body sections
 

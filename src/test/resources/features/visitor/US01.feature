@@ -5,4 +5,4 @@ Feature: As a user, I want to be able to access the site home page
 
     Given Go to "url"
     Then  Verify that the title is "BuySellCycle | Multivendor Marketplace"
-    And  The user closes the page
+    And  Close the page
