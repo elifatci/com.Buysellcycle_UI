@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class UserDashboard extends Base {
 
     //SignUp>> Email Text Box
-    @FindBy(xpath = "(//*[@name='login'])[2]")
+    @FindBy(xpath = "//input[@name='login']")
     public WebElement labelBoxLogin;
 
     //Homepage>> SignUp>> Password Text Box
@@ -306,8 +306,11 @@ public class UserDashboard extends Base {
     //==================================================================================================================
 
     //===========USER SUPPORT TİCKET >> US26===========
-
-    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center '])[2]")
+    public void checkElement(WebElement element) {
+        assertTrue(element.isDisplayed());
+        assertTrue(element.isEnabled());
+    }
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/support-ticket']")
     public WebElement linkUserSupportTicket;
 
     @FindBy(xpath = "//h4[@class='font_24 f_w_700 flex-fill m-0']")
@@ -316,15 +319,16 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
     public WebElement dropDownAllTicketPlaceholder;
 
-    @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td[1]")
-    public WebElement rowBodyTicketSubjectPriority;//alt bilgilerin ilki
+    @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td")
+    public List<WebElement> rowBodyTicketSubjectPriority;//alt bilgilerin ilki
 
-    @FindBy(xpath = "/html/body/div[3]//thead/tr/th[1]")
-    public WebElement rowHeaderTicketSubjectPriority; //başlık bilgilerinin ilki
+    @FindBy(xpath = "/html/body/div[3]//thead/tr/th")
+    public List<WebElement> rowHeaderTicketSubjectPriority; //başlık bilgilerinin ilki
 
     @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td[6]")
     public WebElement linkView;// view linkinin ilki
-
+    @FindBy(xpath = "//table/tbody[1]/tr")
+    public List<WebElement> tableAllSupportList;
 
     @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[3]")
     public WebElement labelPriority;//view e girince Priority texti
@@ -341,12 +345,32 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "(//a[@class='amaz_badge_btn7 d-inline-flex align-items-center'])[3]")
     public WebElement linkCategoryInfo;
 
-    @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
-    public WebElement divAllTicketPendingGoing;
+    @FindBy(xpath = "//button[@id='replay_box_toggler']")
+    public WebElement buttonReply;
+
+    @FindBy(xpath = "//div[@class='note-editor note-frame']")
+    public WebElement textboxDescription;
+
+
+
+
+
+
+    public void loginUserWithJS(String email, String password){
+
+
+        labelBoxLogin.clear();
+        labelBoxLogin.sendKeys("customer.zehra@buysellcycle.com");
+        labelBoxPassword.click();
+        labelBoxPassword.clear();
+        labelBoxPassword.sendKeys(ConfigReader.getProperty("password"));
+        ReusableMethods.clickWithJS(visitorHomePage.buttonSignIn);
+    }
 
     //Purchase History page>>All History filter
     @FindBy(xpath = "//*[@class='nice-select amaz_select3']")
     public WebElement dropdownAllHistory;
+
    
     //********************US_24/TC_01,TC_02********************************************
 

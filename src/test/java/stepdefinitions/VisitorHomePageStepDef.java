@@ -163,7 +163,7 @@ public class VisitorHomePageStepDef extends Base {
     public void verifies_that_the_menu_title_is_visible_and_active() {
         assertTrue(visitorHomePage.linkNewProductDeals.isDisplayed());
         assertTrue(visitorHomePage.linkNewProductDeals.isEnabled());
-        ReusableMethods.wait(5);
+
     }
 
     @Given("Click on the New Product Deals menu title")
@@ -587,6 +587,9 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Goes to Footer section")
     public void goes_to_footer_section() {
+       // ReusableMethods.wait(5);
+       // visitorHomePage.buttonPopUpClose.click();
+        //ReusableMethods.wait(3);
         ReusableMethods.scrollIntoViewJS(visitorHomePage.footer);
 
     }
@@ -638,9 +641,11 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("It is verified that when the wrong email as {string} is entered into the textbox, {string} appears when the SUBSCRIBE button is pressed.")
     public void it_is_verified_that_when_the_wrong_email_as_is_entered_into_the_textbox_appears_when_the_subscribe_button_is_pressed(String name, String expected) {
+
         visitorHomePage.textBoxFooterEmail.click();
         visitorHomePage.textBoxFooterEmail.clear();
-        visitorHomePage.textBoxFooterEmail.sendKeys(name + Keys.ENTER);
+        visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
+       assertFalse(visitorHomePage.labelMessageFooter.isDisplayed());
         String actualWarning = visitorHomePage.textWarning.getText();
         assertEquals(expected, actualWarning);
 
