@@ -17,3 +17,4 @@ Feature: US_34 As an administrator, I would like to have an admin panel to acces
     * Click on the Today button and select verify that the data changes to the selected value.
     * Click on the This Week button and select verify that the data changes to the selected value.
     * Click on the This Year button and select verify that the data changes to the selected value.
+
