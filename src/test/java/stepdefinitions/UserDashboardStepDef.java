@@ -417,7 +417,7 @@ public class UserDashboardStepDef extends Base {
     public void user_clicks_on_recharge_wallet_and_enters(String amount) {
         userDashboard.checkClickElement(userDashboard.linkRechargeWallet);
         ReusableMethods.wait(1);
-        userDashboard.checkSendKeysBox(userDashboard.textBoxRechargeAmount, amount);
+        userDashboard.checkSendKeysBox(userDashboard.textBoxRechargeAmount , amount);
         userDashboard.checkClickElement(userDashboard.addFundButton);
     }
 
