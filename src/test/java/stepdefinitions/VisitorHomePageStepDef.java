@@ -1020,9 +1020,8 @@ public class VisitorHomePageStepDef extends Base {
     //US13 TC01
     @Given("images in the slider are visible on the homepage")
     public void images_in_the_slider_are_visible_on_the_homepage() {
-        assertTrue(visitorHomePage.imageProductSliderimage1.isDisplayed());
        assertTrue( visitorHomePage.imageProduct1.isDisplayed());
-       ReusableMethods.waitAndClick(visitorHomePage.iconClose);
+
     }
 
     //US13 TC02
@@ -1037,7 +1036,6 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.wait(5);
         assertTrue( visitorHomePage.imageProduct3.isDisplayed());
 
-
     }
 
    //US13 TC03<<<<<<
@@ -1050,42 +1048,18 @@ public class VisitorHomePageStepDef extends Base {
        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
        ReusableMethods.waitForVisibility(visitorHomePage.imageProduct3,3);
    }
-    @Given("scrolling between slider images")
-    public void scrolling_between_slider_images() {
-        visitorHomePage.icon1.click();
-
-    }
 
     @Given("Verifies that the displayed image changes in scrolls")
     public void verifies_that_the_displayed_image_changes_in_scrolls() {
         assertTrue(visitorHomePage.imageProduct2.isDisplayed());
-
-    }
-
-    //US13 TC03<<<<<<
-    @Given("Slider images are expected to automatically switch after a certain period of time")
-    public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time() {
-    }
-
-    @Given("Verifies that images are automatically displayed in a loop")
-    public void verifies_that_images_are_automatically_displayed_in_a_loop() {
-
+        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
 
     }
 
     //US13 TC04<<<<<<
     @Given("Click on a slider image and Verifies that the relevant page has been opened")
     public void click_on_a_slider_image_and_verifies_that_the_relevant_page_has_been_opened() {
-  
-}
-    @Given("Click on a slider image")
-    public void click_on_a_slider_image() {
-        visitorHomePage.imageProduct1.click();
 
-    }
-
-    @Given("Verifies that the relevant page has been opened")
-    public void verifies_that_the_relevant_page_has_been_opened() {
         ReusableMethods.waitAndClick(visitorHomePage.imageProduct1);
         ReusableMethods.switchToWindow("Fashion");
         visitorHomePage.logoBuysell.click();

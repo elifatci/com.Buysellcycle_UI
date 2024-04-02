@@ -3,7 +3,7 @@ Feature: As a registered user, I would like to have a page on my dashboard
   Background:
         * Go to "loginUrl"
         * Login by entering valid "customerEmailNazime" and "password" on the SignIn page.
-
+        * Click the MyCoupons menu Title
   Scenario: My Coupons Menu Header Visibility and Activation
         * Dashboard side bar displays My Coupons Menu Title
 
@@ -12,7 +12,7 @@ Feature: As a registered user, I would like to have a page on my dashboard
         * displays the add coupon button on the page
 
   Scenario: Add a new coupon
-        * Click the MyCoupons menu Title
+
         * a new coupon is added in the add coupon section
 
   Scenario: List of Collected Coupons

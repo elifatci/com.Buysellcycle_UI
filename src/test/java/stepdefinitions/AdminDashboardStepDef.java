@@ -16,8 +16,6 @@ import static org.junit.Assert.*;
 public class AdminDashboardStepDef extends Base {
 
 
-
-
     // US39 ---> TC01
     @Given("User clicks on -Products menu- then clicks on -Product List- and displays {string} the Product List page.")
     public void user_clicks_on_products_menu_then_clicks_on_product_list_and_displays_the_product_list_page(String url) {
@@ -156,6 +154,7 @@ public class AdminDashboardStepDef extends Base {
         ReusableMethods.wait(2);
         adminDashboard.linkMyProfile.click();
     }
+
     @Given("Verify that First Name, Last Name, E-mail Address, Phone Number, Date of Bird information is visible in the Basic Info section.")
     public void verify_that_first_name_last_name_e_mail_address_phone_number_date_of_bird_information_is_visible_in_the_basic_info_section() {
         adminDashboard.verifyVisible(adminDashboard.labelFirstNameText);
@@ -245,7 +244,7 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Verify that the address has been added")
     public void verify_that_the_address_has_been_added() {
-            assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
     //US36 TC05
@@ -267,78 +266,172 @@ public class AdminDashboardStepDef extends Base {
     //***********************US_34/TC_01/TC_02*********************************
 
 
-
     @Given("At the top of the Admin Dashboard page appears in the Search TextBox section Verify that it is.")
     public void at_the_top_of_the_admin_dashboard_page_appears_in_the_search_text_box_section_verify_that_it_is() {
 
     }
+
     @Given("Using Search TextBox, type Dashboard in the search box within the site and verify that the results are displayed correctly.")
     public void using_search_text_box_type_dashboard_in_the_search_box_within_the_site_and_verify_that_the_results_are_displayed_correctly() {
 
     }
+
     @Given("Click the Menu icon on the Admin Dashboard home page and verify that the SideBar collapses and expands.")
     public void click_the_menu_icon_on_the_admin_dashboard_home_page_and_verify_that_the_side_bar_collapses_and_expands() {
 
     }
+
     @Given("Username of the site from Admin Dashboard redirected to the interface verify.")
     public void username_of_the_site_from_admin_dashboard_redirected_to_the_interface_verify() {
 
     }
+
     @Given("Click on the Today button and select verify that the data changes to the selected value.")
     public void click_on_the_today_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Click on the This Week button and select verify that the data changes to the selected value.")
     public void click_on_the_this_week_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Click on the This Year button and select verify that the data changes to the selected value.")
     public void click_on_the_this_year_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_product_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("TotalCustomer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Visitor from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void visitor_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Pending Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_pending_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Completed Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_completed_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Sale from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_sale_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Review from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_review_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_revenue_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void active_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_subscriber_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
+    //US38 Nazime >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //TC01
+    @Given("Clicks the product link in the admin dashboard sidebar")
+    public void clicks_the_product_link_in_the_admin_dashboard_sidebar() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("Clicks the  add new product link in the admin dashboard sidebar")
+    public void clicks_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+
+    }
+
+    //TC02
+    @Given("Add new Productin titles\\(General Information, Related Product, Up Sale, Cross sale) display")
+    public void add_new_productin_titles_general_information_related_product_up_sale_cross_sale_display() {
+
+
+    }
+
+    //TC03
+    @Given("select variant type")
+    public void select_variant_type() {
+    }
+    //TC04
+    @Given("Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags \\(Comma Separated) Text Boxes in Product Information Section")
+    public void display_name_product_sku_model_number_category_brand_unit_barcode_type_minimum_order_qty_max_order_qty_tags_comma_separated_text_boxes_in_product_information_section() {
+
+    }
+    //TC05
+    @Given("Enter the information in the Weight Height Info section")
+    public void enter_the_information_in_the_weight_height_info_section() {
+
+    }
+    //TC06
+    @Given("Information is entered in Price Info and Stock section")
+    public void information_is_entered_in_price_info_and_stock_section() {
+
+    }
+    //TC07
+    @Given("Picture is added to Description section")
+    public void picture_is_added_to_description_section() {
+
+    }
+    //TC08
+    @Given("the necessary information is entered and a new product is added to the site")
+    public void the_necessary_information_is_entered_and_a_new_product_is_added_to_the_site() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("Save & Publish and Save buttons are visible and their activation is confirmed")
+    public void save_publish_and_save_buttons_are_visible_and_their_activation_is_confirmed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("a new product is added to the site")
+    public void a_new_product_is_added_to_the_site() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    //TC09
+    @Given("On the Add New Product page, related products are determined for the product to be added")
+    public void on_the_add_new_product_page_related_products_are_determined_for_the_product_to_be_added() {
+    }
+    //TC10
+    @Given("On the Add New Product page, select the products up sale")
+    public void on_the_add_new_product_page_select_the_products_up_sale() {
+
+    }
+    //TC11
+
+
+
 
 }

@@ -747,6 +747,8 @@ public class UserDashboardStepDef extends Base {
     //TC03
     @Given("a new coupon is added in the add coupon section")
     public void a_new_coupon_is_added_in_the_add_coupon_section() {
+        userDashboard.searchBoxAddCoupon.click();
+
 
 
     }
@@ -757,10 +759,14 @@ public class UserDashboardStepDef extends Base {
 
 
 
+
+
     }
     //TC05
     @Given("Click on the copy icon to copy the coupon from the Collected Coupons list")
     public void click_on_the_copy_icon_to_copy_the_coupon_from_the_collected_coupons_list() {
+        userDashboard.iconCopy.click();
+
 
     }
 
