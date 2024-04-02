@@ -121,6 +121,51 @@ public class AdminDashboardStepDef extends Base {
     public void user_clicks_on_add_new_product_and_displays_the_contact_page(String string) {
         userDashboard.checkClickElement(adminDashboard.linkAddNewProduct);
     }
+    // ================================== US42 TC01==================================================================
+    @Given("User can open Support Ticket menu from Dashboard Side Bar")
+    public void user_can_open_support_ticket_menu_from_dashboard_side_bar() {
+        userDashboard.checkClickElement(adminDashboard.dropDownSupportTicket);
+        adminDashboard.dropDownSupportTicket.click();
+        assertTrue(adminDashboard.dropDownSupportTicket.isDisplayed());
+    }
+    @Given("The user clicks on the My Ticket page under Support Ticket from the Dashboard Side Bar")
+    public void the_user_clicks_on_the_my_ticket_page_under_support_ticket_from_the_dashboard_side_bar() {
+    adminDashboard.labelMyTicket.click();
+    assertTrue(adminDashboard.labelMyTicket.isDisplayed());
+    }
+    @Given("On the My Ticket page, user sees the Category tab, Select One, Installation, Technical, Others and clicks Technical button")
+    public void on_the_my_ticket_page_user_sees_the_category_tab_select_one_installation_technical_others_and_clicks_technical_button() {
+        adminDashboard.dropDownCategory.click();
+        for (int i = 5; i < 7; i++) {
+
+            assertTrue(adminDashboard.dropDownCategoryList.get(i).isDisplayed());
+        }
+        adminDashboard.labelTechnical.click();
+    }
+
+    @Given("User sees the Select One, High, Medium, Low options from the Priority tab on the My Ticket page and clicks the High button")
+    public void user_sees_the_select_one_high_medium_low_options_from_the_priority_tab_on_the_my_ticket_page_and_clicks_the_high_button() {
+        adminDashboard.dropDownPriority.click();
+        userDashboard.checkListELements(adminDashboard.dropDownPriortiyList,4);
+        adminDashboard.labelPriority.click();
+
+    }
+    @Given("User sees Select One, Pending, On Going, Completed, Closed options from the Status tab on the My Ticket page and clicks the Pending button")
+    public void user_sees_select_one_pending_on_going_completed_closed_options_from_the_status_tab_on_the_my_ticket_page_and_clicks_the_pending_button() {
+        adminDashboard.dropDownStatus.click();
+        userDashboard.checkListELements(adminDashboard.dropDownStatusList,5);
+        adminDashboard.labelStatus.click();
+    }
+    @Given("User clicks the Search button to create the Ticket List according to the filtering made from Category, Priority and Status tabs")
+    public void user_clicks_the_search_button_to_create_the_ticket_list_according_to_the_filtering_made_from_category_priority_and_status_tabs() {
+    adminDashboard.buttonSearch.click();
+    }
+    @Given("User verifies that Tickets in Ticket List are listed under Subject, Category, User Name, priority, User Agent, Status, Action")
+    public void user_verifies_that_tickets_in_ticket_list_are_listed_under_subject_category_user_name_priority_user_agent_status_action() {
+        for (int i = 0; i < 8; i++) {
+            assertTrue(adminDashboard.dropDownTicketList.get(i).isDisplayed());
+        }
+    }
 
     //US36 TC01
     @Given("Verify that the profile icon is visible on the Dashboard page")
