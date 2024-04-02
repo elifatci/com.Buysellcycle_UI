@@ -342,4 +342,15 @@ public class AdminDashboard extends Base{
         buttonSaveAddress.click();
     }
 
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[text()='Something Went Wrong!']")
+    public WebElement labelErrorMessage;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@type='submit'])[2]")
+    public WebElement buttonSave;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[text()='Select from options'])[2]")
+    public WebElement subMenuSelectFromOptions;
 }

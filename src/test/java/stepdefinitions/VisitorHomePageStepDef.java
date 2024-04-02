@@ -466,7 +466,6 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the blog menu")
     public void click_on_the_blog_menu() {
-        visitorHomePage.buttonPopUpClose.click();
         visitorHomePage.linkHeaderBlog.click();
     }
 

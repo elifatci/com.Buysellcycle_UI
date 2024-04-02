@@ -829,6 +829,30 @@ public class UserDashboardStepDef extends Base {
         Assert.assertTrue(userDashboard.tableRefundPickUpInfo.isDisplayed());
     }
 
+    //US27 TC01
+    @Given("Verify that the Follow banner is visible in the Dashboard sideBar")
+    public void verify_that_the_follow_banner_is_visible_in_the_dashboard_side_bar() {
+
+    }
+    @Given("Click on the Follow menu")
+    public void click_on_the_follow_menu() {
+
+    }
+    @Given("Verify that it redirects to the Follow page")
+    public void verify_that_it_redirects_to_the_follow_page() {
+
+    }
+
+    //US27 TC02
+    @Given("Verify that the SL,Name,Total Product,Total Followers,Action headers are displayed")
+    public void verify_that_the_sl_name_total_product_total_followers_action_headers_are_displayed() {
+
+    }
+    @Given("Test that the unfollow button is visible and clickable")
+    public void test_that_the_unfollow_button_is_visible_and_clickable() {
+
+    }
+
    }
 
 
