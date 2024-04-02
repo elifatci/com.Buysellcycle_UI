@@ -476,17 +476,6 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
     public WebElement searchBoxHomePage;
 
-    //US_13 HomePage Slider image
-    @FindBy(xpath = "(//*[@class='img-fluid'])[1]")
-    public WebElement imageProductSliderimage1;
-
-    //Subscribe to our Newsletter
-    @FindBy(xpath = "(//*[@class='close_modal'])[1]")
-    public WebElement iconClose;
-    @FindBy(xpath = "/html/body/div[15]/div/div/div[1]/i")
-    public WebElement subscribeCloseButton;
-
-
     //US_13 HomePage Icon1
     @FindBy(xpath = "(//div[@class='owl-dot active']")
     public WebElement icon1;
