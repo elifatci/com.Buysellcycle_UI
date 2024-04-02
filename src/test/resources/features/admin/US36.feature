@@ -48,7 +48,6 @@ Feature: US36 As an administrator, I would like to have a profile page to access
     * Hover over your profile icon and click on the My profile link.
     * Click on the Address button
     * Click the Add new address button
-    * Leave the textboxes of the required fields empty and click on the save button.
     * Select the select from options option from Country dropdown
     * Click on the save button
     * Close the page

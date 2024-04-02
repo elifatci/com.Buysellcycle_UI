@@ -228,23 +228,32 @@ public class VisitorHomePage extends Base{
 
     //------------ New User Zone---------------------
     //---For You-------
-    @FindBy(linkText = "For You")
+    @FindBy(xpath = "//button[@id='pills-home-tab']")
     public WebElement buttonForYou;
     @FindBy(linkText = "Products")
     public WebElement labelProducts;
     @FindBy(xpath = "(//div[@class='product_badge'])[3]")
     public WebElement labelDiscount_ForYou;
-    @FindBy(xpath = "(//a[@data-product-id='341'])[2]")
+    @FindBy(xpath = "(//a[@data-product-sku='342'])[2]")
     public WebElement iconCart_ForYou;
-    @FindBy(xpath = "(//a[@data-product-id='341'])[1]")
-    public WebElement iconCompare;
-    @FindBy(xpath = "//a[@id='wishlistbtn_341']")
+    @FindBy(xpath = "//a[@class='addToCompareFromThumnail']")
+    public WebElement iconCompareForYou;
+    @FindBy(xpath = "//i[@title='Wishlist']")
     public WebElement iconWishList;
     @FindBy(xpath = "(//*[@class='ti-eye'])[1]")
     public WebElement iconQuickView;
-
+    @FindBy(xpath = "//h4[text()='Item added to your cart']")
+    public WebElement labelMessageForYou;
+    @FindBy(xpath = "(//i[@class='ti-close'])[5]")
+    public WebElement buttonCloseForYou;
+    @FindBy(xpath = "//img[@class='lazyload']")
+    public WebElement imageProductFirstForYou;
+    @FindBy(xpath = "//a[@id='add_to_cart_btn_modal']")
+    public WebElement buttonAddCartModalForYou;
+    @FindBy(xpath = "//i[@title='Wishlist']")
+    public WebElement popUpWishListForYou;
     //---Exclusive Price---
-    @FindBy(linkText = "Exclusive Price")
+    @FindBy(xpath = "//button[@id='pills-profile-tab']")
     public WebElement buttonExclusivePrice;
     @FindBy(xpath = "//h3[text()='Exclusive Price']")
     public WebElement labelExclusivePrice;
@@ -262,11 +271,17 @@ public class VisitorHomePage extends Base{
     public WebElement buttonElectronics_ExclusivePrice;
     @FindBy(xpath = "//button[@id='Category-tab_2']")
     public WebElement buttonHome_ExclusivePrice;
+    @FindBy(xpath = "(//img[@class='lazyload'])[3]")
+    public WebElement imageProductFirstExclusivePrice;
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement popUpExclusivePrice;
+    @FindBy(xpath = "(//i[@class='ti-close'])[6]")
+    public WebElement buttonCloseExclusivePrice;
 
     //---Coupon----------
-    @FindBy(linkText = "Coupon")
+    @FindBy(xpath = "//button[@id='pills-contact-tab']")
     public WebElement buttonCoupon;
-    @FindBy(xpath = "//a[text()='Get Now']")
+    @FindBy(xpath = "//img[@class='img-fluid']")
     public WebElement linkGetCoupon;
     @FindBy(xpath = "//h3[.='New User Gift!']")
     public WebElement labelNewUserGift;
@@ -296,6 +311,9 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/mobile-phone-?item=category']")
     public WebElement linkmobilePhone;
 
+    //@FindBy(xpath = "//h3[@class='branding_text']")
+    //public WebElement textMobilPhone;
+
     //HomePage>>AllCategories>>Baby>>subcategories
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/park-bed?item=category']")
     public WebElement linkBabyBad;
@@ -305,24 +323,65 @@ public class VisitorHomePage extends Base{
     public WebElement buttonbabyClickView;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "///a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
     public WebElement linkBabyStrollerPushchair;
+
+    //@FindBy(xpath = "/html/body/div[3]/div/div/div")
+    //public WebElement textBabyChair;
 
     //HomePage>>Body>>Elektronics
     @FindBy(xpath = "(//h4[@id='filter_category_title'])[1]")
-    public WebElement bodyElectronics;
+    public WebElement bodyElectronics;//elek.kategori pencere blog olarak locate
 
-    //HomePage>>Body>>Elektronics>>subCategories
-    @FindBy(xpath = "(//ul[@role='tablist'])[1]")
-    public WebElement bodyElecSubCategories;
+    @FindBy(xpath = "//button[@id='tab_link_33']")
+    public WebElement buttonTelephone;//electronics body'sindeki button
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='APPLE iPhone 15 Pro 128 GB'])[1]")
-    public WebElement imageProductTelephone;
+    public WebElement imageProductTelephone;//urun
+
+    @FindBy(xpath = "//button[@id='tab_link_34']")
+    public WebElement buttonTvPicSound;//electronics body'sindeki button
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='LG 55QNED816RE 55-inch 139 Screen'])[1]")
-    public WebElement imageProductTvPicSound;
+    public WebElement imageProductTvPicSound;//urun
+
+    @FindBy(xpath = "(//a[@data-base-price='1450'])[1]")
+    public WebElement iconBascetAppleIphone15Pro128Gb;//ürün sepete ekle/click
+
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/cart'])[4]")
+    public WebElement buttonViewCard;//sepet/ekleme/görüntüleyerek doğrulama
+
+    @FindBy(xpath = "(//i[@title='Compare'])[25]")
+    public WebElement iconCompareBascetAppleIphone15Pro128Gb;//ürün/compare/click
+
+    @FindBy(xpath = "//span[@class='compare_count']")
+    public WebElement buttonCompareHomePage;//anasayfanın sağ üstünde yer alan compare
+
+    @FindBy(xpath = "//h3[@class='fs-4 fw-bold mb_30']")
+    public WebElement textProductCompare;//ürün/compare/yazı görüntülüyerek doğrulama
+
+
+
+    @FindBy(xpath = "//button[@class='close_modal_icon']")
+    public WebElement buttonCloseIcon1;//view cart'ı çarpıicanuna basarak kapatma
+
+    @FindBy(xpath = "(//i[@class='ti-close'])[4]")
+    public WebElement buttonTi_CloseIcon2;//view cartdan sonra açılmış viewshoppingcart penceresini kapatma
+
+    @FindBy(xpath = "(//i[@title='Wishlist'])[25]")
+    public WebElement iconWishListAppleIphone15Pro128Gb;//ürün/wislist/click
+
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement textWarningFirstLogin;//ürünü beğeni listesine eklemeye çalışıldıgında çıkan mesaj
+
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/category/electronics?item=category'])[1]")
+    public WebElement buttonMoreDealsProduct;//daha fazla ürün listelemek için click
+
+    @FindBy(xpath = "//h5[@class='font_16 f_w_500 mr_10 mb-0']")
+    public WebElement textMoreDealsProductList;//listelenen ürün yazısı üzerinden doğrulama
+
   //***************************************************************************************************
     @FindBy (xpath = "(//*[text()='About Us'])[1]")
     public WebElement linkHeaderAboutUs;
