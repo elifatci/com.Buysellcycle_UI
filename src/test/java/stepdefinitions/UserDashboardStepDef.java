@@ -495,7 +495,7 @@ public class UserDashboardStepDef extends Base {
 
     }
 
-//********************US_24/TC_03***********************************
+
 
     //======================================================================================================================
     //US21 ---> TC01
@@ -629,37 +629,31 @@ public class UserDashboardStepDef extends Base {
         select.selectByValue(ConfigReader.getProperty(string));
     }
 
-
-    @Given("Click the {string} tab.")
-    public void click_the_tab(String string) {
+//***********************************US_24/TC03*************************************
+    @Given("Click the Change Password tab.")
+    public void click_the_change_password_tab() {
 
     }
-
     @Given("{string} TextBox contains the current password, {string} and {string} TextBoxes contain the current password.enter the new password and click the Updatenow button..")
     public void text_box_contains_the_current_password_and_text_boxes_contain_the_current_password_enter_the_new_password_and_click_the_updatenow_button(String string, String string2, String string3) {
 
     }
-
-    @Given("{string} TextBox enter the invalid password.{string} and \"Re-enter New Password\"Enter the new password in the TextBoxes. And Updatenow Click button.")
-    public void text_box_enter_the_invalid_password_and_re_enter_new_password_enter_the_new_password_in_the_text_boxes_and_updatenow_click_button(String string, String string2) {
-
-    }
-
-    @Given("{string} message appears")
-    public void message_appears(String string) {
+    @Given("{string} TextBox enter the invalid password. {string} and {string} Enter the new password in the TextBoxes. And Updatenow Click button.")
+    public void text_box_enter_the_invalid_password_and_enter_the_new_password_in_the_text_boxes_and_updatenow_click_button(String string, String string2, String string3) {
 
     }
+    @Given("The current password is not match with Verify that the old password. message appears")
+    public void the_current_password_is_not_match_with_verify_that_the_old_password_message_appears() {
 
-    @Given("Enter the updated password in the {string} TextBox.  {string} and {string} Enter different passwords in the TextBoxes. And Updatenow Click on the button.")
+    }
+    @Given("Enter the updated password in the {string} TextBox. {string} and {string} Enter different passwords in the TextBoxes. And Updatenow Click on the button.")
     public void enter_the_updated_password_in_the_text_box_and_enter_different_passwords_in_the_text_boxes_and_updatenow_click_on_the_button(String string, String string2, String string3) {
 
     }
-
-    @Given("{string} message appears Verify")
-    public void message_appears_verify(String string) {
+    @Given("The new password confirmation and new password must match. message appears Verify")
+    public void the_new_password_confirmation_and_new_password_must_match_message_appears_verify() {
 
     }
-
     @Given("The updated password in the {string} TextBox,{string} and {string} Enter the old password in the TextBoxes and update it.")
     public void the_updated_password_in_the_text_box_and_enter_the_old_password_in_the_text_boxes_and_update_it(String string, String string2, String string3) {
 
@@ -671,9 +665,8 @@ public class UserDashboardStepDef extends Base {
     public void click_the_address_tab() {
 
     }
-
-    @Given("{string}, {string}, {string},{string}, {string} information Verify that it matches the user's information.")
-    public void information_verify_that_it_matches_the_user_s_information(String string, String string2, String string3, String string4, String string5) {
+    @Given("Full Name, Address, Region,E-mail, Phone Number information Verify that it matches the user's information.")
+    public void full_name_address_region_e_mail_phone_number_information_verify_that_it_matches_the_user_s_information() {
 
     }
 
@@ -687,18 +680,18 @@ public class UserDashboardStepDef extends Base {
 
     }
 
-    @Given("In a new address registration window {string} and {string} Verify type is clickable")
-    public void in_a_new_address_registration_window_and_verify_type_is_clickable(String string, String string2) {
+    @Given("In a new address registration window Shipping Address and Billing address Verify type is clickable")
+    public void in_a_new_address_registration_window_shipping_address_and_billing_address_verify_type_is_clickable() {
 
     }
 
-    @Given("Verify that the \"Name,email Address,Phone Number,fields are visible and information has been entered.")
+    @Given("Verify that the Name,email Address,Phone Number,fields are visible and information has been entered.")
     public void verify_that_the_name_email_address_phone_number_fields_are_visible_and_information_has_been_entered() {
 
     }
 
-    @Given("Press the {string} button.")
-    public void press_the_button(String string) {
+    @Given("Press the create button.")
+    public void press_the_create_button() {
 
     }
 
@@ -829,6 +822,41 @@ public class UserDashboardStepDef extends Base {
         Assert.assertTrue(userDashboard.tableRefundPickUpInfo.isDisplayed());
     }
 
+    //****************US24/TC01*****************************************
+
+
+    @Given("In SideBar, the menu item My Account appears.")
+    public void in_side_bar_the_menu_item_my_account_appears() {
+        userDashboard.linkHeaderMyAccount.isDisplayed();
+    }
+    @Given("Go to the My Account page.")
+    public void go_to_the_my_account_page() {
+        ReusableMethods.clickWithJS(userDashboard.linkHeaderMyAccount);
+    }
+    @Given("Upload a new profile picture by clicking on the Browse button and verify that it has been uploaded.")
+    public void upload_a_new_profile_picture_by_clicking_on_the_browse_button_and_verify_that_it_has_been_uploaded() {
+
+    }
+    //*************************US24/TC02*******************************************
+    @Given("Go to the Basic Info tab.")
+    public void go_to_the_basic_info_tab() {
+
+    }
+    @Given("Verify that the TextBoxes on the Basic Info tab are visible.")
+    public void verify_that_the_text_boxes_on_the_basic_info_tab_are_visible() {
+
+    }
+    @Given("Verify that First Name,Email Address are displayed correctly.")
+    public void verify_that_first_name_email_address_are_displayed_correctly() {
+
+    }
+    @Given("Verify that the last name textbox is empty")
+    public void verify_that_the_last_name_textbox_is_empty() {
+
+    }
+    @Given("Profile by entering new information in TextBoxes update , save their information.")
+    public void profile_by_entering_new_information_in_text_boxes_update_save_their_information() {
+    }
     //US27 TC01
     @Given("Verify that the Follow banner is visible in the Dashboard sideBar")
     public void verify_that_the_follow_banner_is_visible_in_the_dashboard_side_bar() {
@@ -850,6 +878,7 @@ public class UserDashboardStepDef extends Base {
     }
     @Given("Test that the unfollow button is visible and clickable")
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
+
 
     }
 
