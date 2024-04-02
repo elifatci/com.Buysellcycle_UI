@@ -544,6 +544,8 @@ public class VisitorHomePage extends Base{
     public WebElement labelBestDeals_US14;
     @FindBy(xpath = "(//*[@class='title_link d-flex align-items-center lh-1'])[1]")
     public WebElement viewAllBestDealsButton;
+    @FindBy(xpath = "//*[@class='font_16 f_w_500 mr_10 mb-0']")
+    public WebElement labelAllProductsNumber;
     @FindBy(xpath = "//*[@class='trending_product_active owl-carousel owl-loaded owl-drag']")
     public WebElement imageProductBestDeals;
     @FindBy(xpath = "//*[@id='feature_categories_title']")
@@ -562,9 +564,6 @@ public class VisitorHomePage extends Base{
     public WebElement labelAbout;
     @FindBy(xpath = "//*[@class='amaz_mazing_text']")
     public WebElement labelAboutText;
-
-
-
 
 
 
