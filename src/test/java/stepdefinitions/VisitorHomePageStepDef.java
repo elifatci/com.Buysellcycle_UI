@@ -1170,6 +1170,41 @@ public class VisitorHomePageStepDef extends Base {
         assertNotEquals(expectedRequiredMessage,actualMessage);
     }
 
+    // -----> kevser_US14_TC01 HomePage_Body
+    @Given("Verify that Best Deals text is visible")
+    public void verify_that_best_deals_text_is_visible() {
+        ReusableMethods.wait(2);
+        assertTrue(visitorHomePage.labelBestDeals_US14.isDisplayed());
+    }
+    @Given("Click View All button")
+    public void click_view_all_button() {
+        ReusableMethods.clickWithJS(visitorHomePage.viewAllBestDealsButton);
+    }
+    @Given("Verify that all the products are visible")
+    public void verify_that_all_the_products_are_visible() {
+        ReusableMethods.wait(2);
+        assertTrue(visitorHomePage.labelAllProductsNumber.isDisplayed());
+    }
+    @Given("Verify that Compare and Quick View links are active")
+    public void verify_that_compare_and_quick_view_links_are_active() {
+
+
+    }
+
+    @Given("Verify that Wishlist link is active")
+    public void verify_that_wishlist_link_is_active() {
+
+    }
+
+    @Given("Verify thar Add To Cart link is active")
+    public void verify_thar_add_to_cart_link_is_active() {
+
+    }
+
+
+
+
+
 
 
 }
