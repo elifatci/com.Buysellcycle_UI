@@ -228,23 +228,32 @@ public class VisitorHomePage extends Base{
 
     //------------ New User Zone---------------------
     //---For You-------
-    @FindBy(linkText = "For You")
+    @FindBy(xpath = "//button[@id='pills-home-tab']")
     public WebElement buttonForYou;
     @FindBy(linkText = "Products")
     public WebElement labelProducts;
     @FindBy(xpath = "(//div[@class='product_badge'])[3]")
     public WebElement labelDiscount_ForYou;
-    @FindBy(xpath = "(//a[@data-product-id='341'])[2]")
+    @FindBy(xpath = "(//a[@data-product-sku='342'])[2]")
     public WebElement iconCart_ForYou;
-    @FindBy(xpath = "(//a[@data-product-id='341'])[1]")
-    public WebElement iconCompare;
-    @FindBy(xpath = "//a[@id='wishlistbtn_341']")
+    @FindBy(xpath = "//a[@class='addToCompareFromThumnail']")
+    public WebElement iconCompareForYou;
+    @FindBy(xpath = "//i[@title='Wishlist']")
     public WebElement iconWishList;
     @FindBy(xpath = "(//*[@class='ti-eye'])[1]")
     public WebElement iconQuickView;
-
+    @FindBy(xpath = "//h4[text()='Item added to your cart']")
+    public WebElement labelMessageForYou;
+    @FindBy(xpath = "(//i[@class='ti-close'])[5]")
+    public WebElement buttonCloseForYou;
+    @FindBy(xpath = "//img[@class='lazyload']")
+    public WebElement imageProductFirstForYou;
+    @FindBy(xpath = "//a[@id='add_to_cart_btn_modal']")
+    public WebElement buttonAddCartModalForYou;
+    @FindBy(xpath = "//i[@title='Wishlist']")
+    public WebElement popUpWishListForYou;
     //---Exclusive Price---
-    @FindBy(linkText = "Exclusive Price")
+    @FindBy(xpath = "//button[@id='pills-profile-tab']")
     public WebElement buttonExclusivePrice;
     @FindBy(xpath = "//h3[text()='Exclusive Price']")
     public WebElement labelExclusivePrice;
@@ -262,11 +271,17 @@ public class VisitorHomePage extends Base{
     public WebElement buttonElectronics_ExclusivePrice;
     @FindBy(xpath = "//button[@id='Category-tab_2']")
     public WebElement buttonHome_ExclusivePrice;
+    @FindBy(xpath = "(//img[@class='lazyload'])[3]")
+    public WebElement imageProductFirstExclusivePrice;
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement popUpExclusivePrice;
+    @FindBy(xpath = "(//i[@class='ti-close'])[6]")
+    public WebElement buttonCloseExclusivePrice;
 
     //---Coupon----------
-    @FindBy(linkText = "Coupon")
+    @FindBy(xpath = "//button[@id='pills-contact-tab']")
     public WebElement buttonCoupon;
-    @FindBy(xpath = "//a[text()='Get Now']")
+    @FindBy(xpath = "//img[@class='img-fluid']")
     public WebElement linkGetCoupon;
     @FindBy(xpath = "//h3[.='New User Gift!']")
     public WebElement labelNewUserGift;
