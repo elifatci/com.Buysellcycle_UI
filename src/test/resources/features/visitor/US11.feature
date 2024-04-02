@@ -22,10 +22,10 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
   Scenario: TC_03 Perform operations on products like adding to cart, selecting products for comparison  on "For You" sections
 
     * Click on the chart icon of the first product
-    * verify that the message "Item added to your cart" on the modal
+    * verify that the message Item added to your cart on the modal
     * Close the modal window that opened
     * Click on the compare icon of the first product
-    * verify that the message "Product added to compare list successfully" is display
+    * verify that the message Product added to compare list successfully is display
 
   Scenario: TC_04 Perform operations on products like quick view and adding wish list on "For You" section
 

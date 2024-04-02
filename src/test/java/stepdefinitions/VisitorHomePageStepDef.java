@@ -4,10 +4,8 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.Base;
 import utils.ConfigReader;
@@ -945,54 +943,67 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Verify that For You section is active")
     public void verify_that_section_is_active() {
+        ReusableMethods.scrollWithPixelsJS(0, 350);
+        ReusableMethods.wait(1);
         visitorHomePage.verifyActive(visitorHomePage.buttonForYou);
     }
 
     @Given("Click on the Exclusive Price section")
     public void click_on_the_section() {
-        ReusableMethods.scrollIntoViewJS(visitorHomePage.buttonForYou);
-        visitorHomePage.buttonForYou.click();
+        visitorHomePage.buttonExclusivePrice.click();
     }
 
     @Given("verify that products display with special discount on Exclusive Price")
     public void verify_that_section_is_active_and_products_display_with_special_discount() {
-        visitorHomePage.verifyVisible(visitorHomePage.labelDiscount_ForYou);
+        ReusableMethods.scrollWithPixelsJS(0, 50);
+        ReusableMethods.wait(1);
+       visitorHomePage.verifyVisible(visitorHomePage.labelExclusivePrice);
     }
 
     @Given("Click on the Coupon section and verify that Coupon is visible")
-    public void click_on_the_section_and_verify_that_coupon_section_is_active(String string) {
+    public void click_on_the_section_and_verify_that_coupon_section_is_active() {
         visitorHomePage.buttonCoupon.click();
+        ReusableMethods.wait(1);
         visitorHomePage.verifyVisible(visitorHomePage.linkGetCoupon);
     }
 
     @Given("Click on the chart icon of the first product")
     public void click_on_the_chart_icon_of_the_first_product() {
-
+        ReusableMethods.scrollWithPixelsJS(0, 700);
+        ReusableMethods.wait(1);
+        visitorHomePage.iconCart_ForYou.click();
     }
 
-    @Given("verify that the message {string} on the modal")
-    public void verify_that_the_message_on_the_modal(String string) {
-
+    @Given("verify that the message Item added to your cart on the modal")
+    public void verify_that_the_message_on_the_modal() {
+        ReusableMethods.wait(1);
+       visitorHomePage.verifyVisible(visitorHomePage.labelMessageForYou);
     }
 
     @Given("Close the modal window that opened")
     public void close_the_modal_window_that_opened() {
-
+        visitorHomePage.buttonCloseForYou.click();
     }
 
     @Given("Click on the compare icon of the first product")
     public void click_on_the_compare_icon_of_the_first_product() {
-
+        ReusableMethods.scrollWithPixelsJS(0, -200);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(visitorHomePage.imageProductFirstForYou);
+        visitorHomePage.iconCompareForYou.click();
+        ReusableMethods.wait(90);
     }
 
-    @Given("verify that the message {string} is display")
-    public void verify_that_the_message_is_display(String string) {
+    @Given("verify that the message Product added to compare list successfully is display")
+    public void verify_that_the_message_is_display() {
 
     }
 
     @Given("Click  on the Quick view icon of the first product and verify that the modal window appear")
     public void click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
-
+        ReusableMethods.scrollWithPixelsJS(0, 200);
+        ReusableMethods.hover(visitorHomePage.imageProductFirstForYou);
+        visitorHomePage.iconQuickView.click();
     }
 
     @Given("Click on the Wish list icon of the first product and verify that the product is added")
