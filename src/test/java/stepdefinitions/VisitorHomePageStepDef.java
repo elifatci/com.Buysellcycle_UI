@@ -4,6 +4,7 @@ import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.Select;
@@ -577,9 +578,9 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Electronics main category and select the subcategories it's confirmed to appear.")
     public void click_on_the_electronics_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
+        assertTrue(visitorHomePage.buttonElectronicsIcon.isDisplayed());
+        visitorHomePage.buttonElectronicsIcon.click();
 
-        ReusableMethods.clickWithJS(visitorHomePage.buttonElectronicsIcon);
-        assertTrue(visitorHomePage.subDropdownAllCategories.isDisplayed());
     }
 
     //============================= US_16 =========================================
@@ -707,81 +708,92 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Subcategories within the Electronics category one title clicked on the right place  that it is directed.")
     public void subcategories_within_the_electronics_category_one_title_clicked_on_the_right_place_that_it_is_directed() {
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(1);
         actions.moveToElement(visitorHomePage.linkmobilePhone).click().perform();
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(1);
         assertTrue(visitorHomePage.linkmobilePhone.isEnabled());
     }
 
 
     @Given("Click on the Baby main category and select the subcategories it's confirmed to appear.")
     public void click_on_the_baby_main_category_and_select_the_subcategories_it_s_confirmed_to_appear() {
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(1);
         actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
-        ReusableMethods.wait(3);
-        actions.moveToElement(visitorHomePage.buttonbabyClickView).click().perform();
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(1);
         assertTrue(visitorHomePage.buttonbabyClickView.isDisplayed());
+        actions.moveToElement(visitorHomePage.buttonbabyClickView).click().perform();
     }
 
     @Given("Subcategories within the Baby category two title clicked on the right place  that it is directed.")
     public void subcategories_within_the_baby_category_two_title_clicked_on_the_right_place_that_it_is_directed() {
-        ReusableMethods.wait(3);
-        actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(2);
+        assertTrue(visitorHomePage.linkBabyStrollerPushchair.isDisplayed());
         actions.moveToElement(visitorHomePage.linkBabyStrollerPushchair).click().perform();
         ReusableMethods.wait(3);
-        assertTrue(visitorHomePage.linkBabyStrollerPushchair.isDisplayed());
-
-        ReusableMethods.wait(3);
         actions.moveToElement(visitorHomePage.dropDownAllCategories).click().perform();
         ReusableMethods.wait(3);
+        actions.moveToElement(visitorHomePage.buttonbabyClickView).click().perform();
+        assertTrue(visitorHomePage.linkBabyBad.isDisplayed());
         actions.moveToElement(visitorHomePage.linkBabyBad).click().perform();
         ReusableMethods.wait(3);
-        assertTrue(visitorHomePage.linkBabyBad.isDisplayed());
+
 
     }
 
 
     //**************************************US_15/TC_01*********************************************************
-    @Given("Home page body section {string} category window is visible.")
-    public void home_page_body_section_category_window_is_visible(String string) {
-
+    @Given("Verify that the Electronics category window is displayed in the Home page body section.")
+    public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
+        visitorHomePage.bodyElectronics.isDisplayed();
     }
 
-    @Given("Click on the {string} window and verify that subcategories appear.")
-    public void click_on_the_window_and_verify_that_subcategories_appear(String string) {
+    @Given("Click the Telephone heading in the subcategory and verify that the related products are displayed.")
+    public void click_the_telephone_heading_in_the_subcategory_and_verify_that_the_related_products_are_displayed() {
+       ReusableMethods.clickWithJS(visitorHomePage.buttonTelephone);
+       visitorHomePage.imageProductTelephone.isDisplayed();
 
     }
-
-    @Given("Click on the {string} heading in the subcategory and verify that the relevant products appear.")
-    public void click_on_the_heading_in_the_subcategory_and_verify_that_the_relevant_products_appear(String string) {
-
-    }
-
-    @Given("Click on the subcategory {string} and verify that the relevant products appear.")
-    public void click_on_the_subcategory_and_verify_that_the_relevant_products_appear(String string) {
+    @Given("Click the TV&Picture&Sound heading in the subcategory and verify that the related products are displayed.")
+    public void click_the_tv_picture_sound_heading_in_the_subcategory_and_verify_that_the_related_products_are_displayed() {
+        ReusableMethods.clickWithJS(visitorHomePage.buttonTvPicSound);
+        visitorHomePage.imageProductTvPicSound.isDisplayed();
 
     }
-
-    @Given("Adding to the basket can be done on the products on the relevant category page Verify.")
-    public void adding_to_the_basket_can_be_done_on_the_products_on_the_relevant_category_page_verify() {
-
-    }
-
-    @Given("Selecting products for comparison on the products in the relevant category page verify that it can be done.")
-    public void selecting_products_for_comparison_on_the_products_in_the_relevant_category_page_verify_that_it_can_be_done() {
+    @Given("Verify that the products on the relevant category page have been added to the basket.")
+    public void verify_that_the_products_on_the_relevant_category_page_have_been_added_to_the_basket() {
+        ReusableMethods.clickWithJS(visitorHomePage.iconBascetAppleIphone15Pro128Gb);
+        visitorHomePage.buttonViewCard.isDisplayed();
+        ReusableMethods.clickWithJS(visitorHomePage.buttonCloseIcon1);
+        ReusableMethods.clickWithJS(visitorHomePage.buttonTi_CloseIcon2);
 
     }
-
-    @Given("Verify that {string} appears because you cannot add to the likes list on the products on the relevant category page.")
-    public void verify_that_appears_because_you_cannot_add_to_the_likes_list_on_the_products_on_the_relevant_category_page(String string) {
-
+    @Given("Verify that you have selected products for comparison on the products in the relevant category page.")
+    public void verify_that_you_have_selected_products_for_comparison_on_the_products_in_the_relevant_category_page() {
+        ReusableMethods.clickWithJS(visitorHomePage.iconCompareBascetAppleIphone15Pro128Gb);
+        ReusableMethods.clickWithJS(visitorHomePage.buttonCompareHomePage);
+        visitorHomePage.textProductCompare.isDisplayed();
+        ReusableMethods.wait(2);
+        visitorHomePage.logoBuysell.click();
     }
 
-    @Given("In the {string} window, click on {string} to verify that additional products appear.")
-    public void in_the_window_click_on_to_verify_that_additional_products_appear(String string, String string2) {
+    @Given("Verify that the products on the relevant category page have been added to the likes list.")
+    public void verify_that_the_products_on_the_relevant_category_page_have_been_added_to_the_likes_list() {
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(visitorHomePage.iconWishListAppleIphone15Pro128Gb);
 
+
+    }
+    @Given("Verify that Warning Please Login First appears on the products in the relevant category page because it is not possible to add to the likes list.")
+    public void verify_that_warning_please_login_first_appears_on_the_products_in_the_relevant_category_page_because_it_is_not_possible_to_add_to_the_likes_list() {
+        visitorHomePage.textWarningFirstLogin.isDisplayed();
+        ReusableMethods.wait(3);
+    }
+    @Given("Verify that additional products are displayed by clicking more products in the Electronics window.")
+    public void verify_that_additional_products_are_displayed_by_clicking_more_products_in_the_electronics_window() {
+        ReusableMethods.clickWithJS(visitorHomePage.buttonMoreDealsProduct);
+        ReusableMethods.wait(1);
+        visitorHomePage.textMoreDealsProductList.isDisplayed();
+        Driver.quitDriver();
     }
 
     //**************************************US_24/TC_01*********************************************************

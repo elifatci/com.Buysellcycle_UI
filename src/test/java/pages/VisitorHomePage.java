@@ -296,6 +296,9 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/mobile-phone-?item=category']")
     public WebElement linkmobilePhone;
 
+    //@FindBy(xpath = "//h3[@class='branding_text']")
+    //public WebElement textMobilPhone;
+
     //HomePage>>AllCategories>>Baby>>subcategories
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/park-bed?item=category']")
     public WebElement linkBabyBad;
@@ -305,24 +308,65 @@ public class VisitorHomePage extends Base{
     public WebElement buttonbabyClickView;
 
     //HomePage>>AllCategories>>Baby>>subcategories
-    @FindBy(xpath = "///a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/category/baby-stroller?item=category']")
     public WebElement linkBabyStrollerPushchair;
+
+    //@FindBy(xpath = "/html/body/div[3]/div/div/div")
+    //public WebElement textBabyChair;
 
     //HomePage>>Body>>Elektronics
     @FindBy(xpath = "(//h4[@id='filter_category_title'])[1]")
-    public WebElement bodyElectronics;
+    public WebElement bodyElectronics;//elek.kategori pencere blog olarak locate
 
-    //HomePage>>Body>>Elektronics>>subCategories
-    @FindBy(xpath = "(//ul[@role='tablist'])[1]")
-    public WebElement bodyElecSubCategories;
+    @FindBy(xpath = "//button[@id='tab_link_33']")
+    public WebElement buttonTelephone;//electronics body'sindeki button
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='APPLE iPhone 15 Pro 128 GB'])[1]")
-    public WebElement imageProductTelephone;
+    public WebElement imageProductTelephone;//urun
+
+    @FindBy(xpath = "//button[@id='tab_link_34']")
+    public WebElement buttonTvPicSound;//electronics body'sindeki button
 
     //HomePage>>Body>>Elektronics>>subCategories
     @FindBy(xpath = "(//img[@title='LG 55QNED816RE 55-inch 139 Screen'])[1]")
-    public WebElement imageProductTvPicSound;
+    public WebElement imageProductTvPicSound;//urun
+
+    @FindBy(xpath = "(//a[@data-base-price='1450'])[1]")
+    public WebElement iconBascetAppleIphone15Pro128Gb;//ürün sepete ekle/click
+
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/cart'])[4]")
+    public WebElement buttonViewCard;//sepet/ekleme/görüntüleyerek doğrulama
+
+    @FindBy(xpath = "(//i[@title='Compare'])[25]")
+    public WebElement iconCompareBascetAppleIphone15Pro128Gb;//ürün/compare/click
+
+    @FindBy(xpath = "//span[@class='compare_count']")
+    public WebElement buttonCompareHomePage;//anasayfanın sağ üstünde yer alan compare
+
+    @FindBy(xpath = "//h3[@class='fs-4 fw-bold mb_30']")
+    public WebElement textProductCompare;//ürün/compare/yazı görüntülüyerek doğrulama
+
+
+
+    @FindBy(xpath = "//button[@class='close_modal_icon']")
+    public WebElement buttonCloseIcon1;//view cart'ı çarpıicanuna basarak kapatma
+
+    @FindBy(xpath = "(//i[@class='ti-close'])[4]")
+    public WebElement buttonTi_CloseIcon2;//view cartdan sonra açılmış viewshoppingcart penceresini kapatma
+
+    @FindBy(xpath = "(//i[@title='Wishlist'])[25]")
+    public WebElement iconWishListAppleIphone15Pro128Gb;//ürün/wislist/click
+
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement textWarningFirstLogin;//ürünü beğeni listesine eklemeye çalışıldıgında çıkan mesaj
+
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/category/electronics?item=category'])[1]")
+    public WebElement buttonMoreDealsProduct;//daha fazla ürün listelemek için click
+
+    @FindBy(xpath = "//h5[@class='font_16 f_w_500 mr_10 mb-0']")
+    public WebElement textMoreDealsProductList;//listelenen ürün yazısı üzerinden doğrulama
+
   //***************************************************************************************************
     @FindBy (xpath = "(//*[text()='About Us'])[1]")
     public WebElement linkHeaderAboutUs;
