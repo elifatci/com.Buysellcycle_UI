@@ -8,14 +8,10 @@ import utils.ConfigReader;
 import utils.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import utils.Driver;
-
 import java.io.File;
-
 import static org.junit.Assert.*;
 
 public class AdminDashboardStepDef extends Base {
-
-
 
 
     // US39 ---> TC01
@@ -121,6 +117,51 @@ public class AdminDashboardStepDef extends Base {
     public void user_clicks_on_add_new_product_and_displays_the_contact_page(String string) {
         userDashboard.checkClickElement(adminDashboard.linkAddNewProduct);
     }
+    // ================================== US42 TC01==================================================================
+    @Given("User can open Support Ticket menu from Dashboard Side Bar")
+    public void user_can_open_support_ticket_menu_from_dashboard_side_bar() {
+        userDashboard.checkClickElement(adminDashboard.dropDownSupportTicket);
+        adminDashboard.dropDownSupportTicket.click();
+        assertTrue(adminDashboard.dropDownSupportTicket.isDisplayed());
+    }
+    @Given("The user clicks on the My Ticket page under Support Ticket from the Dashboard Side Bar")
+    public void the_user_clicks_on_the_my_ticket_page_under_support_ticket_from_the_dashboard_side_bar() {
+    adminDashboard.labelMyTicket.click();
+    assertTrue(adminDashboard.labelMyTicket.isDisplayed());
+    }
+    @Given("On the My Ticket page, user sees the Category tab, Select One, Installation, Technical, Others and clicks Technical button")
+    public void on_the_my_ticket_page_user_sees_the_category_tab_select_one_installation_technical_others_and_clicks_technical_button() {
+        adminDashboard.dropDownCategory.click();
+        for (int i = 5; i < 7; i++) {
+
+            assertTrue(adminDashboard.dropDownCategoryList.get(i).isDisplayed());
+        }
+        adminDashboard.labelTechnical.click();
+    }
+
+    @Given("User sees the Select One, High, Medium, Low options from the Priority tab on the My Ticket page and clicks the High button")
+    public void user_sees_the_select_one_high_medium_low_options_from_the_priority_tab_on_the_my_ticket_page_and_clicks_the_high_button() {
+        adminDashboard.dropDownPriority.click();
+        userDashboard.checkListELements(adminDashboard.dropDownPriortiyList,4);
+        adminDashboard.labelPriority.click();
+
+    }
+    @Given("User sees Select One, Pending, On Going, Completed, Closed options from the Status tab on the My Ticket page and clicks the Pending button")
+    public void user_sees_select_one_pending_on_going_completed_closed_options_from_the_status_tab_on_the_my_ticket_page_and_clicks_the_pending_button() {
+        adminDashboard.dropDownStatus.click();
+        userDashboard.checkListELements(adminDashboard.dropDownStatusList,5);
+        adminDashboard.labelStatus.click();
+    }
+    @Given("User clicks the Search button to create the Ticket List according to the filtering made from Category, Priority and Status tabs")
+    public void user_clicks_the_search_button_to_create_the_ticket_list_according_to_the_filtering_made_from_category_priority_and_status_tabs() {
+    adminDashboard.buttonSearch.click();
+    }
+    @Given("User verifies that Tickets in Ticket List are listed under Subject, Category, User Name, priority, User Agent, Status, Action")
+    public void user_verifies_that_tickets_in_ticket_list_are_listed_under_subject_category_user_name_priority_user_agent_status_action() {
+        for (int i = 0; i < 8; i++) {
+            assertTrue(adminDashboard.dropDownTicketList.get(i).isDisplayed());
+        }
+    }
 
     //US36 TC01
     @Given("Verify that the profile icon is visible on the Dashboard page")
@@ -156,6 +197,7 @@ public class AdminDashboardStepDef extends Base {
         ReusableMethods.wait(2);
         adminDashboard.linkMyProfile.click();
     }
+
     @Given("Verify that First Name, Last Name, E-mail Address, Phone Number, Date of Bird information is visible in the Basic Info section.")
     public void verify_that_first_name_last_name_e_mail_address_phone_number_date_of_bird_information_is_visible_in_the_basic_info_section() {
         adminDashboard.verifyVisible(adminDashboard.labelFirstNameText);
@@ -185,10 +227,9 @@ public class AdminDashboardStepDef extends Base {
     @Given("Click on the Change password button and verify that you are directed to the relevant page.")
     public void click_on_the_change_password_button_and_verify_that_you_are_directed_to_the_relevant_page() {
         ReusableMethods.wait(2);
-        adminDashboard.buttonChangePassword.click();
-        //adminDashboard.clickVerification(adminDashboard.buttonChangePassword, adminDashboard.labelChangePassword);
+        adminDashboard.clickVerification(adminDashboard.buttonChangePassword, adminDashboard.labelChangePassword);
         ReusableMethods.wait(3);
-        assertTrue(adminDashboard.labelChangePassword.isDisplayed());
+       // assertTrue(adminDashboard.labelChangePassword.isDisplayed());
     }
 
     @Given("Verify that the CURRENT PASSWORD, NEW PASSWORD, RE ENTER NEW PASSWORD textboxes are visible")
@@ -210,6 +251,7 @@ public class AdminDashboardStepDef extends Base {
     //US36 TC04
     @Given("Click on the Address button")
     public void click_on_the_address_button() {
+        ReusableMethods.wait(2);
         adminDashboard.buttonAddress.click();
     }
 
@@ -220,7 +262,8 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Verify that the Address page opens")
     public void verify_that_the_address_page_opens() {
-        assertTrue(adminDashboard.linkAddNewProduct.isDisplayed());
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.buttonAddNewAddress.isDisplayed());
     }
 
     @Given("Verify that address information is visible")
@@ -235,110 +278,290 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Verify that the save button is visible")
     public void verify_that_the_save_button_is_visible() {
+
         assertTrue(adminDashboard.buttonSaveAddress.isDisplayed());
     }
 
     @Given("Fill in the starred fields and click the save button.")
     public void fill_in_the_starred_fields_and_click_the_save_button() {
+
         adminDashboard.addAddress();
     }
 
     @Given("Verify that the address has been added")
     public void verify_that_the_address_has_been_added() {
-            assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
     //US36 TC05
-    @Given("Leave the textboxes of the required fields empty and click on the save button.")
-    public void leave_the_textboxes_of_the_required_fields_empty_and_click_on_the_save_button() {
-
-    }
-
     @Given("Select the select from options option from Country dropdown")
     public void select_the_select_from_options_option_from_country_dropdown() {
-
+            adminDashboard.dropDownCountry.click();
+            ReusableMethods.wait(3);
+            adminDashboard.subMenuSelectFromOptions.click();
     }
 
     @Given("Click on the save button")
     public void click_on_the_save_button() {
-
+            adminDashboard.buttonSave.click();
     }
 
     //***********************US_34/TC_01/TC_02*********************************
-
 
 
     @Given("At the top of the Admin Dashboard page appears in the Search TextBox section Verify that it is.")
     public void at_the_top_of_the_admin_dashboard_page_appears_in_the_search_text_box_section_verify_that_it_is() {
 
     }
+
     @Given("Using Search TextBox, type Dashboard in the search box within the site and verify that the results are displayed correctly.")
     public void using_search_text_box_type_dashboard_in_the_search_box_within_the_site_and_verify_that_the_results_are_displayed_correctly() {
 
     }
+
     @Given("Click the Menu icon on the Admin Dashboard home page and verify that the SideBar collapses and expands.")
     public void click_the_menu_icon_on_the_admin_dashboard_home_page_and_verify_that_the_side_bar_collapses_and_expands() {
 
     }
+
     @Given("Username of the site from Admin Dashboard redirected to the interface verify.")
     public void username_of_the_site_from_admin_dashboard_redirected_to_the_interface_verify() {
 
     }
+
     @Given("Click on the Today button and select verify that the data changes to the selected value.")
     public void click_on_the_today_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Click on the This Week button and select verify that the data changes to the selected value.")
     public void click_on_the_this_week_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Click on the This Year button and select verify that the data changes to the selected value.")
     public void click_on_the_this_year_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
 
     }
+
     @Given("Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_product_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("TotalCustomer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Visitor from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void visitor_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Pending Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_pending_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Completed Order from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_completed_order_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Sale from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_sale_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Review from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_review_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Revenue from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_revenue_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Active Customer from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void active_customer_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
     @Given("Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_subscriber_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
 
     }
+
+    //US38 Nazime >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //TC01
+    @Given("Clicks the product link in the admin dashboard sidebar")
+    public void clicks_the_product_link_in_the_admin_dashboard_sidebar() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("Clicks the  add new product link in the admin dashboard sidebar")
+    public void clicks_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+
+    }
+
+    //TC02
+    @Given("Add new Productin titles\\(General Information, Related Product, Up Sale, Cross sale) display")
+    public void add_new_productin_titles_general_information_related_product_up_sale_cross_sale_display() {
+
+
+    }
+
+    //TC03
+    @Given("select variant type")
+    public void select_variant_type() {
+    }
+    //TC04
+    @Given("Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags \\(Comma Separated) Text Boxes in Product Information Section")
+    public void display_name_product_sku_model_number_category_brand_unit_barcode_type_minimum_order_qty_max_order_qty_tags_comma_separated_text_boxes_in_product_information_section() {
+
+    }
+    //TC05
+    @Given("Enter the information in the Weight Height Info section")
+    public void enter_the_information_in_the_weight_height_info_section() {
+
+    }
+    //TC06
+    @Given("Information is entered in Price Info and Stock section")
+    public void information_is_entered_in_price_info_and_stock_section() {
+
+    }
+    //TC07
+    @Given("Picture is added to Description section")
+    public void picture_is_added_to_description_section() {
+
+    }
+    //TC08
+    @Given("the necessary information is entered and a new product is added to the site")
+    public void the_necessary_information_is_entered_and_a_new_product_is_added_to_the_site() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("Save & Publish and Save buttons are visible and their activation is confirmed")
+    public void save_publish_and_save_buttons_are_visible_and_their_activation_is_confirmed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("a new product is added to the site")
+    public void a_new_product_is_added_to_the_site() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    //TC09
+    @Given("On the Add New Product page, related products are determined for the product to be added")
+    public void on_the_add_new_product_page_related_products_are_determined_for_the_product_to_be_added() {
+    }
+    //TC10
+    @Given("On the Add New Product page, select the products up sale")
+    public void on_the_add_new_product_page_select_the_products_up_sale() {
+
+    }
+    //TC11
+
+
+    //US43 TC01
+    @Given("Verify that the Support Ticket link is visible in the side bar")
+    public void verify_that_the_support_ticket_link_is_visible_in_the_side_bar() {
+
+    }
+    @Given("Click on the support ticket link")
+    public void click_on_the_support_ticket_link() {
+
+    }
+    @Given("Click on the support ticket link below.")
+    public void click_on_the_support_ticket_link_below() {
+
+    }
+    @Given("Verify that it redirects to the relevant page")
+    public void verify_that_it_redirects_to_the_relevant_page() {
+
+    }
+
+    //US43 TC02
+    @Given("Click on the Add new button and verify that you are directed to the relevant page.")
+    public void click_on_the_add_new_button_and_verify_that_you_are_directed_to_the_relevant_page() {
+
+    }
+    @Given("Verify that the Subject, Description, Category List, Priority and Status textboxes are visible")
+    public void verify_that_the_subject_description_category_list_priority_and_status_textboxes_are_visible() {
+
+    }
+    @Given("Verify that the add new buttons are active")
+    public void verify_that_the_add_new_buttons_are_active() {
+
+    }
+    @Given("Fill in the starred fields with valid information")
+    public void fill_in_the_starred_fields_with_valid_information() {
+
+    }
+    @Given("Verify that more than one file can be attached to the Attach file section")
+    public void verify_that_more_than_one_file_can_be_attached_to_the_attach_file_section() {
+
+    }
+    @Given("Click on the Create ticket button and verify that the ticket has been created successfully.")
+    public void click_on_the_create_ticket_button_and_verify_that_the_ticket_has_been_created_successfully() {
+
+    }
+
+    //US43 TC03
+    @Given("Verify that PRIORITY, STATUS, CATEGORY information is selectable on the Support Ticket page")
+    public void verify_that_priority_status_category_information_is_selectable_on_the_support_ticket_page() {
+
+    }
+    @Given("Click the search button from the Category, Priority and Status tabs.")
+    public void click_the_search_button_from_the_category_priority_and_status_tabs() {
+
+    }
+    @Given("Verify that the relevant filtering results are returned")
+    public void verify_that_the_relevant_filtering_results_are_returned() {
+
+    }
+
+    //US43 TC04
+    @Given("click on the plus icon")
+    public void click_on_the_plus_icon() {
+
+    }
+    @Given("Verify that the Agent assign field and action section are visible")
+    public void verify_that_the_agent_assign_field_and_action_section_are_visible() {
+
+    }
+    @Given("If assigned, verify that the assignee's name is visible")
+    public void if_assigned_verify_that_the_assignee_s_name_is_visible() {
+
+    }
+    @Given("Click a ticket's Select button and verify that the show edit delete options are visible")
+    public void click_a_ticket_s_select_button_and_verify_that_the_show_edit_delete_options_are_visible() {
+
+    }
+    @Given("Click the Show button. Verify that the Ticket page is opened.")
+    public void click_the_show_button_verify_that_the_ticket_page_is_opened() {
+
+    }
+    @Given("Go back, click on the select button and select the edit option.")
+    public void go_back_click_on_the_select_button_and_select_the_edit_option() {
+
+    }
+    @Given("Verify that the update ticket page is opened")
+    public void verify_that_the_update_ticket_page_is_opened() {
+
+    }
+
 
 }

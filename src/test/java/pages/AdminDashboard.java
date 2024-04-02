@@ -183,6 +183,45 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "//*[@class='mm-collapse mm-show']")
     public WebElement buttonAllCustomerInterfaceClick;
 
+    // Dasboard>> Support Ticket
+    @FindBy (xpath = "(//*[text()='Support Ticket'])[1]")
+    public WebElement dropDownSupportTicket;
+
+    @FindBy (xpath = "(//*[@class='nice-select primary_select mb-15'])[1]")
+    public WebElement dropDownCategory;
+
+    @FindBy (xpath = "(//*[@class='nice-select primary_select mb-15'])[2]")
+    public WebElement dropDownPriority;
+
+    @FindBy (xpath = "(//*[@class='nice-select primary_select mb-15'])[3]")
+    public WebElement dropDownStatus;
+
+    @FindBy (xpath = "//div[1]/form/div/div[1]//ul/li[6]")
+    public WebElement labelTechnical;
+
+    @FindBy (xpath = "//div[1]/form/div/div[2]//ul/li[2]")
+    public WebElement labelPriority;
+
+    @FindBy (xpath = "//div[1]/form/div/div[3]//ul/li[2]")
+    public WebElement labelStatus;
+
+    @FindBy (xpath = "(//ul/li[5])[12]")
+    public WebElement labelMyTicket;
+
+    @FindBy (xpath = "//div[1]/form/div/div[1]//ul/li")
+    public List<WebElement> dropDownCategoryList;
+
+    @FindBy (xpath = "//div[1]/form/div/div[2]//ul/li")
+    public List<WebElement> dropDownPriortiyList;
+
+    @FindBy (xpath = "//div[1]/form/div/div[3]//ul/li")
+    public List<WebElement> dropDownStatusList;
+
+    @FindBy (id = "search_btn")
+    public WebElement buttonSearch;
+
+    @FindBy (xpath = "//*[@id='dataListTable']/thead/tr/th")
+    public List<WebElement> dropDownTicketList;
 
     //Dashboard>> Profile image
     @FindBy(className = "user_avatar_div")
@@ -342,4 +381,15 @@ public class AdminDashboard extends Base{
         buttonSaveAddress.click();
     }
 
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "//*[text()='Something Went Wrong!']")
+    public WebElement labelErrorMessage;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[@type='submit'])[2]")
+    public WebElement buttonSave;
+
+    //Admin-Profile>>Address page
+    @FindBy(xpath = "(//*[text()='Select from options'])[2]")
+    public WebElement subMenuSelectFromOptions;
 }

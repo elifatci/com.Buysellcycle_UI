@@ -1,4 +1,4 @@
-@US011
+@US11
 Feature:Verify the visibility and functionality of the "New User Zone" menu item on the homepage navigation bar
 
   Background:
@@ -22,10 +22,10 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
   Scenario: TC_03 Perform operations on products like adding to cart, selecting products for comparison  on "For You" sections
 
     * Click on the chart icon of the first product
-    * verify that the message "Item added to your cart" on the modal
+    * verify that the message Item added to your cart on the modal
     * Close the modal window that opened
     * Click on the compare icon of the first product
-    * verify that the message "Product added to compare list successfully" is display
+    * verify that the message Product added to compare list successfully is display
 
   Scenario: TC_04 Perform operations on products like quick view and adding wish list on "For You" section
 
@@ -37,14 +37,14 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
 
     * Click on the Exclusive Price section
     * verify that products display with special discount on Exclusive Price
-    * Click on the chart icon of the first product for adding to cart and verify that the message "Item added to your cart" on the modal
+    * Click on the chart icon of the first product for adding to cart and verify that the message Item added to your cart on the modal
     * Close the modal window that opened
-    * Click on the compare icon of the first product  and verify that the message "Product added to compare list successfully" is display
+    * Click on the compare icon of the first product  and verify that the message Product added to compare list successfully is display
 
   Scenario: TC_06 Perform operations on products like quick view and adding wish list on "Exclusive Price" section
 
     * Click on the Exclusive Price section
     * verify that products display with special discount on Exclusive Price
     * Click on the Click on the Quick view icon of the first product and verify that the modal window appear
-    * Close the modal window that opened
+    * Close the modal window that opened on Exclusive Price
     * Click on the Wish list icon of the first product and verify that the product is added
