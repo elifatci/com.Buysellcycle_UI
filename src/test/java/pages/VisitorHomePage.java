@@ -238,7 +238,7 @@ public class VisitorHomePage extends Base{
     public WebElement iconCart_ForYou;
     @FindBy(xpath = "//a[@class='addToCompareFromThumnail']")
     public WebElement iconCompareForYou;
-    @FindBy(xpath = "//a[@id='wishlistbtn_341']")
+    @FindBy(xpath = "//i[@title='Wishlist']")
     public WebElement iconWishList;
     @FindBy(xpath = "(//*[@class='ti-eye'])[1]")
     public WebElement iconQuickView;
@@ -248,8 +248,10 @@ public class VisitorHomePage extends Base{
     public WebElement buttonCloseForYou;
     @FindBy(xpath = "//img[@class='lazyload']")
     public WebElement imageProductFirstForYou;
-    @FindBy(xpath = "//div[@aria-live='polite']")
-    public WebElement popUpSuccessfulForYou;
+    @FindBy(xpath = "//a[@id='add_to_cart_btn_modal']")
+    public WebElement buttonAddCartModalForYou;
+    @FindBy(xpath = "//i[@title='Wishlist']")
+    public WebElement popUpWishListForYou;
     //---Exclusive Price---
     @FindBy(xpath = "//button[@id='pills-profile-tab']")
     public WebElement buttonExclusivePrice;

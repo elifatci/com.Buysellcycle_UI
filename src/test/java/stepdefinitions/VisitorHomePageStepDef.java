@@ -977,12 +977,13 @@ public class VisitorHomePageStepDef extends Base {
     @Given("verify that the message Item added to your cart on the modal")
     public void verify_that_the_message_on_the_modal() {
         ReusableMethods.wait(1);
-       visitorHomePage.verifyVisible(visitorHomePage.labelMessageForYou);
+        visitorHomePage.verifyVisible(visitorHomePage.labelMessageForYou);
     }
 
     @Given("Close the modal window that opened")
     public void close_the_modal_window_that_opened() {
         visitorHomePage.buttonCloseForYou.click();
+        ReusableMethods.wait(1);
     }
 
     @Given("Click on the compare icon of the first product")
@@ -991,7 +992,6 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.wait(1);
         ReusableMethods.hover(visitorHomePage.imageProductFirstForYou);
         visitorHomePage.iconCompareForYou.click();
-        ReusableMethods.wait(90);
     }
 
     @Given("verify that the message Product added to compare list successfully is display")
@@ -1001,14 +1001,20 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click  on the Quick view icon of the first product and verify that the modal window appear")
     public void click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
-        ReusableMethods.scrollWithPixelsJS(0, 200);
+        ReusableMethods.scrollWithPixelsJS(0, 150);
         ReusableMethods.hover(visitorHomePage.imageProductFirstForYou);
         visitorHomePage.iconQuickView.click();
+        ReusableMethods.wait(1);
+        assertTrue(visitorHomePage.buttonAddCartModalForYou.isDisplayed());
     }
 
     @Given("Click on the Wish list icon of the first product and verify that the product is added")
     public void click_on_the_wish_list_icon_of_the_first_product_and_verify_that_the_product_is_added() {
-
+        ReusableMethods.scrollWithPixelsJS(0, -150);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(visitorHomePage.imageProductFirstForYou);
+        visitorHomePage.iconWishList.click();
+        assertTrue(visitorHomePage.popUpWishListForYou.getText().contains("Product is added"));
     }
 
     @Given("Click on the chart icon of the first product for adding to cart and verify that the message {string} on the modal")
