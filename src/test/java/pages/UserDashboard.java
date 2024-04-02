@@ -325,8 +325,10 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//h4[@class='font_24 f_w_700 flex-fill m-0']")
     public WebElement labelAllSubmittedTicket;
 
-    @FindBy(xpath = "//div[contains(@class, 'amaz_select4')]")
+    @FindBy(xpath = "//div[@class='nice-select amaz_select4 style2']")
     public WebElement dropDownAllTicketPlaceholder;
+    @FindBy(xpath = "(//li[@class='option'])[1]")
+    public WebElement dropDownAllTicket;
 
     @FindBy(xpath = "/html/body/div[3]//tbody/tr[1]/td")
     public List<WebElement> rowBodyTicketSubjectPriority;//alt bilgilerin ilki
@@ -338,12 +340,12 @@ public class UserDashboard extends Base {
     public WebElement linkView;// view linkinin ilki
     @FindBy(xpath = "//table/tbody[1]/tr")
     public List<WebElement> tableAllSupportList;
-
-    @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[3]")
-    public WebElement labelPriority;//view e girince Priority texti
-
-    @FindBy(xpath = "(//span[@class='font_14 f_w_500'])[5]")
-    public WebElement labelCategory;//view e girince status texti
+    @FindBy(xpath = "//input[@id='subject']")
+    public WebElement textboxSubject;
+    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[1]")
+    public WebElement dropDownCategory;
+    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[2]")
+    public WebElement dropDownPriority;
 
     @FindBy(xpath = "(//a[@class='amaz_badge_btn7 d-inline-flex align-items-center'])[1]")
     public WebElement linkStatusInfo;
@@ -357,11 +359,38 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//button[@id='replay_box_toggler']")
     public WebElement buttonReply;
 
-    @FindBy(xpath = "//div[@class='note-editor note-frame']")
+    @FindBy(xpath = "//div[@class='note-editable']")
     public WebElement textboxDescription;
+    @FindBy(xpath = "//div[@class='col-12 d-flex justify-content-end']")
+    public WebElement buttonReplyNow;
 
+    @FindBy(xpath = "//h4[@class='font_18 f_w_700 m-0']")
+    public List<WebElement> textTicketNames;
 
+    @FindBy(xpath = "//div[@class='ticket_view_box_body']")
+    public List<WebElement> textTicketInfo;
 
+    @FindBy(xpath = "(//ul[@class='list'])[3]")
+    public WebElement dropDownAllTicketList;
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/support-ticket/create']")
+    public WebElement buttonAddNewSTicket;
+
+    @FindBy(xpath = "//label[@class='primary_label2 style2 ']")
+    public List<WebElement> labelNewTicketTitle;
+    @FindBy(xpath = "//button[@class='amaz_primary_btn style2 rounded-0  text-uppercase  text-center w-100']")
+    public WebElement buttonCreateNow;
+    @FindBy(xpath = "(//li[@class='option'])[2]")
+    public WebElement dropDownCategoryOtions;
+
+    @FindBy(xpath = "(//li[@class='option'])[8]")
+    public WebElement dropDownPriorityOtions;
+    @FindBy(xpath = "//span[@class='validation-name-info-error text-danger info_error']")
+    public WebElement labelWarningMessage;
+
+    @FindBy(xpath = "//span[@id='error_category_id']")
+    public WebElement labelWarningMessage2;
+    @FindBy(xpath = "//*[@class='toast-message']")
+    public WebElement labelSuccessMessageCreated;
 
 
 
@@ -598,5 +627,36 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "//div[@class='summery_lists flex-fill']")
     public WebElement tableRefundPickUpInfo;
+
+    //==============================US32===============================
+
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/cart']")
+    public WebElement linkCart;
+
+    @FindBy(xpath = "//a[@class='amaz_primary_btn min_200 style2 cursor_pointer  process_to_checkout_check ']")
+    public WebElement buttonProceedTOCheckout;
+
+    @FindBy(xpath = "//span[text()='Quantity']")
+    public WebElement labelQuantity;
+
+    @FindBy(xpath = "//span[text()='Price']")
+    public WebElement labelPrice1;
+
+    @FindBy(xpath = "//table/tbody/tr[1]/td[3]")
+    public WebElement tableQuantityTOCheckout;
+
+
+    @FindBy(xpath = "//table/tbody/tr[1]/td[4]")
+    public WebElement tablePriceTOCheckout;
+
+   @FindBy(xpath = "(//div[@class='single_total_right'])[5]")
+    public WebElement textTotalPrice;
+
+   @FindBy(xpath = "(//h3[@class='check_v3_title mb_25'])[1]")
+   public WebElement labelContactInformation;
+
+   @FindBy(xpath = "(//label[@class='primary_label2 style2'])[1]")
+   public WebElement labelAddressBasligi;
+
 
 }

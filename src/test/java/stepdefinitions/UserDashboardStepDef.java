@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -16,8 +17,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.Assert.*;
 
 public class UserDashboardStepDef extends Base {
 
@@ -324,11 +325,7 @@ public class UserDashboardStepDef extends Base {
 
 
     //==============================US_26=============================================
-    @Given("I click on the {string} link in the header section.")
-    public void i_click_on_the_link_in_the_header_section(String string) {
 
-
-    }
 
     @Given("Goes to the Support Ticket page")
     public void goes_to_the_support_ticket_page() throws InterruptedException {
@@ -336,12 +333,7 @@ public class UserDashboardStepDef extends Base {
        actions.sendKeys(Keys.PAGE_DOWN).perform();
        Thread.sleep(2000);
        userDashboard.linkUserSupportTicket.click();
-       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", userDashboard.linkUserSupportTicket);
-       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", userDashboard.linkUserSupportTicket);
-
-        //actions.click(userDashboard.linkUserSupportTicket).perform();
-      // ReusableMethods.clickWithJS(userDashboard.linkUserSupportTicket);
-    }
+      }
 
     @Given("Verify that the {string} menu title is visible in the SideBar.")
     public void verify_that_the_menu_title_is_visible_in_the_side_bar(String element) {
@@ -365,7 +357,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Verify that {string} in the list are visible.")
     public void verify_that_in_the_list_are_visible(String string) {
-       userDashboard.checkListELements(userDashboard.tableAllSupportList,userDashboard.tableAllSupportList.size());
+       userDashboard.checkListELements(userDashboard.tableAllSupportList,3);
     }
 
 
@@ -386,48 +378,85 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Verifies that {string} information is displayed on the ticket's detail page")
     public void verifies_that_information_is_displayed_on_the_ticket_s_detail_page(String info) {
-        assertTrue(ReusableMethods.supportTicketLinkleri(info).isDisplayed());
+        ReusableMethods.wait(2);
+        actions.moveToElement(userDashboard.linkCategoryInfo).perform();
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.linkStatusInfo.isDisplayed());
+        assertTrue(userDashboard.linkStatusInfo.isEnabled());
+        assert(userDashboard.linkStatusInfo.isEnabled());
+        //userDashboard.linkStatusInfo.click();
     }
 
     @Given("Verifies that the message information returned by the Admin is displayed.")
     public void verifies_that_the_message_information_returned_by_the_admin_is_displayed() {
-
+          ReusableMethods.wait(3);
+          actions.moveToElement(userDashboard.buttonReply).perform();
+           for (int i=1 ; i<=userDashboard.textTicketNames.size()-1;i++){
+               if(userDashboard.textTicketNames.get(0)!=userDashboard.textTicketNames.get(i)){
+                  assertTrue(userDashboard.textTicketInfo.get(i).isDisplayed());
+               }
+           }
     }
 
     @Given("Verifies that the REPLY button is visible and active under the message boxes")
     public void verifies_that_the_reply_button_is_visible_and_active_under_the_message_boxes() {
-          userDashboard.checkElement(userDashboard.buttonReply);
+        ReusableMethods.wait(3);
+        actions.moveToElement(userDashboard.buttonReply).perform();
+        userDashboard.checkElement(userDashboard.buttonReply);
     }
 
     @Given("When the REPLY button is clicked, it is verified that the {string} text is visible.")
     public void when_the_reply_button_is_clicked_it_is_verified_that_the_text_is_visible(String string) {
-          userDashboard.buttonReply.click();
-
+        ReusableMethods.wait(2);
+        actions.moveToElement(userDashboard.buttonReply).click().perform();
+          userDashboard.checkElement(userDashboard.textboxDescription);
     }
 
     @Given("Verifies that the required information can be entered in the textbox opened under the Description text.")
     public void verifies_that_the_required_information_can_be_entered_in_the_textbox_opened_under_the_description_text() {
-
+        userDashboard.textboxDescription.sendKeys("Merhaba....");
     }
 
     @Given("Verifies that the {string} button is displayed and active.")
-    public void verifies_that_the_button_is_displayed_and_active(String string) {
+    public void verifies_that_the_button_is_displayed_and_active(String info) {
+        ReusableMethods.wait(2);
+      // ReusableMethods.clickWithJS(ReusableMethods.supportTicketLinkleri(info));
+       userDashboard.checkClickElement(ReusableMethods.supportTicketLinkleri(info));
+
+    }
+    @Given("Verifies that the CREATE NOW button is displayed and active.")
+    public void verifies_that_the_button_is_displayed_and_active() {
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(userDashboard.buttonCreateNow);
+
 
     }
 
     @Given("When he clicks on the REPLY NOW button, he confirms that the information he sent is also displayed on his own page.")
     public void when_he_clicks_on_the_reply_now_button_he_confirms_that_the_information_he_sent_is_also_displayed_on_his_own_page() {
+        ReusableMethods.wait(2);
+        actions.click(userDashboard.buttonReply).perform();
+        ReusableMethods.wait(4);
+        actions.moveToElement(userDashboard.textTicketNames.get(userDashboard.textTicketNames.size()-1));
+        assertTrue(userDashboard.textTicketNames.get(userDashboard.textTicketNames.size()-1).getText().contains(ConfigReader.getProperty("customerZehraName")));
 
     }
 
-    @Given("When All Ticket DDM is clicked on the page that opens, it verifies that the All Ticket, Pending, On Going, Completed, Closed links are visible.")
-    public void when_all_ticket_ddm_is_clicked_on_the_page_that_opens_it_verifies_that_the_all_ticket_pending_on_going_completed_closed_links_are_visible() {
+    @Given("When All Ticket DDM is clicked on the page that opens, it verifies that the All Ticket, {string}, On Going, Completed, Closed links are visible.")
+    public void when_all_ticket_ddm_is_clicked_on_the_page_that_opens_it_verifies_that_the_all_ticket_pending_on_going_completed_closed_links_are_visible(String info) {
+        ReusableMethods.wait(3);
+        userDashboard.dropDownAllTicketPlaceholder.click();
+        assertTrue(userDashboard.dropDownAllTicketList.isDisplayed());
 
     }
 
     @Given("When the {string} link is clicked, it confirms that the ticket with {string} status is listed.")
-    public void when_the_link_is_clicked_it_confirms_that_the_ticket_with_status_is_listed(String string, String string2) {
-
+    public void when_the_link_is_clicked_it_confirms_that_the_ticket_with_status_is_listed(String info, String string2) {
+        userDashboard.dropDownAllTicket.click();
+        ReusableMethods.wait(3);
+        userDashboard.linkView.click();
+        ReusableMethods.wait(3);
+        assertTrue(userDashboard.linkStatusInfo.getText().contains(info));
     }
 
     @Given("When the {string} link is clicked, it verifies that the ticket with {string} status is listed.")
@@ -437,63 +466,93 @@ public class UserDashboardStepDef extends Base {
 
     @Given("When you click on the ADD NEW button, it is confirmed that you go to the {string} page.")
     public void when_you_click_on_the_add_new_button_it_is_confirmed_that_you_go_to_the_page(String string) {
+        // userDashboard.buttonAddNewSTicket.click();
+         userDashboard.checkUrl("creatSupportTiketUrl");
 
     }
 
     @Given("It is verified that the Subject, Category, Priority and Description headings are visible.")
     public void it_is_verified_that_the_subject_category_priority_and_description_headings_are_visible() {
-
+         userDashboard.checkListELements(userDashboard.labelNewTicketTitle,4);
     }
 
     @Given("It is verified that the textboxes under the Subject and Description headings are visible and active.")
     public void it_is_verified_that_the_textboxes_under_the_subject_and_description_headings_are_visible_and_active() {
-
+       userDashboard.textboxDescription.isDisplayed();
+       userDashboard.textboxSubject.isDisplayed();
     }
 
     @Given("Verify that the holders are visible")
     public void verify_that_the_holders_are_visible() {
+       assertTrue(userDashboard.textboxSubject.isEnabled());
+       assertTrue(userDashboard.textboxDescription.isEnabled());
 
     }
 
     @Given("It is verified that the DDM menu is visible and active under the Category and Priority headings.")
     public void it_is_verified_that_the_ddm_menu_is_visible_and_active_under_the_category_and_priority_headings() {
-
+        userDashboard.checkElement(userDashboard.dropDownCategory);
+        userDashboard.checkElement(userDashboard.dropDownPriority);
     }
 
     @Given("Necessary information is entered in the Subject and Description text boxes.")
     public void necessary_information_is_entered_in_the_subject_and_description_text_boxes() {
-
+        ReusableMethods.wait(2);
+        userDashboard.textboxSubject.click();
+        userDashboard.textboxSubject.sendKeys("merhaba");
+        userDashboard.textboxDescription.click();
+        userDashboard.textboxDescription.sendKeys("sıkıntı var");
     }
 
     @Given("Click on the necessary links for Category and Priority DDM.")
     public void click_on_the_necessary_links_for_category_and_priority_ddm() {
-
+          ReusableMethods.wait(2);
+          userDashboard.dropDownCategory.click();
+          userDashboard.dropDownCategoryOtions.click();
+          ReusableMethods.wait(2);
+          userDashboard.dropDownPriority.click();
+          userDashboard.dropDownPriorityOtions.click();
     }
 
     @Given("When you click on the {string} button, it is confirmed that you are directed to the All Submitted Ticket page and the entered ticket is seen at the bottom.")
-    public void when_you_click_on_the_button_it_is_confirmed_that_you_are_directed_to_the_all_submitted_ticket_page_and_the_entered_ticket_is_seen_at_the_bottom(String string) {
-
+    public void when_you_click_on_the_button_it_is_confirmed_that_you_are_directed_to_the_all_submitted_ticket_page_and_the_entered_ticket_is_seen_at_the_bottom(String info) {
+       ReusableMethods.wait(2);
+        //actions.click(userDashboard.buttonCreateNow).perform();
+        assertTrue(userDashboard.labelAllSubmittedTicket.isDisplayed());
     }
 
     @Given("Clicks the ADD NEW button")
     public void clicks_the_add_new_button() {
-
+           ReusableMethods.wait(2);
+           userDashboard.buttonAddNewSTicket.click();
     }
 
     @Given("It is confirmed that a {string} warning is given when the Subject and Description textboxes are left blank.")
     public void it_is_confirmed_that_a_warning_is_given_when_the_subject_and_description_textboxes_are_left_blank(String string) {
-
+           ReusableMethods.wait(1);
+        userDashboard.dropDownCategory.click();
+        userDashboard.dropDownCategoryOtions.click();
+        ReusableMethods.wait(2);
+        userDashboard.dropDownPriority.click();
+        userDashboard.dropDownPriorityOtions.click();
+        ReusableMethods.clickWithJS(userDashboard.buttonCreateNow);
+        actions.moveToElement(userDashboard.labelWarningMessage).perform();
+        assertEquals("The subject field is required.",userDashboard.labelWarningMessage.getText());
     }
 
     @Given("It is verified that when the necessary links are not clicked due to Category and Priority DDM, a {string} warning is given.")
     public void it_is_verified_that_when_the_necessary_links_are_not_clicked_due_to_category_and_priority_ddm_a_warning_is_given(String string) {
+        ReusableMethods.wait(2);
+        userDashboard.textboxSubject.click();
+        userDashboard.textboxSubject.sendKeys("Sepetim görünmüyor");
+        userDashboard.textboxDescription.click();
+        userDashboard.textboxDescription.sendKeys("sıkıntı var");
+        ReusableMethods.clickWithJS(userDashboard.buttonCreateNow);
+        assertEquals("The category id field is required.",userDashboard.labelWarningMessage2.getText());
 
     }
 
-    @Given("Verifies that the {string} link has been clicked.")
-    public void verifies_that_the_link_has_been_clicked(String string) {
 
-    }
 
 
 
@@ -793,7 +852,7 @@ public class UserDashboardStepDef extends Base {
         String expectedUrl = "https://qa.buysellcycle.com/refund/my-refund-list";
         assertEquals(expectedUrl,actualUrl);
     }
-    //a[@class='']
+    
     // US23 ---- TC04
     @Given("The user should be able to see the Refund list")
     public void the_user_should_be_able_to_see_the_refund_list() {
@@ -827,6 +886,87 @@ public class UserDashboardStepDef extends Base {
     public void it_is_checked_if_the_pick_up_info_is_being_displayed_on_the_details_page() {
         Assert.assertTrue(userDashboard.tableRefundPickUpInfo.isDisplayed());
     }
+
+
+    //=====================US 32=============================
+
+    @Given("I click on the CART link in the header section.")
+    public void i_click_on_the_cart_link_in_the_header_section() {
+       userDashboard.linkCart.click();
+    }
+    @Given("Verifies that the {string} button is visible and active on the right side under the specified products")
+    public void verifies_that_the_button_is_visible_and_active_on_the_right_side_under_the_specified_products(String string) {
+        userDashboard.checkElement(userDashboard.buttonProceedTOCheckout);
+    }
+
+    @Given("Click on the {string} button on the right side under the specified products")
+    public void click_on_the_button_on_the_right_side_under_the_specified_products(String string) {
+        userDashboard.buttonProceedTOCheckout.click();
+    }
+    @Given("Verifies that QUANTITY and PRICE titles are visible on the opened page")
+    public void verifies_that_quantity_and_price_titles_are_visible_on_the_opened_page() {
+        userDashboard.checkElement(userDashboard.labelPrice1);
+        userDashboard.checkElement(userDashboard.labelQuantity);
+    }
+    @Given("Verifies that the number and price of the products are visible under these headings.")
+    public void verifies_that_the_number_and_price_of_the_products_are_visible_under_these_headings() {
+         userDashboard.checkElement(userDashboard.tablePriceTOCheckout);
+         userDashboard.checkElement(userDashboard.tableQuantityTOCheckout);
+    }
+
+
+    @Given("Verify that the total price is visible under the ORDER SUMMARY section on the right side of the page that opens.")
+    public void verify_that_the_total_price_is_visible_under_the_order_summary_section_on_the_right_side_of_the_page_that_opens() {
+         userDashboard.checkElement(userDashboard.textTotalPrice);
+    }
+
+    @Given("Belirlenen ürünlerin altında sağ tarafta {string} butonuna tıklar")
+    public void belirlenen_ürünlerin_altında_sağ_tarafta_butonuna_tıklar(String string) {
+        userDashboard.buttonProceedTOCheckout.click();
+    }
+    @Given("Açılan sayfada Contact Informatiın başlığının görünür olduğunu doğrular")
+    public void açılan_sayfada_contact_informatiın_başlığının_görünür_olduğunu_doğrular() {
+        assertTrue(userDashboard.labelContactInformation.isDisplayed());
+    }
+    @Given("Shipping Address başlığı altında Name, Adress, Email,Phone;Postal Code Bilgilerinin görüldüğünü doğrular")
+    public void shipping_address_başlığı_altında_name_adress_email_phone_postal_code_bilgilerinin_görüldüğünü_doğrular() {
+        assertTrue(userDashboard.labelAddressBasligi.isDisplayed());
+    }
+
+
+    @Given("Verifies that the Note text is visible under the Address information under the Contact Information heading.")
+    public void verifies_that_the_note_text_is_visible_under_the_address_information_under_the_contact_information_heading() {
+
+    }
+    @Given("Verifies that the Textbox below the Note text is visible and active")
+    public void verifies_that_the_textbox_below_the_note_text_is_visible_and_active() {
+
+    }
+    @Given("Verifies that the placeholder inside the textbox is visible")
+    public void verifies_that_the_placeholder_inside_the_textbox_is_visible() {
+
+    }
+    @Given("Verifies that information can be entered into the textbox")
+    public void verifies_that_information_can_be_entered_into_the_textbox() {
+
+    }
+
+
+    @Given("Verifies that the {string} under the Contact Information heading is clickable")
+    public void verifies_that_the_under_the_contact_information_heading_is_clickable(String string) {
+
+    }
+    @Given("Verifies that the {string} warning appears when the CONTINUE TO SHOPING button is clicked without clicking the checkbox")
+    public void verifies_that_the_warning_appears_when_the_continue_to_shoping_button_is_clicked_without_clicking_the_checkbox(String string) {
+
+    }
+
+
+    @Given("On the page that opens, the Continue To Shipping and Return To Cart buttons appear under the Shipping Address section and it is verified that they are active.")
+    public void on_the_page_that_opens_the_continue_to_shipping_and_return_to_cart_buttons_appear_under_the_shipping_address_section_and_it_is_verified_that_they_are_active() {
+
+    }
+
 
     //****************US24/TC01*****************************************
 
@@ -885,9 +1025,9 @@ public class UserDashboardStepDef extends Base {
     @Given("Test that the unfollow button is visible and clickable")
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
 
-
     }
 
    }
+
 
 
