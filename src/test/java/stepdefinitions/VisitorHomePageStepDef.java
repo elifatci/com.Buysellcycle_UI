@@ -950,11 +950,13 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Exclusive Price section")
     public void click_on_the_section() {
+        ReusableMethods.scrollWithPixelsJS(0, 350);
+        ReusableMethods.wait(1);
         visitorHomePage.buttonExclusivePrice.click();
     }
 
     @Given("verify that products display with special discount on Exclusive Price")
-    public void verify_that_section_is_active_and_products_display_with_special_discount() {
+    public void verify_that_section_is_active_and_products_display_with_special_discount_on_for_you() {
         ReusableMethods.scrollWithPixelsJS(0, 50);
         ReusableMethods.wait(1);
        visitorHomePage.verifyVisible(visitorHomePage.labelExclusivePrice);
@@ -1017,14 +1019,21 @@ public class VisitorHomePageStepDef extends Base {
         assertTrue(visitorHomePage.popUpWishListForYou.getText().contains("Product is added"));
     }
 
-    @Given("Click on the chart icon of the first product for adding to cart and verify that the message {string} on the modal")
-    public void click_on_the_chart_icon_of_the_first_product_for_adding_to_cart_and_verify_that_the_message_on_the_modal(String string) {
-
+    @Given("Click on the chart icon of the first product for adding to cart and verify that the message Item added to your cart on the modal")
+    public void click_on_the_chart_icon_of_the_first_product_for_adding_to_cart_and_verify_that_the_message_on_the_modal() {
+        ReusableMethods.scrollWithPixelsJS(0, 300);
+        ReusableMethods.wait(1);
+        visitorHomePage.iconCart_ExclusivePrice.click();
+        ReusableMethods.wait(1);
+        visitorHomePage.verifyVisible(visitorHomePage.labelMessageForYou);
     }
 
-    @Given("Click on the compare icon of the first product  and verify that the message {string} is display")
-    public void click_on_the_compare_icon_of_the_first_product_and_verify_that_the_message_is_display(String string) {
-
+    @Given("Click on the compare icon of the first product  and verify that the message Product added to compare list successfully is display")
+    public void click_on_the_compare_icon_of_the_first_product_and_verify_that_the_message_is_display() {
+        ReusableMethods.scrollWithPixelsJS(0, -300);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(visitorHomePage.imageProductFirstExclusivePrice);
+        visitorHomePage.iconCompare_ExclusivePrice.click();
     }
 
     @Given("Click on the Click on the Quick view icon of the first product and verify that the modal window appear")

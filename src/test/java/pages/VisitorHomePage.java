@@ -271,6 +271,10 @@ public class VisitorHomePage extends Base{
     public WebElement buttonElectronics_ExclusivePrice;
     @FindBy(xpath = "//button[@id='Category-tab_2']")
     public WebElement buttonHome_ExclusivePrice;
+    @FindBy(xpath = "(//img[@class='lazyload'])[3]")
+    public WebElement imageProductFirstExclusivePrice;
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement popUpExclusivePrice;
 
     //---Coupon----------
     @FindBy(xpath = "//button[@id='pills-contact-tab']")

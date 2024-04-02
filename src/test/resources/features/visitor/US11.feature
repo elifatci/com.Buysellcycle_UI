@@ -37,9 +37,9 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
 
     * Click on the Exclusive Price section
     * verify that products display with special discount on Exclusive Price
-    * Click on the chart icon of the first product for adding to cart and verify that the message "Item added to your cart" on the modal
+    * Click on the chart icon of the first product for adding to cart and verify that the message Item added to your cart on the modal
     * Close the modal window that opened
-    * Click on the compare icon of the first product  and verify that the message "Product added to compare list successfully" is display
+    * Click on the compare icon of the first product  and verify that the message Product added to compare list successfully is display
 
   Scenario: TC_06 Perform operations on products like quick view and adding wish list on "Exclusive Price" section
 
