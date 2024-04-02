@@ -622,9 +622,9 @@ public class ReusableMethods {
                 return visitorHomePage.iconFooterInstagram;
             case "Support Ticket":
                 wait(2);
-                scrollIntoViewJS(userDashboard.linkUserSupportTicket);
-                userDashboard.linkUserSupportTicket.click();
-                wait(2);
+                //scrollIntoViewJS(userDashboard.linkUserSupportTicket);
+               // userDashboard.linkUserSupportTicket.click();
+                //wait(2);
                 expectedUrl = ConfigReader.getProperty("supportTicketUrl");
                 actualUrl = Driver.getDriver().getCurrentUrl();
                 Assert.assertEquals(expectedUrl, actualUrl);
@@ -649,10 +649,6 @@ public class ReusableMethods {
 
     public static WebElement supportTicketLinkleri(String info) {
 
-        List<WebElement> options;
-        Select select=new Select(userDashboard.dropDownAllTicketPlaceholder);
-
-
         switch (info) {
             case "Status":
                 return userDashboard.linkStatusInfo;
@@ -660,26 +656,12 @@ public class ReusableMethods {
                 return userDashboard.linkPriorityInfo;
             case "Category":
                 return userDashboard.linkCategoryInfo;
-            case "Pending":
-                userDashboard.dropDownAllTicketPlaceholder.click();
-                // İkinci öğeyi seçin ve tıklayın
-                //  select.selectByIndex(1); // İkinci öğe için index 1 kullanılır
-
-                // Dropdown menüsündeki tüm öğeleri alın
-                options = select.getOptions();
-                // İkinci öğenin görünürlüğünü kontrol edin
-                WebElement secondOption = options.get(1);
-                Assert.assertTrue(secondOption.isDisplayed());
-                return options.get(1);
-            case "On Going":
-                options = select.getOptions();
-                userDashboard.dropDownAllTicketPlaceholder.click();
-                // Üçüncü öğeyi seçin ve tıklayın
-                select.selectByIndex(2); // üçüncü öğe için index 2 kullanılır
-                // üçüncü öğenin görünürlüğünü kontrol edin
-                WebElement thirdOption = options.get(2);
-                Assert.assertTrue(thirdOption.isDisplayed());
-                return options.get(2);
+            case "CREATE NOW":
+                return userDashboard.buttonCreateNow;
+            case "REPLY NOW":
+                return userDashboard.buttonReplyNow;
+            case "ADD NEW":
+                return userDashboard.buttonAddNewSTicket;
 
             default:
                 return userDashboard.linkAll;

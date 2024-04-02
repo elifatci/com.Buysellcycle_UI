@@ -1,4 +1,4 @@
-Us05
+
 
 Feature: US05 As a user, I would like to be able to log in with the email and password I registered with the site.
 
