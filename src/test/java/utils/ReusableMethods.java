@@ -363,6 +363,11 @@ public class ReusableMethods {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+    public static void scrollWithPixelsJS(int x,int y) {
+         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+         js.executeScript("window.scrollBy(0,500)");
+         js.executeScript("window.scrollBy("+x+","+y+")");
+    }
 
     public static void uploadFile(String gonderilecekDosyaContentRoot) {
         String herkesteFarkliOlan = System.getProperty("user.dir");
