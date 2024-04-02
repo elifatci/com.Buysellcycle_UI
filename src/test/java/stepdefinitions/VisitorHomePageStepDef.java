@@ -950,9 +950,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Exclusive Price section")
     public void click_on_the_section() {
-        ReusableMethods.scrollWithPixelsJS(0, 350);
-        ReusableMethods.wait(1);
-        visitorHomePage.buttonExclusivePrice.click();
+       visitorHomePage.buttonExclusivePrice.click();
     }
 
     @Given("verify that products display with special discount on Exclusive Price")
@@ -1038,7 +1036,15 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Click on the Quick view icon of the first product and verify that the modal window appear")
     public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+        ReusableMethods.hover(visitorHomePage.imageProductFirstExclusivePrice);
+        ReusableMethods.wait(1);
+        visitorHomePage.iconQuickView_ExclusivePrice.click();
+    }
 
+    @Given("Close the modal window that opened on Exclusive Price")
+    public void close_the_modal_window_that_opened_on_exclusive_price() {
+        ReusableMethods.wait(1);
+        visitorHomePage.buttonCloseExclusivePrice.click();
     }
 //US13<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<nazime
 

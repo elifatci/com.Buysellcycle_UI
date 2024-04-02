@@ -275,6 +275,8 @@ public class VisitorHomePage extends Base{
     public WebElement imageProductFirstExclusivePrice;
     @FindBy(xpath = "//div[@class='toast-message']")
     public WebElement popUpExclusivePrice;
+    @FindBy(xpath = "(//i[@class='ti-close'])[6]")
+    public WebElement buttonCloseExclusivePrice;
 
     //---Coupon----------
     @FindBy(xpath = "//button[@id='pills-contact-tab']")

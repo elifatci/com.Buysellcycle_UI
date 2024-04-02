@@ -1,4 +1,4 @@
-@US011
+@US11
 Feature:Verify the visibility and functionality of the "New User Zone" menu item on the homepage navigation bar
 
   Background:
@@ -46,5 +46,5 @@ Feature:Verify the visibility and functionality of the "New User Zone" menu item
     * Click on the Exclusive Price section
     * verify that products display with special discount on Exclusive Price
     * Click on the Click on the Quick view icon of the first product and verify that the modal window appear
-    * Close the modal window that opened
+    * Close the modal window that opened on Exclusive Price
     * Click on the Wish list icon of the first product and verify that the product is added
