@@ -230,10 +230,9 @@ public class AdminDashboardStepDef extends Base {
     @Given("Click on the Change password button and verify that you are directed to the relevant page.")
     public void click_on_the_change_password_button_and_verify_that_you_are_directed_to_the_relevant_page() {
         ReusableMethods.wait(2);
-        adminDashboard.buttonChangePassword.click();
-        //adminDashboard.clickVerification(adminDashboard.buttonChangePassword, adminDashboard.labelChangePassword);
+        adminDashboard.clickVerification(adminDashboard.buttonChangePassword, adminDashboard.labelChangePassword);
         ReusableMethods.wait(3);
-        assertTrue(adminDashboard.labelChangePassword.isDisplayed());
+       // assertTrue(adminDashboard.labelChangePassword.isDisplayed());
     }
 
     @Given("Verify that the CURRENT PASSWORD, NEW PASSWORD, RE ENTER NEW PASSWORD textboxes are visible")
@@ -255,6 +254,7 @@ public class AdminDashboardStepDef extends Base {
     //US36 TC04
     @Given("Click on the Address button")
     public void click_on_the_address_button() {
+        ReusableMethods.wait(2);
         adminDashboard.buttonAddress.click();
     }
 
@@ -265,7 +265,8 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Verify that the Address page opens")
     public void verify_that_the_address_page_opens() {
-        assertTrue(adminDashboard.linkAddNewProduct.isDisplayed());
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.buttonAddNewAddress.isDisplayed());
     }
 
     @Given("Verify that address information is visible")
@@ -280,11 +281,13 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("Verify that the save button is visible")
     public void verify_that_the_save_button_is_visible() {
+
         assertTrue(adminDashboard.buttonSaveAddress.isDisplayed());
     }
 
     @Given("Fill in the starred fields and click the save button.")
     public void fill_in_the_starred_fields_and_click_the_save_button() {
+
         adminDashboard.addAddress();
     }
 
@@ -294,19 +297,16 @@ public class AdminDashboardStepDef extends Base {
     }
 
     //US36 TC05
-    @Given("Leave the textboxes of the required fields empty and click on the save button.")
-    public void leave_the_textboxes_of_the_required_fields_empty_and_click_on_the_save_button() {
-
-    }
-
     @Given("Select the select from options option from Country dropdown")
     public void select_the_select_from_options_option_from_country_dropdown() {
-
+            adminDashboard.dropDownCountry.click();
+            ReusableMethods.wait(3);
+            adminDashboard.subMenuSelectFromOptions.click();
     }
 
     @Given("Click on the save button")
     public void click_on_the_save_button() {
-
+            adminDashboard.buttonSave.click();
     }
 
     //***********************US_34/TC_01/TC_02*********************************
@@ -383,6 +383,94 @@ public class AdminDashboardStepDef extends Base {
     }
     @Given("Total Subscriber from the links in the Summary section verify that clicking on the link redirects to the relevant page.")
     public void total_subscriber_from_the_links_in_the_summary_section_verify_that_clicking_on_the_link_redirects_to_the_relevant_page() {
+
+    }
+
+    //US43 TC01
+    @Given("Verify that the Support Ticket link is visible in the side bar")
+    public void verify_that_the_support_ticket_link_is_visible_in_the_side_bar() {
+
+    }
+    @Given("Click on the support ticket link")
+    public void click_on_the_support_ticket_link() {
+
+    }
+    @Given("Click on the support ticket link below.")
+    public void click_on_the_support_ticket_link_below() {
+
+    }
+    @Given("Verify that it redirects to the relevant page")
+    public void verify_that_it_redirects_to_the_relevant_page() {
+
+    }
+
+    //US43 TC02
+    @Given("Click on the Add new button and verify that you are directed to the relevant page.")
+    public void click_on_the_add_new_button_and_verify_that_you_are_directed_to_the_relevant_page() {
+
+    }
+    @Given("Verify that the Subject, Description, Category List, Priority and Status textboxes are visible")
+    public void verify_that_the_subject_description_category_list_priority_and_status_textboxes_are_visible() {
+
+    }
+    @Given("Verify that the add new buttons are active")
+    public void verify_that_the_add_new_buttons_are_active() {
+
+    }
+    @Given("Fill in the starred fields with valid information")
+    public void fill_in_the_starred_fields_with_valid_information() {
+
+    }
+    @Given("Verify that more than one file can be attached to the Attach file section")
+    public void verify_that_more_than_one_file_can_be_attached_to_the_attach_file_section() {
+
+    }
+    @Given("Click on the Create ticket button and verify that the ticket has been created successfully.")
+    public void click_on_the_create_ticket_button_and_verify_that_the_ticket_has_been_created_successfully() {
+
+    }
+
+    //US43 TC03
+    @Given("Verify that PRIORITY, STATUS, CATEGORY information is selectable on the Support Ticket page")
+    public void verify_that_priority_status_category_information_is_selectable_on_the_support_ticket_page() {
+
+    }
+    @Given("Click the search button from the Category, Priority and Status tabs.")
+    public void click_the_search_button_from_the_category_priority_and_status_tabs() {
+
+    }
+    @Given("Verify that the relevant filtering results are returned")
+    public void verify_that_the_relevant_filtering_results_are_returned() {
+
+    }
+
+    //US43 TC04
+    @Given("click on the plus icon")
+    public void click_on_the_plus_icon() {
+
+    }
+    @Given("Verify that the Agent assign field and action section are visible")
+    public void verify_that_the_agent_assign_field_and_action_section_are_visible() {
+
+    }
+    @Given("If assigned, verify that the assignee's name is visible")
+    public void if_assigned_verify_that_the_assignee_s_name_is_visible() {
+
+    }
+    @Given("Click a ticket's Select button and verify that the show edit delete options are visible")
+    public void click_a_ticket_s_select_button_and_verify_that_the_show_edit_delete_options_are_visible() {
+
+    }
+    @Given("Click the Show button. Verify that the Ticket page is opened.")
+    public void click_the_show_button_verify_that_the_ticket_page_is_opened() {
+
+    }
+    @Given("Go back, click on the select button and select the edit option.")
+    public void go_back_click_on_the_select_button_and_select_the_edit_option() {
+
+    }
+    @Given("Verify that the update ticket page is opened")
+    public void verify_that_the_update_ticket_page_is_opened() {
 
     }
 
