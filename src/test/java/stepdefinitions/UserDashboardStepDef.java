@@ -901,6 +901,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Click on the {string} button on the right side under the specified products")
     public void click_on_the_button_on_the_right_side_under_the_specified_products(String string) {
+       ReusableMethods.wait(2);
         userDashboard.buttonProceedTOCheckout.click();
     }
     @Given("Verifies that QUANTITY and PRICE titles are visible on the opened page")
@@ -922,48 +923,65 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Belirlenen ürünlerin altında sağ tarafta {string} butonuna tıklar")
     public void belirlenen_ürünlerin_altında_sağ_tarafta_butonuna_tıklar(String string) {
-        userDashboard.buttonProceedTOCheckout.click();
+      actions.click(userDashboard.buttonProceedTOCheckout).perform();
     }
     @Given("Açılan sayfada Contact Informatiın başlığının görünür olduğunu doğrular")
     public void açılan_sayfada_contact_informatiın_başlığının_görünür_olduğunu_doğrular() {
+
         assertTrue(userDashboard.labelContactInformation.isDisplayed());
     }
     @Given("Shipping Address başlığı altında Name, Adress, Email,Phone;Postal Code Bilgilerinin görüldüğünü doğrular")
     public void shipping_address_başlığı_altında_name_adress_email_phone_postal_code_bilgilerinin_görüldüğünü_doğrular() {
+        ReusableMethods.wait(2);
+        actions.moveToElement(userDashboard.butonEditCart).perform();
+       userDashboard.butonEditCart.click();
+        ReusableMethods.wait(3);
+        actions.moveToElement(userDashboard.buttonContinueShiping).perform();
         assertTrue(userDashboard.labelAddressBasligi.isDisplayed());
     }
 
 
-    @Given("Verifies that the Note text is visible under the Address information under the Contact Information heading.")
-    public void verifies_that_the_note_text_is_visible_under_the_address_information_under_the_contact_information_heading() {
-
-    }
     @Given("Verifies that the Textbox below the Note text is visible and active")
     public void verifies_that_the_textbox_below_the_note_text_is_visible_and_active() {
-
-    }
-    @Given("Verifies that the placeholder inside the textbox is visible")
-    public void verifies_that_the_placeholder_inside_the_textbox_is_visible() {
-
+        userDashboard.checkElement(userDashboard.textboxNoteCart);
     }
     @Given("Verifies that information can be entered into the textbox")
     public void verifies_that_information_can_be_entered_into_the_textbox() {
-
+       userDashboard.textboxNoteCart.sendKeys("merhaba");
+    }
+    @Given("Fills the empty textboxes under Contact Information")
+    public void fills_the_empty_textboxes_under_contact_ınformation() {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+       actions.click(userDashboard.butonEditCart).perform();
+       actions.click(userDashboard.textboxNewAddressCart).sendKeys("iş").perform();
+       actions.click(userDashboard.textboxAddressCart).sendKeys("klfklkl").perform();
+       actions.click(userDashboard.dropDownCityCart).perform();
+       actions.click(userDashboard.dropDownCityAlbany).perform();
+    }
+    @Given("Clicks the Continue Shipping button")
+    public void clicks_the_continue_shipping_button() {
+       actions.click(userDashboard.buttonContinueShiping).perform();
     }
 
 
-    @Given("Verifies that the {string} under the Contact Information heading is clickable")
-    public void verifies_that_the_under_the_contact_information_heading_is_clickable(String string) {
-
+    @Given("Verifies that the {string} checkbox under the Contact Information heading is clickable")
+    public void verifies_that_the_checkbox_under_the_contact_information_heading_is_clickable(String string) {
+       assertTrue(userDashboard.radioButtonWarningCart.isDisplayed());
+       assertTrue(userDashboard.radioButtonWarningCart.isEnabled());
     }
     @Given("Verifies that the {string} warning appears when the CONTINUE TO SHOPING button is clicked without clicking the checkbox")
     public void verifies_that_the_warning_appears_when_the_continue_to_shoping_button_is_clicked_without_clicking_the_checkbox(String string) {
-
+        ReusableMethods.wait(2);
+        userDashboard.radioButtonWarningCart.click();
+        userDashboard.buttonContinueShiping.click();
+        assertEquals("Please Agree With Terms",userDashboard.labelWarningMessageCart.getText());
     }
 
 
     @Given("On the page that opens, the Continue To Shipping and Return To Cart buttons appear under the Shipping Address section and it is verified that they are active.")
     public void on_the_page_that_opens_the_continue_to_shipping_and_return_to_cart_buttons_appear_under_the_shipping_address_section_and_it_is_verified_that_they_are_active() {
+         userDashboard.checkElement(userDashboard.buttonReturnCart);
+         userDashboard.checkElement(userDashboard.buttonContinueShiping);
 
     }
 
@@ -1027,7 +1045,8 @@ public class UserDashboardStepDef extends Base {
 
     }
 
-   }
+
+}
 
 
 
