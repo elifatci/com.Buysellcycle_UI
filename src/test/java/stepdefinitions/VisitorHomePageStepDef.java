@@ -1009,7 +1009,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("verify that the message Product added to compare list successfully is display")
     public void verify_that_the_message_is_display() {
-
+        assertTrue(userDashboard.popUpWishlist.isDisplayed());
     }
 
     @Given("Click  on the Quick view icon of the first product and verify that the modal window appear")

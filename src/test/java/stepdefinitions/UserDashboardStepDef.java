@@ -1026,6 +1026,49 @@ public class UserDashboardStepDef extends Base {
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
 
     }
+    //***********US19 My WishList*****************
+    @Given("Click on the My Wishlist on the sidebar")
+    public void click_on_the_my_wishlist_on_the_sidebar() {
+      userDashboard.linkWishList_sidebar.click();
+    }
+    @Given("Verify that the url is {string}")
+    public void verify_that_the_url_is(String url) {
+      assertEquals(url,Driver.getDriver().getCurrentUrl());
+    }
+    @Given("Click the New dropdown and click Price\\(Low to Height)")
+    public void click_the_new_dropdown_and_click_price_low_to_height() {
+       userDashboard.dropDownNewWishList.click();
+       userDashboard.dropDownPriceLowToHighWishList.click();
+    }
+    @Given("Compare second and third price")
+    public void compare_second_and_third_price() {
+        double secondProductPrice = Double.parseDouble(userDashboard.textPriceSecondProductWishList.toString());
+        double thirdProductPrice = Double.parseDouble(userDashboard.textPriceThirdProductWishList.toString());
+        assertTrue("The price of the second product should be lower than the price of the third product.", secondProductPrice < thirdProductPrice);
+    }
+
+    @Given("Click on the chart icon of the first product on the Wishlist")
+    public void click_on_the_chart_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,400);
+        ReusableMethods.wait(1);
+        userDashboard.iconCart_Wishlist.click();
+    }
+    @Given("verify that  the modal appears on Wishlist")
+    public void verify_that_the_message_item_added_to_your_cart_on_the_modal_on_wishlist() {
+        ReusableMethods.wait(1);
+      assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
+    }
+    @Given("Close the modal window that opened on Wishlist")
+    public void close_the_modal_window_that_opened_on_wishlist() {
+      userDashboard.buttonCloseModalWishlist.click();
+    }
+    @Given("Click on the compare icon of the first product on the Wishlist")
+    public void click_on_the_compare_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,-400);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconCompareWishlist.click();
+    }
 
    }
 
