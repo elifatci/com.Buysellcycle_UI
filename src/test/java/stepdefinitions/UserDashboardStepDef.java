@@ -1090,7 +1090,42 @@ public class UserDashboardStepDef extends Base {
         assertTrue(userDashboard.popUpWishlist.isDisplayed());
     }
 
-   }
+    //*******US28__Notifications Sidebar********************
+    @Given("Click on the Notification on the sidebar")
+    public void click_on_the_notification_on_the_sidebar() {
+       ReusableMethods.scrollWithPixelsJS(0,400);
+       ReusableMethods.wait(1);
+       userDashboard.linkNotifications.click();
+    }
+    @Given("Verify that Notification title is visible")
+    public void verify_that_notification_title_is_visible() {
+        assertTrue(userDashboard.labelTitleNotifications.isDisplayed());
+    }
+    @Given("Verify that displays Title and Date information of incoming notifications")
+    public void verify_that_displays_title_and_date_information_of_incoming_notifications() {
+      assertTrue(userDashboard.labelTitleOrderNotificationFirst.isDisplayed());
+      assertTrue(userDashboard.labelDateOrderNotificationFirst.isDisplayed());
+    }
+    @Given("Clicks view on the notification and  verify that  the relevant page opens")
+    public void clicks_view_on_the_notification_and_verify_that_the_relevant_page_opens() {
+       userDashboard.buttonViewOrderNotificationFirst.click();
+       assertTrue(userDashboard.labelOrderIDNotification.isDisplayed());
+    }
+    @Given("Click Setting button on the Notifications and displays the Setting list displays by title <<Notifications Setting>>")
+    public void click_setting_button_on_the_notifications_and_displays_the_setting_list_displays_by_title_notifications_setting() {
+        userDashboard.buttonSettingNotification.click();
+        assertTrue(userDashboard.labelNotificationSetting.isDisplayed());
+    }
+    @Given("Updates the Types of Events in the Setting list and verify that the successful message appears")
+    public void updates_the_types_of_events_in_the_setting_list_and_verify_that_the_successful_message_appears() {
+      userDashboard.checkboxNotificationSetting.click();
+      ReusableMethods.wait(2);
+      assertTrue(userDashboard.labelChangeSystemMessage.isDisplayed());
+      //assertTrue(userDashboard.checkboxNotificationSetting.isSelected());
+    }
+
+
+}
 
 
 
