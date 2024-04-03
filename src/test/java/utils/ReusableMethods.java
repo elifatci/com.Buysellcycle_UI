@@ -3,6 +3,7 @@ package utils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import pages.UserDashboard;
@@ -314,7 +315,7 @@ public class ReusableMethods {
      * @param element
      */
     public static void clickWithJS(WebElement element) {
-       // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        // ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
     }
 
@@ -363,10 +364,11 @@ public class ReusableMethods {
         JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
         jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
-    public static void scrollWithPixelsJS(int x,int y) {
-         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-         js.executeScript("window.scrollBy(0,500)");
-         js.executeScript("window.scrollBy("+x+","+y+")");
+
+    public static void scrollWithPixelsJS(int x, int y) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("window.scrollBy(" + x + "," + y + ")");
     }
 
     public static void uploadFile(String gonderilecekDosyaContentRoot) {
@@ -428,6 +430,7 @@ public class ReusableMethods {
         }
 
     }
+
     public static WebElement clickFooterLinkleri(String link) {
         switch (link) {
             case "About Us":
@@ -628,7 +631,7 @@ public class ReusableMethods {
             case "Support Ticket":
                 wait(2);
                 //scrollIntoViewJS(userDashboard.linkUserSupportTicket);
-               // userDashboard.linkUserSupportTicket.click();
+                // userDashboard.linkUserSupportTicket.click();
                 //wait(2);
                 expectedUrl = ConfigReader.getProperty("supportTicketUrl");
                 actualUrl = Driver.getDriver().getCurrentUrl();
@@ -647,7 +650,6 @@ public class ReusableMethods {
                 return visitorHomePage.linkReturnExchange;
 
         }
-
 
 
     }
@@ -674,4 +676,7 @@ public class ReusableMethods {
         }
     }
 
-}
+
+      }
+
+

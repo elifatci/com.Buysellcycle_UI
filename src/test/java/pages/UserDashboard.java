@@ -417,13 +417,19 @@ public class UserDashboard extends Base {
     public WebElement linkHeaderMyAccount;
 
     //UserDasboard/Side Bar /My Account
-    @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
-    public WebElement imageProfileBrowse;
+
+    @FindBy(xpath = "//img[@id='uploadImgShow']")
+    public WebElement imageUpload;
 
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
     public WebElement buttonBrowse;
 
+    @FindBy(xpath = "file-input-id")
+    public WebElement pcFileInput;
+
+    @FindBy(xpath = "open-button-id")
+    public WebElement pcOpenFile;
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//button[@id='Info-tab']")
     public WebElement buttonBasicInfo;
