@@ -1193,7 +1193,7 @@ public class VisitorHomePageStepDef extends Base {
     // -----> kevser_US14_TC01 HomePage_Body
     @Given("Verify that Best Deals text is visible")
     public void verify_that_best_deals_text_is_visible() {
-        ReusableMethods.wait(2);
+        ReusableMethods.wait(3);
         assertTrue(visitorHomePage.labelBestDeals_US14.isDisplayed());
     }
     @Given("Click View All button")
@@ -1205,21 +1205,96 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.wait(2);
         assertTrue(visitorHomePage.labelAllProductsNumber.isDisplayed());
     }
+    //---- US14_TC02
     @Given("Verify that Compare and Quick View links are active")
     public void verify_that_compare_and_quick_view_links_are_active() {
-
-
+        ReusableMethods.clickWithJS(visitorHomePage.buttonCompare);
+        ReusableMethods.wait(2);
+        visitorHomePage.linkAddToCompare.click();
+        ReusableMethods.wait(2);
+        assertTrue(visitorHomePage.textWarningFirstLogin.isDisplayed());
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(visitorHomePage.buttonQuickView);
+        ReusableMethods.wait(2);
+        assertTrue(visitorHomePage.quickViewProductPage.isDisplayed());
     }
-
     @Given("Verify that Wishlist link is active")
     public void verify_that_wishlist_link_is_active() {
-
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(visitorHomePage.buttonWishList);
+        ReusableMethods.wait(3);
+        assertTrue(visitorHomePage.textWarningFirstLogin.isDisplayed());
     }
-
-    @Given("Verify thar Add To Cart link is active")
+    @Given("Verify that Add To Cart link is active")
     public void verify_thar_add_to_cart_link_is_active() {
 
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(visitorHomePage.buttonAddToCart);
+        ReusableMethods.wait(2);
+        //assertTrue(visitorHomePage.addToCartBox.isDisplayed());
     }
+    //---- US14_TC03
+    @Given("Verify that Feature Categories text is visible")
+    public void verify_that_feature_categories_text_is_visible() {
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.wait(2);
+        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelFeatureCategories);
+        assertTrue(visitorHomePage.labelFeatureCategories.isDisplayed());
+    }
+    @Given("Verify that product box are visible under the Feature Categories text")
+    public void verify_that_product_box_are_visible_under_the_feature_categories_text() {
+        userDashboard.checkListELements(visitorHomePage.featureCategoriesProdBox,8);
+    }
+
+    //---- US14_TC04
+    @Given("Click Shop Now link")
+    public void click_shop_now_link() {
+        visitorHomePage.linkShopNow.click();
+    }
+
+    //---- US14_TC05
+    @Given("Verify that Top Rating text is visible")
+    public void verify_that_top_rating_text_is_visible() {
+        assertTrue(visitorHomePage.labelTopRating.isDisplayed());
+    }
+    @Given("Verify that product box are visible under the Top Rating link")
+    public void verify_that_product_box_are_visible_under_the_top_rating_link() {
+        assertTrue(visitorHomePage.prodTopRating.isDisplayed());
+    }
+    @Given("Verify that right and left buttons are active")
+    public void verify_that_right_and_left_buttons_are_active() {
+        assertTrue(visitorHomePage.buttonLeftAngle.isEnabled());
+        assertTrue(visitorHomePage.buttonRightAngle.isEnabled());
+    }
+
+    //---- US14_TC06
+    @Given("Verify that Compare and Quick View links under the Top Rating menu are active")
+    public void verify_that_compare_and_quick_view_links_under_the_top_rating_menu_are_active() {
+
+
+    }
+
+    @Given("Verify that Wishlist link under the Top Rating menu is active")
+    public void verify_that_wishlist_link_under_the_top_rating_menu_is_active() {
+
+    }
+
+    @Given("Verify that Add To Cart link under the Top Rating menu is active")
+    public void verify_that_add_to_cart_link_under_the_top_rating_menu_is_active() {
+
+    }
+    //---- US14_TC07
+    //---- US14_TC08
+    //---- US14_TC09
+    //---- US14_TC10
+    //---- US14_TC11
+    //---- US14_TC12
+    //---- US14_TC13
+    //---- US14_TC14
+    //---- US14_TC15
+    //---- US14_TC16
+
 
 
 
