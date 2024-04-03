@@ -679,4 +679,10 @@ public class UserDashboard extends Base {
     public WebElement iconCompareWishlist;
     @FindBy(xpath = "//div[@class='toast-progress']")
     public WebElement popUpWishlist;
+    @FindBy(xpath = "(//i[@class='ti-eye'])[1]")
+    public WebElement iconQuickViewWishlist;
+    @FindBy(xpath = "//a[@data-id='297']")
+    public WebElement iconDeleteWishlist;
+    @FindBy(xpath = "//button[@id='dataDeleteBtn']")
+    public WebElement buttonDeleteModalWishlist;
 }

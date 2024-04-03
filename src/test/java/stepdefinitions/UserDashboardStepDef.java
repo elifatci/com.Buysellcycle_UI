@@ -1053,10 +1053,11 @@ public class UserDashboardStepDef extends Base {
         ReusableMethods.wait(1);
         userDashboard.iconCart_Wishlist.click();
     }
+
     @Given("verify that  the modal appears on Wishlist")
     public void verify_that_the_message_item_added_to_your_cart_on_the_modal_on_wishlist() {
         ReusableMethods.wait(1);
-      assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
+        assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
     }
     @Given("Close the modal window that opened on Wishlist")
     public void close_the_modal_window_that_opened_on_wishlist() {
@@ -1068,6 +1069,25 @@ public class UserDashboardStepDef extends Base {
         ReusableMethods.wait(1);
         ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
         userDashboard.iconCompareWishlist.click();
+    }
+
+    @Given("Click on the quick view icon")
+    public void click_on_the_quick_view_icon() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconQuickViewWishlist.click();
+    }
+
+    @Given("click on the delete icon and click delete on the confirmation modal")
+    public void click_on_the_delete_icon_and_click_delete_on_the_confirmation_modal() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconDeleteWishlist.click();
+        ReusableMethods.wait(1);
+        userDashboard.buttonDeleteModalWishlist.click();
+    }
+
+    @Given("verify that successful message appears")
+    public void verify_that_successful_message_appears() {
+        assertTrue(userDashboard.popUpWishlist.isDisplayed());
     }
 
    }

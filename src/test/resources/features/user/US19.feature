@@ -18,4 +18,11 @@ Feature: US_19 As a registered user, I would like to have a My Wishlist page on 
     * verify that the message Product added to compare list successfully is display
 
     Scenario: TC_03 Test of quick view and delete on the Wish list
+      * Click on the quick view icon
+      * verify that  the modal appears on Wishlist
+      * Close the modal window that opened on Wishlist
+      * click on the delete icon and click delete on the confirmation modal
+      * verify that successful message appears
+
+
 
