@@ -3,8 +3,8 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import pages.Base;
 import pages.UserDashboard;
@@ -973,14 +973,27 @@ public class UserDashboardStepDef extends Base {
 
     @Given("In SideBar, the menu item My Account appears.")
     public void in_side_bar_the_menu_item_my_account_appears() {
+        ReusableMethods.wait(5);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         userDashboard.linkHeaderMyAccount.isDisplayed();
+        ReusableMethods.wait(2);
     }
     @Given("Go to the My Account page.")
     public void go_to_the_my_account_page() {
-        ReusableMethods.clickWithJS(userDashboard.linkHeaderMyAccount);
+        userDashboard.linkHeaderMyAccount.click();
+        ReusableMethods.wait(2);
+
     }
     @Given("Upload a new profile picture by clicking on the Browse button and verify that it has been uploaded.")
     public void upload_a_new_profile_picture_by_clicking_on_the_browse_button_and_verify_that_it_has_been_uploaded() {
+        userDashboard.buttonBasicInfo.isDisplayed();
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.TAB).perform();
+        String filePath = "C:\\Users\\HP\\OneDrive\\Resimler\\Ekran Görüntüleri\\2023-07-11 185959.png";
+        userDashboard.buttonBrowse.sendKeys(filePath);
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(userDashboard.pcOpenFile);
+
 
     }
     //*************************US24/TC02*******************************************
