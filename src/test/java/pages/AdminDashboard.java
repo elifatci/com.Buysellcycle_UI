@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ReusableMethods;
-
 import java.util.List;
 
 public class AdminDashboard extends Base{
@@ -418,6 +417,68 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[text()='Select from options'])[2]")
     public WebElement subMenuSelectFromOptions;
 
+    //=========================US 41 >> STAF ======================================
+
+    @FindBy(xpath = "(//div[@class='nav_title'])[5]")
+    public WebElement dorpDownHumanResource;
+    @FindBy(xpath = "//a[text()='Staff']")
+    public WebElement linkStaff;
+
+    @FindBy(xpath = "//thead/tr/th")
+    public List<WebElement> rowStaffListBasliklar;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[5]/label/div")
+    public WebElement checkboxStatusStaff;
+    @FindBy(xpath = "(//th[@class='sorting_1'])[1]")
+    public WebElement ikonSayıStaff;
+    @FindBy(xpath = "(//button[@class='btn btn-secondary dropdown-toggle'])[2]")
+    public WebElement dropDownSelectStaff;
+    @FindBy(xpath = "//a[text()='View']")
+    public List<WebElement> linkViewStaff;
+
+    @FindBy(xpath = "//a[text()='Edit']")
+    public List<WebElement> linkEditStaff;
+    @FindBy(xpath = "//a[text()='Delete']")
+    public List<WebElement> linkDeleteStaff;
+    
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement textBoxQuickSearchStaff;
+
+     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/hr/staffs/create']")
+    public WebElement buttonAddNewStaff;
+
+    @FindBy(xpath = "//*[@id='save_button_parent']")
+    public WebElement buttonSaveParent;
+
+    @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='2-admin']]")
+    public WebElement dropDownRoleStaff;
+
+    @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[2]/div/div/div/input")
+    public WebElement textboxNiceSelect;
+
+    @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='1']]")
+    public WebElement dropDownDepartmentStaff;
+
+    @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[3]/div/div/div/input")
+    public WebElement textboxNiceSelect2;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement textboxEmailStaff;
+
+    @FindBy(xpath = "//input[@name='first_name']")
+    public WebElement textboxFirstNameStaff;
+
+    @FindBy(xpath = "//input[@minlength='8']")
+    public WebElement textboxPasswordStaff;
+      
+    @FindBy(xpath = "//*[@id='date_of_birth']")
+    public WebElement textboxBirthDateStaff;
+
+    @FindBy(xpath = "//input[@name='date_of_joining']")
+    public WebElement textboxDateJoiningStaff;
+    @FindBy(xpath = "//input[@name='leave_applicable_date']")
+    public WebElement textboxDateApplicaStaff;
+  
     //------US44-----
     @FindBy(xpath = "(//*[@id='dropdownMenu2'])[13]")
     public WebElement buttonconfirmedSelect;

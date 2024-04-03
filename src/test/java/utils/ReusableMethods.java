@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.AdminDashboard;
 import pages.UserDashboard;
 import pages.VisitorHomePage;
 import java.io.File;
@@ -388,6 +389,7 @@ public class ReusableMethods {
 
     static VisitorHomePage visitorHomePage = new VisitorHomePage();
     static UserDashboard userDashboard = new UserDashboard();
+    static AdminDashboard adminDashboard = new AdminDashboard();
 
     public static WebElement footerLinkleri(String link) {
         switch (link) {
@@ -652,6 +654,32 @@ public class ReusableMethods {
         }
 
 
+    }
+    public static WebElement staffLinkleri(String info){
+        switch (info){
+            case "Staff link":
+                wait(1);
+                return adminDashboard.linkStaff;
+            case "View link":
+                wait(1);
+                return adminDashboard.linkViewStaff.get(1);
+            case "Edit link":
+                wait(1);
+                return adminDashboard.linkViewStaff.get(1);
+            case "Delete link":
+                wait(1);
+                return adminDashboard.linkViewStaff.get(1);
+            case "Save button":
+                wait(1);
+                return adminDashboard.buttonSave;
+            case "Add New Staff button":
+                wait(1);
+                return adminDashboard.buttonSave;
+
+            default:
+                wait(1);
+                return adminDashboard.textBoxQuickSearchStaff;
+        }
     }
 
     public static WebElement supportTicketLinkleri(String info) {

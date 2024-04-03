@@ -662,6 +662,31 @@ public class UserDashboard extends Base {
 
    @FindBy(xpath = "(//label[@class='primary_label2 style2'])[1]")
    public WebElement labelAddressBasligi;
+  
+   @FindBy(xpath = "//textarea[@name='note']")
+    public WebElement textboxNoteCart;
+   @FindBy(xpath = "//div[@class='nice-select theme_select style2 wide mb_20']")
+   public WebElement textboxNewAddressCart;
+    @FindBy(xpath = "(//input[@class='primary_input3 style5 radius_3px'])[2]")
+    public WebElement textboxAddressCart;
+    @FindBy(xpath = "(//div[@class='nice-select theme_select style2 wide'])[3]")
+    public WebElement dropDownCityCart;
+    @FindBy(xpath = "//li[text()='Albany']")
+    public WebElement dropDownCityAlbany;
+    @FindBy(xpath = "//span[@id='address_btn']")
+    public WebElement butonEditCart;
+
+   @FindBy(xpath = "(//span[@class='checkmark mr_15'])[2]")
+    public WebElement radioButtonWarningCart;
+
+   @FindBy(xpath = "//button[@class='amaz_primary_btn style2  min_200 text-center text-uppercase ']")
+    public WebElement buttonContinueShiping;
+
+   @FindBy(xpath = "//span[@id='error_term_check']")
+    public WebElement labelWarningMessageCart;
+
+   @FindBy(xpath = "//a[@class='return_text']")
+    public WebElement buttonReturnCart;
 
    //Dashboard>>Follow link
     @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[10]")
@@ -765,6 +790,5 @@ public class UserDashboard extends Base {
     public WebElement checkboxNotificationSetting;
     @FindBy(xpath = "//div[.='Updated successfully!']")
     public WebElement labelChangeSystemMessage;
-
 
 }

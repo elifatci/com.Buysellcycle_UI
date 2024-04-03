@@ -11,7 +11,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import utils.Driver;
 import java.io.File;
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class AdminDashboardStepDef extends Base {
@@ -609,6 +608,81 @@ public class AdminDashboardStepDef extends Base {
 
     }
 
+    //================ USS 41 ============================
+
+    @Given("Click on Human Resource DDM in the navbar on the left")
+    public void click_on_human_resource_ddm_in_the_navbar_on_the_left() {
+          adminDashboard.dorpDownHumanResource.click();
+          ReusableMethods.wait(2);
+    }
+    @Given("Clicks the {string}")
+    public void clicks_the(String info) {
+        ReusableMethods.wait(1);
+         adminDashboard.linkStaff.click();
+          ReusableMethods.wait(2);
+    }
+    @Given("It is verified that he went to the Staff page")
+    public void it_is_verified_that_he_went_to_the_staff_page() {
+          assertEquals("https://qa.buysellcycle.com/hr/staffs",Driver.getDriver().getCurrentUrl());
+    }
+
+
+    @Given("It is verified that the Staff List titles are seen")
+    public void it_is_verified_that_the_staff_list_titles_are_seen() {
+         assertTrue(adminDashboard.rowStaffListBasliklar.get(1).isDisplayed());
+    }
+
+    @Given("The status of the desired employee is changed by clicking on the Status checkbox.")
+    public void the_status_of_the_desired_employee_is_changed_by_clicking_on_the_status_checkbox() {
+         adminDashboard.checkboxStatusStaff.click();
+         ReusableMethods.wait(2);
+    }
+    @Given("Slect DDM clicks on the desired employee")
+    public void slect_ddm_clicks_on_the_desired_employee() {
+        adminDashboard.ikonSayıStaff.click();
+        adminDashboard.dropDownSelectStaff.click();
+    }
+
+    @Given("Type the name of the desired employee and press enter.")
+    public void type_the_name_of_the_desired_employee_and_press_enter() {
+        adminDashboard.textBoxQuickSearchStaff.click();
+        adminDashboard.textBoxQuickSearchStaff.sendKeys("Zehra");
+    }
+
+
+    @Given("Staff filters the List titles by clicking on the desired title.")
+    public void staff_filters_the_list_titles_by_clicking_on_the_desired_title() {
+        adminDashboard.rowStaffListBasliklar.get(2).click();
+        ReusableMethods.wait(2);
+        adminDashboard.rowStaffListBasliklar.get(1).click();
+    }
+
+
+
+
+    @Given("Fills in the necessary information")
+    public void fills_in_the_necessary_information() {
+
+    }
+
+
+
+    @Given("Fills in the required information incompletely")
+    public void fills_in_the_required_information_incompletely() {
+
+    }
+
+    @Given("Gets an error message")
+    public void gets_an_error_message() {
+
+    }
+
+
+    @Given("It is verified that the new staff record created appears in the staff list.")
+    public void it_is_verified_that_the_new_staff_record_created_appears_in_the_staff_list() {
+
+    }
+
     //US_044 TC01
 
     @Given("clicks on the Order Manage menu link")
@@ -813,13 +887,6 @@ public class AdminDashboardStepDef extends Base {
     public void verifies_that_detailed_information_of_the_selected_refused_cancelled_order_is_displayed() {
         System.out.println(tableStr.contains("admin"));
     }
-
-
-
-
-
-
-
 
 
 
