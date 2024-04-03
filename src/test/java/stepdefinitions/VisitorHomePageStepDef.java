@@ -968,7 +968,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("verify that products display with special discount on Exclusive Price")
     public void verify_that_section_is_active_and_products_display_with_special_discount_on_for_you() {
-        ReusableMethods.scrollWithPixelsJS(0, 50);
+        ReusableMethods.scrollWithPixelsJS(0, 250);
         ReusableMethods.wait(1);
        visitorHomePage.verifyVisible(visitorHomePage.labelExclusivePrice);
     }
@@ -1032,7 +1032,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the chart icon of the first product for adding to cart and verify that the message Item added to your cart on the modal")
     public void click_on_the_chart_icon_of_the_first_product_for_adding_to_cart_and_verify_that_the_message_on_the_modal() {
-        ReusableMethods.scrollWithPixelsJS(0, 300);
+        ReusableMethods.scrollWithPixelsJS(0, 600);
         ReusableMethods.wait(1);
         visitorHomePage.iconCart_ExclusivePrice.click();
         ReusableMethods.wait(1);
@@ -1049,6 +1049,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Click on the Quick view icon of the first product and verify that the modal window appear")
     public void click_on_the_click_on_the_quick_view_icon_of_the_first_product_and_verify_that_the_modal_window_appear() {
+       // ReusableMethods.scrollWithPixelsJS(0, -300);
         ReusableMethods.hover(visitorHomePage.imageProductFirstExclusivePrice);
         ReusableMethods.wait(1);
         visitorHomePage.iconQuickView_ExclusivePrice.click();
