@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
+import java.util.List;
 import java.util.Random;
 
 public abstract class Base {
@@ -22,8 +23,9 @@ public abstract class Base {
   public static Faker faker;
   public static Actions actions;
   public static Random random;
+  public static List<String> tableStr;
 
-  public static void initialize(){
+    public static void initialize(){
 
       adminDashboard = new AdminDashboard();
       userDashboard = new UserDashboard();

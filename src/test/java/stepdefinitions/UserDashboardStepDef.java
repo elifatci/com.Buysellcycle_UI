@@ -74,7 +74,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Clicks the Login buttonLink on the home page")
     public void clicks_the_login_button_link_on_the_home_page() {
-        visitorHomePage.buttonPopUpClose.click();
+        //visitorHomePage.buttonPopUpClose.click();
         visitorHomePage.linkLogin.click();
         ReusableMethods.wait(2);
     }
@@ -87,8 +87,8 @@ public class UserDashboardStepDef extends Base {
     @Given("Displays Purchase History banner in Dashboard sideBar")
     public void displays_purchase_history_banner_in_dashboard_side_bar() {
         ReusableMethods.wait(2);
-        //actions.sendKeys(Keys.PAGE_DOWN).perform();
-        userDashboard.linkPurchaseHistory.isDisplayed();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        assertTrue(userDashboard.linkPurchaseHistory.isDisplayed());
     }
 
     @Given("Clicking on the Purchase History link confirms that the relevant page has been accessed.")
@@ -551,11 +551,6 @@ public class UserDashboardStepDef extends Base {
         assertEquals("The category id field is required.",userDashboard.labelWarningMessage2.getText());
 
     }
-
-
-
-
-
     //======================================================================================================================
     //US21 ---> TC01
     @Given("User clicks on -My Wallet- and displays the My Wallet {string}.")
@@ -1006,25 +1001,101 @@ public class UserDashboardStepDef extends Base {
     //US27 TC01
     @Given("Verify that the Follow banner is visible in the Dashboard sideBar")
     public void verify_that_the_follow_banner_is_visible_in_the_dashboard_side_bar() {
-
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        assertTrue(userDashboard.linkFollow.isDisplayed());
     }
     @Given("Click on the Follow menu")
     public void click_on_the_follow_menu() {
-
+            userDashboard.linkFollow.click();
     }
     @Given("Verify that it redirects to the Follow page")
     public void verify_that_it_redirects_to_the_follow_page() {
-
+        assertTrue(userDashboard.labelFollowSellerHistory.isDisplayed());
     }
 
     //US27 TC02
+    @Given("Scroll down the page until visible the Follow link")
+    public void scroll_down_the_page_until_visible_the_follow_link() {
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+    }
     @Given("Verify that the SL,Name,Total Product,Total Followers,Action headers are displayed")
     public void verify_that_the_sl_name_total_product_total_followers_action_headers_are_displayed() {
-
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.tableFollow.get(0).getText().contains("SL"));
+        assertTrue(userDashboard.tableFollow.get(1).getText().contains("Name"));
+        assertTrue(userDashboard.tableFollow.get(2).getText().contains("Total"));
+        assertTrue(userDashboard.tableFollow.get(3).getText().contains("Product"));
+        assertTrue(userDashboard.tableFollow.get(4).getText().contains("Followers"));
+        assertTrue(userDashboard.tableFollow.get(5).getText().contains("Action"));
     }
     @Given("Test that the unfollow button is visible and clickable")
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
+            adminDashboard.verifyVisibleActive(userDashboard.buttonUnfollow);
+    }
 
+    //US31 TC01
+    @Given("Click on the user site logo")
+    public void click_on_the_user_site_logo() {
+            visitorHomePage.logoBuySell.click();
+    }
+    @Given("Clicks on the product titled Orange Balloon in the Best Deals section")
+    public void clicks_on_the_product_titled_orange_balloon_in_the_best_deals_section() {
+        ReusableMethods.clickWithJS(userDashboard.imageProductOrangeBaby);
+    }
+    @Given("Clicks the Add to card button")
+    public void clicks_the_add_to_card_button() {
+        userDashboard.buttonAddToCartProduct.click();
+    }
+    @Given("Clicks the View card button")
+    public void clicks_the_view_card_button() {
+      userDashboard.buttonViewCardProduct.click();
+    }
+    @Given("Verify that it redirects to the Cart page")
+    public void verify_that_it_redirects_to_the_cart_page() {
+      assertTrue(userDashboard.labelOrderSummaryCard.isDisplayed());
+    }
+
+    //US31 TC02
+    @Given("Clicks on the Cart link on the header section")
+    public void clicks_on_the_cart_link_on_the_header_section() {
+       userDashboard.linkCartHeader.click();
+    }
+    @Given("Increase the product quantity by one in the product detail section")
+    public void ıncrease_the_product_quantity_by_in_the_product_detail_section() {
+        userDashboard.iconQuantityPlus.click();
+    }
+    @Given("Verify that subtotal information is updated")
+    public void verify_that_subtotal_information_is_updated() {
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.labelSubTotalPrice.getText().contains("360"));
+    }
+    @Given("Verify that the Continue Shopping, Proceed To Checkout buttons are visible and clickable")
+    public void verify_that_the_continue_shopping_proceed_to_checkout_buttons_are_visible_and_clickable() {
+            assertTrue(userDashboard.buttonContinueShopping.isDisplayed());
+            assertTrue(userDashboard.buttonProceedToCheckoutCart.isDisplayed());
+            assertTrue(userDashboard.buttonContinueShopping.isDisplayed());
+            assertTrue(userDashboard.buttonProceedToCheckoutCart.isEnabled());
+    }
+    @Given("Verify that the Order summary section is visible")
+    public void verify_that_the_order_summary_section_is_visible() {
+        assertTrue(userDashboard.labelOrderSummary.isDisplayed());
+    }
+
+    @Given("Verify that the discount amount of the product is visible in the product detail section.")
+    public void verify_that_the_discount_amount_of_the_product_is_visible_in_the_product_detail_section() {
+        assertTrue(userDashboard.labelDiscount.isDisplayed());
+    }
+    @Given("Delete the product in the product detail section")
+    public void delete_the_product_in_the_product_detail_section() {
+        userDashboard.iconDeleteProduct.click();
+    }
+    @Given("Verify that the product has been deleted")
+    public void verify_that_the_product_has_been_deleted() {
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
    }

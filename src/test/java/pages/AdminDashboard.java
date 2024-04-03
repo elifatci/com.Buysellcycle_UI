@@ -392,4 +392,83 @@ public class AdminDashboard extends Base{
     //Admin-Profile>>Address page
     @FindBy(xpath = "(//*[text()='Select from options'])[2]")
     public WebElement subMenuSelectFromOptions;
+
+    //------US44-----
+    @FindBy(xpath = "(//*[@id='dropdownMenu2'])[13]")
+    public WebElement buttonconfirmedSelect;
+    @FindBy(xpath = "(//tr[1]/td[1])[2]")
+    public WebElement buttonconfirmedAction;
+    @FindBy(xpath = "(//td[1])[1]")
+    public WebElement buttonpendingAction;
+    @FindBy(xpath = "//span[2]/div/button")
+    public WebElement buttonpendingSelect;
+    @FindBy(xpath = "(//*[text()='Details'])[13]")
+    public WebElement dropDownconfirmedDetailsSelect;
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[1]")
+    public WebElement labelConfirmedOrderConfirm;
+    @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/ordermanage/sales-details/142']")
+    public WebElement buttonNotificiationRelevantDetails;
+    @FindBy(xpath = "//*[text()='Order Confirmation']")
+    public WebElement labelNotificiationRelevantDetails;
+    @FindBy(xpath = "//span[text()='Order Manage']")
+    public WebElement linkOrderManage;
+    @FindBy(xpath = "(//*[text()='Total Order'])[1]")
+    public WebElement subLinkTotalOrder;
+    @FindBy(xpath = "//*[@class='nav nav_list']")
+    public WebElement totalOrderLists;
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-25'])[1]")
+    public WebElement dropDownOrderConfirmationSelect;
+    @FindBy(xpath = "//*[@data-value='1']")
+    public WebElement subupdateRandomSelect;
+    @FindBy(xpath = "(//*[text()='Confirm'])[2]")
+    public WebElement buttonConfirmUpdate;
+    @FindBy(xpath = "//*[@class='toast-message']")
+    public WebElement labelupdateSuccesfully;
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[4]")
+    public WebElement pendingconfirmedOrder;
+    @FindBy(xpath = "(//*[@class='update_active_status'])[1]")
+    public WebElement confirmedRegisterSelect;
+    @FindBy(xpath = "//*[@placeholder='Quick Search']")
+    public WebElement searchBoxPendingQuickSearch;
+    @FindBy(xpath = "//*[text()='nobady@nobady.com']")
+    public WebElement searchBoxQuickSearchResultText;
+    @FindBy(xpath = "//*[text()='Confirmed Orders']")
+    public WebElement buttonLinkconfirmedOrder;
+    @FindBy(xpath = "(//tr[1]/td[1])[3]")
+    public WebElement buttonCompletedAction;
+    @FindBy(xpath = "//span[2]/div/div/a")
+    public WebElement completedDetail;
+    @FindBy(xpath = "(//*[@placeholder='Quick Search'])[3]")
+    public WebElement searchBoxCompletedQuickSearch;
+    @FindBy(xpath = "//*[text()='Completed Orders']")
+    public WebElement buttonLinkcompletedOrder;
+    @FindBy(xpath = "(//*[@placeholder='Quick Search'])[2]")
+    public WebElement searchBoxConfirmedQuickSearch;
+    @FindBy(xpath = "(//label/input)[4]")
+    public WebElement serchBoxPayment;
+    @FindBy(xpath = "//*[text()='Pending Payment Orders']")
+    public WebElement buttonLinkpaymentOrder;
+    @FindBy(xpath = "(//tr[1]/td[1])[4]")
+    public WebElement buttonPaymentAction;
+    @FindBy(xpath = "(//button[contains(text(),'Select')])[32]")
+    public WebElement buttonPaymentSelect;
+    @FindBy(xpath = "(//a[text()='Details'])[32]")
+    public WebElement linkPaymentDetails;
+    @FindBy(xpath = "//*[@id='5']")
+    public WebElement buttonLinkRefusedCancelled;
+    @FindBy(xpath = "(//tr[1]/td[1])[5]")
+    public WebElement buttonRefusedCancelledAction;
+    @FindBy(xpath = "(//button[contains(text(),'Select')])[46]")
+    public WebElement buttonRefusedCancelledSelect;
+    @FindBy(xpath = "(//a[text()='Details'])[46]")
+    public WebElement linkRefusedCancelledDetails;
+    @FindBy(xpath = "(//*[@class='primary_input_label red'])[2]")
+    public WebElement orderCancelledText;
+    @FindBy(xpath = "//tr/td[4]")
+    public List<WebElement> adminTable;
+
+    @FindBy(xpath = "(//*[@type='search'])[5]")
+    public WebElement searchBoxQuickRefused;
+
+
 }
