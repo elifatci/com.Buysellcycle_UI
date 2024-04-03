@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.Base;
 import pages.UserDashboard;
 import utils.ConfigReader;
@@ -403,76 +404,119 @@ public class AdminDashboardStepDef extends Base {
     //TC01
     @Given("Clicks the product link in the admin dashboard sidebar")
     public void clicks_the_product_link_in_the_admin_dashboard_sidebar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       adminDashboard.linkProducts.click();
+
     }
 
     @Given("Clicks the  add new product link in the admin dashboard sidebar")
     public void clicks_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-
+        adminDashboard.linkAddNewProduct.click();
     }
 
     //TC02
     @Given("Add new Productin titles\\(General Information, Related Product, Up Sale, Cross sale) display")
     public void add_new_productin_titles_general_information_related_product_up_sale_cross_sale_display() {
-
+     ReusableMethods.wait(3);
+     userDashboard.checkListELements(adminDashboard.linkAddNewProductList,4);
 
     }
 
     //TC03
     @Given("select variant type")
     public void select_variant_type() {
+        ReusableMethods.wait(1);
+       adminDashboard.linkAddNewProduct.click();
+       ReusableMethods.waitAndClick(adminDashboard.radioButtonVariant);
     }
     //TC04
     @Given("Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags \\(Comma Separated) Text Boxes in Product Information Section")
     public void display_name_product_sku_model_number_category_brand_unit_barcode_type_minimum_order_qty_max_order_qty_tags_comma_separated_text_boxes_in_product_information_section() {
+        ReusableMethods.wait(3);
+        for (int i = 2; i < 6; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
+        for (int i = 7; i < 15; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
 
     }
     //TC05
     @Given("Enter the information in the Weight Height Info section")
     public void enter_the_information_in_the_weight_height_info_section() {
+        ReusableMethods.wait(3);
+        userDashboard.checkListELements(adminDashboard.searchBoxPriceInfo,4);
 
     }
     //TC06
     @Given("Information is entered in Price Info and Stock section")
     public void information_is_entered_in_price_info_and_stock_section() {
+        ReusableMethods.wait(3);
+        for (int i = 2; i < 6; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
 
     }
     //TC07
     @Given("Picture is added to Description section")
     public void picture_is_added_to_description_section() {
+        adminDashboard.buttonPicture.click();
+
 
     }
     //TC08
     @Given("the necessary information is entered and a new product is added to the site")
     public void the_necessary_information_is_entered_and_a_new_product_is_added_to_the_site() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @Given("Save & Publish and Save buttons are visible and their activation is confirmed")
     public void save_publish_and_save_buttons_are_visible_and_their_activation_is_confirmed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @Given("a new product is added to the site")
     public void a_new_product_is_added_to_the_site() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
     //TC09
     @Given("On the Add New Product page, related products are determined for the product to be added")
     public void on_the_add_new_product_page_related_products_are_determined_for_the_product_to_be_added() {
+        adminDashboard.verifyVisibleActive(adminDashboard.linkRelatedProduct);
+
+
     }
     //TC10
     @Given("On the Add New Product page, select the products up sale")
     public void on_the_add_new_product_page_select_the_products_up_sale() {
-
+        adminDashboard.verifyVisibleActive(adminDashboard.linkUpSale);
     }
     //TC11
+    @Given("On the Add New Product page, select the products cross  sale")
+    public void on_the_add_new_product_page_select_the_products_cross_sale() {
+        adminDashboard.verifyVisibleActive(adminDashboard.linkCrossSale);
+    }
+        //TC12
+        @Given("Add New Product sayfasinda {string} uyari mesaji goruntulenir")
+        public void add_new_product_sayfasinda_uyari_mesaji_goruntulenir(String string) {
+       assertTrue( adminDashboard.labelWarningText.isDisplayed());
+
+        }
+        //TC13
+        @Given("Display Category und clicks")
+        public void display_category_und_clicks() {
+
+
+        }
+        @Given("Display Brand  Page und clicks")
+        public void display_brand_page_und_clicks() {
+
+
+        }
+        @Given("Display Unit  Page und clicks")
+         public void display_unit_page_und_clicks() {
+
+         }
+
 
 
     //US43 TC01

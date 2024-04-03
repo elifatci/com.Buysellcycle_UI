@@ -1,32 +1,37 @@
 Feature: As an administrator I would like to have a page to add a new product to the site.
   Background:
     * Go to "adminUrl"
-    * Login by entering valid "adminEmailElif" and "password" on the SignIn page.
+    * Login by entering valid "adminEmailNazime" and "password" on the SignIn page.
 
     Scenario: TC01 Access to Add New Product page
       * Clicks the product link in the admin dashboard sidebar
       * Clicks the  add new product link in the admin dashboard sidebar
+      * Close the page
 
 
-  Scenario: TC02 Add new Productin titles display
+  Scenario: TC02 Add new Productins titles display
         * Clicks the product link in the admin dashboard sidebar
         * Clicks the  add new product link in the admin dashboard sidebar
         * Add new Productin titles(General Information, Related Product, Up Sale, Cross sale) display
+        * Close the page
 
   Scenario: TC03 Displaying and selecting type options und enable
+    * Clicks the product link in the admin dashboard sidebar
           * Clicks the  add new product link in the admin dashboard sidebar
-          * Add new Productin titles(General Information, Related Product, Up Sale, Cross sale) display
           * select variant type
+          * Close the page
 
   Scenario: TC04 Display of the product information fields
             * Clicks the product link in the admin dashboard sidebar
             * Clicks the  add new product link in the admin dashboard sidebar
             * Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags (Comma Separated) Text Boxes in Product Information Section
+            * Close the page
 
   Scenario: TC05 input information into physical products
             * Clicks the product link in the admin dashboard sidebar
             * Clicks the  add new product link in the admin dashboard sidebar
             * Enter the information in the Weight Height Info section
+            * Close the page
 
             Scenario: TC06 Ability to enter price info and stock information
             * Clicks the product link in the admin dashboard sidebar
