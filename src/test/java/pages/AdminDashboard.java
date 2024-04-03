@@ -79,6 +79,21 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[5]/a")
     public WebElement linkAddNewProduct;
 
+    //US_38 dashboardside bar Add New Product link
+    @FindBy(xpath = "//*[@id=\"sidebar_menu\"]/li[8]/a")
+    public WebElement linkProducts;
+
+    @FindBy (xpath = "//*[@id=\"choice_form\"]/ul/li")
+    public List<WebElement> linkAddNewProductList;
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[1]/div")
+    public List<WebElement> searchBoxProductInformation;
+
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[1]/div[20]/div[2]/div")
+    public List<WebElement> searchBoxPhyscialProdukt;
+
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[2]/div")
+    public List<WebElement> searchBoxPriceInfo;
+
 
     //US_38 dashboardside bar Add New Product link-General Information
     @FindBy(xpath = "(//*[@class='nav-item'])[1]")
@@ -101,7 +116,7 @@ public class AdminDashboard extends Base{
     public WebElement radioButtonSingle;
 
     //US_38 Add new Product variant radio button
-    @FindBy(xpath = "//*[@id=\"variant_prod\"]")
+    @FindBy(xpath = "//input[@id='product_type']")
     public WebElement radioButtonVariant;
 
     //US_38 Add new Product Name Box
@@ -160,6 +175,16 @@ public class AdminDashboard extends Base{
     //US_38 Products dropdown Units link
     @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[4]/a/text()")
     public WebElement linkUnits;
+
+    @FindBy(xpath= "(//I[@class='note-icon-picture'])[1]")
+    public WebElement buttonPicture;
+
+    @FindBy(xpath= "//input[@id='note-dialog-image-file-17121346018781']")
+    public WebElement buttonDateiAuswählen;
+
+    @FindBy(xpath= "//*[@id=\"choice_form\"]/div[3]/div[1]/div/text()")
+    public WebElement labelWarningText;
+
     //-----------------------------------------
 //***********************US_34/TC_01******************************************
 
