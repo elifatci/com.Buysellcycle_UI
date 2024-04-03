@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.zh_cn.假如;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -540,7 +541,7 @@ public class VisitorHomePage extends Base{
     public WebElement labelSecretIDRequired;
 
     // ----> kevser_US14 => HomePage => Body Part
-    @FindBy(xpath = "//*[@id='best_deals_title']")
+    @FindBy(xpath = "(//*[@class='m-0 flex-fill'])[1]")
     public WebElement labelBestDeals_US14;
     @FindBy(xpath = "(//*[@class='title_link d-flex align-items-center lh-1'])[1]")
     public WebElement viewAllBestDealsButton;
@@ -548,10 +549,40 @@ public class VisitorHomePage extends Base{
     public WebElement labelAllProductsNumber;
     @FindBy(xpath = "//*[@class='trending_product_active owl-carousel owl-loaded owl-drag']")
     public WebElement imageProductBestDeals;
+    @FindBy(xpath = "(//a[@class='addToCompareFromThumnail'])[1]")
+    public WebElement buttonCompare;
+    @FindBy(xpath = "//*[@class='single_wish_compare']")
+    public WebElement linkAddToCompare;
+    @FindBy(xpath = "//*[@class='compare_count']")
+    public WebElement linkCompareCount;
+    @FindBy(xpath = "(//*[@title='Quick View'])[1]")
+    public WebElement buttonQuickView;
+    @FindBy(xpath = "//*[@class='product_quick_view ']")
+    public WebElement quickViewProductPage;
+    @FindBy(xpath = "(//*[@class='add_to_wishlist '])[1]")
+    public WebElement buttonWishList;
+    @FindBy(xpath = "(//a[@title='Add to Cart'])[1]")
+    public WebElement buttonAddToCart;
+    @FindBy(xpath = "//*[@class='product_quick_view ']")
+    public WebElement addToCartBox;
+
     @FindBy(xpath = "//*[@id='feature_categories_title']")
     public WebElement labelFeatureCategories;
+    @FindBy(xpath = "//*[@id='feature_categories']/div/div[2]/div")
+    public List<WebElement> featureCategoriesProdBox;
+
+
+    @FindBy(xpath = "(//*[@class='shop_now_text'])[1]")
+    public WebElement linkShopNow;
+
     @FindBy(xpath = "//*[@id='top_rating_title']")
     public WebElement labelTopRating;
+    @FindBy(xpath = "(//*[@class='owl-stage-outer'])[3]")
+    public WebElement prodTopRating;
+    @FindBy(xpath = "(//*[@class='ti-angle-left'])[3]")
+    public WebElement buttonLeftAngle;
+    @FindBy(xpath = "(//*[@class='ti-angle-right'])[3]")
+    public WebElement buttonRightAngle;
     @FindBy(xpath = "//*[@id='people_choice_title']")
     public WebElement labelPeopleChoices;
     @FindBy(xpath = "//*[@id='top_picks_title']")
