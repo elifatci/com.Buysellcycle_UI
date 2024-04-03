@@ -14,6 +14,7 @@ Feature: U27 As a registered user, I would like to be able to view the sellers I
 
   @US27TC02
   Scenario: TC_02 Testing the functions on the Follow page
+    * Scroll down the page until visible the Follow link
     * Click on the Follow menu
     * Verify that the SL,Name,Total Product,Total Followers,Action headers are displayed
     * Test that the unfollow button is visible and clickable

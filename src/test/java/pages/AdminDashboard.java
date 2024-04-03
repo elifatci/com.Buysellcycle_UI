@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ReusableMethods;
-
 import java.util.List;
 
 public class AdminDashboard extends Base{
@@ -79,6 +78,21 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[5]/a")
     public WebElement linkAddNewProduct;
 
+    //US_38 dashboardside bar Add New Product link
+    @FindBy(xpath = "//*[@id=\"sidebar_menu\"]/li[8]/a")
+    public WebElement linkProducts;
+
+    @FindBy (xpath = "//*[@id=\"choice_form\"]/ul/li")
+    public List<WebElement> linkAddNewProductList;
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[1]/div")
+    public List<WebElement> searchBoxProductInformation;
+
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[1]/div[20]/div[2]/div")
+    public List<WebElement> searchBoxPhyscialProdukt;
+
+    @FindBy (xpath = "//*[@id=\"GenaralInfo\"]/div/div[1]/div/div[2]/div")
+    public List<WebElement> searchBoxPriceInfo;
+
 
     //US_38 dashboardside bar Add New Product link-General Information
     @FindBy(xpath = "(//*[@class='nav-item'])[1]")
@@ -101,7 +115,7 @@ public class AdminDashboard extends Base{
     public WebElement radioButtonSingle;
 
     //US_38 Add new Product variant radio button
-    @FindBy(xpath = "//*[@id=\"variant_prod\"]")
+    @FindBy(xpath = "//input[@id='product_type']")
     public WebElement radioButtonVariant;
 
     //US_38 Add new Product Name Box
@@ -160,6 +174,16 @@ public class AdminDashboard extends Base{
     //US_38 Products dropdown Units link
     @FindBy(xpath= "//*[@id=\"sidebar_menu\"]/li[8]/ul/li[4]/a/text()")
     public WebElement linkUnits;
+
+    @FindBy(xpath= "(//I[@class='note-icon-picture'])[1]")
+    public WebElement buttonPicture;
+
+    @FindBy(xpath= "//input[@id='note-dialog-image-file-17121346018781']")
+    public WebElement buttonDateiAuswählen;
+
+    @FindBy(xpath= "//*[@id=\"choice_form\"]/div[3]/div[1]/div/text()")
+    public WebElement labelWarningText;
+
     //-----------------------------------------
 //***********************US_34/TC_01******************************************
 
@@ -393,7 +417,6 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[text()='Select from options'])[2]")
     public WebElement subMenuSelectFromOptions;
 
-
     //=========================US 41 >> STAF ======================================
 
     @FindBy(xpath = "(//div[@class='nav_title'])[5]")
@@ -455,5 +478,83 @@ public class AdminDashboard extends Base{
     public WebElement textboxDateJoiningStaff;
     @FindBy(xpath = "//input[@name='leave_applicable_date']")
     public WebElement textboxDateApplicaStaff;
+  
+    //------US44-----
+    @FindBy(xpath = "(//*[@id='dropdownMenu2'])[13]")
+    public WebElement buttonconfirmedSelect;
+    @FindBy(xpath = "(//tr[1]/td[1])[2]")
+    public WebElement buttonconfirmedAction;
+    @FindBy(xpath = "(//td[1])[1]")
+    public WebElement buttonpendingAction;
+    @FindBy(xpath = "//span[2]/div/button")
+    public WebElement buttonpendingSelect;
+    @FindBy(xpath = "(//*[text()='Details'])[13]")
+    public WebElement dropDownconfirmedDetailsSelect;
+    @FindBy(xpath = "(//*[@class='primary_input_label'])[1]")
+    public WebElement labelConfirmedOrderConfirm;
+    @FindBy(xpath = "//*[@href='https://qa.buysellcycle.com/ordermanage/sales-details/142']")
+    public WebElement buttonNotificiationRelevantDetails;
+    @FindBy(xpath = "//*[text()='Order Confirmation']")
+    public WebElement labelNotificiationRelevantDetails;
+    @FindBy(xpath = "//span[text()='Order Manage']")
+    public WebElement linkOrderManage;
+    @FindBy(xpath = "(//*[text()='Total Order'])[1]")
+    public WebElement subLinkTotalOrder;
+    @FindBy(xpath = "//*[@class='nav nav_list']")
+    public WebElement totalOrderLists;
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-25'])[1]")
+    public WebElement dropDownOrderConfirmationSelect;
+    @FindBy(xpath = "//*[@data-value='1']")
+    public WebElement subupdateRandomSelect;
+    @FindBy(xpath = "(//*[text()='Confirm'])[2]")
+    public WebElement buttonConfirmUpdate;
+    @FindBy(xpath = "//*[@class='toast-message']")
+    public WebElement labelupdateSuccesfully;
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[4]")
+    public WebElement pendingconfirmedOrder;
+    @FindBy(xpath = "(//*[@class='update_active_status'])[1]")
+    public WebElement confirmedRegisterSelect;
+    @FindBy(xpath = "//*[@placeholder='Quick Search']")
+    public WebElement searchBoxPendingQuickSearch;
+    @FindBy(xpath = "//*[text()='nobady@nobady.com']")
+    public WebElement searchBoxQuickSearchResultText;
+    @FindBy(xpath = "//*[text()='Confirmed Orders']")
+    public WebElement buttonLinkconfirmedOrder;
+    @FindBy(xpath = "(//tr[1]/td[1])[3]")
+    public WebElement buttonCompletedAction;
+    @FindBy(xpath = "//span[2]/div/div/a")
+    public WebElement completedDetail;
+    @FindBy(xpath = "(//*[@placeholder='Quick Search'])[3]")
+    public WebElement searchBoxCompletedQuickSearch;
+    @FindBy(xpath = "//*[text()='Completed Orders']")
+    public WebElement buttonLinkcompletedOrder;
+    @FindBy(xpath = "(//*[@placeholder='Quick Search'])[2]")
+    public WebElement searchBoxConfirmedQuickSearch;
+    @FindBy(xpath = "(//label/input)[4]")
+    public WebElement serchBoxPayment;
+    @FindBy(xpath = "//*[text()='Pending Payment Orders']")
+    public WebElement buttonLinkpaymentOrder;
+    @FindBy(xpath = "(//tr[1]/td[1])[4]")
+    public WebElement buttonPaymentAction;
+    @FindBy(xpath = "(//button[contains(text(),'Select')])[32]")
+    public WebElement buttonPaymentSelect;
+    @FindBy(xpath = "(//a[text()='Details'])[32]")
+    public WebElement linkPaymentDetails;
+    @FindBy(xpath = "//*[@id='5']")
+    public WebElement buttonLinkRefusedCancelled;
+    @FindBy(xpath = "(//tr[1]/td[1])[5]")
+    public WebElement buttonRefusedCancelledAction;
+    @FindBy(xpath = "(//button[contains(text(),'Select')])[46]")
+    public WebElement buttonRefusedCancelledSelect;
+    @FindBy(xpath = "(//a[text()='Details'])[46]")
+    public WebElement linkRefusedCancelledDetails;
+    @FindBy(xpath = "(//*[@class='primary_input_label red'])[2]")
+    public WebElement orderCancelledText;
+    @FindBy(xpath = "//tr/td[4]")
+    public List<WebElement> adminTable;
+
+    @FindBy(xpath = "(//*[@type='search'])[5]")
+    public WebElement searchBoxQuickRefused;
+
 
 }

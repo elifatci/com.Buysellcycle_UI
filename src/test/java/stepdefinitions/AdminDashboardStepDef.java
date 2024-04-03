@@ -2,6 +2,7 @@ package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.Base;
 import pages.UserDashboard;
 import utils.ConfigReader;
@@ -9,6 +10,7 @@ import utils.ReusableMethods;
 import org.openqa.selenium.JavascriptExecutor;
 import utils.Driver;
 import java.io.File;
+import java.util.List;
 import static org.junit.Assert.*;
 
 public class AdminDashboardStepDef extends Base {
@@ -403,76 +405,119 @@ public class AdminDashboardStepDef extends Base {
     //TC01
     @Given("Clicks the product link in the admin dashboard sidebar")
     public void clicks_the_product_link_in_the_admin_dashboard_sidebar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+       adminDashboard.linkProducts.click();
+
     }
 
     @Given("Clicks the  add new product link in the admin dashboard sidebar")
     public void clicks_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-
+        adminDashboard.linkAddNewProduct.click();
     }
 
     //TC02
     @Given("Add new Productin titles\\(General Information, Related Product, Up Sale, Cross sale) display")
     public void add_new_productin_titles_general_information_related_product_up_sale_cross_sale_display() {
-
+     ReusableMethods.wait(3);
+     userDashboard.checkListELements(adminDashboard.linkAddNewProductList,4);
 
     }
 
     //TC03
     @Given("select variant type")
     public void select_variant_type() {
+        ReusableMethods.wait(1);
+       adminDashboard.linkAddNewProduct.click();
+       ReusableMethods.waitAndClick(adminDashboard.radioButtonVariant);
     }
     //TC04
     @Given("Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags \\(Comma Separated) Text Boxes in Product Information Section")
     public void display_name_product_sku_model_number_category_brand_unit_barcode_type_minimum_order_qty_max_order_qty_tags_comma_separated_text_boxes_in_product_information_section() {
+        ReusableMethods.wait(3);
+        for (int i = 2; i < 6; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
+        for (int i = 7; i < 15; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
 
     }
     //TC05
     @Given("Enter the information in the Weight Height Info section")
     public void enter_the_information_in_the_weight_height_info_section() {
+        ReusableMethods.wait(3);
+        userDashboard.checkListELements(adminDashboard.searchBoxPriceInfo,4);
 
     }
     //TC06
     @Given("Information is entered in Price Info and Stock section")
     public void information_is_entered_in_price_info_and_stock_section() {
+        ReusableMethods.wait(3);
+        for (int i = 2; i < 6; i++) {
+            assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
+        }
 
     }
     //TC07
     @Given("Picture is added to Description section")
     public void picture_is_added_to_description_section() {
+        adminDashboard.buttonPicture.click();
+
 
     }
     //TC08
     @Given("the necessary information is entered and a new product is added to the site")
     public void the_necessary_information_is_entered_and_a_new_product_is_added_to_the_site() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @Given("Save & Publish and Save buttons are visible and their activation is confirmed")
     public void save_publish_and_save_buttons_are_visible_and_their_activation_is_confirmed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
     @Given("a new product is added to the site")
     public void a_new_product_is_added_to_the_site() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
     //TC09
     @Given("On the Add New Product page, related products are determined for the product to be added")
     public void on_the_add_new_product_page_related_products_are_determined_for_the_product_to_be_added() {
+        adminDashboard.verifyVisibleActive(adminDashboard.linkRelatedProduct);
+
+
     }
     //TC10
     @Given("On the Add New Product page, select the products up sale")
     public void on_the_add_new_product_page_select_the_products_up_sale() {
-
+        adminDashboard.verifyVisibleActive(adminDashboard.linkUpSale);
     }
     //TC11
+    @Given("On the Add New Product page, select the products cross  sale")
+    public void on_the_add_new_product_page_select_the_products_cross_sale() {
+        adminDashboard.verifyVisibleActive(adminDashboard.linkCrossSale);
+    }
+        //TC12
+        @Given("Add New Product sayfasinda {string} uyari mesaji goruntulenir")
+        public void add_new_product_sayfasinda_uyari_mesaji_goruntulenir(String string) {
+       assertTrue( adminDashboard.labelWarningText.isDisplayed());
+
+        }
+        //TC13
+        @Given("Display Category und clicks")
+        public void display_category_und_clicks() {
+
+
+        }
+        @Given("Display Brand  Page und clicks")
+        public void display_brand_page_und_clicks() {
+
+
+        }
+        @Given("Display Unit  Page und clicks")
+         public void display_unit_page_und_clicks() {
+
+         }
+
 
 
     //US43 TC01
@@ -488,8 +533,8 @@ public class AdminDashboardStepDef extends Base {
     public void click_on_the_support_ticket_link_below() {
 
     }
-    @Given("Verify that it redirects to the relevant page")
-    public void verify_that_it_redirects_to_the_relevant_page() {
+    @Given("Verify that it redirects to the Support Ticket page")
+    public void verify_that_it_redirects_to_the_support_ticket_page() {
 
     }
 
@@ -637,6 +682,212 @@ public class AdminDashboardStepDef extends Base {
     public void it_is_verified_that_the_new_staff_record_created_appears_in_the_staff_list() {
 
     }
+
+    //US_044 TC01
+
+    @Given("clicks on the Order Manage menu link")
+    public void clicks_on_the_order_manage_menu_link() {
+        adminDashboard.linkOrderManage.click();
+    }
+
+    @Given("clicks on the Total Order submenu link")
+    public void clicks_on_the_total_order_submenu_link() {
+       adminDashboard.subLinkTotalOrder.click();
+    }
+    @Given("verifies that the Total Order page is accessible")
+    public void verifies_that_the_total_order_page_is_accessible() {
+        assertEquals("https://qa.buysellcycle.com/ordermanage/total-sales-list", Driver.getDriver().getCurrentUrl());
+    }
+
+    //US_044 TC02
+    @Given("verifies that lists for Pending Orders, Confirmed Orders, Completed Orders, Pending Payment Orders, Refused and Cancelled Orders, and Inhouse Orders are displayed")
+    public void verifies_that_lists_for_pending_orders_confirmed_orders_completed_orders_pending_payment_orders_refused_and_cancelled_orders_and_ınhouse_orders_are_displayed() {
+        System.out.println(adminDashboard.totalOrderLists.getText());
+        assertTrue(adminDashboard.totalOrderLists.getText().contains("PENDING PAYMENT ORDERS"));
+    }
+
+    //US_044 TC03
+    @Given("clicks on the pending Details option to view detailed information")
+    public void clicks_on_the_pending_details_option_to_view_detailed_information() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonpendingAction);
+        ReusableMethods.clickWithJS(adminDashboard.buttonpendingSelect);
+        ReusableMethods.clickWithJS(adminDashboard.pendingconfirmedOrder);
+    }
+    @Given("verifies that detailed information of the selected pending order is displayed")
+    public void verifies_that_detailed_information_of_the_selected_pending_order_is_displayed() {
+        assertTrue(adminDashboard.labelConfirmedOrderConfirm.isDisplayed());
+    }
+    //US_044 TC04
+    @Given("updates the order confirmation, payment status, and completion status randomly")
+    public void updates_the_order_confirmation_payment_status_and_completion_status_randomly() {
+        ReusableMethods.clickWithJS(adminDashboard.dropDownOrderConfirmationSelect);
+        ReusableMethods.clickWithJS(adminDashboard.subupdateRandomSelect);
+
+    }
+
+    @Given("clicks on the Update button to save the changes")
+    public void clicks_on_the_update_button_to_save_the_changes() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonConfirmUpdate);
+    }
+
+    @Given("verifies that the changes are saved successfully")
+    public void verifies_that_the_changes_are_saved_successfully() {
+        assertEquals("Updated successfully!", adminDashboard.labelupdateSuccesfully.getText());
+    }
+
+    //US_044 TC05
+    @Given("verifies that the order status is updated to confirmed")
+    public void verifies_that_the_order_status_is_updated_to_confirmed() {
+        ReusableMethods.clickWithJS(adminDashboard.pendingconfirmedOrder);
+        assertEquals("Status Updated successfully!", adminDashboard.labelupdateSuccesfully.getText());
+    }
+    //US_044 TC06
+    @Given("enters a search query in the Quick Search text box in the Pending Orders List")
+    public void enters_a_search_query_in_the_quick_search_text_box_in_the_pending_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.searchBoxPendingQuickSearch);
+        adminDashboard.searchBoxPendingQuickSearch.sendKeys("nobady" + Keys.ENTER);
+    }
+
+    @Given("verifies that results matching the search query are displayed")
+    public void verifies_that_results_matching_the_search_query_are_displayed() {
+        System.out.println(adminDashboard.searchBoxQuickSearchResultText.getText());
+        assertTrue(adminDashboard.searchBoxQuickSearchResultText.getText().contains("nobady"));
+    }
+    //US_044 TC07
+    @Given("selects the Confirmed Orders option")
+    public void selects_the_confirmed_orders_option() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkconfirmedOrder);
+
+    }
+
+    @Given("enters a search query3 in the Quick Search text box in the Confirmed Orders List")
+    public void enters_a_search_query3_in_the_quick_search_text_box_in_the_confirmed_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.searchBoxConfirmedQuickSearch);
+        adminDashboard.searchBoxConfirmedQuickSearch.sendKeys("......." + Keys.ENTER);
+
+    }
+
+    @Given("verifies that results matching the search query3 are displayed")
+    public void verifies_that_results_matching_the_search_query3_are_displayed() {
+
+    }
+    //US_044 TC08
+    @Given("clicks on the confirmed Details option to view detailed information")
+    public void clicks_on_the_confirmed_details_option_to_view_detailed_information() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkconfirmedOrder);
+        ReusableMethods.clickWithJS(adminDashboard.buttonconfirmedAction);
+        ReusableMethods.clickWithJS(adminDashboard.buttonconfirmedSelect);
+        ReusableMethods.clickWithJS(adminDashboard.dropDownconfirmedDetailsSelect);
+    }
+    @Given("verifies that detailed information is displayed")
+    public void verifies_that_detailed_information_is_displayed() {
+        assertTrue(adminDashboard.labelConfirmedOrderConfirm.isDisplayed());
+    }
+    //US_044 TC09
+    @Given("selects the Completed Orders option")
+    public void selects_the_completed_orders_option() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkcompletedOrder);
+    }
+
+    @Given("enters a search query in the Quick Search text box in the Completed Orders List")
+    public void enters_a_search_query_in_the_quick_search_text_box_in_the_completed_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.searchBoxCompletedQuickSearch);
+        adminDashboard.searchBoxCompletedQuickSearch.sendKeys("......." + Keys.ENTER);
+    }
+
+    @Given("verifies that results matching the search query2 are displayed")
+    public void verifies_that_results_matching_the_search_query2_are_displayed() {
+
+    }
+
+    //US_044 TC10
+
+    @Given("selects a completed order from the list")
+    public void selects_a_completed_order_from_the_list() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkcompletedOrder);
+        ReusableMethods.clickWithJS(adminDashboard.buttonCompletedAction);
+
+
+    }
+
+    @Given("clicks on the completed Details option to view detailed information")
+    public void clicks_on_the_completed_details_option_to_view_detailed_information() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonconfirmedSelect);
+        ReusableMethods.clickWithJS(adminDashboard.completedDetail);
+    }
+
+    //US_044 TC11
+    @Given("selects the Pending Payment Orders option")
+    public void selects_the_pending_payment_orders_option() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkpaymentOrder);
+    }
+
+    @Given("enters a search query in the Quick Search text box in the Pending Payment Orders List")
+    public void enters_a_search_query_in_the_quick_search_text_box_in_the_pending_payment_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.serchBoxPayment);
+        adminDashboard.serchBoxPayment.sendKeys("ugur" + Keys.ENTER);
+    }
+    @Given("verifies that payment results matching the search query are displayed")
+    public void verifies_that_payment_results_matching_the_search_query_are_displayed() {
+
+    }
+    //US_044 TC12
+    @Given("selects a pending payment order from the list")
+    public void selects_a_pending_payment_order_from_the_list() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkpaymentOrder);
+        ReusableMethods.clickWithJS(adminDashboard.buttonPaymentAction);
+    }
+
+    @Given("clicks on the payment Details option to view detailed information")
+    public void clicks_on_the_payment_details_option_to_view_detailed_information() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonPaymentSelect);
+        ReusableMethods.clickWithJS(adminDashboard.linkPaymentDetails);
+    }
+    //US_044 TC13
+
+    @Given("selects the RefusedCancelled Orders option")
+    public void selects_the_refused_cancelled_orders_option() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkRefusedCancelled);
+    }
+
+    @Given("enters a search query in the Quick Search text box in the RefusedCancelled Orders List")
+    public void enters_a_search_query_in_the_quick_search_text_box_in_the_refused_cancelled_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.searchBoxQuickRefused);
+        adminDashboard.searchBoxQuickRefused.sendKeys("ugur" + Keys.ENTER);
+
+    }
+    @Given("verifies that results matching the search RefusedCancelled Orders query are displayed")
+    public void verifies_that_results_matching_the_search_refused_cancelled_orders_query_are_displayed() {
+
+    }
+    //US_044 TC14
+    @Given("Click on RefusedCancelled Orders at the top")
+    public void click_on_refused_cancelled_orders_at_the_top() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonLinkRefusedCancelled);
+    }
+    @Given("Clicks any Action in the RefusedCancelled Orders List")
+    public void clicks_any_action_in_the_refused_cancelled_orders_list() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonRefusedCancelledAction);
+    }
+    @Given("Clicks Select buttonLink under refusedAction")
+    public void clicks_select_button_link_under_refused_action() {
+        ReusableMethods.clickWithJS(adminDashboard.buttonRefusedCancelledSelect);
+        ReusableMethods.clickWithJS(adminDashboard.linkRefusedCancelledDetails);
+    }
+    @Given("Click on Details to view the results")
+    public void click_on_details_to_view_the_results() {
+        assertTrue(adminDashboard.orderCancelledText.isDisplayed());
+    }
+    @Given("selects a refusedcancelled order from the list")
+    public void selects_a_refused_cancelled_order_from_the_list() {
+        tableStr = ReusableMethods.strListeOlustur(adminDashboard.adminTable);
+
+    }
+    @Given("verifies that detailed information of the selected refusedcancelled order is displayed")
+    public void verifies_that_detailed_information_of_the_selected_refused_cancelled_order_is_displayed() {
+        System.out.println(tableStr.contains("admin"));
+    }
+
 
 
 }

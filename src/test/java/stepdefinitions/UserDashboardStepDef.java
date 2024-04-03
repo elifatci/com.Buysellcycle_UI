@@ -3,8 +3,8 @@ package stepdefinitions;
 import io.cucumber.java.en.Given;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import pages.Base;
 import pages.UserDashboard;
@@ -74,7 +74,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Clicks the Login buttonLink on the home page")
     public void clicks_the_login_button_link_on_the_home_page() {
-        visitorHomePage.buttonPopUpClose.click();
+        //visitorHomePage.buttonPopUpClose.click();
         visitorHomePage.linkLogin.click();
         ReusableMethods.wait(2);
     }
@@ -87,8 +87,8 @@ public class UserDashboardStepDef extends Base {
     @Given("Displays Purchase History banner in Dashboard sideBar")
     public void displays_purchase_history_banner_in_dashboard_side_bar() {
         ReusableMethods.wait(2);
-        //actions.sendKeys(Keys.PAGE_DOWN).perform();
-        userDashboard.linkPurchaseHistory.isDisplayed();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        assertTrue(userDashboard.linkPurchaseHistory.isDisplayed());
     }
 
     @Given("Clicking on the Purchase History link confirms that the relevant page has been accessed.")
@@ -551,11 +551,6 @@ public class UserDashboardStepDef extends Base {
         assertEquals("The category id field is required.",userDashboard.labelWarningMessage2.getText());
 
     }
-
-
-
-
-
     //======================================================================================================================
     //US21 ---> TC01
     @Given("User clicks on -My Wallet- and displays the My Wallet {string}.")
@@ -991,14 +986,27 @@ public class UserDashboardStepDef extends Base {
 
     @Given("In SideBar, the menu item My Account appears.")
     public void in_side_bar_the_menu_item_my_account_appears() {
+        ReusableMethods.wait(5);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         userDashboard.linkHeaderMyAccount.isDisplayed();
+        ReusableMethods.wait(2);
     }
     @Given("Go to the My Account page.")
     public void go_to_the_my_account_page() {
-        ReusableMethods.clickWithJS(userDashboard.linkHeaderMyAccount);
+        userDashboard.linkHeaderMyAccount.click();
+        ReusableMethods.wait(2);
+
     }
     @Given("Upload a new profile picture by clicking on the Browse button and verify that it has been uploaded.")
     public void upload_a_new_profile_picture_by_clicking_on_the_browse_button_and_verify_that_it_has_been_uploaded() {
+        userDashboard.buttonBasicInfo.isDisplayed();
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.TAB).perform();
+        String filePath = "C:\\Users\\HP\\OneDrive\\Resimler\\Ekran Görüntüleri\\2023-07-11 185959.png";
+        userDashboard.buttonBrowse.sendKeys(filePath);
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(userDashboard.pcOpenFile);
+
 
     }
     //*************************US24/TC02*******************************************
@@ -1024,28 +1032,199 @@ public class UserDashboardStepDef extends Base {
     //US27 TC01
     @Given("Verify that the Follow banner is visible in the Dashboard sideBar")
     public void verify_that_the_follow_banner_is_visible_in_the_dashboard_side_bar() {
-
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        assertTrue(userDashboard.linkFollow.isDisplayed());
     }
     @Given("Click on the Follow menu")
     public void click_on_the_follow_menu() {
-
+            userDashboard.linkFollow.click();
     }
     @Given("Verify that it redirects to the Follow page")
     public void verify_that_it_redirects_to_the_follow_page() {
-
+        assertTrue(userDashboard.labelFollowSellerHistory.isDisplayed());
     }
 
     //US27 TC02
+    @Given("Scroll down the page until visible the Follow link")
+    public void scroll_down_the_page_until_visible_the_follow_link() {
+        ReusableMethods.wait(2);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+    }
     @Given("Verify that the SL,Name,Total Product,Total Followers,Action headers are displayed")
     public void verify_that_the_sl_name_total_product_total_followers_action_headers_are_displayed() {
-
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.tableFollow.get(0).getText().contains("SL"));
+        assertTrue(userDashboard.tableFollow.get(1).getText().contains("Name"));
+        assertTrue(userDashboard.tableFollow.get(2).getText().contains("Total"));
+        assertTrue(userDashboard.tableFollow.get(3).getText().contains("Product"));
+        assertTrue(userDashboard.tableFollow.get(4).getText().contains("Followers"));
+        assertTrue(userDashboard.tableFollow.get(5).getText().contains("Action"));
     }
     @Given("Test that the unfollow button is visible and clickable")
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
-
+            adminDashboard.verifyVisibleActive(userDashboard.buttonUnfollow);
     }
 
+    //US31 TC01
+    @Given("Click on the user site logo")
+    public void click_on_the_user_site_logo() {
+            visitorHomePage.logoBuySell.click();
+    }
+    @Given("Clicks on the product titled Orange Balloon in the Best Deals section")
+    public void clicks_on_the_product_titled_orange_balloon_in_the_best_deals_section() {
+        ReusableMethods.clickWithJS(userDashboard.imageProductOrangeBaby);
+    }
+    @Given("Clicks the Add to card button")
+    public void clicks_the_add_to_card_button() {
+        userDashboard.buttonAddToCartProduct.click();
+    }
+    @Given("Clicks the View card button")
+    public void clicks_the_view_card_button() {
+      userDashboard.buttonViewCardProduct.click();
+    }
+    @Given("Verify that it redirects to the Cart page")
+    public void verify_that_it_redirects_to_the_cart_page() {
+      assertTrue(userDashboard.labelOrderSummaryCard.isDisplayed());
+    }
 
+    //US31 TC02
+    @Given("Clicks on the Cart link on the header section")
+    public void clicks_on_the_cart_link_on_the_header_section() {
+       userDashboard.linkCartHeader.click();
+    }
+    @Given("Increase the product quantity by one in the product detail section")
+    public void ıncrease_the_product_quantity_by_in_the_product_detail_section() {
+        userDashboard.iconQuantityPlus.click();
+    }
+    @Given("Verify that subtotal information is updated")
+    public void verify_that_subtotal_information_is_updated() {
+        ReusableMethods.wait(2);
+        assertTrue(userDashboard.labelSubTotalPrice.getText().contains("360"));
+    }
+    @Given("Verify that the Continue Shopping, Proceed To Checkout buttons are visible and clickable")
+    public void verify_that_the_continue_shopping_proceed_to_checkout_buttons_are_visible_and_clickable() {
+            assertTrue(userDashboard.buttonContinueShopping.isDisplayed());
+            assertTrue(userDashboard.buttonProceedToCheckoutCart.isDisplayed());
+            assertTrue(userDashboard.buttonContinueShopping.isDisplayed());
+            assertTrue(userDashboard.buttonProceedToCheckoutCart.isEnabled());
+    }
+    @Given("Verify that the Order summary section is visible")
+    public void verify_that_the_order_summary_section_is_visible() {
+        assertTrue(userDashboard.labelOrderSummary.isDisplayed());
+    }
+
+    @Given("Verify that the discount amount of the product is visible in the product detail section.")
+    public void verify_that_the_discount_amount_of_the_product_is_visible_in_the_product_detail_section() {
+        assertTrue(userDashboard.labelDiscount.isDisplayed());
+    }
+    @Given("Delete the product in the product detail section")
+    public void delete_the_product_in_the_product_detail_section() {
+        userDashboard.iconDeleteProduct.click();
+    }
+    @Given("Verify that the product has been deleted")
+    public void verify_that_the_product_has_been_deleted() {
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
+    }
+    //***********US19 My WishList*****************
+    @Given("Click on the My Wishlist on the sidebar")
+    public void click_on_the_my_wishlist_on_the_sidebar() {
+      userDashboard.linkWishList_sidebar.click();
+    }
+    @Given("Verify that the url is {string}")
+    public void verify_that_the_url_is(String url) {
+      assertEquals(url,Driver.getDriver().getCurrentUrl());
+    }
+    @Given("Click the New dropdown and click Price\\(Low to Height)")
+    public void click_the_new_dropdown_and_click_price_low_to_height() {
+       userDashboard.dropDownNewWishList.click();
+       userDashboard.dropDownPriceLowToHighWishList.click();
+    }
+    @Given("Compare second and third price")
+    public void compare_second_and_third_price() {
+        double secondProductPrice = Double.parseDouble(userDashboard.textPriceSecondProductWishList.toString());
+        double thirdProductPrice = Double.parseDouble(userDashboard.textPriceThirdProductWishList.toString());
+        assertTrue("The price of the second product should be lower than the price of the third product.", secondProductPrice < thirdProductPrice);
+    }
+
+    @Given("Click on the chart icon of the first product on the Wishlist")
+    public void click_on_the_chart_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,400);
+        ReusableMethods.wait(1);
+        userDashboard.iconCart_Wishlist.click();
+    }
+
+    @Given("verify that  the modal appears on Wishlist")
+    public void verify_that_the_message_item_added_to_your_cart_on_the_modal_on_wishlist() {
+        ReusableMethods.wait(1);
+        assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
+    }
+    @Given("Close the modal window that opened on Wishlist")
+    public void close_the_modal_window_that_opened_on_wishlist() {
+      userDashboard.buttonCloseModalWishlist.click();
+    }
+    @Given("Click on the compare icon of the first product on the Wishlist")
+    public void click_on_the_compare_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,-400);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconCompareWishlist.click();
+    }
+
+    @Given("Click on the quick view icon")
+    public void click_on_the_quick_view_icon() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconQuickViewWishlist.click();
+    }
+
+    @Given("click on the delete icon and click delete on the confirmation modal")
+    public void click_on_the_delete_icon_and_click_delete_on_the_confirmation_modal() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconDeleteWishlist.click();
+        ReusableMethods.wait(1);
+        userDashboard.buttonDeleteModalWishlist.click();
+    }
+
+    @Given("verify that successful message appears")
+    public void verify_that_successful_message_appears() {
+        assertTrue(userDashboard.popUpWishlist.isDisplayed());
+    }
+
+    //*******US28__Notifications Sidebar********************
+    @Given("Click on the Notification on the sidebar")
+    public void click_on_the_notification_on_the_sidebar() {
+       ReusableMethods.scrollWithPixelsJS(0,400);
+       ReusableMethods.wait(1);
+       userDashboard.linkNotifications.click();
+    }
+    @Given("Verify that Notification title is visible")
+    public void verify_that_notification_title_is_visible() {
+        assertTrue(userDashboard.labelTitleNotifications.isDisplayed());
+    }
+    @Given("Verify that displays Title and Date information of incoming notifications")
+    public void verify_that_displays_title_and_date_information_of_incoming_notifications() {
+      assertTrue(userDashboard.labelTitleOrderNotificationFirst.isDisplayed());
+      assertTrue(userDashboard.labelDateOrderNotificationFirst.isDisplayed());
+    }
+    @Given("Clicks view on the notification and  verify that  the relevant page opens")
+    public void clicks_view_on_the_notification_and_verify_that_the_relevant_page_opens() {
+       userDashboard.buttonViewOrderNotificationFirst.click();
+       assertTrue(userDashboard.labelOrderIDNotification.isDisplayed());
+    }
+    @Given("Click Setting button on the Notifications and displays the Setting list displays by title <<Notifications Setting>>")
+    public void click_setting_button_on_the_notifications_and_displays_the_setting_list_displays_by_title_notifications_setting() {
+        userDashboard.buttonSettingNotification.click();
+        assertTrue(userDashboard.labelNotificationSetting.isDisplayed());
+    }
+    @Given("Updates the Types of Events in the Setting list and verify that the successful message appears")
+    public void updates_the_types_of_events_in_the_setting_list_and_verify_that_the_successful_message_appears() {
+      userDashboard.checkboxNotificationSetting.click();
+      ReusableMethods.wait(2);
+      assertTrue(userDashboard.labelChangeSystemMessage.isDisplayed());
+      //assertTrue(userDashboard.checkboxNotificationSetting.isSelected());
+    }
 }
 
 
