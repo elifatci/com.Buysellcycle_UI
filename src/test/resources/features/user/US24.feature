@@ -7,12 +7,13 @@ Feature: US_24 As a user, I would like to have an account page to view, change o
     * Login by entering valid "customerEmailReyyan" and "password" on the SignIn page.
 
 
+
     Scenario: TC_01 As a user, you should be able to log in and update your profile picture in the My Account
     menu on the dashboard page.
 
       * In SideBar, the menu item My Account appears.
       * Go to the My Account page.
-      * Upload a new profile picture by clicking on the Browse button and verify that it has been uploaded.
+
   @US24TC02
     Scenario: TC_02 As a user, you should be able to log in and update basic info  in the My Account menu on the
     dashboard page.

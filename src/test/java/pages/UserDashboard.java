@@ -416,13 +416,19 @@ public class UserDashboard extends Base {
     public WebElement linkHeaderMyAccount;
 
     //UserDasboard/Side Bar /My Account
-    @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
-    public WebElement imageProfileBrowse;
+
+    @FindBy(xpath = "//img[@id='uploadImgShow']")
+    public WebElement imageUpload;
 
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
     public WebElement buttonBrowse;
 
+    @FindBy(xpath = "file-input-id")
+    public WebElement pcFileInput;
+
+    @FindBy(xpath = "open-button-id")
+    public WebElement pcOpenFile;
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//button[@id='Info-tab']")
     public WebElement buttonBasicInfo;
@@ -709,6 +715,56 @@ public class UserDashboard extends Base {
 
     @FindBy(xpath = "//*[text()='Discount']")
     public WebElement labelDiscount;
+
+   //*********US19 My WishList*************************
+   @FindBy(xpath = "(//div/span[@class='current'])[4]")
+   public WebElement dropDownNewWishList;
+    @FindBy(xpath = "//li[@data-value='low_to_high']")
+    public WebElement dropDownPriceLowToHighWishList;
+    @FindBy(xpath = "(//div/div/p/strong)[2]")
+    public WebElement textPriceSecondProductWishList;
+    @FindBy(xpath = "(//div/div/p/strong)[3]")
+    public WebElement textPriceThirdProductWishList;
+    @FindBy(xpath = "(//a[@data-product-sku='1724'])[2]")
+    public WebElement iconCart_Wishlist;
+    @FindBy(xpath = "//a[@id='add_to_cart_btn_modal']")
+    public WebElement buttonAddToChartModalWishlist;
+    @FindBy(xpath = "(//i[@class='ti-close'])[7]")
+    public WebElement buttonCloseModalWishlist;
+    @FindBy(xpath = "//div[@class='product_thumb_upper']")
+    public WebElement imageProductFirstWishlist;
+    @FindBy(xpath = "//i[@class='ti-control-shuffle']")
+    public WebElement iconCompareWishlist;
+    @FindBy(xpath = "//div[@class='toast-progress']")
+    public WebElement popUpWishlist;
+    @FindBy(xpath = "(//i[@class='ti-eye'])[1]")
+    public WebElement iconQuickViewWishlist;
+    @FindBy(xpath = "//a[@data-id='297']")
+    public WebElement iconDeleteWishlist;
+    @FindBy(xpath = "//button[@id='dataDeleteBtn']")
+    public WebElement buttonDeleteModalWishlist;
+
+    //*********US28 Notifications*************************
+    @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/profile/notifications']")
+    public WebElement linkNotifications;
+    @FindBy(xpath = "//h4[.='Notifications ']")
+    public WebElement labelTitleNotifications;
+    @FindBy(xpath = "//span[.='Order Is placed.']")
+    public WebElement labelTitleOrderNotificationFirst;
+    @FindBy(xpath = "//span[.='3rd Apr, 2024']")
+    public WebElement labelDateOrderNotificationFirst;
+    @FindBy(xpath = "//a[.='View']")
+    public WebElement buttonViewOrderNotificationFirst;
+    @FindBy(xpath = "//h4[.='Order ID:  ']")
+    public WebElement labelOrderIDNotification;
+    @FindBy(xpath = "//a[.='Setting']")
+    public WebElement buttonSettingNotification;
+    @FindBy(xpath = "//h4[.='Notifications Setting ']")
+    public WebElement labelNotificationSetting;
+    @FindBy(xpath = "//span[.='System']")
+    public WebElement checkboxNotificationSetting;
+    @FindBy(xpath = "//div[.='Updated successfully!']")
+    public WebElement labelChangeSystemMessage;
 
 
 }
