@@ -1026,8 +1026,106 @@ public class UserDashboardStepDef extends Base {
     public void test_that_the_unfollow_button_is_visible_and_clickable() {
 
     }
+    //***********US19 My WishList*****************
+    @Given("Click on the My Wishlist on the sidebar")
+    public void click_on_the_my_wishlist_on_the_sidebar() {
+      userDashboard.linkWishList_sidebar.click();
+    }
+    @Given("Verify that the url is {string}")
+    public void verify_that_the_url_is(String url) {
+      assertEquals(url,Driver.getDriver().getCurrentUrl());
+    }
+    @Given("Click the New dropdown and click Price\\(Low to Height)")
+    public void click_the_new_dropdown_and_click_price_low_to_height() {
+       userDashboard.dropDownNewWishList.click();
+       userDashboard.dropDownPriceLowToHighWishList.click();
+    }
+    @Given("Compare second and third price")
+    public void compare_second_and_third_price() {
+        double secondProductPrice = Double.parseDouble(userDashboard.textPriceSecondProductWishList.toString());
+        double thirdProductPrice = Double.parseDouble(userDashboard.textPriceThirdProductWishList.toString());
+        assertTrue("The price of the second product should be lower than the price of the third product.", secondProductPrice < thirdProductPrice);
+    }
 
-   }
+    @Given("Click on the chart icon of the first product on the Wishlist")
+    public void click_on_the_chart_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,400);
+        ReusableMethods.wait(1);
+        userDashboard.iconCart_Wishlist.click();
+    }
+
+    @Given("verify that  the modal appears on Wishlist")
+    public void verify_that_the_message_item_added_to_your_cart_on_the_modal_on_wishlist() {
+        ReusableMethods.wait(1);
+        assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
+    }
+    @Given("Close the modal window that opened on Wishlist")
+    public void close_the_modal_window_that_opened_on_wishlist() {
+      userDashboard.buttonCloseModalWishlist.click();
+    }
+    @Given("Click on the compare icon of the first product on the Wishlist")
+    public void click_on_the_compare_icon_of_the_first_product_on_the_wishlist() {
+        ReusableMethods.scrollWithPixelsJS(0,-400);
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconCompareWishlist.click();
+    }
+
+    @Given("Click on the quick view icon")
+    public void click_on_the_quick_view_icon() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconQuickViewWishlist.click();
+    }
+
+    @Given("click on the delete icon and click delete on the confirmation modal")
+    public void click_on_the_delete_icon_and_click_delete_on_the_confirmation_modal() {
+        ReusableMethods.hover(userDashboard.imageProductFirstWishlist);
+        userDashboard.iconDeleteWishlist.click();
+        ReusableMethods.wait(1);
+        userDashboard.buttonDeleteModalWishlist.click();
+    }
+
+    @Given("verify that successful message appears")
+    public void verify_that_successful_message_appears() {
+        assertTrue(userDashboard.popUpWishlist.isDisplayed());
+    }
+
+    //*******US28__Notifications Sidebar********************
+    @Given("Click on the Notification on the sidebar")
+    public void click_on_the_notification_on_the_sidebar() {
+       ReusableMethods.scrollWithPixelsJS(0,400);
+       ReusableMethods.wait(1);
+       userDashboard.linkNotifications.click();
+    }
+    @Given("Verify that Notification title is visible")
+    public void verify_that_notification_title_is_visible() {
+        assertTrue(userDashboard.labelTitleNotifications.isDisplayed());
+    }
+    @Given("Verify that displays Title and Date information of incoming notifications")
+    public void verify_that_displays_title_and_date_information_of_incoming_notifications() {
+      assertTrue(userDashboard.labelTitleOrderNotificationFirst.isDisplayed());
+      assertTrue(userDashboard.labelDateOrderNotificationFirst.isDisplayed());
+    }
+    @Given("Clicks view on the notification and  verify that  the relevant page opens")
+    public void clicks_view_on_the_notification_and_verify_that_the_relevant_page_opens() {
+       userDashboard.buttonViewOrderNotificationFirst.click();
+       assertTrue(userDashboard.labelOrderIDNotification.isDisplayed());
+    }
+    @Given("Click Setting button on the Notifications and displays the Setting list displays by title <<Notifications Setting>>")
+    public void click_setting_button_on_the_notifications_and_displays_the_setting_list_displays_by_title_notifications_setting() {
+        userDashboard.buttonSettingNotification.click();
+        assertTrue(userDashboard.labelNotificationSetting.isDisplayed());
+    }
+    @Given("Updates the Types of Events in the Setting list and verify that the successful message appears")
+    public void updates_the_types_of_events_in_the_setting_list_and_verify_that_the_successful_message_appears() {
+      userDashboard.checkboxNotificationSetting.click();
+      ReusableMethods.wait(2);
+      assertTrue(userDashboard.labelChangeSystemMessage.isDisplayed());
+      //assertTrue(userDashboard.checkboxNotificationSetting.isSelected());
+    }
+
+
+}
 
 
 
