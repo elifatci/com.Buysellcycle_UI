@@ -1,35 +1,33 @@
+@US31
 Feature: US31 As a user, I would like to have a cart page where I can throw the products I intend to buy while shopping and then I can do my shopping transactions.
 
   Background:
     * Go to "url"
-    @ahmed31
-    Scenario: TC01 User should be able to access the login page
+    * Clicks the Login buttonLink on the home page
+    * Login by entering valid "customerEmailElif" and "password" on the SignIn page.
 
-      * The user closes the pop-up window
-      * The user clicks on the LOGIN button at the top right corner of the page
-      * It is checked whether the login page is opened
-      * 2 seconds pause
-      * Close the page
-    @ahmed31
-    Scenario: TC02  User should be able to log into the system with valid credentials
+  @US31TC01
+  Scenario: TC01  Registered user should be able to access the Cart page
 
-      * The user clicks on the LOGIN button at the top right corner of the page
-      * The user types in the valid mail address to the mail textbox inside the sign-in form
-      * The user types in the valid password to the password textbox inside the sign-in form
-      * The user clicks on the SIGN IN button
-      * It is checked if the shown page is User dashboard
-      * Close the page
+    * Click on the user site logo
+    * Clicks on the product titled Orange Balloon in the Best Deals section
+    * Clicks the Add to card button
+    * Clicks the View card button
+    * Verify that it redirects to the Cart page
 
-    @ahmed31
-    Scenario: TC03  Registered user should be able to access the Cart page
+  @US31TC02
+  Scenario:  TC04 Registered user should be able to use the functions of the Cart page
 
-      *
-      *
+    * Clicks on the Cart link on the header section
+    * Increase the product quantity by one in the product detail section
+    * Verify that subtotal information is updated
+    * Verify that the Continue Shopping, Proceed To Checkout buttons are visible and clickable
+    * Verify that the Order summary section is visible
+    * Verify that the discount amount of the product is visible in the product detail section.
+    * Delete the product in the product detail section
+    * Verify that the product has been deleted
 
-    Scenario:  TC04 Registered user should be able to use the functions of the Cart page
 
-      *
-      *
 
 
 

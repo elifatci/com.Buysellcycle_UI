@@ -111,7 +111,6 @@ public class UserDashboard extends Base {
     public WebElement cancelOrderButtonTC04;
 
 
-
     public void loginUser(String email, String password){
 
         labelBoxLogin.sendKeys(email);
@@ -126,10 +125,10 @@ public class UserDashboard extends Base {
     }
 
     public void verifyIcon() {
-        //iconBurgerPurchase.isDisplayed();
-        //iconBurgerPurchase.isEnabled();
-        //iconDownload.isDisplayed();
-        //iconDownload.isEnabled();
+        iconBurgerPurchase.isDisplayed();
+        iconBurgerPurchase.isEnabled();
+        iconDownload.isDisplayed();
+        iconDownload.isEnabled();
     }
 
     @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/profile/dashboard'])[1]")
@@ -664,6 +663,59 @@ public class UserDashboard extends Base {
    @FindBy(xpath = "(//label[@class='primary_label2 style2'])[1]")
    public WebElement labelAddressBasligi;
 
+   //Dashboard>>Follow link
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[10]")
+    public WebElement linkFollow;
+
+    //Dashboard>>Follow text
+    @FindBy(xpath = "//*[@class='font_20 f_w_700 mb-0 ']")
+    public WebElement labelFollowSellerHistory;
+
+    //Dashboard>>Follow link
+    @FindBy(xpath = "//tr//th")
+    public List<WebElement> tableFollow;
+
+    //
+    @FindBy(xpath = "//*[@class='amaz_primary_btn style3 text-uppercase unfollow_btn']")
+    public WebElement buttonUnfollow;
+
+    //US31
+    @FindBy(xpath = "(//*[@class='lazyload'])[11]")
+    public WebElement imageProductOrangeBaby;
+
+    @FindBy(xpath = "//*[@id='add_to_cart_btn']")
+    public WebElement buttonAddToCartProduct;
+
+    @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/cart'])[3]")
+    public WebElement buttonViewCardProduct;
+
+    @FindBy(xpath = "//*[@class='order_sumery_box flex-fill']")
+    public WebElement labelOrderSummaryCard;
+
+    @FindBy(xpath = "(//*[@class='ti-plus'])[1]")
+    public WebElement iconQuantityPlus;
+
+    @FindBy(xpath = "(//*[@class='ti-minus'])[1]")
+    public WebElement iconQuantityMinus;
+
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[4]")
+    public WebElement linkCartHeader;
+
+    @FindBy(xpath = "//*[@class='close_icon style_2 lh-1 cart_item_delete_btn cursor_pointer']")
+    public WebElement iconDeleteProduct;
+
+    @FindBy(xpath = "(//*[@class='single_total_right'])[1]")
+    public WebElement labelSubTotalPrice;
+
+    @FindBy(xpath = "//*[@class='amaz_primary_btn2 style3']")
+    public WebElement buttonContinueShopping;
+
+    @FindBy(xpath = "//*[@class='amaz_primary_btn min_200 style2 cursor_pointer  process_to_checkout_check ']")
+    public WebElement buttonProceedToCheckoutCart;
+
+    @FindBy(xpath = "//*[text()='Discount']")
+    public WebElement labelDiscount;
+
    //*********US19 My WishList*************************
    @FindBy(xpath = "(//div/span[@class='current'])[4]")
    public WebElement dropDownNewWishList;
@@ -713,5 +765,6 @@ public class UserDashboard extends Base {
     public WebElement checkboxNotificationSetting;
     @FindBy(xpath = "//div[.='Updated successfully!']")
     public WebElement labelChangeSystemMessage;
+
 
 }

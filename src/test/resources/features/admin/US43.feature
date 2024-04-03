@@ -11,7 +11,7 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Verify that the Support Ticket link is visible in the side bar
     * Click on the support ticket link
     * Click on the support ticket link below.
-    * Verify that it redirects to the relevant page
+    * Verify that it redirects to the Support Ticket page
 
   @US43TC02
   Scenario: TC_02 Testing how to create a new ticket on the support ticket page
