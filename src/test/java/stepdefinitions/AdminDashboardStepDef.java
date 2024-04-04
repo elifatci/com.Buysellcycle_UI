@@ -405,16 +405,24 @@ public class AdminDashboardStepDef extends Base {
     //TC01
     @Given("Clicks the product link in the admin dashboard sidebar")
     public void clicks_the_product_link_in_the_admin_dashboard_sidebar() {
-       adminDashboard.linkProducts.click();
+        ReusableMethods.clickWithJS( adminDashboard.linkProducts);
+
 
     }
 
+    @Given("Displays the  add new product link in the admin dashboard sidebar")
+    public void displays_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
+       actions.sendKeys(Keys.PAGE_DOWN).perform();
+       assertTrue(adminDashboard.linkAddNewProduct.isDisplayed());
+
+    }
+    //TC02
     @Given("Clicks the  add new product link in the admin dashboard sidebar")
     public void clicks_the_add_new_product_link_in_the_admin_dashboard_sidebar() {
-        adminDashboard.linkAddNewProduct.click();
+        ReusableMethods.waitAndClick(adminDashboard.linkProducts);
+
     }
 
-    //TC02
     @Given("Add new Productin titles\\(General Information, Related Product, Up Sale, Cross sale) display")
     public void add_new_productin_titles_general_information_related_product_up_sale_cross_sale_display() {
      ReusableMethods.wait(3);
@@ -432,7 +440,7 @@ public class AdminDashboardStepDef extends Base {
     //TC04
     @Given("Display Name, Product SKU, Model Number, Category, Brand, Unit, Barcode Type,Minimum Order QTY, Max Order QTY, Tags \\(Comma Separated) Text Boxes in Product Information Section")
     public void display_name_product_sku_model_number_category_brand_unit_barcode_type_minimum_order_qty_max_order_qty_tags_comma_separated_text_boxes_in_product_information_section() {
-        ReusableMethods.wait(3);
+        ReusableMethods.wait(5);
         for (int i = 2; i < 6; i++) {
             assertTrue(adminDashboard.searchBoxProductInformation.get(i).isDisplayed());
         }
@@ -463,22 +471,27 @@ public class AdminDashboardStepDef extends Base {
         adminDashboard.buttonPicture.click();
 
 
+
     }
     //TC08
     @Given("the necessary information is entered and a new product is added to the site")
     public void the_necessary_information_is_entered_and_a_new_product_is_added_to_the_site() {
-
+        ReusableMethods.wait(5);
+        ReusableMethods.waitAndClick(adminDashboard.searchBoxName);
+         ReusableMethods.wait(3);
     }
 
     @Given("Save & Publish and Save buttons are visible and their activation is confirmed")
     public void save_publish_and_save_buttons_are_visible_and_their_activation_is_confirmed() {
-
+        ReusableMethods.wait(2);
+       adminDashboard.verifyVisibleActive(adminDashboard.buttonSaveProduct);
+        ReusableMethods.wait(2);
+       adminDashboard.verifyVisibleActive(adminDashboard.buttonSavePublishProduct);
     }
 
-    @Given("a new product is added to the site")
-    public void a_new_product_is_added_to_the_site() {
 
-    }
+
+
     //TC09
     @Given("On the Add New Product page, related products are determined for the product to be added")
     public void on_the_add_new_product_page_related_products_are_determined_for_the_product_to_be_added() {
@@ -505,19 +518,26 @@ public class AdminDashboardStepDef extends Base {
         //TC13
         @Given("Display Category und clicks")
         public void display_category_und_clicks() {
-
+        adminDashboard.verifyVisibleActive(adminDashboard.linkCategory);
+        ReusableMethods.wait(2);
+        userDashboard.checkUrl(ConfigReader.getProperty("categoryUrl"));
 
         }
         @Given("Display Brand  Page und clicks")
         public void display_brand_page_und_clicks() {
 
-
+        adminDashboard.verifyVisibleActive(adminDashboard.linkBrand);
+        ReusableMethods.wait(2);
+        userDashboard.checkUrl(ConfigReader.getProperty("brandUrl"));
         }
+
         @Given("Display Unit  Page und clicks")
          public void display_unit_page_und_clicks() {
+         adminDashboard.verifyVisibleActive(adminDashboard.linkBrand);
+         ReusableMethods.wait(2);
+         userDashboard.checkUrl(ConfigReader.getProperty("unitsUrl"));
 
-         }
-
+        }
 
 
     //US43 TC01

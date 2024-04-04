@@ -184,6 +184,16 @@ public class AdminDashboard extends Base{
     @FindBy(xpath= "//*[@id=\"choice_form\"]/div[3]/div[1]/div/text()")
     public WebElement labelWarningText;
 
+    // save button
+    @FindBy(xpath= "(//*[@class='primary_btn_2 mt-5 text-center saveBtn'])[1]")
+    public WebElement buttonSaveProduct;
+
+    // save Publish
+    @FindBy(xpath= "(//*[@class='primary_btn_2 mt-5 text-center saveBtn'])[2]")
+    public WebElement buttonSavePublishProduct;
+
+
+
     //-----------------------------------------
 //***********************US_34/TC_01******************************************
 

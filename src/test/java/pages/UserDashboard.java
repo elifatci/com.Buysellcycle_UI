@@ -486,6 +486,10 @@ public class UserDashboard extends Base {
     @FindBy(xpath= "//*[@id=\"sticky-header\"]/div[2]/div/div/div/div/div[3]/div[1]/div/span/a[1]")
     public WebElement buttonLogin;
 
+    // US_29 Collected Coupons
+    @FindBy(xpath= "//div/div/table/tbody]")
+    public WebElement tableCollecetedCoupons;
+
     //************************US_24/TC_03********************************************************************
 
     //MyDasboard/MyAccount/ChangePassword

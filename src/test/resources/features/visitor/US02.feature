@@ -17,13 +17,13 @@ Feature: As a user, I want easily accessible links on the homepage's top bar to 
       * Close the page
   @US02TC02
       Scenario: TC02 Display and click on the site logo
-        * The site logo is displayed on the top left of the page
-        * Click on the site logo and refresh the page
-        * Close the page
-@US02TC03
+      * The site logo is displayed on the top left of the page
+      * Click on the site logo and refresh the page
+      * Close the page
+   @US02TC03
         Scenario: TC03 Displaying the search box and searching
-          * The site logo is displayed on the top left of the page
-          * search by typing Baby in the search bar
+       * The site logo is displayed und enabled on the top left of the page
+       * Close the page
 
 
 

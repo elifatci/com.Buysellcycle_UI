@@ -750,16 +750,18 @@ public class UserDashboardStepDef extends Base {
     }
 
 
-    // US29  TC02
+    // US29  TC04
     @Given("Clicks Logout link on Dashboard Side Bar")
     public void clicks_logout_link_on_dashboard_side_bar() {
+        ReusableMethods.wait(3);
         userDashboard.buttonLogOutSideBar.click();
 
     }
 
-    // US29  TC02
+    // US29  TC04
     @Given("Displays Login in the upper right corner of the homepage")
     public void displays_login_in_the_upper_right_corner_of_the_homepage() {
+       ReusableMethods.wait(3);
         assertTrue(userDashboard.buttonLogin.isDisplayed());
     }
 
@@ -769,15 +771,11 @@ public class UserDashboardStepDef extends Base {
     @Given("Dashboard side bar displays My Coupons Menu Title")
     public void dashboard_side_bar_displays_my_coupons_menu_title() {
         ReusableMethods.wait(3);
-        actions.moveToElement(userDashboard.linkMyCoupons).perform();
+        //actions.moveToElement(userDashboard.linkMyCoupons).perform();
         assertTrue(userDashboard.linkMyCoupons.isDisplayed());
-
+        assertTrue(userDashboard.linkMyCoupons.isEnabled());
     }
 
-    @Given("clicks on title to verify title's activation")
-    public void clicks_on_title_to_verify_title_s_activation() {
-       assertTrue(userDashboard.linkMyCoupons.isEnabled());
-    }
     // TC02
 
     @Given("Click the MyCoupons menu Title")
@@ -795,17 +793,15 @@ public class UserDashboardStepDef extends Base {
     @Given("a new coupon is added in the add coupon section")
     public void a_new_coupon_is_added_in_the_add_coupon_section() {
         userDashboard.searchBoxAddCoupon.click();
-
-
+        actions.sendKeys(ConfigReader.getProperty("couponName")).click()
+                .sendKeys(Keys.ENTER).perform();
 
     }
 
     //TC04
         @Given("Displays the user's previously collected coupons listed as Collected Coupons list")
         public void displays_the_user_s_previously_collected_coupons_listed_as_collected_coupons_list() {
-
-
-
+      ReusableMethods.getElementsText(By.xpath("//*[@id=\"couponDiv\"]/div/div/table/tbody"));
 
 
     }
@@ -819,7 +815,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Click the delete icon to delete the coupon in the Collected Coupons list")
     public void click_the_delete_icon_to_delete_the_coupon_in_the_collected_coupons_list() {
-
+        userDashboard.iconDelete.click();
     }
 
     // US23 ---- TC03
