@@ -81,7 +81,9 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Login by entering valid {string} and {string} on the SignIn page.")
     public void login_by_entering_valid_email_and_password_on_the_sign_in_page(String email, String password) {
+       ReusableMethods.wait(3);
         userDashboard.loginUser(ConfigReader.getProperty(email), ConfigReader.getProperty(password));
+        ReusableMethods.wait(3);
     }
 
     @Given("Displays Purchase History banner in Dashboard sideBar")
@@ -1078,11 +1080,14 @@ public class UserDashboardStepDef extends Base {
     }
     @Given("Clicks the Add to card button")
     public void clicks_the_add_to_card_button() {
-        userDashboard.buttonAddToCartProduct.click();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.clickWithJS(userDashboard.buttonAddToCartProduct);
+        ReusableMethods.wait(2);
     }
     @Given("Clicks the View card button")
     public void clicks_the_view_card_button() {
       userDashboard.buttonViewCardProduct.click();
+      ReusableMethods.wait(2);
     }
     @Given("Verify that it redirects to the Cart page")
     public void verify_that_it_redirects_to_the_cart_page() {

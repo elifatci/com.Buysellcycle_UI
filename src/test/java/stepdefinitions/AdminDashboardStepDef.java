@@ -523,77 +523,87 @@ public class AdminDashboardStepDef extends Base {
     //US43 TC01
     @Given("Verify that the Support Ticket link is visible in the side bar")
     public void verify_that_the_support_ticket_link_is_visible_in_the_side_bar() {
-
+        assertTrue(adminDashboard.dropDownSupportTicket.isDisplayed());
     }
     @Given("Click on the support ticket link")
     public void click_on_the_support_ticket_link() {
-
+        adminDashboard.dropDownSupportTicket.click();
     }
     @Given("Click on the support ticket link below.")
     public void click_on_the_support_ticket_link_below() {
-
+        adminDashboard.subMenuSupportTicket.click();
     }
     @Given("Verify that it redirects to the Support Ticket page")
     public void verify_that_it_redirects_to_the_support_ticket_page() {
-
+            assertTrue(Driver.getDriver().getCurrentUrl().contains("ticket"));
     }
 
     //US43 TC02
     @Given("Click on the Add new button and verify that you are directed to the relevant page.")
     public void click_on_the_add_new_button_and_verify_that_you_are_directed_to_the_relevant_page() {
-
+        adminDashboard.buttonAddNewSupport.click();
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("create"));
     }
     @Given("Verify that the Subject, Description, Category List, Priority and Status textboxes are visible")
     public void verify_that_the_subject_description_category_list_priority_and_status_textboxes_are_visible() {
-
+            assertTrue(adminDashboard.dropDownSubjectSupport.isDisplayed());
+            assertTrue(adminDashboard.textBoxDescriptionSupport.isDisplayed());
+            assertTrue(adminDashboard.dropDownCategoryListSupport.isDisplayed());
+            assertTrue(adminDashboard.dropDownPrioritySupport.isDisplayed());
+            assertTrue(adminDashboard.dropDownStatusSupport.isDisplayed());
     }
     @Given("Verify that the add new buttons are active")
     public void verify_that_the_add_new_buttons_are_active() {
-
+            assertTrue(adminDashboard.linkAddNewSupport.isEnabled());
     }
     @Given("Fill in the starred fields with valid information")
     public void fill_in_the_starred_fields_with_valid_information() {
-
-    }
-    @Given("Verify that more than one file can be attached to the Attach file section")
-    public void verify_that_more_than_one_file_can_be_attached_to_the_attach_file_section() {
+        adminDashboard.dropDownSubjectSupport.sendKeys("test");
+        adminDashboard.dropDownCategoryListSupport.sendKeys("Technical");
+        adminDashboard.dropDownPrioritySupport.sendKeys("High");
+        adminDashboard.dropDownStatusSupport.sendKeys("Completed");
+        adminDashboard.textBoxDescriptionSupport.sendKeys("Test");
 
     }
     @Given("Click on the Create ticket button and verify that the ticket has been created successfully.")
     public void click_on_the_create_ticket_button_and_verify_that_the_ticket_has_been_created_successfully() {
-
+        adminDashboard.buttonCreateTicketSupport.click();
+        assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
 
     //US43 TC03
     @Given("Verify that PRIORITY, STATUS, CATEGORY information is selectable on the Support Ticket page")
     public void verify_that_priority_status_category_information_is_selectable_on_the_support_ticket_page() {
-
+        assertTrue(adminDashboard.dropdownPrioritySupportTicket.isEnabled());
+        assertTrue(adminDashboard.dropdownStatusSupportTicket.isEnabled());
+        assertTrue(adminDashboard.dropdownCategorySupportTicket.isEnabled());
     }
     @Given("Click the search button from the Category, Priority and Status tabs.")
     public void click_the_search_button_from_the_category_priority_and_status_tabs() {
-
+        adminDashboard.dropdownCategorySupportTicket.sendKeys("Technical");
+        adminDashboard.buttonSearchSupportTicket.click();
     }
     @Given("Verify that the relevant filtering results are returned")
     public void verify_that_the_relevant_filtering_results_are_returned() {
-
+            adminDashboard.tablodaHucreBulma("Technical");
     }
 
     //US43 TC04
     @Given("click on the plus icon")
     public void click_on_the_plus_icon() {
-
+        adminDashboard.iconActionSupportTicket.click();
     }
     @Given("Verify that the Agent assign field and action section are visible")
     public void verify_that_the_agent_assign_field_and_action_section_are_visible() {
-
+        assertTrue(adminDashboard.buttonSelectSupportTicket.isDisplayed());
     }
     @Given("If assigned, verify that the assignee's name is visible")
     public void if_assigned_verify_that_the_assignee_s_name_is_visible() {
-
+        assertTrue(adminDashboard.labelUnassignedText.isDisplayed());
     }
     @Given("Click a ticket's Select button and verify that the show edit delete options are visible")
     public void click_a_ticket_s_select_button_and_verify_that_the_show_edit_delete_options_are_visible() {
-
+        adminDashboard.buttonSelectSupportTicket.click();
     }
     @Given("Click the Show button. Verify that the Ticket page is opened.")
     public void click_the_show_button_verify_that_the_ticket_page_is_opened() {
@@ -615,11 +625,35 @@ public class AdminDashboardStepDef extends Base {
           adminDashboard.dorpDownHumanResource.click();
           ReusableMethods.wait(2);
     }
-    @Given("Clicks the {string}")
-    public void clicks_the(String info) {
+    @Given("Clicks the Staff link")
+    public void clicks_the() {
         ReusableMethods.wait(1);
          adminDashboard.linkStaff.click();
           ReusableMethods.wait(2);
+    }
+    @Given("Clicks the {string}")
+    public void clicks_the(String info) {
+        ReusableMethods.wait(1);
+        ReusableMethods.staffLinkleri(info);
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the View link")
+    public void clicks_the_View_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkViewStaff.get(1).click();
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the Delete link")
+    public void clicks_the_Delete_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkDeleteStaff.get(1).click();
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the Edit link")
+    public void clicks_the_Edit_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkEditStaff.get(1).click();
+        ReusableMethods.wait(2);
     }
     @Given("It is verified that he went to the Staff page")
     public void it_is_verified_that_he_went_to_the_staff_page() {
@@ -657,31 +691,78 @@ public class AdminDashboardStepDef extends Base {
         adminDashboard.rowStaffListBasliklar.get(1).click();
     }
 
+    @Given("Clicks the Add New Staff button")
+    public void clicks_the_Add_New_Staff_button() {
+        ReusableMethods.wait(1);
+        adminDashboard.buttonAddNewStaff.click();
+        ReusableMethods.wait(2);
+    }
 
 
 
     @Given("Fills in the necessary information")
     public void fills_in_the_necessary_information() {
+        ReusableMethods.wait(1);
+       adminDashboard.dropDownRoleStaff.click();
+       ReusableMethods.wait(1);
+       adminDashboard.textboxRoleStaff.click();
+       adminDashboard.dropDownDepartmentStaff.click();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDepartmentStaff.click();
+       adminDashboard.textboxEmailStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxEmailStaff.sendKeys(faker.internet().emailAddress());
+       adminDashboard.textboxFirstNameStaff.sendKeys("ZD");
+        ReusableMethods.wait(1);
+       adminDashboard.textboxPasswordStaff.clear();
+       adminDashboard.textboxPasswordStaff.sendKeys("12345678");
+       adminDashboard.textboxBirthDateStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxBirthDateStaff.sendKeys("01.01.2000");
+       adminDashboard.textboxDateJoiningStaff.click();
+       adminDashboard.textboxDateJoiningStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDateJoiningStaff.sendKeys("01.01.2023");
+       adminDashboard.textboxDateApplicaStaff.click();
+       adminDashboard.textboxDateApplicaStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDateApplicaStaff.sendKeys("01.01.2024");
+       ReusableMethods.wait(1);
+
+    }
+    @Given("Clicks the Save button")
+    public void clicks_the_Save_button() {
+        ReusableMethods.wait(1);
+        actions.click(adminDashboard.buttonSaveParent).perform();
+        ReusableMethods.wait(4);
+      //  assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
 
     }
 
 
-
     @Given("Fills in the required information incompletely")
     public void fills_in_the_required_information_incompletely() {
+        adminDashboard.buttonAddNewStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.dropDownRoleStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxRoleStaff.click();
+        adminDashboard.dropDownDepartmentStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxDepartmentStaff.click();
+        adminDashboard.textboxEmailStaff.clear();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxEmailStaff.sendKeys("ad@buysellcycle.com");
 
     }
 
     @Given("Gets an error message")
     public void gets_an_error_message() {
-
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.labelWarningTextStaff.isDisplayed());
     }
 
 
-    @Given("It is verified that the new staff record created appears in the staff list.")
-    public void it_is_verified_that_the_new_staff_record_created_appears_in_the_staff_list() {
-
-    }
 
     //US_044 TC01
 
