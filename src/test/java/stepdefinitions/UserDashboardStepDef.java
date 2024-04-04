@@ -614,9 +614,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("User clicks on -Add To Cart icon- and adds an item.")
     public void user_clicks_on_add_to_cart_icon_and_adds_an_item() {
-        ReusableMethods.wait(4);
         userDashboard.checkClickElement(userDashboard.iconAddToCart);
-        ReusableMethods.wait(3);
     }
 
     @Given("User verifies the visibility of Success Alert.")
@@ -649,14 +647,6 @@ public class UserDashboardStepDef extends Base {
 
     @Given("User clicks on -Compare- and displays {string} the Compare page.")
     public void user_clicks_on_compare_and_displays_the_compare_page(String url) {
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        ReusableMethods.wait(1);
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        ReusableMethods.wait(1);
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        ReusableMethods.wait(1);
-        actions.sendKeys(Keys.PAGE_UP).perform();
-        ReusableMethods.wait(1);
         userDashboard.checkClickElement(userDashboard.linkCompare);
         userDashboard.checkUrl(url);
     }
