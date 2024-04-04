@@ -114,6 +114,7 @@ public class UserDashboard extends Base {
     public void loginUser(String email, String password){
 
         labelBoxLogin.sendKeys(email);
+        ReusableMethods.wait(3);
         labelBoxPassword.sendKeys(password);
         visitorHomePage.buttonSignIn.click();
     }
