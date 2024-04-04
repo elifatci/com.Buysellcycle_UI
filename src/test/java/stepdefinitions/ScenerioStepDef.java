@@ -16,7 +16,7 @@ public class ScenerioStepDef extends Base {
     }
     @Given("Verify that the Electronics category window is displayed in the Home page body section")
     public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
-        visitorHomePage.dropDownAllCategories.click();
+        //visitorHomePage.dropDownAllCategories.click();
         ReusableMethods.wait(1);
         ReusableMethods.hover(visitorHomePage.buttonElectronicsIcon);
         ReusableMethods.wait(1);
