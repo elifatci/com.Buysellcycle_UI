@@ -741,6 +741,59 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//*[text()='Discount']")
     public WebElement labelDiscount;
 
+    // ================================ US33==============================================================
+
+    @FindBy (xpath = "//*[text()='Quantity']")
+    public WebElement labelCheckoutPage;
+
+    @FindBy (xpath = "//*[text()='Edit']")
+    public WebElement buttonEdit;
+
+    @FindBy (xpath = "//*[text()='Order Summary']")
+    public WebElement textOrderSummary;
+
+    @FindBy (xpath = "//*[text()='Continue To Shipping']")
+    public WebElement buttonContinueToShipping;
+
+    @FindBy (xpath = "(//span[@class='label_name f_w_500 '])[1]")
+    public WebElement radioButtonCashOnDelivery;
+
+    @FindBy (xpath = "(//span[@class='label_name f_w_500 '])[2]")
+    public WebElement radioButtonStripe;
+
+    @FindBy (xpath = "(//span[@class='checkmark mr_10'])[3]")
+    public WebElement radioButtonSameAsShippingAddress;
+
+    @FindBy (xpath = "(//span[@class='label_name f_w_500 '])[4]")
+    public WebElement radioButtonUseADifferentBilingAddress;
+
+    @FindBy (xpath = "//div[@class='subtotal_lists']")
+    public WebElement labelOrderSummaryInformation;
+
+    @FindBy (id = "coupon_code")
+    public WebElement searchBoxCouponCode2;
+
+    @FindBy (xpath = "//*[text()='Order Now']")
+    public WebElement buttonOrderNow;
+
+    @FindBy (xpath = "//*[text()='Return to information']")
+    public WebElement buttonReturnToInformation;
+
+    @FindBy (xpath = "//*[text()='Thank you for your purchase!']")
+    public WebElement getLabelThankYouForYourPurchase;
+
+    @FindBy (xpath = "//div[@class='title text-center']")
+    public WebElement labelOrderNumber;
+
+    @FindBy (xpath = "//div[@class='card-body']")
+    public WebElement tableOrderSummary;
+
+    @FindBy (xpath = "//*[text()='View Order']")
+    public WebElement buttonViewOrder;
+
+    @FindBy (xpath = "(//*[text()='Home'])[1]")
+    public WebElement linkHeaderHomePage;
+
    //*********US19 My WishList*************************
    @FindBy(xpath = "(//div/span[@class='current'])[4]")
    public WebElement dropDownNewWishList;
