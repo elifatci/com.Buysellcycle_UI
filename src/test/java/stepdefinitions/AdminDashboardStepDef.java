@@ -313,37 +313,69 @@ public class AdminDashboardStepDef extends Base {
 
     @Given("At the top of the Admin Dashboard page appears in the Search TextBox section Verify that it is.")
     public void at_the_top_of_the_admin_dashboard_page_appears_in_the_search_text_box_section_verify_that_it_is() {
-
+        adminDashboard.searchBoxAdminClick.isDisplayed();
     }
 
     @Given("Using Search TextBox, type Dashboard in the search box within the site and verify that the results are displayed correctly.")
     public void using_search_text_box_type_dashboard_in_the_search_box_within_the_site_and_verify_that_the_results_are_displayed_correctly() {
+        ReusableMethods.clickWithJS(adminDashboard.searchBoxAdminClick);
+        actions.sendKeys(ConfigReader.getProperty("reyyanDashboard"));
+        ReusableMethods.clickWithJS(adminDashboard.iconSerach);
+        assertTrue(adminDashboard.textVerifyResult.isDisplayed());
+
+
 
     }
 
     @Given("Click the Menu icon on the Admin Dashboard home page and verify that the SideBar collapses and expands.")
     public void click_the_menu_icon_on_the_admin_dashboard_home_page_and_verify_that_the_side_bar_collapses_and_expands() {
+        ReusableMethods.wait(2);
+        boolean isCollapsed = adminDashboard.iconSmallSideBarClick.isEnabled();
+        if (isCollapsed) {
+            adminDashboard.iconSmallSideBarClick.click();
+            System.out.println("Yan menü daraltıldı.");
+        } else {
+            System.out.println("Yan menü durumu belirsiz.");
+        }
+        boolean isExpanded = adminDashboard.iconSmallSideBarClick.isEnabled();
+        if(isExpanded){
+            adminDashboard.iconSmallSideBarClick.click();
+            System.out.println("Yan menü genişletildi");
+        }
 
     }
 
     @Given("Username of the site from Admin Dashboard redirected to the interface verify.")
     public void username_of_the_site_from_admin_dashboard_redirected_to_the_interface_verify() {
+        ReusableMethods.wait(2);
+        ReusableMethods.clickWithJS(adminDashboard.buttonCustomerPanel);
+        ReusableMethods.wait(1);
+        adminDashboard.buttonCostumerProfile.isDisplayed();
+        ReusableMethods.wait(1);
+        ReusableMethods.clickWithJS(adminDashboard.buttonCostumerProfile);
+        ReusableMethods.wait(1);
+        adminDashboard.textVerify.isDisplayed();
 
     }
 
     @Given("Click on the Today button and select verify that the data changes to the selected value.")
     public void click_on_the_today_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
-
+        ReusableMethods.clickWithJS(adminDashboard.buttonDashboard);
+        ReusableMethods.wait(1);
+        ReusableMethods.clickWithJS(adminDashboard.buttonToday);
+        adminDashboard.buttonVisitor.isEnabled();
     }
 
     @Given("Click on the This Week button and select verify that the data changes to the selected value.")
     public void click_on_the_this_week_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
-
+        ReusableMethods.clickWithJS(adminDashboard.buttonWeek);
+        adminDashboard.buttonVisitor.isEnabled();
     }
 
     @Given("Click on the This Year button and select verify that the data changes to the selected value.")
     public void click_on_the_this_year_button_and_select_verify_that_the_data_changes_to_the_selected_value() {
-
+        ReusableMethods.clickWithJS(adminDashboard.buttonYear);
+        adminDashboard.buttonVisitor.isEnabled();
     }
 
     @Given("Total Product from the links in the Summary section verify that clicking on the link redirects to the relevant page.")

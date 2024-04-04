@@ -411,6 +411,9 @@ public class UserDashboard extends Base {
    
     //********************US_24/TC_01,TC_02********************************************
 
+    @FindBy(xpath = "//button[@id='sign_in_btn']")
+    public WebElement buttonUserLogin;
+
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "(//a[@href='https://qa.buysellcycle.com/profile'])[2]")
     public WebElement linkHeaderMyAccount;
@@ -424,11 +427,6 @@ public class UserDashboard extends Base {
     @FindBy(xpath = "//label[@class='primary-btn small fix-gr-bg']")
     public WebElement buttonBrowse;
 
-    @FindBy(xpath = "file-input-id")
-    public WebElement pcFileInput;
-
-    @FindBy(xpath = "open-button-id")
-    public WebElement pcOpenFile;
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//button[@id='Info-tab']")
     public WebElement buttonBasicInfo;
@@ -452,6 +450,15 @@ public class UserDashboard extends Base {
     //UserDasboard/Side Bar /My Account
     @FindBy(xpath = "//button[@id='update_info']")
     public WebElement buttonUpdateNow;
+
+    @FindBy(xpath = "//p[@class='text-white']")
+    public WebElement labelFirstLastName;
+
+    @FindBy(xpath = "//span[@class='email_text font_14 f_w_400 mute_text position-relative text-white']")
+    public WebElement labelEmail;
+
+    @FindBy(xpath = "//span[@class='number_text font_14 f_w_400 mute_text text-white']")
+    public WebElement labelPhone;
 
 //****************************************************************************************************************************
     // US_22 My Coupons link
@@ -525,8 +532,8 @@ public class UserDashboard extends Base {
     public WebElement buttonAddressMyAccountClick;
 
     //MyDasboard/MyAccount/Address
-    @FindBy(xpath = "//table[@id='address_table']")
-    public WebElement tableAddresMyAccount;
+    @FindBy(xpath = "(//tbody/tr/td[3]")
+    public WebElement rowAddres;
 
     //MyDasboard/MyAccount/Address
     @FindBy(xpath = "(//button[@class='amazy_status_btn edit_address'])[1]")

@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.ja.且つ;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -205,13 +206,46 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//div[@class='nav_title'])[1]")
     public WebElement textBoxDashboard;
 
+    @FindBy(xpath = "//i[@class='ti-search']")
+    public WebElement iconSerach;
+
+    @FindBy(xpath = "//h3[@class='mb-0 mr-3 text-nowrap']")
+    public WebElement textVerifyResult;
+
+    @FindBy(xpath = "class='nav_icon_small'")
+    public WebElement iconSmallSideBar;
+
     //Admin/Dashboard/MenüİconSideBar
-    @FindBy(xpath = "//div[@class='collaspe_icon open_miniSide']")
-    public WebElement iconMenuMiniSideBar;
+
+    @FindBy(xpath = "(//i[@class='ti-menu'])[2]")
+    public WebElement iconSmallSideBarClick;
+
 
     //Admin/Dashboard/CustomerInterface
-    @FindBy(xpath = "(//div[@class='nav_title'])[4]")
-    public WebElement buttonCustomerInterfaceClick;
+    @FindBy(xpath = "(//div[@class='nav_title'])[2]")
+    public WebElement buttonCustomerPanel;
+
+    @FindBy(xpath = "//a[text()='My Profiles']")
+    public WebElement buttonCostumerProfile;
+
+    @FindBy(xpath = "(//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[1]")
+    public WebElement textVerify;
+
+    @FindBy(xpath = "(//div[@class='nav_title'])[1]")
+    public WebElement buttonDashboard;
+
+    @FindBy(xpath = "//a[@data-type='today']")
+    public WebElement buttonToday;
+
+    @FindBy(xpath = "//h1[@class='gradient-color2 total_visitors']")
+    public WebElement buttonVisitor;
+
+    @FindBy(xpath = "//a[@data-type='week']")
+    public WebElement buttonWeek;
+
+    @FindBy(xpath = "//a[@data-type='year']")
+    public WebElement buttonYear;
+
 
     //Admin/Dashboard/AllCustomerInterface
     @FindBy(xpath = "//*[@class='mm-collapse mm-show']")
