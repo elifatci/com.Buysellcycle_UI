@@ -614,7 +614,9 @@ public class UserDashboardStepDef extends Base {
 
     @Given("User clicks on -Add To Cart icon- and adds an item.")
     public void user_clicks_on_add_to_cart_icon_and_adds_an_item() {
+        ReusableMethods.wait(2);
         userDashboard.checkClickElement(userDashboard.iconAddToCart);
+        ReusableMethods.wait(2);
     }
 
     @Given("User verifies the visibility of Success Alert.")
@@ -647,6 +649,14 @@ public class UserDashboardStepDef extends Base {
 
     @Given("User clicks on -Compare- and displays {string} the Compare page.")
     public void user_clicks_on_compare_and_displays_the_compare_page(String url) {
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.wait(1);
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.wait(1);
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.wait(1);
+        actions.sendKeys(Keys.PAGE_UP).perform();
+        ReusableMethods.wait(1);
         userDashboard.checkClickElement(userDashboard.linkCompare);
         userDashboard.checkUrl(url);
     }
@@ -1079,10 +1089,12 @@ public class UserDashboardStepDef extends Base {
     @Given("Clicks the Add to card button")
     public void clicks_the_add_to_card_button() {
         userDashboard.buttonAddToCartProduct.click();
+        ReusableMethods.wait(1);
     }
     @Given("Clicks the View card button")
     public void clicks_the_view_card_button() {
       userDashboard.buttonViewCardProduct.click();
+      ReusableMethods.wait(2);
     }
     @Given("Verify that it redirects to the Cart page")
     public void verify_that_it_redirects_to_the_cart_page() {
