@@ -17,7 +17,8 @@ Feature:
     * Clicks the View card button.
     * Click on the 'Proceed To Checkout' button on the right side under the specified products
     * Write "message" in the notes section
-    * Clicks on the Continue to Shipping button
-    * Click on the Pay Now button
+    * Clicks on the Continue to Shipping button.
+    * Click on the Pay Now button.
     * View the message confirming that the order has been successfully placed
     * Clicks Logout link.
+    * Close the page
