@@ -100,8 +100,8 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <parallel>classes</parallel>
-                    <forkMode>perthread</forkMode>
-                    <threadCount>2</threadCount>
+                    <forkMode>pertest</forkMode>
+                    <forkCount>1</forkCount>
                     <reuseForks>false</reuseForks>
                     <argLine>-Duser.language=en</argLine>
                     <argLine>-Xmx1024m</argLine>
