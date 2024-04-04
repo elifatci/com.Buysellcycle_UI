@@ -82,7 +82,9 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Login by entering valid {string} and {string} on the SignIn page.")
     public void login_by_entering_valid_email_and_password_on_the_sign_in_page(String email, String password) {
+       ReusableMethods.wait(3);
         userDashboard.loginUser(ConfigReader.getProperty(email), ConfigReader.getProperty(password));
+        ReusableMethods.wait(3);
     }
 
     @Given("Displays Purchase History banner in Dashboard sideBar")
@@ -813,16 +815,18 @@ public class UserDashboardStepDef extends Base {
     }
 
 
-    // US29  TC02
+    // US29  TC04
     @Given("Clicks Logout link on Dashboard Side Bar")
     public void clicks_logout_link_on_dashboard_side_bar() {
+        ReusableMethods.wait(3);
         userDashboard.buttonLogOutSideBar.click();
 
     }
 
-    // US29  TC02
+    // US29  TC04
     @Given("Displays Login in the upper right corner of the homepage")
     public void displays_login_in_the_upper_right_corner_of_the_homepage() {
+       ReusableMethods.wait(3);
         assertTrue(userDashboard.buttonLogin.isDisplayed());
     }
 
@@ -832,15 +836,11 @@ public class UserDashboardStepDef extends Base {
     @Given("Dashboard side bar displays My Coupons Menu Title")
     public void dashboard_side_bar_displays_my_coupons_menu_title() {
         ReusableMethods.wait(3);
-        actions.moveToElement(userDashboard.linkMyCoupons).perform();
+        //actions.moveToElement(userDashboard.linkMyCoupons).perform();
         assertTrue(userDashboard.linkMyCoupons.isDisplayed());
-
+        assertTrue(userDashboard.linkMyCoupons.isEnabled());
     }
 
-    @Given("clicks on title to verify title's activation")
-    public void clicks_on_title_to_verify_title_s_activation() {
-       assertTrue(userDashboard.linkMyCoupons.isEnabled());
-    }
     // TC02
 
     @Given("Click the MyCoupons menu Title")
@@ -858,17 +858,15 @@ public class UserDashboardStepDef extends Base {
     @Given("a new coupon is added in the add coupon section")
     public void a_new_coupon_is_added_in_the_add_coupon_section() {
         userDashboard.searchBoxAddCoupon.click();
-
-
+        actions.sendKeys(ConfigReader.getProperty("couponName")).click()
+                .sendKeys(Keys.ENTER).perform();
 
     }
 
     //TC04
         @Given("Displays the user's previously collected coupons listed as Collected Coupons list")
         public void displays_the_user_s_previously_collected_coupons_listed_as_collected_coupons_list() {
-
-
-
+      ReusableMethods.getElementsText(By.xpath("//*[@id=\"couponDiv\"]/div/div/table/tbody"));
 
 
     }
@@ -882,7 +880,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Click the delete icon to delete the coupon in the Collected Coupons list")
     public void click_the_delete_icon_to_delete_the_coupon_in_the_collected_coupons_list() {
-
+        userDashboard.iconDelete.click();
     }
 
     // US23 ---- TC03
@@ -1151,11 +1149,15 @@ public class UserDashboardStepDef extends Base {
     }
     @Given("Clicks the Add to card button")
     public void clicks_the_add_to_card_button() {
-        userDashboard.buttonAddToCartProduct.click();
+        userDashboard.checkClickElement( userDashboard.buttonAddToCartProduct);
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.clickWithJS(userDashboard.buttonAddToCartProduct);
+        ReusableMethods.wait(2);
     }
     @Given("Clicks the View card button")
     public void clicks_the_view_card_button() {
       userDashboard.buttonViewCardProduct.click();
+      ReusableMethods.wait(2);
     }
     @Given("Verify that it redirects to the Cart page")
     public void verify_that_it_redirects_to_the_cart_page() {
@@ -1201,6 +1203,74 @@ public class UserDashboardStepDef extends Base {
         ReusableMethods.wait(2);
         assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
     }
+
+        // =====================US33 TC01=================================================================
+
+        @Given("User verifies that they have switched from the Checkout page to the Checkout page")
+        public void user_verifies_that_they_have_switched_from_the_checkout_page_to_the_checkout_page() {
+        assertTrue(userDashboard.labelCheckoutPage.isDisplayed());
+        }
+        @Given("The user can view and edit Ship to, Contact information on the Payment page")
+        public void the_user_can_view_and_edit_ship_to_contact_information_on_the_payment_page() {
+        userDashboard.checkClickElement(userDashboard.buttonEdit);
+        ReusableMethods.scrollIntoViewJS(userDashboard.textOrderSummary);
+        userDashboard.checkClickElement(userDashboard.textOrderSummary);
+        }
+        @Given("User clicks on Continue to Shipping button")
+        public void user_clicks_on_continue_to_shipping_button() {
+        ReusableMethods.scrollIntoViewJS(userDashboard.buttonContinueToShipping);
+        userDashboard.checkClickElement(userDashboard.buttonContinueToShipping);
+        }
+        @Given("User verifies that the Payment and Billing address types are selectable on the Payment page")
+        public void user_verifies_that_the_payment_and_billing_address_types_are_selectable_on_the_payment_page() {
+        assertTrue(userDashboard.radioButtonCashOnDelivery.isDisplayed());
+        assertTrue(userDashboard.radioButtonStripe.isDisplayed());
+        userDashboard.radioButtonCashOnDelivery.click();
+        assertTrue(userDashboard.radioButtonSameAsShippingAddress.isDisplayed());
+        assertTrue(userDashboard.radioButtonUseADifferentBilingAddress.isDisplayed());
+        ReusableMethods.clickWithJS(userDashboard.radioButtonSameAsShippingAddress);
+        }
+        @Given("User correctly displays the Order Summary information on the Payment page")
+        public void user_correctly_displays_the_order_summary_information_on_the_payment_page() {
+        assertTrue(userDashboard.labelOrderSummaryInformation.isDisplayed());
+        }
+        @Given("User can apply existing coupons on the Payment page")
+        public void user_can_apply_existing_coupons_on_the_payment_page() {
+        assertTrue(userDashboard.searchBoxCouponCode2.isDisplayed());
+        }
+        @Given("User sees the Order Now and Return To Information buttons on the Payment page and verifies that they are active")
+        public void user_sees_the_order_now_and_return_to_information_buttons_on_the_payment_page_and_verifies_that_they_are_active() {
+        ReusableMethods.scrollIntoViewJS(userDashboard.buttonOrderNow);
+        assertTrue(userDashboard.buttonOrderNow.isDisplayed());
+        assertTrue(userDashboard.buttonReturnToInformation.isDisplayed());
+        }
+        @Given("User clicks on the Order Now button confirms that have switched from the payment page to the complete order now page.")
+        public void user_clicks_on_the_order_now_button_confirms_that_have_switched_from_the_payment_page_to_the_complete_order_now_page() {
+      ReusableMethods.clickWithJS(userDashboard.buttonOrderNow);
+        }
+        @Given("User sees Thank you for your purchase! on the pop-up page.")
+        public void user_sees_thank_you_for_your_purchase_on_the_pop_up_page() {
+        assertTrue(userDashboard.labelThankYouForYourPurchase.isDisplayed());
+        }
+        // TC02
+        @Given("User displays the Order Number specified for the order on the page")
+        public void user_displays_the_order_number_specified_for_the_order_on_the_page() {
+        assertTrue(userDashboard.labelOrderNumber.isDisplayed());
+        }
+    @Given("User, Displays order summary \\(purchased items) on the page")
+    public void user_displays_order_summary_purchased_items_on_the_page() {
+    assertTrue(userDashboard.tableOrderSummary.isDisplayed());
+    }
+    // TC03
+    @Given("User clicks on the View Order Button and verifies the Order Page")
+    public void user_clicks_on_the_view_order_button_and_verifies_the_order_page() {
+        userDashboard.checkClickElement(userDashboard.buttonViewOrder);
+    }
+    @Given("User returns to the site home page after the completed order")
+    public void user_returns_to_the_site_home_page_after_the_completed_order() {
+        userDashboard.checkClickElement(userDashboard.linkHeaderHomePage);
+    }
+
     //***********US19 My WishList*****************
     @Given("Click on the My Wishlist on the sidebar")
     public void click_on_the_my_wishlist_on_the_sidebar() {

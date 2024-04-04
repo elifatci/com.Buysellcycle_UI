@@ -27,7 +27,9 @@ public class VisitorHomePageStepDef extends Base {
     // US05 ---- TC01
     @Given("The user clicks on the LOGIN button at the top right corner of the page")
     public void the_user_clicks_on_the_login_button_at_the_top_right_corner_of_the_page() {
+        ReusableMethods.wait(3);
         visitorHomePage.linkLogin.click();
+        ReusableMethods.wait(3);
     }
 
     @Given("It is checked whether the login page is opened")
@@ -74,16 +76,18 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     // US05 ---- TC03
-    @Given("The user types in the valid mail address to the mail textbox inside the sign-in form")
-    public void the_user_types_in_the_valid_mail_address_to_the_mail_textbox_inside_the_sign_in_form() {
+    @Given("The user types in the valid mail address to the mail text box inside the sign-in form")
+    public void the_user_types_in_the_valid_mail_address_to_the_mail_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxMail.click();
-        visitorHomePage.textBoxMail.sendKeys(ConfigReader.getProperty("customerEmailAhmed"));
+        visitorHomePage.textBoxMail.sendKeys(ConfigReader.getProperty("customerEmailReyyan"));
+        ReusableMethods.wait(3);
     }
 
-    @Given("The user types in the valid password to the password textbox inside the sign-in form")
-    public void the_user_types_in_the_valid_password_to_the_password_textbox_inside_the_sign_in_form() {
+    @Given("The user types in the valid password to the password text box inside the sign-in form")
+    public void the_user_types_in_the_valid_password_to_the_password_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxPassword.click();
         visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty("password"));
+        ReusableMethods.wait(3);
     }
 
     @Given("The user clicks on the SIGN IN button")
@@ -567,6 +571,7 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Go to the All Categories dropdown menu click.")
     public void go_to_the_all_categories_dropdown_menu_click() {
         visitorHomePage.dropDownAllCategories.click();
+        ReusableMethods.wait(3);
     }
 
     @Given("All items in the drop-down menu category titles of verify that it is visible.")
@@ -651,7 +656,7 @@ public class VisitorHomePageStepDef extends Base {
         visitorHomePage.textBoxFooterEmail.click();
         visitorHomePage.textBoxFooterEmail.clear();
         visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
-       assertFalse(visitorHomePage.labelMessageFooter.isDisplayed());
+       assertTrue(visitorHomePage.labelMessageFooter.isDisplayed());
         String actualWarning = visitorHomePage.textWarning.getText();
         assertEquals(expected, actualWarning);
 
@@ -744,6 +749,7 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Verify that the Electronics category window is displayed in the Home page body section.")
     public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
         visitorHomePage.bodyElectronics.isDisplayed();
+        ReusableMethods.wait(2);
     }
 
     @Given("Click the Telephone heading in the subcategory and verify that the related products are displayed.")
@@ -838,8 +844,8 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 
-    //------------------------ Nazime-------------------------------
-    //US02 TC01
+    //  US02------------------------ Nazime-------------------------------
+    // TC01
     @Given("Displays und click the headings \\(Track Your Order) on the top right side")
     public void displays_und_click_the_headings_track_your_order_on_the_top_right_side() {
         assertTrue(visitorHomePage.linkTrackOrder.isDisplayed());
@@ -886,21 +892,18 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the site logo and refresh the page")
     public void click_on_the_site_logo_and_refresh_the_page() {
+        ReusableMethods.wait(2);
         visitorHomePage.logoBuysell.click();
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
     }
 
     //US TC03
-    @Given("The search box  is displayed")
-    public void the_search_box_is_displayed() {
-        assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
+    @Given("The site logo is displayed und enabled on the top left of the page")
+    public void the_site_logo_is_displayed_und_enabled_on_the_top_left_of_the_page() {
+
+       adminDashboard.verifyVisibleActive(visitorHomePage.searchBoxHomePage);
     }
 
-    @Given("search by typing Baby in the search bar")
-    public void search_by_typing_baby_in_the_search_bar() {
-
-
-    }
 // ===================US08 > TC01==================================
 
     @Given("User clicks on the About Us link and displays About Us page")
@@ -975,6 +978,8 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Coupon section and verify that Coupon is visible")
     public void click_on_the_section_and_verify_that_coupon_section_is_active() {
+        ReusableMethods.scrollWithPixelsJS(0,-300);
+        ReusableMethods.wait(1);
         visitorHomePage.buttonCoupon.click();
         ReusableMethods.wait(1);
         visitorHomePage.verifyVisible(visitorHomePage.linkGetCoupon);
@@ -1044,6 +1049,7 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.scrollWithPixelsJS(0, -300);
         ReusableMethods.wait(1);
         ReusableMethods.hover(visitorHomePage.imageProductFirstExclusivePrice);
+        ReusableMethods.wait(1);
         visitorHomePage.iconCompare_ExclusivePrice.click();
     }
 
@@ -1088,34 +1094,36 @@ public class VisitorHomePageStepDef extends Base {
    @Given("Slider images are expected to automatically switch after a certain period of time Verifies that images are automatically displayed in a loop")
    public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time_verifies_that_images_are_automatically_displayed_in_a_loop() {
 
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct1,3);
+
+       assertTrue(visitorHomePage.imageProduct1.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,5);
        assertTrue(visitorHomePage.imageProduct2.isDisplayed());
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,3);
+       ReusableMethods.wait(5);
        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct3,3);
+
    }
 
-    @Given("Verifies that the displayed image changes in scrolls")
-    public void verifies_that_the_displayed_image_changes_in_scrolls() {
-        assertTrue(visitorHomePage.imageProduct2.isDisplayed());
-        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
-
-    }
-
-    //US13 TC04<<<<<<
+   //US13 TC04<<<<<<
     @Given("Click on a slider image and Verifies that the relevant page has been opened")
     public void click_on_a_slider_image_and_verifies_that_the_relevant_page_has_been_opened() {
 
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct1);
+        visitorHomePage.imageProduct1.click();
         ReusableMethods.switchToWindow("Fashion");
+        ReusableMethods.wait(1);
         visitorHomePage.logoBuysell.click();
+        ReusableMethods.wait(1);
         visitorHomePage.icon2.click();
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct2);
-        ReusableMethods.wait(2);
+        visitorHomePage.imageProduct2.click();
+        ReusableMethods.wait(1);
+        ReusableMethods.switchToWindow("SPORT-OUTDOOR");
         visitorHomePage.logoBuysell.click();
         visitorHomePage.icon3.click();
+        ReusableMethods.wait(3);
+        visitorHomePage.imageProduct3.click();
         ReusableMethods.wait(2);
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct3);
+        visitorHomePage.logoBuysell.click();
+
+
 
     }
 

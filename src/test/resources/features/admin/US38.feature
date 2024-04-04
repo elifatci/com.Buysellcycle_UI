@@ -5,7 +5,7 @@ Feature: As an administrator I would like to have a page to add a new product to
 
     Scenario: TC01 Access to Add New Product page
       * Clicks the product link in the admin dashboard sidebar
-      * Clicks the  add new product link in the admin dashboard sidebar
+      * Displays the  add new product link in the admin dashboard sidebar
       * Close the page
 
 
@@ -16,7 +16,7 @@ Feature: As an administrator I would like to have a page to add a new product to
         * Close the page
 
   Scenario: TC03 Displaying and selecting type options und enable
-    * Clicks the product link in the admin dashboard sidebar
+         * Clicks the product link in the admin dashboard sidebar
           * Clicks the  add new product link in the admin dashboard sidebar
           * select variant type
           * Close the page
@@ -33,7 +33,7 @@ Feature: As an administrator I would like to have a page to add a new product to
             * Enter the information in the Weight Height Info section
             * Close the page
 
-            Scenario: TC06 Ability to enter price info and stock information
+  Scenario: TC06 Ability to enter price info and stock information
             * Clicks the product link in the admin dashboard sidebar
             * Clicks the  add new product link in the admin dashboard sidebar
             * Information is entered in Price Info and Stock section
@@ -48,7 +48,7 @@ Feature: As an administrator I would like to have a page to add a new product to
               * Clicks the  add new product link in the admin dashboard sidebar
               * the necessary information is entered and a new product is added to the site
               * Save & Publish and Save buttons are visible and their activation is confirmed
-              * a new product is added to the site
+
 
                 Scenario: TC09 related product identification
                   * Clicks the product link in the admin dashboard sidebar
@@ -70,7 +70,7 @@ Feature: As an administrator I would like to have a page to add a new product to
                       * Clicks the  add new product link in the admin dashboard sidebar
                       * Add New Product sayfasinda "Save After Fillup All General Information & Related Product, Up Sale, Cross Sale" uyari mesaji goruntulenir
 
-                        Scenario:  TC13  Redirect to add category page ,Brand Page and Unit Page
+  Scenario:  TC13  Redirect to add category page ,Brand Page and Unit Page
 
                           * Clicks the product link in the admin dashboard sidebar
                           * Display Category und clicks

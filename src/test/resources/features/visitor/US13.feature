@@ -24,5 +24,5 @@ Feature: As a user, I would like to have functional sliders on the home page
 
   @US13TC04
    Scenario: TC04  Clicking on images in the slider takes you to the right Page
-   *  Click on a slider image and Verifies that the relevant page has been opened
+   * Click on a slider image and Verifies that the relevant page has been opened
    * Close the page

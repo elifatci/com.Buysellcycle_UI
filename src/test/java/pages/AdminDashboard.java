@@ -185,6 +185,16 @@ public class AdminDashboard extends Base{
     @FindBy(xpath= "//*[@id=\"choice_form\"]/div[3]/div[1]/div/text()")
     public WebElement labelWarningText;
 
+    // save button
+    @FindBy(xpath= "(//*[@class='primary_btn_2 mt-5 text-center saveBtn'])[1]")
+    public WebElement buttonSaveProduct;
+
+    // save Publish
+    @FindBy(xpath= "(//*[@class='primary_btn_2 mt-5 text-center saveBtn'])[2]")
+    public WebElement buttonSavePublishProduct;
+
+
+
     //-----------------------------------------
 //***********************US_34/TC_01******************************************
 
@@ -486,12 +496,16 @@ public class AdminDashboard extends Base{
 
     @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='2-admin']]")
     public WebElement dropDownRoleStaff;
+    @FindBy(xpath = "(//li[@class='option'])[2]")
+    public WebElement textboxRoleStaff;
 
     @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[2]/div/div/div/input")
     public WebElement textboxNiceSelect;
 
     @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='1']]")
     public WebElement dropDownDepartmentStaff;
+    @FindBy(xpath = "(//li[@class='option'])[5]")
+    public WebElement textboxDepartmentStaff;
 
     @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[3]/div/div/div/input")
     public WebElement textboxNiceSelect2;
@@ -507,11 +521,17 @@ public class AdminDashboard extends Base{
       
     @FindBy(xpath = "//*[@id='date_of_birth']")
     public WebElement textboxBirthDateStaff;
+    @FindBy(xpath = "//td[@class='active day']")
+    public WebElement dropDownActiveDayStaff;
 
     @FindBy(xpath = "//input[@name='date_of_joining']")
     public WebElement textboxDateJoiningStaff;
     @FindBy(xpath = "//input[@name='leave_applicable_date']")
     public WebElement textboxDateApplicaStaff;
+
+    @FindBy(xpath = "(//span[@class='text-danger'])[8]")
+    public WebElement labelWarningTextStaff;
+
   
     //------US44-----
     @FindBy(xpath = "(//*[@id='dropdownMenu2'])[13]")
@@ -590,5 +610,125 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[@type='search'])[5]")
     public WebElement searchBoxQuickRefused;
 
+    //**************US37*****************************************************
+    @FindBy(xpath = "//span[.='Customer']")
+    public WebElement dropDownCustomer;
+    @FindBy(xpath = "//a[.='All Customer']")
+    public WebElement linkAllCustomer;
+    @FindBy(xpath = "//h3[.='All Customer']")
+    public WebElement labelAllCustomer;
+    @FindBy(xpath = "(//label[@class='switch_toggle'])[1]")
+    public WebElement radioButtonIsActiveFirst;
+    @FindBy(xpath = "//div[@class='toast-progress']")
+    public WebElement popUpMessage;
+    @FindBy(xpath = "//a[.='Active Customer']")
+    public WebElement buttonActiveCustomer;
+    @FindBy(xpath = "//a[.='Inactive customer']")
+    public WebElement buttonInactiveCustomer;
+    @FindBy(xpath = "//a[.='Create Customer']")
+    public WebElement buttonCreateCustomer;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/button")
+    public WebElement buttonSelect;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/button")
+    public WebElement buttonSelectInActive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[1]")
+    public WebElement buttonDetails;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[1]")
+    public WebElement buttonDetailsInactive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[2]")
+    public WebElement buttonEdit;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[2]")
+    public WebElement buttonEditInactive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[3]")
+    public WebElement buttonDelete;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[3]")
+    public WebElement buttonDeleteInactive;
+    @FindBy(xpath = "//a[@id='delete_link']")
+    public WebElement buttonDeletePopUp;
+    @FindBy(xpath = "//input[@name='last_name']")
+    public WebElement textBoxLastnameEdit;
+    @FindBy(xpath = "//button[@id='save_button_parent']")
+    public WebElement buttonUpdateEdit;
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement popUpMessageUpdate;
+    @FindBy(xpath = "//h3[.='Customer Profile']")
+    public WebElement labelCustomerProfile;
+    @FindBy(xpath = "//h3[.='Order Summary']")
+    public WebElement labelOrderSummary;
+    @FindBy(xpath = "//h3[.='Wallet Summary']")
+    public WebElement labelWalletSummary;
+    @FindBy(xpath = "//input[@name='first_name']")
+    public WebElement textBoxFirstname;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement textBoxEmail;
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement textBoxPassword;
+    @FindBy(xpath = "//input[@name='password_confirmation']")
+    public WebElement textBoxPasswordConfirmation;
+    @FindBy(xpath = "//button[@id='save_button_parent']")
+    public WebElement buttonCreateCstmr;
+
+    @FindBy(xpath = "(//*[text()='Support Ticket'])[2]")
+    public WebElement subMenuSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='primary-btn small fix-gr-bg'])[1]")
+    public WebElement buttonAddNewSupport;
+
+    @FindBy(xpath = "//*[@id='subject']")
+    public WebElement dropDownSubjectSupport;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[1]")
+    public WebElement dropDownCategoryListSupport;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[2]")
+    public WebElement dropDownPrioritySupport;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[4]")
+    public WebElement dropDownStatusSupport;
+
+    @FindBy(xpath = "//*[@class='note-editable card-block']")
+    public WebElement textBoxDescriptionSupport;
+
+    @FindBy(xpath = "//*[@class='primary-btn semi_large2 fix-gr-bg']")
+    public WebElement buttonCreateTicketSupport;
+
+    @FindBy(xpath = "//*[@id='add_new_category']")
+    public WebElement linkAddNewSupport;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[1]")
+    public WebElement dropdownCategorySupportTicket;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[2]")
+    public WebElement dropdownPrioritySupportTicket;
+
+    @FindBy(xpath = "(//*[@class='nice-select primary_select mb-15'])[3]")
+    public WebElement dropdownStatusSupportTicket;
+
+    @FindBy(xpath = "//*[@id='search_btn']")
+    public WebElement buttonSearchSupportTicket;
+
+    @FindBy(xpath = "//tr//td[3]")
+    public List<WebElement> tableTechnicalRow;
+
+
+    public void tablodaHucreBulma(String str){
+        List<String> ListStr=ReusableMethods.strListeOlustur(tableTechnicalRow);
+        int count=0;
+        for (String each:ListStr) {
+            if (each.contains(str)){
+                count++;
+                Assert.assertTrue(count>0);
+            }
+        }
+    }
+
+    @FindBy(xpath = "(//*[@class='sorting_1'])[1]")
+    public WebElement iconActionSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='btn btn-secondary dropdown-toggle'])[2]")
+    public WebElement buttonSelectSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='niceSelect w-100 bb form-control'])[2]")
+    public WebElement labelUnassignedText;
 
 }
