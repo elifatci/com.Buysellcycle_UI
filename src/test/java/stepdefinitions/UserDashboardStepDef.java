@@ -81,7 +81,9 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Login by entering valid {string} and {string} on the SignIn page.")
     public void login_by_entering_valid_email_and_password_on_the_sign_in_page(String email, String password) {
+       ReusableMethods.wait(3);
         userDashboard.loginUser(ConfigReader.getProperty(email), ConfigReader.getProperty(password));
+        ReusableMethods.wait(3);
     }
 
     @Given("Displays Purchase History banner in Dashboard sideBar")
