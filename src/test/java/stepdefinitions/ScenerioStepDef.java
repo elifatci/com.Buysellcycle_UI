@@ -12,37 +12,15 @@ public class ScenerioStepDef extends Base {
 
     @Given("The user clicks on the Login button at the top right corner of the page")
     public void the_user_clicks_on_the_login_button_at_the_top_right_corner_of_the_page() {
-        ReusableMethods.wait(3);
         visitorHomePage.linkLogin.click();
-        ReusableMethods.wait(2);
-    }
-    @Given("It is checked if there is a TURN YOUR IDEAS INTO REALITY quote on the right side of the page.")
-    public void it_is_checked_if_there_is_a_turn_your_ideas_into_reality_quote_on_the_right_side_of_the_page() {
-
-    }
-    @Given("It is checked if there is a sign-in form on the left side of the page.")
-    public void it_is_checked_if_there_is_a_sign_in_form_on_the_left_side_of_the_page() {
-
-    }
-    @Given("The user types in the valid mail address to the mail text box inside the sign-in form.")
-    public void the_user_types_in_the_valid_mail_address_to_the_mail_text_box_inside_the_sign_in_form() {
-
-    }
-    @Given("The user types in the valid password to the password text box inside the sign-in form.")
-    public void the_user_types_in_the_valid_password_to_the_password_text_box_inside_the_sign_in_form() {
-
-    }
-    @Given("The user clicks on the SIGN IN button.")
-    public void the_user_clicks_on_the_sign_in_button() {
-
-    }
-    @Given("Click on the site logo and refresh the page.")
-    public void click_on_the_site_logo_and_refresh_the_page() {
-
     }
     @Given("Verify that the Electronics category window is displayed in the Home page body section")
     public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
-
+        visitorHomePage.dropDownAllCategories.click();
+        ReusableMethods.wait(1);
+        ReusableMethods.hover(visitorHomePage.buttonElectronicsIcon);
+        ReusableMethods.wait(1);
+        visitorHomePage.linkmobilePhone.click();
     }
     @Given("Click on the compare icon to make a price performance comparison between two products from Apple and Huawei")
     public void click_on_the_compare_icon_to_make_a_price_performance_comparison_between_two_products_from_apple_and_huawei() {
@@ -56,29 +34,33 @@ public class ScenerioStepDef extends Base {
         ReusableMethods.wait(1);
         visitorHomePage.huawei.click();
     }
-    @Given("Continue browsing the site")
-    public void continue_browsing_the_site() {
-        ReusableMethods.wait(1);
-        ReusableMethods.scrollIntoViewJS(visitorHomePage.labelTopRating);
-        ReusableMethods.wait(4);
-    }
     @Given("Click on the wishlist icon of the first product in the Top Rating section")
     public void click_on_the_wishlist_icon_of_the_first_product_in_the_top_rating_section() {
+        visitorHomePage.dropDownAllCategories.click();
+        ReusableMethods.wait(1);
+        visitorHomePage.buttonbabyClickView.click();
+        ReusableMethods.wait(1);
+        visitorHomePage.linkBabyStrollerPushchair.click();
+        ReusableMethods.wait(1);
         ReusableMethods.hover(visitorHomePage.wishlistItem);
-        ReusableMethods.wait(5);
+        ReusableMethods.wait(1);
         visitorHomePage.wishlistItem.click();
+
+
     }
     @Given("User clicks on -Compare- and displays {string} the Compare page")
     public void user_clicks_on_compare_and_displays_the_compare_page(String string) {
-
+        userDashboard.linkCompare.click();
+        ReusableMethods.wait(1);
     }
     @Given("User clicks on -Add To Cart icon- and adds an item")
     public void user_clicks_on_add_to_cart_icon_and_adds_an_item() {
-
+        userDashboard.checkClickElement(userDashboard.iconAddToCart);
     }
     @Given("Close the modal window that openen.")
     public void close_the_modal_window_that_openen() {
-
+        ReusableMethods.wait(1);
+        visitorHomePage.buttonCloseIcon1.click();
     }
     @Given("Closes the cart section")
     public void closes_the_cart_section() {
@@ -97,15 +79,15 @@ public class ScenerioStepDef extends Base {
     }
     @Given("Clicks the Add to card button.")
     public void clicks_the_add_to_card_button() {
-
+        userDashboard.buttonAddToCartProduct.click();
     }
     @Given("Clicks the View card button.")
     public void clicks_the_view_card_button() {
-
+        userDashboard.buttonViewCardProduct.click();
     }
     @Given("Click on the {string} button on the right side under the specified products.")
     public void click_on_the_button_on_the_right_side_under_the_specified_products(String string) {
-
+        userDashboard.buttonProceedTOCheckout.click();
     }
     @Given("Write {string} in the notes section")
     public void write_in_the_notes_section(String string) {
@@ -129,7 +111,7 @@ public class ScenerioStepDef extends Base {
     }
     @Given("Clicks Logout link.")
     public void clicks_logout_link() {
-
+        userDashboard.buttonLogout.click();
     }
 
 

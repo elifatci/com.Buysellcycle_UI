@@ -603,13 +603,13 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//*[@data-product-id='1380']")
     public WebElement huawei;
 
-    @FindBy(xpath = "//*[@id='wishlistbtn_1760']")
+    @FindBy(xpath = "//*[@id='wishlistbtn_1716']")
     public WebElement wishlistItem;
 
-    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/images/19-02-2024/65d3d360149c3.jpeg']")
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/images/27-02-2024/65de3116eb39d.png']")
     public WebElement wishlistItemClick;
 
-    @FindBy(xpath = "(//*[@class='label_name f_w_500 '])[2]")
+    @FindBy(xpath = "")
     public WebElement stripe;
 
     @FindBy(xpath = "//*[text()='Order created successfully']")
