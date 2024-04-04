@@ -975,6 +975,8 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the Coupon section and verify that Coupon is visible")
     public void click_on_the_section_and_verify_that_coupon_section_is_active() {
+        ReusableMethods.scrollWithPixelsJS(0,-300);
+        ReusableMethods.wait(1);
         visitorHomePage.buttonCoupon.click();
         ReusableMethods.wait(1);
         visitorHomePage.verifyVisible(visitorHomePage.linkGetCoupon);
@@ -1044,6 +1046,7 @@ public class VisitorHomePageStepDef extends Base {
         ReusableMethods.scrollWithPixelsJS(0, -300);
         ReusableMethods.wait(1);
         ReusableMethods.hover(visitorHomePage.imageProductFirstExclusivePrice);
+        ReusableMethods.wait(1);
         visitorHomePage.iconCompare_ExclusivePrice.click();
     }
 
