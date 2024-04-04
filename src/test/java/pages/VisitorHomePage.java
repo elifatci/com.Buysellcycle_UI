@@ -596,6 +596,24 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//*[@class='amaz_mazing_text']")
     public WebElement labelAboutText;
 
+//======================================================================================================================
+    @FindBy(xpath = "//*[@data-product-id='1373']")
+    public WebElement iphone;
+
+    @FindBy(xpath = "//*[@data-product-id='1380']")
+    public WebElement huawei;
+
+    @FindBy(xpath = "//*[@id='wishlistbtn_431']")
+    public WebElement wishlistItem;
+
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/images/19-02-2024/65d3d360149c3.jpeg']")
+    public WebElement wishlistItemClick;
+
+    @FindBy(xpath = "(//*[@class='label_name f_w_500 '])[2]")
+    public WebElement stripe;
+
+    @FindBy(xpath = "//*[text()='Order created successfully']")
+    public WebElement confirmation;
 
 
 }

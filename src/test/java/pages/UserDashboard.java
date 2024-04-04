@@ -306,7 +306,7 @@ public class UserDashboard extends Base {
     @FindBy(id = "dataDeleteBtn")
     public WebElement deleteButton;
 
-    @FindBy(xpath = "(//*[@title='Add to Cart'])[1]")
+    @FindBy(xpath = "//*[@class='amaz_primary_btn addToCart']")
     public WebElement iconAddToCart;
 
     @FindBy(xpath = "(//*[text()='Item added to your cart'])[1]")

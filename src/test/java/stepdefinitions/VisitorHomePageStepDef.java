@@ -74,14 +74,14 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     // US05 ---- TC03
-    @Given("The user types in the valid mail address to the mail textbox inside the sign-in form")
-    public void the_user_types_in_the_valid_mail_address_to_the_mail_textbox_inside_the_sign_in_form() {
+    @Given("The user types in the valid mail address to the mail text box inside the sign-in form")
+    public void the_user_types_in_the_valid_mail_address_to_the_mail_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxMail.click();
-        visitorHomePage.textBoxMail.sendKeys(ConfigReader.getProperty("customerEmailAhmed"));
+        visitorHomePage.textBoxMail.sendKeys(ConfigReader.getProperty("customerEmailReyyan"));
     }
 
-    @Given("The user types in the valid password to the password textbox inside the sign-in form")
-    public void the_user_types_in_the_valid_password_to_the_password_textbox_inside_the_sign_in_form() {
+    @Given("The user types in the valid password to the password text box inside the sign-in form")
+    public void the_user_types_in_the_valid_password_to_the_password_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxPassword.click();
         visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty("password"));
     }
