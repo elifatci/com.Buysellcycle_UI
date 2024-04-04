@@ -452,12 +452,16 @@ public class AdminDashboard extends Base{
 
     @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='2-admin']]")
     public WebElement dropDownRoleStaff;
+    @FindBy(xpath = "(//li[@class='option'])[2]")
+    public WebElement textboxRoleStaff;
 
     @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[2]/div/div/div/input")
     public WebElement textboxNiceSelect;
 
     @FindBy(xpath = "//div[@tabindex='0'][.//li[@data-value='1']]")
     public WebElement dropDownDepartmentStaff;
+    @FindBy(xpath = "(//li[@class='option'])[5]")
+    public WebElement textboxDepartmentStaff;
 
     @FindBy(xpath = "/html/body/div[2]/div/section/div/div/div[2]/div/form/div/div[3]/div/div/div/input")
     public WebElement textboxNiceSelect2;
@@ -473,11 +477,17 @@ public class AdminDashboard extends Base{
       
     @FindBy(xpath = "//*[@id='date_of_birth']")
     public WebElement textboxBirthDateStaff;
+    @FindBy(xpath = "//td[@class='active day']")
+    public WebElement dropDownActiveDayStaff;
 
     @FindBy(xpath = "//input[@name='date_of_joining']")
     public WebElement textboxDateJoiningStaff;
     @FindBy(xpath = "//input[@name='leave_applicable_date']")
     public WebElement textboxDateApplicaStaff;
+
+    @FindBy(xpath = "(//span[@class='text-danger'])[8]")
+    public WebElement labelWarningTextStaff;
+
   
     //------US44-----
     @FindBy(xpath = "(//*[@id='dropdownMenu2'])[13]")
