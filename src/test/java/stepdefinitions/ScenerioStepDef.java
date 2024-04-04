@@ -10,7 +10,41 @@ import static org.junit.Assert.assertTrue;
 
 public class ScenerioStepDef extends Base {
 
-    @Given("Click on the compare icon to make a price performance comparison between two products from Apple and Huawei.")
+    @Given("The user clicks on the Login button at the top right corner of the page")
+    public void the_user_clicks_on_the_login_button_at_the_top_right_corner_of_the_page() {
+        ReusableMethods.wait(3);
+        visitorHomePage.linkLogin.click();
+        ReusableMethods.wait(2);
+    }
+    @Given("It is checked if there is a TURN YOUR IDEAS INTO REALITY quote on the right side of the page.")
+    public void it_is_checked_if_there_is_a_turn_your_ideas_into_reality_quote_on_the_right_side_of_the_page() {
+
+    }
+    @Given("It is checked if there is a sign-in form on the left side of the page.")
+    public void it_is_checked_if_there_is_a_sign_in_form_on_the_left_side_of_the_page() {
+
+    }
+    @Given("The user types in the valid mail address to the mail text box inside the sign-in form.")
+    public void the_user_types_in_the_valid_mail_address_to_the_mail_text_box_inside_the_sign_in_form() {
+
+    }
+    @Given("The user types in the valid password to the password text box inside the sign-in form.")
+    public void the_user_types_in_the_valid_password_to_the_password_text_box_inside_the_sign_in_form() {
+
+    }
+    @Given("The user clicks on the SIGN IN button.")
+    public void the_user_clicks_on_the_sign_in_button() {
+
+    }
+    @Given("Click on the site logo and refresh the page.")
+    public void click_on_the_site_logo_and_refresh_the_page() {
+
+    }
+    @Given("Verify that the Electronics category window is displayed in the Home page body section")
+    public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
+
+    }
+    @Given("Click on the compare icon to make a price performance comparison between two products from Apple and Huawei")
     public void click_on_the_compare_icon_to_make_a_price_performance_comparison_between_two_products_from_apple_and_huawei() {
         ReusableMethods.hover(visitorHomePage.iphone);
         ReusableMethods.wait(2);
@@ -22,82 +56,81 @@ public class ScenerioStepDef extends Base {
         ReusableMethods.wait(1);
         visitorHomePage.huawei.click();
     }
-
-    @Given("Continue browsing the site.")
+    @Given("Continue browsing the site")
     public void continue_browsing_the_site() {
         ReusableMethods.wait(1);
         ReusableMethods.scrollIntoViewJS(visitorHomePage.labelTopRating);
-        ReusableMethods.wait(2);
+        ReusableMethods.wait(4);
     }
-
-    @Given("Click on the wishlist icon of the first product in the Top Rating section.")
+    @Given("Click on the wishlist icon of the first product in the Top Rating section")
     public void click_on_the_wishlist_icon_of_the_first_product_in_the_top_rating_section() {
         ReusableMethods.hover(visitorHomePage.wishlistItem);
-        ReusableMethods.wait(1);
+        ReusableMethods.wait(5);
         visitorHomePage.wishlistItem.click();
     }
+    @Given("User clicks on -Compare- and displays {string} the Compare page")
+    public void user_clicks_on_compare_and_displays_the_compare_page(String string) {
 
-    @Given("Closes the cart section.")
+    }
+    @Given("User clicks on -Add To Cart icon- and adds an item")
+    public void user_clicks_on_add_to_cart_icon_and_adds_an_item() {
+
+    }
+    @Given("Close the modal window that openen.")
+    public void close_the_modal_window_that_openen() {
+
+    }
+    @Given("Closes the cart section")
     public void closes_the_cart_section() {
         userDashboard.checkClickElement(visitorHomePage.buttonTi_CloseIcon2);
         ReusableMethods.wait(2);
     }
-
-    @Given("Clicks on wishlist link.")
+    @Given("Clicks on wishlist link")
     public void clicks_on_wishlist_link() {
         userDashboard.checkClickElement(visitorHomePage.linkHeaderWishList);
-        ReusableMethods.wait(2);
+        ReusableMethods.wait(4);
     }
-
-    @Given("Clicks on the product image to go to the product details page.")
+    @Given("Clicks on the product image to go to the product details page")
     public void clicks_on_the_product_image_to_go_to_the_product_details_page() {
         visitorHomePage.wishlistItemClick.click();
         ReusableMethods.wait(2);
     }
+    @Given("Clicks the Add to card button.")
+    public void clicks_the_add_to_card_button() {
 
-    @Given("Write {string} in the notes section.")
-    public void write_in_the_notes_section(String string) {
-        userDashboard.checkSendKeysBox(userDashboard.textboxNoteCart , string);
-        ReusableMethods.wait(1);
     }
+    @Given("Clicks the View card button.")
+    public void clicks_the_view_card_button() {
 
-    @Given("Clicks on the Continue to Shipping button.")
+    }
+    @Given("Click on the {string} button on the right side under the specified products.")
+    public void click_on_the_button_on_the_right_side_under_the_specified_products(String string) {
+
+    }
+    @Given("Write {string} in the notes section")
+    public void write_in_the_notes_section(String string) {
+        ReusableMethods.wait(3);
+        userDashboard.checkSendKeysBox(userDashboard.textboxNoteCart , string);
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks on the Continue to Shipping button")
     public void clicks_on_the_continue_to_shipping_button() {
         userDashboard.buttonContinueShiping.click();
         ReusableMethods.wait(1);
     }
-
-    @Given("Choose Stripe from the payment methods.")
-    public void choose_stripe_from_the_payment_methods() {
-        visitorHomePage.stripe.click();
-        ReusableMethods.wait(1);
-    }
-
-    @Given("Click on the Pay Now button.")
+    @Given("Click on the Pay Now button")
     public void click_on_the_pay_now_button() {
         userDashboard.checkClickElement(userDashboard.orderNowButton);
         ReusableMethods.wait(2);
     }
-
-    @Given("User enters credit card information {string} {string} {string} {string} .")
-    public void user_enters_credit_card_information(String email, String ccNumber, String expDate, String csc) {
-        Driver.getDriver().switchTo().frame(userDashboard.labelIframe);
-        ReusableMethods.wait(1);
-        userDashboard.checkSendKeysBox(userDashboard.textBoxEmail, email);
-        ReusableMethods.wait(1);
-        userDashboard.checkSendKeysBox(userDashboard.textBoxCardNumber, ccNumber);
-        ReusableMethods.wait(1);
-        userDashboard.checkSendKeysBox(userDashboard.textBoxExpirationDate, expDate);
-        ReusableMethods.wait(1);
-        userDashboard.checkSendKeysBox(userDashboard.textBoxCsc, csc);
-        ReusableMethods.wait(1);
-        userDashboard.checkClickElement(userDashboard.payButton);
-        ReusableMethods.wait(4);
-    }
-
-    @Given("View the message confirming that the order has been successfully placed.")
+    @Given("View the message confirming that the order has been successfully placed")
     public void view_the_message_confirming_that_the_order_has_been_successfully_placed() {
         assertTrue(visitorHomePage.confirmation.isDisplayed());
     }
+    @Given("Clicks Logout link.")
+    public void clicks_logout_link() {
+
+    }
+
 
 }

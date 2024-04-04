@@ -27,7 +27,9 @@ public class VisitorHomePageStepDef extends Base {
     // US05 ---- TC01
     @Given("The user clicks on the LOGIN button at the top right corner of the page")
     public void the_user_clicks_on_the_login_button_at_the_top_right_corner_of_the_page() {
+        ReusableMethods.wait(3);
         visitorHomePage.linkLogin.click();
+        ReusableMethods.wait(3);
     }
 
     @Given("It is checked whether the login page is opened")
@@ -78,12 +80,14 @@ public class VisitorHomePageStepDef extends Base {
     public void the_user_types_in_the_valid_mail_address_to_the_mail_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxMail.click();
         visitorHomePage.textBoxMail.sendKeys(ConfigReader.getProperty("customerEmailReyyan"));
+        ReusableMethods.wait(3);
     }
 
     @Given("The user types in the valid password to the password text box inside the sign-in form")
     public void the_user_types_in_the_valid_password_to_the_password_text_box_inside_the_sign_in_form() {
         visitorHomePage.textBoxPassword.click();
         visitorHomePage.textBoxPassword.sendKeys(ConfigReader.getProperty("password"));
+        ReusableMethods.wait(3);
     }
 
     @Given("The user clicks on the SIGN IN button")
@@ -567,6 +571,7 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Go to the All Categories dropdown menu click.")
     public void go_to_the_all_categories_dropdown_menu_click() {
         visitorHomePage.dropDownAllCategories.click();
+        ReusableMethods.wait(3);
     }
 
     @Given("All items in the drop-down menu category titles of verify that it is visible.")
@@ -744,6 +749,7 @@ public class VisitorHomePageStepDef extends Base {
     @Given("Verify that the Electronics category window is displayed in the Home page body section.")
     public void verify_that_the_electronics_category_window_is_displayed_in_the_home_page_body_section() {
         visitorHomePage.bodyElectronics.isDisplayed();
+        ReusableMethods.wait(2);
     }
 
     @Given("Click the Telephone heading in the subcategory and verify that the related products are displayed.")
@@ -886,6 +892,7 @@ public class VisitorHomePageStepDef extends Base {
 
     @Given("Click on the site logo and refresh the page")
     public void click_on_the_site_logo_and_refresh_the_page() {
+        ReusableMethods.wait(2);
         visitorHomePage.logoBuysell.click();
         assertTrue(visitorHomePage.logoBuysell.isDisplayed());
     }
