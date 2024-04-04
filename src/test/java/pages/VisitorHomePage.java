@@ -162,7 +162,7 @@ public class VisitorHomePage extends Base{
 
     @FindBy(xpath = "//*[text()='/ Register']")
     public WebElement linkRegister;
-    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/frontend/amazy/img/banner/login_img.png']")
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/settings/65ce06e6a2fd8.png']")
     public WebElement logoBuySell;
     @FindBy(xpath = "//*[text() = 'Turn your ideas into reality.']")
     public WebElement labelPictureText;

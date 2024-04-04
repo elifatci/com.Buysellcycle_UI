@@ -7,7 +7,10 @@ Feature: As a registered user, I want to have a payment page where
   Scenario: TC01 User selects the payment type of the products added to the cart and creates an order
     * Go to "loginUrl"
     * Login by entering valid "customerEmailSenayda" and "password" on the SignIn page.
-    * I click on the CART link in the header section.
+    * Click on the user site logo
+    * Clicks on the product titled Orange Balloon in the Best Deals section
+    * Clicks the Add to card button
+    * Clicks the View card button
     * Verifies that the 'Proceed To Checkout' button is visible and active on the right side under the specified products
     * Click on the 'Proceed To Checkout' button on the right side under the specified products
     * User verifies that they have switched from the Checkout page to the Checkout page
