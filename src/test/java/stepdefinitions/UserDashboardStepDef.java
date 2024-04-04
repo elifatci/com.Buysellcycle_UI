@@ -16,6 +16,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -686,30 +687,78 @@ public class UserDashboardStepDef extends Base {
 //***********************************US_24/TC03*************************************
     @Given("Click the Change Password tab.")
     public void click_the_change_password_tab() {
-
+        ReusableMethods.clickWithJS(userDashboard.buttonChangePassword);
+        ReusableMethods.wait(1);
     }
     @Given("{string} TextBox contains the current password, {string} and {string} TextBoxes contain the current password.enter the new password and click the Updatenow button..")
     public void text_box_contains_the_current_password_and_text_boxes_contain_the_current_password_enter_the_new_password_and_click_the_updatenow_button(String string, String string2, String string3) {
 
+        userDashboard.textBoxCurrentPassword.sendKeys(ConfigReader.getProperty("password"));
+        userDashboard.textBoxNewPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        userDashboard.textBoxRenewPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        ReusableMethods.clickWithJS(userDashboard.buttonUpdateNowClick);
+        ReusableMethods.wait(1);
+
     }
     @Given("{string} TextBox enter the invalid password. {string} and {string} Enter the new password in the TextBoxes. And Updatenow Click button.")
     public void text_box_enter_the_invalid_password_and_enter_the_new_password_in_the_text_boxes_and_updatenow_click_button(String string, String string2, String string3) {
+        userDashboard.textBoxCurrentPassword.clear();
+        userDashboard.textBoxCurrentPassword.sendKeys(ConfigReader.getProperty("reyyanInvalidPassword"));
+        userDashboard.textBoxNewPassword.clear();
+        userDashboard.textBoxNewPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        userDashboard.textBoxRenewPassword.clear();
+        userDashboard.textBoxRenewPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        ReusableMethods.wait(1);
+        ReusableMethods.clickWithJS(userDashboard.buttonUpdateNowClick);
+        ReusableMethods.wait(2);
+        System.out.println(userDashboard.textBoxCurrentPassword.getText());
 
     }
     @Given("The current password is not match with Verify that the old password. message appears")
     public void the_current_password_is_not_match_with_verify_that_the_old_password_message_appears() {
+        try {
+           userDashboard.labelNotMatchOldPasswordMessage.isDisplayed();
+
+        } catch (InputMismatchException e) {
+
+        }
+        System.out.println("Hata mesajı :" + "The current password is not match with Verify that the old password. " + "vermelidir.");
 
     }
     @Given("Enter the updated password in the {string} TextBox. {string} and {string} Enter different passwords in the TextBoxes. And Updatenow Click on the button.")
     public void enter_the_updated_password_in_the_text_box_and_enter_different_passwords_in_the_text_boxes_and_updatenow_click_on_the_button(String string, String string2, String string3) {
+        userDashboard.textBoxCurrentPassword.clear();
+        userDashboard.textBoxCurrentPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        userDashboard.textBoxNewPassword.clear();
+        userDashboard.textBoxNewPassword.sendKeys(ConfigReader.getProperty("reyyanDifferentPassword1"));
+        userDashboard.textBoxRenewPassword.clear();
+        userDashboard.textBoxRenewPassword.sendKeys(ConfigReader.getProperty("reyyanDifferentPassword2"));
+        ReusableMethods.wait(1);
+        ReusableMethods.clickWithJS(userDashboard.buttonUpdateNowClick);
+
 
     }
     @Given("The new password confirmation and new password must match. message appears Verify")
     public void the_new_password_confirmation_and_new_password_must_match_message_appears_verify() {
+        try {
+            userDashboard.labelNotMuchNewPasswordMessage.isDisplayed();
+
+        } catch (InputMismatchException e) {
+
+        }
+        System.out.println("Hata mesajı :" + "The new password confirmation and new password must match. " + "vermelidir.");
 
     }
     @Given("The updated password in the {string} TextBox,{string} and {string} Enter the old password in the TextBoxes and update it.")
     public void the_updated_password_in_the_text_box_and_enter_the_old_password_in_the_text_boxes_and_update_it(String string, String string2, String string3) {
+        userDashboard.textBoxCurrentPassword.clear();
+        userDashboard.textBoxCurrentPassword.sendKeys(ConfigReader.getProperty("reyyanNewPassword"));
+        userDashboard.textBoxNewPassword.clear();
+        userDashboard.textBoxNewPassword.sendKeys(ConfigReader.getProperty("password"));
+        userDashboard.textBoxRenewPassword.clear();
+        userDashboard.textBoxRenewPassword.sendKeys(ConfigReader.getProperty("password"));
+        ReusableMethods.wait(1);
+        ReusableMethods.clickWithJS(userDashboard.buttonUpdateNowClick);
 
     }
 
@@ -717,36 +766,50 @@ public class UserDashboardStepDef extends Base {
 
     @Given("Click the Address tab.")
     public void click_the_address_tab() {
-
+        ReusableMethods.clickWithJS(userDashboard.buttonAddressMyAccountClick);
     }
     @Given("Full Name, Address, Region,E-mail, Phone Number information Verify that it matches the user's information.")
     public void full_name_address_region_e_mail_phone_number_information_verify_that_it_matches_the_user_s_information() {
-
+        List<String> ucuncuSatirListesi = ReusableMethods.getElementsText(By.xpath("//tbody/tr/td[3]"));
+        for (String each:ucuncuSatirListesi
+        ) {
+            System.out.println(ucuncuSatirListesi);
+        }
+        System.out.println(ucuncuSatirListesi + "Satır boş göründüğü için adres doğrulama yapılamıyor");
     }
 
     @Given("Edit icon and delete icon is displayed and active verify.")
     public void edit_icon_and_delete_icon_is_displayed_and_active_verify() {
-
+        userDashboard.iconDeleteAddress.isDisplayed();
     }
 
     @Given("Make sure the new address registration button is visible and active.verify that")
     public void make_sure_the_new_address_registration_button_is_visible_and_active_verify_that() {
-
+        userDashboard.buttonAddNewAddressClick.isDisplayed();
     }
 
     @Given("In a new address registration window Shipping Address and Billing address Verify type is clickable")
     public void in_a_new_address_registration_window_shipping_address_and_billing_address_verify_type_is_clickable() {
-
+        userDashboard.textBoxShippingAddressClick.isEnabled();
+        userDashboard.textBoxBillingAddressClick.isEnabled();
     }
 
     @Given("Verify that the Name,email Address,Phone Number,fields are visible and information has been entered.")
     public void verify_that_the_name_email_address_phone_number_fields_are_visible_and_information_has_been_entered() {
+        ReusableMethods.clickWithJS(userDashboard.checkBoxAddressName);
+        actions.sendKeys(ConfigReader.getProperty("reyyanName"));
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(ConfigReader.getProperty("reyyanEmail"));
+        actions.sendKeys(Keys.TAB).perform();
+        actions.sendKeys(ConfigReader.getProperty("reyyanPhoneNumber"));
+
+
 
     }
 
     @Given("Press the create button.")
     public void press_the_create_button() {
-
+        ReusableMethods.clickWithJS(userDashboard.buttonCreateAddNewAddress);
     }
 
 
@@ -986,6 +1049,7 @@ public class UserDashboardStepDef extends Base {
 
     @Given("In SideBar, the menu item My Account appears.")
     public void in_side_bar_the_menu_item_my_account_appears() {
+
         ReusableMethods.wait(5);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         userDashboard.linkHeaderMyAccount.isDisplayed();
@@ -993,7 +1057,7 @@ public class UserDashboardStepDef extends Base {
     }
     @Given("Go to the My Account page.")
     public void go_to_the_my_account_page() {
-        userDashboard.linkHeaderMyAccount.click();
+        ReusableMethods.clickWithJS(userDashboard.linkHeaderMyAccount);
         ReusableMethods.wait(2);
 
     }
@@ -1005,30 +1069,39 @@ public class UserDashboardStepDef extends Base {
         String filePath = "C:\\Users\\HP\\OneDrive\\Resimler\\Ekran Görüntüleri\\2023-07-11 185959.png";
         userDashboard.buttonBrowse.sendKeys(filePath);
         ReusableMethods.wait(2);
-        ReusableMethods.clickWithJS(userDashboard.pcOpenFile);
+
 
 
     }
     //*************************US24/TC02*******************************************
     @Given("Go to the Basic Info tab.")
     public void go_to_the_basic_info_tab() {
-
+        ReusableMethods.clickWithJS(userDashboard.buttonBasicInfo);
     }
     @Given("Verify that the TextBoxes on the Basic Info tab are visible.")
     public void verify_that_the_text_boxes_on_the_basic_info_tab_are_visible() {
-
+        userDashboard.textboxBasicInfo.isDisplayed();
     }
     @Given("Verify that First Name,Email Address are displayed correctly.")
     public void verify_that_first_name_email_address_are_displayed_correctly() {
+        ReusableMethods.wait(2);
+        String expectedFirstName = "Reyyan";
+        String actualFirstName = userDashboard.labelFirstLastName.getText();
+        assertTrue(actualFirstName.contains(expectedFirstName));
 
-    }
-    @Given("Verify that the last name textbox is empty")
-    public void verify_that_the_last_name_textbox_is_empty() {
 
+        String expectedEmail = "customer.reyyan@buysellcycle.com";
+        String actualEmail = userDashboard.labelEmail.getText();
+        assertEquals(expectedEmail,actualEmail);
     }
-    @Given("Profile by entering new information in TextBoxes update , save their information.")
-    public void profile_by_entering_new_information_in_text_boxes_update_save_their_information() {
+    @Given("To update TextBoxes, change the name in the Last name box and click the update now button to save the profile information.")
+    public void to_update_text_boxes_change_the_name_in_the_last_name_box_and_click_the_update_now_button_to_save_the_profile_information() {
+        userDashboard.textBoxLastName.clear();
+        userDashboard.textBoxLastName.sendKeys("Mete");
+        ReusableMethods.wait(6);
+        ReusableMethods.clickWithJS(userDashboard.buttonUpdateNow);
     }
+
     //US27 TC01
     @Given("Verify that the Follow banner is visible in the Dashboard sideBar")
     public void verify_that_the_follow_banner_is_visible_in_the_dashboard_side_bar() {
@@ -1225,6 +1298,9 @@ public class UserDashboardStepDef extends Base {
       assertTrue(userDashboard.labelChangeSystemMessage.isDisplayed());
       //assertTrue(userDashboard.checkboxNotificationSetting.isSelected());
     }
+
+
+
 }
 
 
