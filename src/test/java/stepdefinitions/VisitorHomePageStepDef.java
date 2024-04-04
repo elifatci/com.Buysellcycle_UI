@@ -844,8 +844,8 @@ public class VisitorHomePageStepDef extends Base {
 
     }
 
-    //------------------------ Nazime-------------------------------
-    //US02 TC01
+    //  US02------------------------ Nazime-------------------------------
+    // TC01
     @Given("Displays und click the headings \\(Track Your Order) on the top right side")
     public void displays_und_click_the_headings_track_your_order_on_the_top_right_side() {
         assertTrue(visitorHomePage.linkTrackOrder.isDisplayed());
@@ -898,16 +898,12 @@ public class VisitorHomePageStepDef extends Base {
     }
 
     //US TC03
-    @Given("The search box  is displayed")
-    public void the_search_box_is_displayed() {
-        assertTrue(visitorHomePage.searchBoxHomePage.isDisplayed());
+    @Given("The site logo is displayed und enabled on the top left of the page")
+    public void the_site_logo_is_displayed_und_enabled_on_the_top_left_of_the_page() {
+
+       adminDashboard.verifyVisibleActive(visitorHomePage.searchBoxHomePage);
     }
 
-    @Given("search by typing Baby in the search bar")
-    public void search_by_typing_baby_in_the_search_bar() {
-
-
-    }
 // ===================US08 > TC01==================================
 
     @Given("User clicks on the About Us link and displays About Us page")
@@ -1098,34 +1094,36 @@ public class VisitorHomePageStepDef extends Base {
    @Given("Slider images are expected to automatically switch after a certain period of time Verifies that images are automatically displayed in a loop")
    public void slider_images_are_expected_to_automatically_switch_after_a_certain_period_of_time_verifies_that_images_are_automatically_displayed_in_a_loop() {
 
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct1,3);
+
+       assertTrue(visitorHomePage.imageProduct1.isDisplayed());
+       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,5);
        assertTrue(visitorHomePage.imageProduct2.isDisplayed());
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct2,3);
+       ReusableMethods.wait(5);
        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
-       ReusableMethods.waitForVisibility(visitorHomePage.imageProduct3,3);
+
    }
 
-    @Given("Verifies that the displayed image changes in scrolls")
-    public void verifies_that_the_displayed_image_changes_in_scrolls() {
-        assertTrue(visitorHomePage.imageProduct2.isDisplayed());
-        assertTrue(visitorHomePage.imageProduct3.isDisplayed());
-
-    }
-
-    //US13 TC04<<<<<<
+   //US13 TC04<<<<<<
     @Given("Click on a slider image and Verifies that the relevant page has been opened")
     public void click_on_a_slider_image_and_verifies_that_the_relevant_page_has_been_opened() {
 
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct1);
+        visitorHomePage.imageProduct1.click();
         ReusableMethods.switchToWindow("Fashion");
+        ReusableMethods.wait(1);
         visitorHomePage.logoBuysell.click();
+        ReusableMethods.wait(1);
         visitorHomePage.icon2.click();
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct2);
-        ReusableMethods.wait(2);
+        visitorHomePage.imageProduct2.click();
+        ReusableMethods.wait(1);
+        ReusableMethods.switchToWindow("SPORT-OUTDOOR");
         visitorHomePage.logoBuysell.click();
         visitorHomePage.icon3.click();
+        ReusableMethods.wait(3);
+        visitorHomePage.imageProduct3.click();
         ReusableMethods.wait(2);
-        ReusableMethods.waitAndClick(visitorHomePage.imageProduct3);
+        visitorHomePage.logoBuysell.click();
+
+
 
     }
 

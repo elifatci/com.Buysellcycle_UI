@@ -495,7 +495,7 @@ public class VisitorHomePage extends Base{
     public WebElement imageProduct2;
 
     //US_13 HomePage image3
-    @FindBy(xpath = "(//*[@title='Electronics'])[2]")
+    @FindBy(xpath = "/html/body/div[3]/div[1]/div/div[2]/a/img")
     public WebElement imageProduct3;
 
     //US_13 HomePage Icon3
