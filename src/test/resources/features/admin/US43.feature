@@ -22,7 +22,6 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Verify that the Subject, Description, Category List, Priority and Status textboxes are visible
     * Verify that the add new buttons are active
     * Fill in the starred fields with valid information
-    * Verify that more than one file can be attached to the Attach file section
     * Click on the Create ticket button and verify that the ticket has been created successfully.
 
   @US43TC03
