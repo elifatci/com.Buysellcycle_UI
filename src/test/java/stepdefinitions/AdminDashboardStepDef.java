@@ -887,6 +887,128 @@ public class AdminDashboardStepDef extends Base {
     public void verifies_that_detailed_information_of_the_selected_refused_cancelled_order_is_displayed() {
         System.out.println(tableStr.contains("admin"));
     }
+    //*******************US37******************************************
+    @Given("Click Customer on the sidebar and all customer")
+    public void click_customer_on_the_sidebar_and_all_customer() {
+      adminDashboard.dropDownCustomer.click();
+      adminDashboard.linkAllCustomer.click();
+    }
+
+    @Given("Verify that user redirected All Customer page")
+    public void verify_that_user_redirected_all_customer_page() {
+       assertTrue(adminDashboard.labelAllCustomer.isDisplayed());
+    }
+
+    @Given("Click isActive radio button and verify that user gets the successful message")
+    public void click_is_active_radio_button_and_verify_that_user_gets_the_successful_message() {
+       adminDashboard.radioButtonIsActiveFirst.click();
+       ReusableMethods.wait(1);
+       assertTrue( adminDashboard.popUpMessage.isDisplayed());
+    }
+    //**********US37TC02
+    @Given("Click on the Active Customer")
+    public void click_on_the_active_customer() {
+     adminDashboard.buttonActiveCustomer.click();
+    }
+
+    @Given("Click Select button and edit button")
+    public void click_select_button_and_edit_button() {
+        adminDashboard.buttonSelect.click();
+        ReusableMethods.wait(1);
+        adminDashboard.buttonEdit.click();
+    }
+
+    @Given("Change lastname and click update button")
+    public void change_lastname_and_click_update_button() {
+        adminDashboard.textBoxLastnameEdit.click();
+        adminDashboard.textBoxLastnameEdit.clear();
+        adminDashboard.textBoxLastnameEdit.sendKeys("Hayati");
+        adminDashboard.buttonUpdateEdit.click();
+
+    }
+    @Given("Verify that user gets the successful message")
+    public void verify_that_user_gets_the_successful_message() {
+        ReusableMethods.wait(2);
+       assertTrue(adminDashboard.popUpMessageUpdate.isDisplayed());
+    }
+//*********TC03
+@Given("Click Select button and delete button")
+public void click_select_button_and_delete_button() {
+    adminDashboard.buttonSelect.click();
+    ReusableMethods.wait(1);
+    adminDashboard.buttonDelete.click();
+}
+
+    @Given("Click Delete button on the modal")
+    public void click_delete_button_on_the_modal() {
+        adminDashboard.buttonDeletePopUp.click();
+    }
+
+    //**********TC04
+    @Given("Click Select button and details button")
+    public void click_select_button_and_details_button() {
+        adminDashboard.buttonSelect.click();
+        ReusableMethods.wait(1);
+        adminDashboard.buttonDetails.click();
+    }
+
+    @Given("Verify that Customer Profile,Order Summary,Wallet Summary sre visible")
+    public void verify_that_customer_profile_order_summary_wallet_summary_sre_visible() {
+      assertTrue(adminDashboard.labelCustomerProfile.isDisplayed());
+      assertTrue(adminDashboard.labelOrderSummary.isDisplayed());
+      assertTrue(adminDashboard.labelWalletSummary.isDisplayed());
+    }
+    //**TC05*****************
+    @Given("Click on the InActive Customer")
+    public void click_on_the_in_active_customer() {
+        ReusableMethods.wait(1);
+      adminDashboard.buttonInactiveCustomer.click();
+    }
+    @Given("Click Select button and edit button on inactive customer")
+    public void click_select_button_and_edit_button_on_inactive_customer() {
+       adminDashboard.buttonSelectInActive.click();
+       ReusableMethods.wait(1);
+       adminDashboard.buttonEditInactive.click();
+    }
+    //****TC06********
+    @Given("Click Select button and details button  on inactive customer")
+    public void click_select_button_and_details_button_on_inactive_customer() {
+        adminDashboard.buttonSelectInActive.click();
+        ReusableMethods.wait(1);
+        adminDashboard.buttonDetailsInactive.click();
+    }
+    //**TC07*****
+    @Given("Click Select button and delete button on inactive customer")
+    public void click_select_button_and_delete_button_on_inactive_customer() {
+        adminDashboard.buttonSelectInActive.click();
+        ReusableMethods.wait(1);
+        adminDashboard.buttonDeleteInactive.click();
+    }
+    //***TC_08********
+    @Given("Click on the Create Customer button")
+    public void click_on_the_create_customer_button() {
+       adminDashboard.buttonCreateCustomer.click();
+    }
+
+    @Given("Fill the form with customer information")
+    public void fill_the_form_with_customer_information() {
+        adminDashboard.textBoxFirstname.sendKeys(faker.name().firstName());
+        adminDashboard.textBoxEmail.sendKeys(faker.internet().emailAddress());
+        String password = faker.internet().password();
+        adminDashboard.textBoxPassword.sendKeys(password);
+        adminDashboard.textBoxPasswordConfirmation.sendKeys(password);
+    }
+    @Given("Click create button")
+    public void click_create_button() {
+        ReusableMethods.wait(1);
+        adminDashboard.buttonCreateCstmr.click();
+    }
+    //**TC09************
+    @Given("Verify that Create button is visible")
+    public void verify_that_create_button_is_visible() {
+      adminDashboard.buttonCreateCstmr.isDisplayed();
+    }
+
 
 
 

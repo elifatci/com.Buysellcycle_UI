@@ -556,5 +556,61 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[@type='search'])[5]")
     public WebElement searchBoxQuickRefused;
 
-
+    //**************US37*****************************************************
+    @FindBy(xpath = "//span[.='Customer']")
+    public WebElement dropDownCustomer;
+    @FindBy(xpath = "//a[.='All Customer']")
+    public WebElement linkAllCustomer;
+    @FindBy(xpath = "//h3[.='All Customer']")
+    public WebElement labelAllCustomer;
+    @FindBy(xpath = "(//label[@class='switch_toggle'])[1]")
+    public WebElement radioButtonIsActiveFirst;
+    @FindBy(xpath = "//div[@class='toast-progress']")
+    public WebElement popUpMessage;
+    @FindBy(xpath = "//a[.='Active Customer']")
+    public WebElement buttonActiveCustomer;
+    @FindBy(xpath = "//a[.='Inactive customer']")
+    public WebElement buttonInactiveCustomer;
+    @FindBy(xpath = "//a[.='Create Customer']")
+    public WebElement buttonCreateCustomer;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/button")
+    public WebElement buttonSelect;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/button")
+    public WebElement buttonSelectInActive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[1]")
+    public WebElement buttonDetails;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[1]")
+    public WebElement buttonDetailsInactive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[2]")
+    public WebElement buttonEdit;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[2]")
+    public WebElement buttonEditInactive;
+    @FindBy(xpath = "(//tbody)[2]/tr[1]/td[9]/div/div/a[3]")
+    public WebElement buttonDelete;
+    @FindBy(xpath = "(//tbody)[3]/tr[1]/td[9]/div/div/a[3]")
+    public WebElement buttonDeleteInactive;
+    @FindBy(xpath = "//a[@id='delete_link']")
+    public WebElement buttonDeletePopUp;
+    @FindBy(xpath = "//input[@name='last_name']")
+    public WebElement textBoxLastnameEdit;
+    @FindBy(xpath = "//button[@id='save_button_parent']")
+    public WebElement buttonUpdateEdit;
+    @FindBy(xpath = "//div[@class='toast-message']")
+    public WebElement popUpMessageUpdate;
+    @FindBy(xpath = "//h3[.='Customer Profile']")
+    public WebElement labelCustomerProfile;
+    @FindBy(xpath = "//h3[.='Order Summary']")
+    public WebElement labelOrderSummary;
+    @FindBy(xpath = "//h3[.='Wallet Summary']")
+    public WebElement labelWalletSummary;
+    @FindBy(xpath = "//input[@name='first_name']")
+    public WebElement textBoxFirstname;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement textBoxEmail;
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement textBoxPassword;
+    @FindBy(xpath = "//input[@name='password_confirmation']")
+    public WebElement textBoxPasswordConfirmation;
+    @FindBy(xpath = "//button[@id='save_button_parent']")
+    public WebElement buttonCreateCstmr;
 }
