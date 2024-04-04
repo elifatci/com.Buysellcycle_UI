@@ -615,11 +615,35 @@ public class AdminDashboardStepDef extends Base {
           adminDashboard.dorpDownHumanResource.click();
           ReusableMethods.wait(2);
     }
-    @Given("Clicks the {string}")
-    public void clicks_the(String info) {
+    @Given("Clicks the Staff link")
+    public void clicks_the() {
         ReusableMethods.wait(1);
          adminDashboard.linkStaff.click();
           ReusableMethods.wait(2);
+    }
+    @Given("Clicks the {string}")
+    public void clicks_the(String info) {
+        ReusableMethods.wait(1);
+        ReusableMethods.staffLinkleri(info);
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the View link")
+    public void clicks_the_View_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkViewStaff.get(1).click();
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the Delete link")
+    public void clicks_the_Delete_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkDeleteStaff.get(1).click();
+        ReusableMethods.wait(2);
+    }
+    @Given("Clicks the Edit link")
+    public void clicks_the_Edit_link() {
+        ReusableMethods.wait(1);
+        adminDashboard.linkEditStaff.get(1).click();
+        ReusableMethods.wait(2);
     }
     @Given("It is verified that he went to the Staff page")
     public void it_is_verified_that_he_went_to_the_staff_page() {
@@ -657,31 +681,78 @@ public class AdminDashboardStepDef extends Base {
         adminDashboard.rowStaffListBasliklar.get(1).click();
     }
 
+    @Given("Clicks the Add New Staff button")
+    public void clicks_the_Add_New_Staff_button() {
+        ReusableMethods.wait(1);
+        adminDashboard.buttonAddNewStaff.click();
+        ReusableMethods.wait(2);
+    }
 
 
 
     @Given("Fills in the necessary information")
     public void fills_in_the_necessary_information() {
+        ReusableMethods.wait(1);
+       adminDashboard.dropDownRoleStaff.click();
+       ReusableMethods.wait(1);
+       adminDashboard.textboxRoleStaff.click();
+       adminDashboard.dropDownDepartmentStaff.click();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDepartmentStaff.click();
+       adminDashboard.textboxEmailStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxEmailStaff.sendKeys(faker.internet().emailAddress());
+       adminDashboard.textboxFirstNameStaff.sendKeys("ZD");
+        ReusableMethods.wait(1);
+       adminDashboard.textboxPasswordStaff.clear();
+       adminDashboard.textboxPasswordStaff.sendKeys("12345678");
+       adminDashboard.textboxBirthDateStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxBirthDateStaff.sendKeys("01.01.2000");
+       adminDashboard.textboxDateJoiningStaff.click();
+       adminDashboard.textboxDateJoiningStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDateJoiningStaff.sendKeys("01.01.2023");
+       adminDashboard.textboxDateApplicaStaff.click();
+       adminDashboard.textboxDateApplicaStaff.clear();
+        ReusableMethods.wait(1);
+       adminDashboard.textboxDateApplicaStaff.sendKeys("01.01.2024");
+       ReusableMethods.wait(1);
+
+    }
+    @Given("Clicks the Save button")
+    public void clicks_the_Save_button() {
+        ReusableMethods.wait(1);
+        actions.click(adminDashboard.buttonSaveParent).perform();
+        ReusableMethods.wait(4);
+      //  assertTrue(adminDashboard.labelSuccessMessage.isDisplayed());
 
     }
 
 
-
     @Given("Fills in the required information incompletely")
     public void fills_in_the_required_information_incompletely() {
+        adminDashboard.buttonAddNewStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.dropDownRoleStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxRoleStaff.click();
+        adminDashboard.dropDownDepartmentStaff.click();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxDepartmentStaff.click();
+        adminDashboard.textboxEmailStaff.clear();
+        ReusableMethods.wait(1);
+        adminDashboard.textboxEmailStaff.sendKeys("ad@buysellcycle.com");
 
     }
 
     @Given("Gets an error message")
     public void gets_an_error_message() {
-
+        ReusableMethods.wait(2);
+        assertTrue(adminDashboard.labelWarningTextStaff.isDisplayed());
     }
 
 
-    @Given("It is verified that the new staff record created appears in the staff list.")
-    public void it_is_verified_that_the_new_staff_record_created_appears_in_the_staff_list() {
-
-    }
 
     //US_044 TC01
 

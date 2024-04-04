@@ -665,16 +665,16 @@ public class ReusableMethods {
                 return adminDashboard.linkViewStaff.get(1);
             case "Edit link":
                 wait(1);
-                return adminDashboard.linkViewStaff.get(1);
+                return adminDashboard.linkViewStaff.get(2);
             case "Delete link":
                 wait(1);
-                return adminDashboard.linkViewStaff.get(1);
+                return adminDashboard.linkViewStaff.get(3);
             case "Save button":
                 wait(1);
                 return adminDashboard.buttonSave;
             case "Add New Staff button":
                 wait(1);
-                return adminDashboard.buttonSave;
+                return adminDashboard.buttonAddNewStaff;
 
             default:
                 wait(1);

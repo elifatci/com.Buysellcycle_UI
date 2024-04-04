@@ -651,7 +651,7 @@ public class VisitorHomePageStepDef extends Base {
         visitorHomePage.textBoxFooterEmail.click();
         visitorHomePage.textBoxFooterEmail.clear();
         visitorHomePage.textBoxFooterEmail.sendKeys(name+Keys.ENTER);
-       assertFalse(visitorHomePage.labelMessageFooter.isDisplayed());
+       assertTrue(visitorHomePage.labelMessageFooter.isDisplayed());
         String actualWarning = visitorHomePage.textWarning.getText();
         assertEquals(expected, actualWarning);
 
