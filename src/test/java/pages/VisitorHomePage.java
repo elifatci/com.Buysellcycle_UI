@@ -162,7 +162,7 @@ public class VisitorHomePage extends Base{
 
     @FindBy(xpath = "//*[text()='/ Register']")
     public WebElement linkRegister;
-    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/frontend/amazy/img/banner/login_img.png']")
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/settings/65ce06e6a2fd8.png']")
     public WebElement logoBuySell;
     @FindBy(xpath = "//*[text() = 'Turn your ideas into reality.']")
     public WebElement labelPictureText;
@@ -596,6 +596,24 @@ public class VisitorHomePage extends Base{
     @FindBy(xpath = "//*[@class='amaz_mazing_text']")
     public WebElement labelAboutText;
 
+//======================================================================================================================
+    @FindBy(xpath = "//*[@data-product-id='1373']")
+    public WebElement iphone;
+
+    @FindBy(xpath = "//*[@data-product-id='1380']")
+    public WebElement huawei;
+
+    @FindBy(xpath = "//*[@id='wishlistbtn_1716']")
+    public WebElement wishlistItem;
+
+    @FindBy(xpath = "//*[@src='https://qa.buysellcycle.com/public/uploads/images/27-02-2024/65de3116eb39d.png']")
+    public WebElement wishlistItemClick;
+
+    @FindBy(xpath = "")
+    public WebElement stripe;
+
+    @FindBy(xpath = "//*[text()='Order created successfully']")
+    public WebElement confirmation;
 
 
 }
