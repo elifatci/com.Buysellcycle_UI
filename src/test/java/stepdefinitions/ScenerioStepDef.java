@@ -12,6 +12,7 @@ public class ScenerioStepDef extends Base {
 
     @Given("The user clicks on the Login button at the top right corner of the page")
     public void the_user_clicks_on_the_login_button_at_the_top_right_corner_of_the_page() {
+        ReusableMethods.wait(3);
         visitorHomePage.linkLogin.click();
     }
     @Given("Verify that the Electronics category window is displayed in the Home page body section")
