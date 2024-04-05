@@ -1304,9 +1304,20 @@ public class UserDashboardStepDef extends Base {
         ReusableMethods.wait(1);
         assertTrue(userDashboard.buttonAddToChartModalWishlist.isDisplayed());
     }
+    @Given("verify that  the message Item added to your cart seen")
+    public void verify_that_the_message_item_added_to_your_cart_seen() {
+        ReusableMethods.wait(1);
+       assertTrue(userDashboard.labelAddedToChart.isDisplayed());
+    }
     @Given("Close the modal window that opened on Wishlist")
     public void close_the_modal_window_that_opened_on_wishlist() {
+        ReusableMethods.wait(1);
       userDashboard.buttonCloseModalWishlist.click();
+    }
+    @Given("Close the modal window that opened on QuickView")
+    public void close_the_modal_window_that_opened_on_quick_view() {
+        ReusableMethods.wait(1);
+        userDashboard.buttonCloseModalQuickView.click();
     }
     @Given("Click on the compare icon of the first product on the Wishlist")
     public void click_on_the_compare_icon_of_the_first_product_on_the_wishlist() {

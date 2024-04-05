@@ -811,16 +811,18 @@ public class UserDashboard extends Base {
    public WebElement dropDownNewWishList;
     @FindBy(xpath = "//li[@data-value='low_to_high']")
     public WebElement dropDownPriceLowToHighWishList;
-    @FindBy(xpath = "(//div/div/p/strong)[2]")
+    @FindBy(xpath = "(//div/div/p/strong)[1]")
     public WebElement textPriceSecondProductWishList;
-    @FindBy(xpath = "(//div/div/p/strong)[3]")
+    @FindBy(xpath = "(//div/div/p/strong)[2]")
     public WebElement textPriceThirdProductWishList;
-    @FindBy(xpath = "(//a[@data-product-sku='1724'])[2]")
+    @FindBy(xpath = "(//div[@class='row'])[6]/div/div/div[3]/div/a")
     public WebElement iconCart_Wishlist;
     @FindBy(xpath = "//a[@id='add_to_cart_btn_modal']")
     public WebElement buttonAddToChartModalWishlist;
-    @FindBy(xpath = "(//i[@class='ti-close'])[7]")
+    @FindBy(xpath = "(//i[@class='ti-close'])[6]")
     public WebElement buttonCloseModalWishlist;
+    @FindBy(xpath = "(//i[@class='ti-close'])[7]")
+    public WebElement buttonCloseModalQuickView;
     @FindBy(xpath = "//div[@class='product_thumb_upper']")
     public WebElement imageProductFirstWishlist;
     @FindBy(xpath = "//i[@class='ti-control-shuffle']")
@@ -829,10 +831,12 @@ public class UserDashboard extends Base {
     public WebElement popUpWishlist;
     @FindBy(xpath = "(//i[@class='ti-eye'])[1]")
     public WebElement iconQuickViewWishlist;
-    @FindBy(xpath = "//a[@data-id='297']")
+    @FindBy(xpath = "(//div[@class='row'])[6]/div/div/div[1]/div/a[3]")
     public WebElement iconDeleteWishlist;
     @FindBy(xpath = "//button[@id='dataDeleteBtn']")
     public WebElement buttonDeleteModalWishlist;
+    @FindBy(xpath = "//h4[.='Item added to your cart']")
+    public WebElement labelAddedToChart;
 
     //*********US28 Notifications*************************
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/profile/notifications']")

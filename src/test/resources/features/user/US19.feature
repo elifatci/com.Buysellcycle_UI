@@ -12,7 +12,7 @@ Feature: US_19 As a registered user, I would like to have a My Wishlist page on 
 
   Scenario:  TC_02 Test of adding to chart, compare on the Wish list
     * Click on the chart icon of the first product on the Wishlist
-    * verify that  the modal appears on Wishlist
+    * verify that  the message Item added to your cart seen
     * Close the modal window that opened on Wishlist
     * Click on the compare icon of the first product on the Wishlist
     * verify that the message Product added to compare list successfully is display
@@ -20,7 +20,7 @@ Feature: US_19 As a registered user, I would like to have a My Wishlist page on 
     Scenario: TC_03 Test of quick view and delete on the Wish list
       * Click on the quick view icon
       * verify that  the modal appears on Wishlist
-      * Close the modal window that opened on Wishlist
+      * Close the modal window that opened on QuickView
       * click on the delete icon and click delete on the confirmation modal
       * verify that successful message appears
 

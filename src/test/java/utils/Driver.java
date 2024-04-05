@@ -23,10 +23,10 @@ public class Driver {
 
             switch (browser){
                 case "edge":
-                    WebDriverManager.edgedriver().setup();
+                  //  WebDriverManager.edgedriver().setup();
                     driver=new EdgeDriver();
                 default:
-                   WebDriverManager.chromedriver().setup();
+                  // WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
 
                     Base.initialize();
