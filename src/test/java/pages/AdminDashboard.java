@@ -731,4 +731,12 @@ public class AdminDashboard extends Base{
     @FindBy(xpath = "(//*[@class='niceSelect w-100 bb form-control'])[2]")
     public WebElement labelUnassignedText;
 
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[3]")
+    public WebElement linkShowSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[4]")
+    public WebElement linkEditSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='mb-3'])[1]")
+    public WebElement labelTicketInfo;
 }

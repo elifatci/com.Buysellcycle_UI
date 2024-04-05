@@ -659,7 +659,7 @@ public class AdminDashboardStepDef extends Base {
     }
     @Given("Click the Show button. Verify that the Ticket page is opened.")
     public void click_the_show_button_verify_that_the_ticket_page_is_opened() {
-
+            adminDashboard.linkShowSupportTicket.click();
     }
     @Given("Go back, click on the select button and select the edit option.")
     public void go_back_click_on_the_select_button_and_select_the_edit_option() {
