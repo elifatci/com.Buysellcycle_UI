@@ -739,4 +739,24 @@ public class AdminDashboard extends Base{
 
     @FindBy(xpath = "(//*[@class='mb-3'])[1]")
     public WebElement labelTicketInfo;
+
+    @FindBy(xpath = "//*[@class='mb-0 mr-30']")
+    public WebElement labelUpdateTicket;
+
+    @FindBy(xpath = "(//*[@class='option'])[5]")
+    public WebElement optionTechnicalSupportTicket;
+
+    @FindBy(xpath = "(//*[@class='option'])[7]")
+    public WebElement optionHighSupportTicket;
+
+    @FindBy(xpath = "(//*[text()='Completed '])[2]")
+    public WebElement optionCompletedSupportTicket;
+
+    @FindBy(xpath = "(//td[3])[1]")
+    public WebElement labelOrderIDPending;
+
+    public void confirmedVerify(){
+        String numberOrder=labelOrderIDPending.getText();
+
+    }
 }

@@ -2,7 +2,7 @@
 Feature:US43 As an administrator, I would like to have a support ticket page so that I can take action on the opened support tickets.
 
   Background:
-    * Go to "url"
+    * Go to "adminUrl"
     * Login by entering valid "adminEmailElif" and "password" on the SignIn page.
 
   @US43TC01
@@ -12,6 +12,7 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Click on the support ticket link
     * Click on the support ticket link below.
     * Verify that it redirects to the Support Ticket page
+    * Close the page
 
   @US43TC02
   Scenario: TC_02 Testing how to create a new ticket on the support ticket page
@@ -23,6 +24,7 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Verify that the add new buttons are active
     * Fill in the starred fields with valid information
     * Click on the Create ticket button and verify that the ticket has been created successfully.
+    * Close the page
 
   @US43TC03
   Scenario: TC_03 Testing the functions in the support ticket section on the support ticket page
@@ -32,6 +34,7 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Verify that PRIORITY, STATUS, CATEGORY information is selectable on the Support Ticket page
     * Click the search button from the Category, Priority and Status tabs.
     * Verify that the relevant filtering results are returned
+    * Close the page
 
   @US43TC04
   Scenario: TC_04 Testing the functions in the ticket list section on the support ticket page
@@ -45,3 +48,4 @@ Feature:US43 As an administrator, I would like to have a support ticket page so 
     * Click the Show button. Verify that the Ticket page is opened.
     * Go back, click on the select button and select the edit option.
     * Verify that the update ticket page is opened
+    * Close the page
