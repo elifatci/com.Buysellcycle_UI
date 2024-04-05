@@ -611,10 +611,13 @@ public class AdminDashboardStepDef extends Base {
     @Given("Fill in the starred fields with valid information")
     public void fill_in_the_starred_fields_with_valid_information() {
         adminDashboard.dropDownSubjectSupport.sendKeys("test");
-        adminDashboard.dropDownCategoryListSupport.sendKeys("Technical");
-        adminDashboard.dropDownPrioritySupport.sendKeys("High");
-        adminDashboard.dropDownStatusSupport.sendKeys("Completed");
-        adminDashboard.textBoxDescriptionSupport.sendKeys("Test");
+        adminDashboard.dropDownCategoryListSupport.click();
+        adminDashboard.optionTechnicalSupportTicket.click();
+        adminDashboard.dropDownPrioritySupport.click();
+        adminDashboard.optionHighSupportTicket.click();
+        adminDashboard.dropDownStatusSupport.click();
+        adminDashboard.optionCompletedSupportTicket.click();
+        adminDashboard.textBoxDescriptionSupport.sendKeys("test");
 
     }
     @Given("Click on the Create ticket button and verify that the ticket has been created successfully.")
@@ -660,14 +663,17 @@ public class AdminDashboardStepDef extends Base {
     @Given("Click the Show button. Verify that the Ticket page is opened.")
     public void click_the_show_button_verify_that_the_ticket_page_is_opened() {
             adminDashboard.linkShowSupportTicket.click();
+            assertTrue(adminDashboard.labelTicketInfo.isDisplayed());
     }
     @Given("Go back, click on the select button and select the edit option.")
     public void go_back_click_on_the_select_button_and_select_the_edit_option() {
-
+        Driver.getDriver().navigate().back();
+        adminDashboard.buttonSelectSupportTicket.click();
+        adminDashboard.linkEditSupportTicket.click();
     }
     @Given("Verify that the update ticket page is opened")
     public void verify_that_the_update_ticket_page_is_opened() {
-
+        assertTrue(adminDashboard.labelUpdateTicket.isDisplayed());
     }
 
     //================ USS 41 ============================
@@ -842,8 +848,11 @@ public class AdminDashboardStepDef extends Base {
     //US_044 TC03
     @Given("clicks on the pending Details option to view detailed information")
     public void clicks_on_the_pending_details_option_to_view_detailed_information() {
+        ReusableMethods.wait(2);
         ReusableMethods.clickWithJS(adminDashboard.buttonpendingAction);
+        ReusableMethods.wait(2);
         ReusableMethods.clickWithJS(adminDashboard.buttonpendingSelect);
+        ReusableMethods.wait(2);
         ReusableMethods.clickWithJS(adminDashboard.pendingconfirmedOrder);
     }
     @Given("verifies that detailed information of the selected pending order is displayed")
